@@ -1,0 +1,201 @@
+﻿@using Model;
+
+@{
+    
+    Layout = null;
+}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    @RenderPage("~/Views/Shared/Include.cshtml")
+    <script src="../../Resource/public.js"></script>
+    <script>
+        $(function () {
+        //    var strcookie = document.cookie;
+        //    var arrcookie = strcookie.split("=");
+        //    var statuscookie = arrcookie[1];
+        //    console.log(arrcookie);
+        //    console.log(statuscookie);
+        //    if (statuscookie == "" || statuscookie == "0") {
+        //        //retset flag
+        //        document.cookie = "statuscookie=1";
+        //        showData();
+
+        //    } else {
+        //       // window.location.reload();
+        //        document.cookie = "statuscookie=0";
+            //    }
+            showData();
+         
+        //    console.log(document.cookie);
+        });
+
+ 
+
+        function  showData(){
+            $('#grid_table').datagrid({
+                url: '/Admin/GetLogList',
+                sortName: 'OptTime',
+                idField: 'ID',
+                frozenColumns: [[
+                    {
+                        field: 'opt', title: '操作', width: 100, align: 'center',
+                        formatter: function (v, r) {
+                            var optBtn = "";
+                            optBtn = ' <a class="button blue small" style="color: white;text-decoration: none;" href="javascript:openWindow(\'View\',\'' + r.ID + '\')" title=\"查看详情\">查看详情</a> ';
+                            return optBtn;
+                        }
+                    }
+                ]],
+                columns: [[
+                    //{ field: 'IP', title: '登录IP地址', width: 50, sortable: true, align: 'center' },
+                    //{ field: 'Region', title: '所属区域', width: 50, sortable: true, align: 'center' },
+                    { field: 'Account', title: '操作人员', width: 50, sortable: true, align: 'center' },
+                    { field: 'OptType', title: '操作类型', width: 50, sortable: true, align: 'center' },
+                    { field: 'Content', title: '操作内容', width: 50, sortable: true, align: 'center' },
+                    {
+                        field: 'OptTime', title: '操作时间', width: 50, sortable: true, align: 'center',
+                        formatter: function (v, r) {
+                            if (r.OptTime != null) {
+                                var dateMilliseconds = parseInt(r.OptTime.replace(/\D/igm, ""));
+                                var result = new Date(dateMilliseconds);
+                                return result.getFullYear() + "-" + (result.getMonth() + 1) + "-" + result.getDate() + " " + result.getHours() + ":" + result.getMinutes() + ":" + result.getSeconds();
+                            }
+                        }
+                    }
+                    //  { field: 'Content', title: '内容', width: 80, sortable: true, align: 'center' }
+                ]],
+                toolbar: [{
+                    text: '刷新',
+                    iconCls: 'icon-reload',
+                    handler: function () {
+                        refeshGrid();
+                    }
+                }, {
+                    text: '打印',
+                    iconCls: 'icon-save',
+                    handler: function () {
+                        Export();
+                    }
+                }]
+            });
+            $("#queryType").combobox({
+                url: '/json/LogQuery.json',
+                valueField: 'id',
+                textField: 'text', method: "get",
+                width: 150
+            });
+
+            //$("#queryFH").combobox({
+            //    url: '/json/queryFH.json',
+            //    valueField: 'id',
+            //    textField: 'text', method: "get",
+            //    width: 100
+            //});
+
+       
+        }
+
+        function funAfterSubmit() {
+            refeshGrid();
+            closeMyWindow();
+        }
+        
+        function funAfterDel() {
+            refeshGrid();
+        }
+
+        function refeshGrid() {
+            $('#grid_table').datagrid({});
+        }
+
+        function deleteClue(clueId) {
+            removeObjWithConfirm(clueId, "ID", '/Clue/Delete', "funAfterDel");
+        }
+        function openWindow(type, ID) {
+            var title = "查看日志详情";
+            var url = '/Admin/LogEdit?ID=' + ID;
+            openMyWindow(title, url, 800, 450);
+        }
+
+        function queryDataGrid() {
+            var queryType = $("#queryType").combobox('getValue');
+            //var queryFH = $("#queryFH").combobox('getValue');
+            var keyword = $('#keyword').val();
+            var strat = $("#start").datebox('getValue');
+            var end = $("#end").datebox('getValue');
+            $('#grid_table').datagrid({
+                queryParams: { 'queryType': queryType, 'keyword': keyword,'start':strat,'end':end },
+                pageNumber: 1
+            });
+        }
+        function myclear() {
+            $("#queryType").combobox("setValue", "");
+            $("#keyword").val("");
+            $("#start").datebox("setValue", "");
+            $("#end").datebox("setValue", "");
+        }
+
+        function Export() {
+            var queryType = $("#queryType").combobox('getValue');
+            //var queryFH = $("#queryFH").combobox('getValue');
+            var keyword = $('#keyword').val();
+            var strat = $("#start").datebox('getValue');
+            var end = $("#end").datebox('getValue');
+
+            $.ajax({
+                type: "post",
+                url: "/NPOIHelper/Export",
+                data: { 'queryType': queryType, 'keyword': keyword, 'start': strat, 'end': end },
+                dataType:"json",
+                success: function (data) {
+                    console.log(data.urldata);
+                    $("#download").attr("href", data.urldata);
+                    $("#download")[0].click();
+                    alert(data.result);
+                }
+            });
+        }
+        </script>
+    </head>
+    <body class="easyui-layout" style="width: 100%;height: 100%;">
+        <div region="north" split="true" style="height:50px;padding:10px;">
+            <form id="qry_frm" onsubmit="return false">
+                <table border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td width="75" align="right">查询条件：</td>
+                        <td>
+                            <input id="queryType" name="queryType" class="easyui-combobox" />
+                            @*<input id="queryFH" name="queryFH" class="easyui-combobox" />*@
+                            <input style="width: 250px;" name="keyword" id="keyword" class="easyui-validatebox" />
+                        </td>
+                        <td width="75" align="right">操作时间：</td>
+                        <td>
+                            <input type="text" name="start" id="start" class="easyui-datebox" />
+                            <input type="text" name="end" id="end" class="easyui-datebox" />
+                        </td>
+                        <td width="75" align="right">
+                            <a href="#" onclick="queryDataGrid()" plain="true" class="easyui-linkbutton" iconcls="icon-search">查询</a>
+                        </td>
+                        <td width="75" align="right">
+                            <a href="#" onclick="myclear();" plain="true" class="easyui-linkbutton" iconcls="icon-cancel">清除</a>
+                            <a id="download" style="display:none">下载</a>
+
+                        </td>
+                    </tr>
+                </table>
+            </form>
+
+        </div>
+        <div region="center" id="table_div" style="overflow:hidden;">
+            <form method="post" id="_frm"></form>
+            <table id="grid_table"></table>
+        </div>
+        <div id="mywindow" class="easyui-window" closed="true" cache="false" icon="icon-save" style="width:500px;height:200px;padding:5px;background: #fafafa;">
+
+        </div>
+
+    </body>
+    </html>

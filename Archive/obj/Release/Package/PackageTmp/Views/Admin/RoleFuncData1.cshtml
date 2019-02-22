@@ -1,0 +1,154 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="~/Resource/jquery.min.1.9.1.js"></script>
+    <script src="~/Scripts/select2.min.js"></script>
+    <script src="~/Scripts/zh-CN.js"></script>
+    <link href="~/Scripts/select2.min.css" rel="stylesheet" />
+
+    <script src="~/Resource/EasyUI/jquery.easyui.min.js"></script>
+    <link href="~/Resource/EasyUI/themes/default/easyui.css" rel="stylesheet" />
+
+    <link href="~/Resource/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+
+    <script src="~/Resource/bootstrap/js/bootstrap.min.js"></script>
+
+
+</head>
+
+<body>
+  
+    <div class="container" style="margin:0px;width:100%">
+        <table class="table table-bordered ">
+            <tr>
+                <td colspan="2" >
+                    @*<label for="">角色：</label>
+                    <input class="easyui-combobox" id="item_RoleID" type="text" required>
+                    <br />*@
+                    <label for="">角色：</label>
+
+                    <select id="role" class="select2-arrow" style="width:200px"></select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <ul class="nav nav-pills nav-stacked nav-tabs" id="tabs" style="width:350px;border:0px">
+                        <li class="active"><a href="#a">个人信息</a></li>
+                        <li><a href="#b">第一种形态</a></li>
+                        <li><a href="#c">问责信息</a></li>
+                        <li><a href="#d">线索处置</a></li>
+                        <li><a href="#e">纪律处分</a></li>
+                        <li><a href="#f">组织调整</a></li>
+                        <li><a href="#g">违法犯罪</a></li>
+                        <li><a href="#h">涉案款物</a></li>
+                        <li><a href="#i">行贿人</a></li>
+                    </ul>
+                </td>
+                <td>
+                    <form id="rolefunction">
+                        <div class="tab-content">
+                            <div class="tab-pane active" style="height:500px" id="a"><iframe style="width:100%;height:100%" frameborder="0" src="/Admin/Person" id="aa" name="aa"></iframe></div>
+                            <div class="tab-pane" style="height:500px" id="b"><iframe style="width:100%;height:100%" frameborder="0" src="/Admin/FirstForm" id="bb"></iframe></div>
+                            <div class="tab-pane" style="height:500px" id="c"><iframe style="width:100%;height:100%" frameborder="0" src="/Admin/Account" id="cc"></iframe></div>
+                            <div class="tab-pane" style="height:500px" id="d"><iframe style="width:100%;height:100%" frameborder="0" src="/Admin/FourForms" id="dd"></iframe></div>
+                            <div class="tab-pane" style="height:500px" id="e"><iframe style="width:100%;height:100%" frameborder="0" src="/Admin/Case" id="ee"></iframe></div>
+                            <div class="tab-pane" style="height:500px" id="f"><iframe style="width:100%;height:100%" frameborder="0" src="/Admin/Adjust" id="ff"></iframe></div>
+                            <div class="tab-pane" style="height:500px" id="g"><iframe style="width:100%;height:100%" frameborder="0" src="/Admin/Crime" id="gg"></iframe></div>
+                            <div class="tab-pane" style="height:500px" id="h"><iframe style="width:100%;height:100%" frameborder="0" src="/Admin/Asset" id="hh"></iframe></div>
+                            <div class="tab-pane" style="height:500px" id="i"><iframe style="width:100%;height:100%" frameborder="0" src="/Admin/Bribery" id="ii"></iframe></div>
+                        </div>
+                    </form>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+
+    <script>
+
+      
+        $(document).ready(function () {
+            $.ajax({
+                url: '/Admin/GetShowRoleList',
+                type: 'post',
+                success: function (data) {
+                    var a = [];
+                    for (var i = 0; i < data.length; i++)
+                    {
+                        var obj = data[i];
+                        var temp = {};
+                        temp.id = obj.ID;
+                        temp.text = obj.RoleName;
+                        a.push(temp);
+                    }
+
+                    console.log(a);
+                    $("#role").select2({
+
+                        data: a,
+                        placeholder: "请输入"
+
+                    });
+
+                }
+            });
+           
+
+
+
+            $(".nav li").click(function (e) {
+                e.preventDefault();
+                $(".nav li").removeClass("active");
+                $(this).addClass("active");
+            });
+
+
+            $('#tabs a').click(function (e) {
+                e.preventDefault();
+
+                var a = $(this).attr("href");
+                var b = a.substring(1,2);
+                var c = a + b;
+                $(c).attr('src', $(c).attr('src'));
+                $(this).tab('show');
+
+                
+            });
+            $("#item_RoleID").combobox({
+                url: '/Admin/GetShowRoleList',
+                valueField: 'ID',
+                textField: 'RoleName',
+                editable: false,
+                width: 250,
+                required: true,
+                onSelect: function () {
+                    var role = $("#item_RoleID").combobox('getValue');
+                    document.getElementById("item_RoleID").value = role;
+
+                },
+                onLoadSuccess: function () {
+                    var val = $(this).combobox("getData");
+                    console.log(val);
+                    for (var item in val[0]) {
+                        if (item == "ID") {
+                            $(this).combobox("select", val[0][item]);
+                        }
+                    }
+
+                }
+            });
+        });
+
+      
+    </script>
+</body>
+</html>

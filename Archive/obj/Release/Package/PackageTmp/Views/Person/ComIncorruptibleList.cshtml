@@ -1,0 +1,428 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+
+    @RenderPage("~/Views/Share/bootstrap.cshtml")
+    <link href="~/Resource/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Resource/plugins/radio/css/jquery-labelauty.css" rel="stylesheet" />
+    <script src="~/Resource/plugins/radio/js/jquery-labelauty.js"></script>
+    <script src="~/Resource/jquerySession.js"></script>
+    <style>
+        li {
+            list-style: none;
+        }
+
+        .labelauty-checked, .labelauty-unchecked {
+            font-size: 12px !important;
+        }
+
+        .dowebok li label {
+            padding: 7px 10px !important;
+        }
+        .tooltip-inner {
+            white-space:pre!important;
+        }
+        .dropdown-toggle {
+        
+        height:38px!important;
+        border-radius:0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mySearch" style="">
+        <div class="row">
+            <div class="col-xs-1" style="margin:10px 0px">
+                <label class="margin-5">姓名：</label>
+            </div>
+            <div class="col-xs-2" style="margin:10px 0px">
+                <input autocomplete="off"  type="text" name="Name" id="qry_Name" class="layui-input" />
+            </div>
+            <div class="col-xs-1" style="margin:10px 0px">
+                <label class="margin-5">地区/单位：</label>
+            </div>
+            <div class="col-xs-2" style="margin:10px 0px">
+                <select class="form-control select2-active"  id="qry_Unit"></select>
+            </div>
+            <div class="col-xs-1" style="margin:10px 0px">
+                <label class="margin-5">单位职务：</label>
+            </div>
+            <div class="col-xs-2" style="margin:10px 0px">
+                <input autocomplete="off"  type="text" name="WorkUnit" id="qry_WorkUnit" class="layui-input" />
+            </div>
+            @*<div class="col-xs-1">
+                <label>类别：</label>
+            </div>
+            <div class="col-xs-2">
+                <select id="qry_HandleType" class="layui-input selectpicker" name="HandleType" style="width:100%">
+                    <option value=""></option>
+                    <option value="ID">相关证件号</option>
+                    <option value="FirstForm">第一种形态</option>
+                    <option value="AccountInfo">问责信息</option>
+                    
+                    <option value="FourForms">线索处置</option>
+                    <option value="CaseInfo">纪律处分</option>
+                    <option value="AdjustInfo">组织调整</option>
+                    <option value="PC_DrivingPermit">车牌号</option>
+                    <option value="PC_House">不动产多于</option>
+                    <option value="CrimeInfo">行政司法处罚</option>
+                    <option value="PC_Case">公安违法犯罪</option>
+                    <option value="PC_Penalty">公安行政处罚</option>
+                    <option value="PC_FaithBreak">失信被执行</option>
+                </select>
+            </div>
+            <div class="col-xs-1">
+                <select id="duotiaojian" class="layui-input selectpicker" name="HandleType" style="width:100%">
+                    <option value=""></option>
+                    <option value="多条件查询">多条件查询</option>
+                    <option value="内容查询">内容查询</option>
+                </select>
+            </div>
+            <div class="col-xs-2" id="sec">
+                <input autocomplete="off"  type="text" name="Content" id="Content" class="layui-input" />
+            </div>*@
+            @*<div class="col-xs-1" style="margin:10px 0px">
+                <label class="margin-5">监督提醒：</label>
+            </div>
+            <div class="col-xs-2" style="margin:10px 0px">
+                <select id="qry_Score" class="form-control" name="Score" style="width:100%">
+                    <option value=""></option>
+                    <option value="96 and 100">无提醒</option>
+                    <option value="91 and 95">第一种形态</option>
+                    <option value="51 and 90">党政纪轻处分</option>
+                    <option value="0 and 50">党政纪重处分</option>
+                </select>
+            </div>*@
+        </div>
+        <div class="row">
+            <div class="col-xs-1" style="margin:10px 0px">
+                <label class="margin-5">职级：</label>
+            </div>
+            <div class="col-xs-2" style="margin:10px 0px">
+                <input autocomplete="off"  type="text" name="WorkLevel" id="qry_WorkLevel" class="layui-input" />
+            </div>
+            <div class="col-xs-1" style="margin:10px 0px">
+                <label class="margin-5">分工情况：</label>
+            </div>
+            <div class="col-xs-2" style="margin:10px 0px">
+                <input autocomplete="off"  type="text" name="WorkCharge" id="qry_WorkCharge" class="layui-input" />
+            </div>
+            
+            <div class="col-xs-1" style="margin:10px 0px">
+                <label class="margin-5">身份证：</label>
+            </div>
+            <div class="col-xs-2" style="margin:10px 0px">
+                <input autocomplete="off"  type="text" name="IdCard" id="qry_IdCard" class="layui-input" />
+            </div>
+            <div class="col-xs-3" style="margin:10px 0px;text-align:right">
+                
+             
+                    <select id="Export_Excel" class="form-control" style="height:38px" multiple name="Score"></select>
+                <button class="layui-btn layui-btn-primary layuiadmin-btn-list" onclick="Export_Person()">
+                    <i class="layui-icon layui-icon-file-b layuiadmin-button-btn"></i>
+                </button>
+                <button class="layui-btn layuiadmin-btn-list" onclick="queryDataGrid()">
+                    <i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>
+                </button>
+                <button class="layui-btn layui-btn-primary layuiadmin-btn-list" onclick="myClear()">
+                    <i class="layui-icon layui-icon-refresh-1 layuiadmin-button-btn"></i>
+                </button>
+            
+            </div>
+        </div>
+     
+    </div>
+
+
+    <div class="margin-top-10">
+        <table id="PersonList_table"  class="table table-striped table-no-bordered table-hover"></table>
+    </div>
+    <div id="pageNamber1" style="position:absolute;bottom:14px;text-align:center;right:300px;display:none">
+        <label style="font-weight:500">跳转到</label>
+        <input autocomplete="off"  value="1" id="pageNamber" class="layui-input" style="width:40px;text-align:center;height:30px;display:inline-block" />
+        <label style="font-weight:500">页</label>
+    </div>
+
+
+    <div class="modal fade" id="diejia">
+        <button style="position: fixed; right: 0px;width: 50px;height: 50px;border-radius: 50%;background-color: #ffffff;color: #000000;" type="button" class="close" onclick="myclose()">
+            <span aria-hidden="true" style="font-size:26px">×</span>
+        </button>
+        <iframe id="diejiayemian" style="border:none;" width="100%" height="99%" src=""></iframe>
+    </div>
+
+
+</body>
+</html>
+
+<script type="text/javascript">
+    $("#Export_Excel").selectpicker({
+        width: 150,
+        actionsBox: true, //在下拉选项添加选中所有和取消选中的按钮
+        countSelectedText: "已选中{0}项",
+        selectedTextFormat: "count > 5"
+    })
+    $.ajax({
+        url: "/Json/Export_Person.json",
+        type: "get",
+        //datatype:"json"
+        success: function (data) {
+            var data = JSON.parse(data);
+            console.log(data);
+            var selectHtml = "";
+            for (var i = 0; i < data.length; i++) {
+                console.log(data[i]);
+
+                selectHtml += "<option value='" + data[i].id + "'>" + data[i].text + "</option>";
+            }
+            console.log(selectHtml);
+
+            $("#Export_Excel").append(selectHtml);
+            $("#Export_Excel").selectpicker("refresh");
+        }
+    })
+    var windowHeight = $(window).height();
+    function Export_Person() {
+        var mydata = JSON.stringify($('#Export_Excel').val()).substring(1, JSON.stringify($('#Export_Excel').val()).length - 1);//
+        console.log(mydata);
+        var mydata = mydata.replace(/"/g, '');
+        $.ajax({
+            url: "/Person/Export",
+            type:"get",
+            data: {
+                exportData: mydata,
+                area: $.session.get('diqu'),
+                keyword1: $('#qry_Name').val(),
+                keyword2: $('#qry_WorkUnit').val(),
+                keyword3: $('#qry_HandleType').val(),
+                duotiaojian: $('#duotiaojian').val(),
+                keyword4: $('#Content').val(),
+                keyword5: $('#qry_WorkLevel').val(),
+                keyword6: $('#qry_Score').val(),
+                keyword7: $('#qry_IdCard').val(),
+                Unit: $('#qry_Unit').val(),
+                shenhe: $('#qry_shenhe').val(),
+                zhuangtai: $('#qry_zhuangtai').val(),
+                WorkCharge: $('#qry_WorkCharge').val(),
+                zhuangtai: $('#qry_zhuangtai').val()
+            },
+            success: function (data) {
+                console.log(data);
+                window.location.href = "/UploadFiles/" + data;
+                layer.msg("导出成功");
+
+            }
+        });
+
+    }
+
+
+    // console.log(window.localStorage.backCount);
+    //var qry_back = $.parseJSON(window.localStorage.backCount);
+    // console.log($.session.get('diqu'));
+    var SearchHeight = $(".mySearch").height();
+    $('#PersonList_table').bootstrapTable({
+        height: $(window).height() - SearchHeight-30,
+        url: '/Person/GetComIncorruptibleList',
+        method: 'get',
+        toolbar: '#toolbar',    //工具按钮用哪个容器
+        striped: true,      //是否显示行间隔色
+        //showExport: true,
+        //exportDataType: "basic",
+        //exportTypes: ['excel'],
+        cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+        pagination: true,     //是否显示分页（*）
+        sortable: true,      //是否启用排序
+        sortName:"Sequence",
+        sortOrder: "asc",     //排序方式
+        pageNumber: 1,      //初始化加载第一页，默认第一页
+        pageSize: 100,      //每页的记录行数（*）
+        pageList: [10, 25, 50, 100],  //可供选择的每页的行数（*）
+        queryParamsType: '', //默认值为 'limit' ,在默认情况下 传给服务端的参数为：offset,limit,sort
+        sidePagination: "server",   //分页方式：client客户端分页，server服务端分页（*）
+        strictSearch: true,
+        minimumCountColumns: 2,    //最少允许的列数
+        clickToSelect: true,    //是否启用点击选中行
+        queryParams: function (params) {
+            console.log(params);
+            return {
+                sort: params.sortName,
+                order: params.sortOrder,
+                area: $.session.get('diqu'),
+                keyword1: $('#qry_Name').val(),
+                keyword2: $('#qry_WorkUnit').val(),
+                keyword3: $('#qry_HandleType').val(),
+                duotiaojian: $('#duotiaojian').val(),
+                keyword4: $('#Content').val(),
+                keyword5: $('#qry_WorkLevel').val(),
+                keyword6: $('#qry_Score').val(),
+                keyword7: $('#qry_IdCard').val(),
+                Unit: $('#qry_Unit').val(),
+                //shenhe: $('#qry_shenhe').val(),
+                //zhuangtai: $('#qry_zhuangtai').val(),
+                WorkCharge: $('#qry_WorkCharge').val(),
+                //zhuangtai: $('#qry_zhuangtai').val(),
+                pageSize: params.pageSize,
+                pageNumber: params.pageNumber,
+            }
+        },
+        columns: [
+
+            {
+                field: 'Name', title: '姓名', width: 100, editable: false, formatter: IfEmpty, sortable: true},
+            { field: 'WorkUnit', title: '工作单位', width: 200, editable: false, align: "left", formatter: IfEmpty, sortable: true },
+            { field: 'WorkDuty', title: '职务', width: 200, editable: false, align: "left", formatter: IfEmpty, sortable: true},
+            { field: 'WorkLevel', title: '职级', width: 100, editable: false, align: "left", formatter: IfEmpty, sortable: true},
+            { field: 'Score', title: '监督提醒', width: 100, editable: false, formatter: displaycolor, },
+            { field: 'opt', title: '操作', width: 10, editable: false, formatter: operateFormatterPersonList },
+        ],
+    });
+    $('table').on('load-success.bs.table', function (data) {
+        console.log("load success");
+        $("[data-toggle='tooltip']").tooltip();
+        var a = $('table').bootstrapTable('getData');
+        //console.log(a);
+        if (a.length > 0) {
+            $("#pageNamber1").css("display", "block");
+        }
+    });
+    $(function () {
+        $("#pageNamber").change(function () {
+            $('table').bootstrapTable('refresh', {
+                pageNumber: $("#pageNamber").val(),
+            });
+        })
+    })
+
+    function edit(ID) {
+        //$('#diejia').modal();
+        var title = "个人信息";
+        var src
+        if (ID != "") {
+            src = '/Person/Detail3?ID=' + ID + '';
+        }
+        layer.open({
+            type: 2,
+            title: title,
+            shadeClose: true,
+            shade: false,
+            maxmin: true, //开启最大化最小化按钮
+            area: ['100%', '100%'],
+            content: src
+        });
+        //$("#diejiayemian").attr("src", src);
+    }
+
+      function myclose() {
+        $("#diejia").modal('hide');
+        $("#diejiayemian").attr("src", "");
+        // queryDataGrid();
+    }
+    function operateFormatterPersonList(value, row, index) {
+        return [
+            '<a  href="javascript:edit(\'' + row.ID + '\')"  id="btn_detail" type="button" class="layui-btn layui-btn-sm" style="margin-right:10px">查看</a>',
+        ].join('');
+    }
+    function displaycolor(value, row, index) {
+        var a = "";
+        if (value <= "100" && value > "95") {
+            var a = '<span style="color:#24af2d;width:100%;height:100%;padding:5px"><i class="glyphicon glyphicon-ok-sign"></i></span>';
+        } else if (value <= "95" && value > "90") {
+            if(row.Punish!=null&&row.Punish!="")
+             a = '<span style="color:#0063ff;width:100%;height:100%;padding:5px" data-toggle="tooltip" data-placement="right" title="受到处分:' + row.Punish + '&#10;处分决定时间:' + row.PunishTime + '" ><i class="glyphicon glyphicon-info-sign"></i></span>';
+            else
+                a = '<span style="color:#0063ff;width:100%;height:100%;padding:5px" ><i class="glyphicon glyphicon-info-sign"></i></span>';
+        } else if (value <= "90" && value > "50") {
+            if (row.Punish != null && row.Punish != "")
+                var a = '<span style="color:#ff9300;width:100%;height:100%;padding:5px" data-toggle="tooltip" data-placement="right" title="受到处分:' + row.Punish + '&#10;处分决定时间:' + row.PunishTime + '" ><i class="glyphicon glyphicon-exclamation-sign"></i></span>';
+            else
+                 a = '<span style="color:#ff9300;width:100%;height:100%;padding:5px" ><i class="glyphicon glyphicon-exclamation-sign"></i></span>';
+
+        } else if (value <= '50' && value > '0') {
+            if (row.Punish != null && row.Punish != "")
+
+
+                var a = '<span style="color:#f00;width:100%;height:100%;padding:5px" data-toggle="tooltip" data-placement="right" title="受到处分:' + row.Punish + '&#10;处分决定时间:' + row.PunishTime + '" ><i class="glyphicon glyphicon-warning-sign"></i></span>';
+
+            else
+                 a = '<span style="color:#f00;width:100%;height:100%;padding:5px" ><i class="glyphicon glyphicon-warning-sign"></i></span>';
+
+        } else {
+            var a = value;
+        }
+        return a;
+    }
+    function queryDataGrid() {
+        $('#PersonList_table').bootstrapTable('refresh', {
+            pageNumber: 1,
+        });
+        //setlocalStorage();
+    }
+    $('table').on('load-success.bs.table', function (data) {
+        console.log("load success");
+        $("[data-toggle='tooltip']").tooltip();
+    });
+    function myClear() {
+        $('#qry_Name').val("");
+        $('#qry_WorkUnit').val("");
+        $('#qry_HandleType').val("");
+        $('#Content').val("");
+        $('#qry_WorkLevel').val(""),
+        $('#qry_Score').val(""),
+        $('#qry_Score').selectpicker('refresh');
+        $('#qry_HandleType').selectpicker('refresh');
+        $('#qry_IdCard').val("");
+        $('#qry_WorkCharge').val("");
+
+        $('#qry_shenhe').val("");
+        $('#qry_shenhe').selectpicker('refresh');
+        $('#qry_zhuangtai').val("");
+        $('#qry_zhuangtai').selectpicker('refresh');
+        $('#duotiaojian').val("");
+        $('#duotiaojian').selectpicker('refresh');
+        clearselect();
+        queryDataGrid();
+    };
+    //function setlocalStorage() {
+    //    var i = "[{\"qry_Name\":\"" + $('#qry_Name').val() + "\"},{\"qry_WorkUnit\":\"" + $('#qry_WorkUnit').val() + "\"},{\"qry_HandleType\":\"" + $('#qry_HandleType').val() + "\"},{\"Content\":\"" + $('#Content').val() + "\"},{\"qry_WorkLevel\":\"" + $('#qry_WorkLevel').val() + "\"},{\"qry_Score\":\"" + $('#qry_Score').val() + "\"},{\"qry_IdCard\":\"" + $('#qry_IdCard').val() + "\"}]";
+    //    localStorage.setItem("backCount", i);
+    //}
+    var HandleType2 = '<select id="Content" class="layui-input" name="HandleType" style="width:100%;display:none"><option value=""></option><option value="ID">相关证件号</option><option value="FirstForm">第一种形态</option><option value="AccountInfo">问责信息</option><option value="FourForms">线索处置</option><option value="CaseInfo">纪律处分</option><option value="AdjustInfo">组织调整</option><option value="PC_DrivingPermit">车牌号</option><option value="PC_House">不动产多于</option><option value="CrimeInfo">行政司法处罚</option><option value="PC_Case">公安违法犯罪</option><option value="PC_Penalty">公安行政处罚</option><option value="PC_FaithBreak">失信被执行</option></select>'
+    var content = '<input autocomplete="off"  type="text" name="Content" id="Content" class="layui-input" />';
+    $("#duotiaojian").change(function () {
+        if ($("#duotiaojian").val() == "多条件查询") {
+            $("#sec").children().remove();
+            $("#sec").append(HandleType2);
+            $("#Content").selectpicker('refresh');
+        } else {
+            $("#sec").children().remove();
+            $("#sec").append(content);
+        }
+    })
+   
+    $.ajax({
+        url: "/Person/GetUnit",
+        type: "post",
+        success: function (data) {
+            $("#qry_Unit").select2({
+                data: data,
+                placeholder: "请选择单位地区"
+            });
+            clearselect();
+        }
+    });
+    function clearselect() {
+        $("#qry_Unit").val(null).trigger("change");
+
+        $("#demoList").find("tr").remove();
+        $("#testListAction").attr('disabled', false);
+
+    } 
+</script>

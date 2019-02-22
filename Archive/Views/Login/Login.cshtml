@@ -1,0 +1,101 @@
+﻿@using Model;
+@using BLL;
+@using IBLL;
+@{
+
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head id="">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0">
+    <title>Demo</title>
+    <link href="~/Resource/login/css/style.css" rel="stylesheet" />
+    <script src="~/Resource/jquery-1.10.2.min.js"></script>
+    <script src="~/Resource/login/js/cloud.js"></script>
+</head>
+
+    <body style="background-color: #1c77ac; background-image: url(/Resource/login/images/light.png); background-repeat: no-repeat; background-position: center top; overflow: hidden; ">
+
+
+
+        <div id="mainBody">
+            <div id="cloud1" class="cloud"></div>
+            <div id="cloud2" class="cloud"></div>
+        </div>
+
+
+        <div class="logintop">
+            <span>Demo</span>
+            <ul></ul>
+        </div>
+
+        <div class="loginbody">
+
+
+            <div class="loginbox" style="margin-top:200px">
+
+                <ul>
+                    <li><input name="" type="text" id="username" class="loginuser" value="" placeholder="请输入登录名" /></li>
+                    <li><input name="" type="password" id="password" class="loginpwd" value="" placeholder="请输入密码" /></li>
+                    <li><button name="" type="button" class="loginbtn" onclick="LoginUserInfo()">登录</button> <button style="float: right;margin-right: 65px" name="" type="button" class="loginbtn" id="clear" onclick="    clear();">重置</button> </li>
+                </ul>
+
+
+            </div>
+
+        </div>
+
+
+
+
+    </body>
+
+</html>
+<script>
+    $("#clear").click(function () {
+        $("#username").val("");
+        $("#password").val("");
+    })
+    $(function () {
+        $('.loginbox').css({ 'position': 'absolute', 'left': ($(window).width() - 692) / 2 });
+        $(window).resize(function () {
+            $('.loginbox').css({ 'position': 'absolute', 'left': ($(window).width() - 692) / 2 });
+        })
+    });
+</script>
+<script type="text/javascript">
+
+    function LoginUserInfo() {
+        //$("#submitBtn").attr('disabled', "true");
+        $.ajax({
+            url: "/Login/CheckUserLogin",
+            type: "POST",
+            dataType: "json",
+            data: { "UserName": $("#username").val(), "Password": $("#password").val() },
+            success: function (data) {
+              if (data.result == "success") {
+
+                    window.location.href = "/Home/Index";
+                }
+          
+                else {
+                    alert(data.content, function (result) {
+                        if (result) {
+                            window.location.href = "/Login/Login";
+                        }
+                    });
+
+                }
+            },
+            error: function (xhr, error, ex) {
+                alert("出现错误，请稍后再试，带来不便，敬请谅解", function (result) {
+                    if (result) {
+                        window.location.href = "/Login/Login";
+                    }
+                });
+            }
+        });
+    }
+</script>

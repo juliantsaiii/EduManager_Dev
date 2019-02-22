@@ -1,0 +1,137 @@
+﻿<div class="row">
+    <div class="col-xs-12 margin-top-10" style="margin-top:30px;">
+        <h3 class="">附件</h3>
+    </div>
+    <div class="col-xs-2 margin-top-10">
+        <input id="file_upload20" name="file_upload" type="file" multiple="true" />
+    </div>
+    <div class="col-xs-4 margin-top-10">
+        <a class="btn btn-default " id="btnUpload20" href="javascript:checkQueue20()">上传</a>
+        <a class="btn btn-default " id="btnCancelUpload20" data-options="iconCls:'icon-cancel'" href="javascript:checkCancel20()">取消</a>
+    </div>
+    <div class="col-xs-20 margin-top-10">
+        <div id="queue20"></div>
+    </div>
+    <div class="col-xs-12 margin-top-10">
+        <div style="width:100%;">
+            <table id="RiskPoint_Table" class="table table-striped table-bordered table-hover"></table>
+        </div>
+    </div>
+</div>
+<script>
+
+    var File_ID = "";
+    var File_Type = "";
+
+
+    function checkQueue20() {
+        if ($("#queue20").children().length == 0) {
+            alert("请先点击浏览选择要上传的文件！");
+        } else {
+            $('#file_upload20').uploadifive('upload');
+        }
+    }
+    function checkCancel20() {
+        if ($("#queue20").children().length == 0) {
+            alert("没有待上传的文件！");
+        } else {
+
+            $('#file_upload20').uploadifive('clearQueue');
+            refeshGrid20();
+        }
+    }
+    function refeshGrid20() {
+        $('#RiskPoint_Table').bootstrapTable("refresh", { url: '/File/GetList?ID=' + File_ID + '&Type=' + File_Type });
+    }
+    function delcfm20(id) {
+        $('#id').val(id);//给会话中的隐藏属性URL赋值
+        $('#idName').val("ID");
+        $('#backMsg').val("RiskPoint_Table");
+        $('#urlDel').val("/File/Delete");
+        $('#urlBack').val("/File/GetList?ID=" + File_ID + "&Type=" +File_Type);
+        $('#delcfmModel').modal();
+    }
+    function initUpload () {
+
+        var a = 0;
+
+
+        $('#file_upload20').uploadifive({
+            'auto': false,
+            'fileSizeLimit': '102400KB',
+            'buttonText': '浏  览',
+            'multi': true,
+            'queueID': 'queue20',
+            'uploadScript': '/File/Upload',
+            'formData': { 'ID': File_ID, 'type': File_Type },
+            'onUploadComplete': function (file, data) {
+                a = a + 1;
+                if ($("#queue20").children().length - a == 0) {
+                    checkCancel20();
+                    a = 0;
+                }
+            }
+        });
+
+
+
+
+          $('#RiskPoint_Table').bootstrapTable({
+        method: 'post',
+        url: '/File/GetList?ID=' + File_ID + '&Type=' + File_Type,
+        striped: true,
+        clickToSelect: true,
+        pageSize: 10,
+        sidePagination: 'server',
+        pageList: [10, 20, 50, 100, 200, 500],
+        queryParamsType: 'limit',
+        sortName: 'ID',
+        sortOrder: 'asc',
+        columns: [
+            {
+                field: 'TimeStamp', title: '上传时间', width: 200, formatter: function (value, row, index) {
+                    var str = "";
+                    console.log(ChangeDateFormat(row.Timestamp));
+                    str = "<span>" + ChangeDateFormat(row.Timestamp) + "</span>";
+                    return str;
+                }
+            },
+            { field: 'FileName', title: '文件名', width: 200, editable: false, },
+            { field: 'opt', title: '操作', width: 50, editable: false, formatter: operateFormatterRiskPoint },
+        ],
+        });
+
+          $('#RiskPoint_Table').bootstrapTable("refresh", {
+              url: '/File/GetList?ID=' + File_ID + '&Type=' + File_Type,
+
+});
+
+    }
+    function ChangeDateFormat(date) {
+        //ConvertJSONDateToJSDateObject(date)
+
+        console.log(date);
+        var mydate = new Date(parseInt(date.replace("/Date(", "").replace(")/", ""), 10));
+        console.log(mydate);
+        var year = mydate.getFullYear();
+
+        var month = mydate.getMonth() + 1;
+
+        var day = mydate.getDate();
+
+        var hh = mydate.getHours();
+
+        var mm = mydate.getMinutes();
+
+        var ss = mydate.getSeconds();
+
+        return year + "-" + month + "-" + day + " " + hh + ":" + mm + ":" + ss;
+        //return oTime;
+    }
+    function operateFormatterRiskPoint(value, row, index) {
+        return [
+            '<a  href="/File/Download?ID=' + row.ID + '" id="btn_detail" type="button" class="btn btn-primary btn-xs" style="margin-right:20px;"><span class="glyphicon glyphicon-floppy-save"></span>下载</a>',
+            '<a  href="javascript:delcfm20(\'' + row.ID + '\',\'' + row.Type + '\')"  type="button" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span>删除</a>',
+        ].join('');
+    }
+</script>

@@ -1,0 +1,536 @@
+﻿@using Model;
+@{
+    Layout = null;
+    Unit item = ViewBag.unit;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+    @RenderPage("~/Views/Share/bootstrap.cshtml")
+
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            background-color: #f2f2f2;
+        }
+        .chakan {
+        
+        margin:0 auto!important;
+        width:1200px!important;
+        }
+
+        a[href="#political"] {
+        
+        font-size:18px;
+        font-family:'Microsoft YaHei';
+
+        }
+
+            a[href="#political"]:hover, a[href="#political"]:active {
+                border-bottom: 1px solid #cacaca;
+                color: #337ab7;
+                text-shadow: 4px 4px #eee;
+            }
+        .table-no-bordered {
+        
+        border:none!important;
+        }
+        [v-clock] {
+            display: none;
+        }
+    </style>
+</head>
+
+
+<body><input id="url" type="hidden" />
+
+    <div id="containertop" style="height:100%">
+        <div class="layui-fluid layadmin-homepage-fluid" style="height:100%;background-color:#f2f2f2">
+            <div class="layui-row layui-col-space8">
+                <div class="layui-col-md2">
+                    <div class="layadmin-homepage-panel layadmin-homepage-shadow">
+                        <div class="layui-card text-center">
+                            <div class="layui-card-body">
+                                <div class="layadmin-homepage-pad-ver">
+                                    <img class="img-responsive" src="~/Resource/images/timg.png" style="margin: 0 auto">
+                                </div>
+                                <h1 class="layadmin-homepage-font">@item.UnitName</h1>
+                                <div class="layadmin-homepage-pad-ver">
+
+                                </div>
+                                <button class="layui-btn layui-btn-primary layui-btn-fluid" @@click="Leader">领导班子</button>
+                            </div>
+                        </div>
+                        
+                        <div class="layadmin-homepage-pad-hor">
+                            <input autocomplete="off" class="form-control"  id="qry_ReportTitle" placeholder="查询标题"><br />
+                            <input autocomplete="off" class="form-control" id="qry_ReportTime" placeholder="查询时间"><br />
+                                    <button class="layui-btn  layui-btn-fluid" @@click="refeshGridStructure" style="margin-bottom:5px">查询</button>
+
+
+                                    <button class="layui-btn layui-btn-primary layui-btn-fluid" @@click="clear" style="margin-left:0px">清空</button>
+                            <br />
+                            </div>
+                      <br />
+                    </div>
+                </div>
+                <div class="layui-col-md10">
+                    <div class="layui-fluid layadmin-homepage-content">
+                        <div class="layui-row  layadmin-homepage-padding15">
+                            <hr class="new-section-xs">
+                            <div class="layui-col-md12 layadmin-homepage-padding8">
+                                <div class="layui-row layadmin-homepage-text-center" v-clock>
+                                    <div class="layui-col-md2 layui-col-sm2 layui-col-xs2">
+                                        <p class="h4"><i class="layui-icon layui-icon-rate-solid"></i>{{a}}</p>
+                                        <a href="#political" data-type="a">主体履责纪实</a>
+                                    </div>
+                                    <div class="layui-col-md2 layui-col-sm2 layui-col-xs2">
+                                        <p class="h4"><i class="layui-icon layui-icon-rate-solid"></i>{{b}}</p>
+                                        <a href="#political" data-type="b">监督履责纪实</a>
+                                    </div>
+                                    <div class="layui-col-md2 layui-col-sm2 layui-col-xs2">
+                                        <p class="h4"><i class="layui-icon layui-icon-rate-solid"></i>{{c}}</p>
+                                        <a href="#political" data-type="c">专项监督意见</a>
+                                    </div>
+                                    <div class="layui-col-md2 layui-col-sm2 layui-col-xs2">
+                                        <p class="h4"><i class="layui-icon layui-icon-rate-solid"></i>{{d}}</p>
+                                        <a href="#political" data-type="d">巡视巡察</a>
+                                    </div>
+                                    <div class="layui-col-md2 layui-col-sm2 layui-col-xs2">
+                                        <p class="h4"><i class="layui-icon layui-icon-rate-solid"></i>{{e}}</p>
+                                        <a href="#political" data-type="e">审计报告</a>
+                                    </div>
+                                    <div class="layui-col-md2 layui-col-sm2 layui-col-xs2">
+                                        <p class="h4"><i class="layui-icon layui-icon-rate-solid"></i>{{f}}</p>
+                                        <a href="#political" data-type="f">廉政风险点</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div v-clock  class="layui-fluid layadmin-maillist-fluid" v-show="show">
+                            <div class="layui-row layui-col-space15">
+                                <div class="layui-col-md4 layui-col-sm6" v-if="List2!==null" v-for="(item,index) in List2" :key="index" @@click="edit(item.Name,item.ID)">
+                                    <div class="layadmin-contact-box">
+                                        <div class="layui-col-md4 layui-col-sm6">
+                                            <a href="javascript:;">
+                                                <div class="layadmin-text-center">
+                                                    <img :src="['../../UploadFiles/'+item.Photo]" style="border-radius:0px">
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                        <div class="layui-col-md8 layadmin-padding-left20 layui-col-sm6">
+                                            <a href="javascript:;">
+                                                <h3 class="layadmin-title">
+                                                    <strong>{{item.Name}} <span style="font-size:16px;font-weight:normal">{{item.WorkLevel}}</span></strong>
+                                                </h3>
+                                                <p class="layadmin-textimg">
+                                                    <i class="layui-icon layui-icon-location"></i>
+                                                    {{item.Address}}
+                                                </p>
+                                            </a>
+                                            <div class="layadmin-address">
+                                                <a href="javascript:;">
+                                                    <strong>{{item.WorkUnit}}</strong>
+                                                    <strong>{{item.WorkDuty}}</strong>
+
+                                                    <br>
+                                                    {{item.Education}}
+                                                    <br>
+
+                                                    {{item.School}}
+                                                    <br>
+
+                                                    {{item.Major}}
+
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div v-clock class="layui-row layui-col-space20 layadmin-homepage-list-imgtxt animated slideInUp" v-for="(item,index) in List" :key="index"  v-show="!show">
+                            <div class="layui-col-md12">
+                                <div class="grid-demo">
+                                    <div class="panel-body layadmin-homepage-shadow">
+
+                                        <div class="media-body">
+                                        
+                                            <div class="media">
+
+                                                <div class="media-left" style="height:100%">
+                                                    <p class="fontColor" style="font-size:20px;height:100%;line-height:50px" v-text="item.ReportTitle"  >
+                                                    </p>
+                                                </div>
+                                                <div class="media-right">
+                                                    <ul class="list-inline">
+                                                        <li><span v-text="item.ReportTime">
+</span></li>
+                                                        <li>
+                                                            <i class="layui-icon layui-icon-camera-fill"></i>
+                                                            <span v-text="item.ViewCount"></span>
+                                                        </li>
+                                                        <li>
+                                                            <a href="javascript:;" class="layui-btn layui-btn-normal layui-btn-sm"  @@click="StructureDetail(item)">更多 >></a>
+
+                                                        </li>
+
+                                                    </ul>
+                                                </div>
+
+                                            </div>
+                                     
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+
+    <div id="DetailStructure" style="display:none">
+
+        <div class=" chakan" style="margin-top:10px!important">
+            <input type="hidden" id="StructureID" />
+            <h3 id="ReportTitle1" style="text-align:center;color:#b10000;font-family:'Microsoft YaHei';font-weight:bold"></h3>
+            <div id="area" style="margin:30px 0;text-align:center;    border-bottom: 2px solid #e3edf6;    padding-bottom: 10px;">
+                <span id="ReportType1" style="margin-right:15px;font-size:16px"></span>
+                <span id="ReportTime1" style="margin-left:15px;font-size:16px"></span>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 margin-top-10">
+
+                    <div id="ReportContentDetail" contenteditable="false"></div>
+
+
+
+                </div>
+            </div>
+            <div class="row  margin-top-10 ">
+                <div class="col-xs-12chakan">
+                    <div style="width:100%;">
+                        <table id="StructureFileDetail_table" class="table table-striped table-no-bordered table-hover"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <script src="~/Resource/layui/layui/layui.js"></script>
+
+    <script>
+
+        var vm = new Vue({
+            el:"#containertop",
+            data: {
+                List: null,
+                List2:null,
+                show:true,
+                a: 0,
+                b: 0,
+                c: 0,
+                d: 0,
+                e: 0,
+                f: 0,
+                type:""
+            },
+            methods: {
+                StructureDetail: function (obj) {
+                    //$('#DetailStructure').modal();
+                    console.log(obj);
+                    var that = this;
+                    $.ajax({
+                        type: "POST",
+                        url: '/Unit/Edit2',
+                        data: {
+                            "Type": "Detail",
+                            "ID": obj.ID
+                        },                          dataType: "json",
+                        success: function (data) {
+                            $("#ReportTime1").text(data.ReportTime);
+                            $("#ReportTitle1").text(data.ReportTitle);
+                            $('#ReportContentDetail').html(data.Content);
+                            $("#StructureID").val(data.ID);
+                            that.refeshDetailStructureFileGrid();
+                            that.refeshGridStructure();
+                            console.log(data);
+                            for (var i in json) {
+                                var obj = json[i];
+                                for (var j in obj) {
+                                    if (obj[j].value == data.ReportType) {
+                                        $("#ReportType1").text(obj[j].name);
+                                    }
+                                }
+                            }
+                            LayerModalByID(data.ReportTitle, $("#DetailStructure"));
+                        },
+                        error: function () {
+                            alert("数据获取失败");
+                        }
+                    });
+                },
+                edit: function (Name, ID) {
+                    //$('#diejia').modal();
+                    var title = Name;
+                    var src="";
+                    if (ID != "") {
+                        src = '/Person/Detail3?ID=' + ID + '';
+                    }
+                    LayerModal(title, src);
+                    //$("#diejiayemian").attr("src", src);
+                },
+                Leader: function () {
+
+                    this.show = true;
+                    this.type = "";
+                },
+                refeshDetailStructureFileGrid : function() {
+                $('#StructureFileDetail_table').bootstrapTable("refresh", { url: '/File/GetList?ID=' + $("#StructureID").val() });
+        },
+                clear: function () {
+                    this.show = true;
+                    this.type = "";
+                    $("#qry_ReportTitle").val("");
+                    $("#qry_ReportTime").val("");
+                },
+                refeshGridStructure: function () {
+                    var that = this;
+
+                    $.ajax({
+                            url: '/UnitItem/GetUnitItemListAll?ID=@item.ID&Type=' + this.type,
+                            type: "post",
+                            data: {
+                    "ReportTitle": $("#qry_ReportTitle").val(),
+                    "ReportTime": $("#qry_ReportTime").val(),
+                          },
+                success: function (data) {
+                    console.log(data);
+                    that.List = data;
+                 
+                    that.show = false;
+
+                            }
+                      });
+                }
+
+            }
+        });
+            $.ajax({
+            url: "/UnitItem/Count",
+            type: "post",
+            data: {
+                "UnitID":"@item.ID"
+            },
+            success: function (data) {
+                for (var i in data) {
+                    var obj = data[i];
+                    switch (obj.QueryType) {
+                        case "a": vm.a = obj.QueryString; break;
+                        case "b": vm.b = obj.QueryString; break;
+                        case "c": vm.c = obj.QueryString; break;
+                        case "d": vm.d = obj.QueryString; break;
+                        case "e": vm.e = obj.QueryString; break;
+                        case "f": vm.f = obj.QueryString; break;
+
+                    }
+                }
+            }
+        });
+        $('a[href="#political"]').click(function () {
+            vm.type = $(this).attr("data-type");
+            vm.refeshGridStructure();
+            //refeshDetailStructureFileGrid();
+        });
+
+        var json = {
+            "a": [{
+                name: "组织政治生活(三会一课)",
+                value: "a1"
+            }, {
+                name: "研究部署党风廉政建设工作情况",
+                value: "a2"
+            },
+            {
+                name: "落实全面从严治党主体责任述职报告",
+                value: "a3"
+            },
+            {
+                name: "党风廉政建设责任制自查发现问题及整改情况",
+                value: "a4"
+            },
+            {
+                name: "上级党风廉政建设责任制检查考核反馈整改落实情况",
+                value: "a5"
+            },
+            {
+                name: "贯彻落实上级重要工作部署",
+                value: "a6"
+            }
+            ],
+            "b": [{
+                name: "“三重一大”监督情况",
+                value: "b1"
+            }, {
+                name: "巡察、专项检查发现问题及整改情况",
+                value: "b2"
+            },
+            {
+                name: "对中层干部问责、纪律处分情况",
+                value: "b3"
+            },
+            {
+                name: "监督意见或建议",
+                value: "b4"
+            },
+            {
+                name: "监督履责报告",
+                value: "b5"
+            }
+            ],
+            "c": [{
+                name: "专项监督意见",
+                value: "c1"
+            }, {
+                name: "专项监督整改方案",
+                value: "c2"
+            },
+            {
+                name: "专项监督落实情况",
+                value: "c3"
+            }
+            ],
+            "d": [{
+                name: "巡视巡察反馈意见",
+                value: "d1"
+            }, {
+                name: "巡视巡察整改情况",
+                value: "d2"
+            },
+            {
+                name: "专项监督落实情况",
+                value: "d3"
+            }
+            ],
+
+            "e": [{
+                name: "审计反馈意见",
+                value: "e1"
+            }, {
+                name: "审计整改情况",
+                value: "e2"
+            }
+            ],
+
+            "f": [{
+                name: "风险点排查情况",
+                value: "f1"
+            }, {
+                name: "履责经验做法",
+                value: "f2"
+            }
+            ],
+        };
+
+
+
+    function Affix(ID) {
+        console.log(ID);
+        $("#url").val(ID);
+        //$("#pdf").attr('src', $("#pdf").attr('src'));
+        LayerModal("附件预览","/Person/Pdf");
+
+        }
+
+
+         getData();
+    function getData(pageSize, pageNumber) {
+        $.ajax({
+            url: "/Unit/GetPersonListByUnitAll",
+            dataType: "json",
+            type: "get",
+            data: {
+
+                ID: "@item.ID",
+
+            },
+            success: function (data) {
+                console.log(data);
+                vm.List2 = data;
+            }
+        });
+    }
+
+
+
+    //function Detail(ID) {
+    //    //$('#diejia').modal();
+    //    var title = "个人信息";
+    //    var src
+    //    if (ID != "") {
+    //        src = '/Person/Detail?ID=' + ID + '&Type=Edit';
+    //    }
+    //    LayerModal(title,src);
+    //    //$("#diejiayemian").attr("src", src);
+    //    }
+
+
+
+    $('#StructureFileDetail_table').bootstrapTable({
+        method: 'post',
+        url: '/File/GetList?ID=' + $("#StructureID").val() ,
+        striped: true,
+        clickToSelect: true,
+        pagination: false,     //是否显示分页（*）
+
+        pageSize: 100,
+        sidePagination: 'server',
+        pageList: [10, 20, 50, 100, 200, 500],
+        queryParamsType: 'limit',
+        sortName: 'ID',
+        sortOrder: 'asc',
+        columns: [
+            { field: 'FileName', title: '文件名', width: 200, editable: false },
+            { field: 'opt', title: '操作', width: 100, editable: false, formatter: StructureoperateFormatterHandleDetail },
+        ],
+    });
+    function StructureoperateFormatterHandleDetail(value, row, index) {
+        return [
+        '<a  href="/File/Download?ID=' + row.ID + '" id="btn_detail" type="button" class="layui-btn  layui-btn-xs" style="margin-right:20px;">下载</a>',
+        '<a  href="javascript:Affix(\'' + row.ID + '\')"  type="button" class="layui-btn  layui-btn-xs layui-btn-normal">预览</a>',
+
+        ].join('');
+    }
+
+
+        laydate.render({
+            elem: '#qry_ReportTime' //指定元素
+        });
+
+
+    </script>
+</body>
+
+
+   
+
+
+</html>

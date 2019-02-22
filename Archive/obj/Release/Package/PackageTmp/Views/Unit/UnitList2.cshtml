@@ -1,0 +1,778 @@
+﻿@using Model;
+@{
+    Layout = null;
+    string type = Session["UnitEditType"].ToString();
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    @RenderPage("~/Views/Share/bootstrap.cshtml")
+    <script src="~/Web/guid.js"></script>
+    <style>
+        html, body {
+        
+        width:100%;
+        height:100%;
+        }
+
+        .chakan {
+            width: 1200px !important;
+            margin: 0 auto !important;
+        }
+        #area span {
+            color: #868686;
+            font-size:16px;
+        }
+
+        .note-toolbar button {
+            height: 29.6px !important;
+        }
+
+        .table-no-bordered {
+            border: none !important;
+        }
+    </style>
+
+</head>
+<body>
+    <input id="url" type="hidden" />
+
+    <div id="container_main" style="height:100%">
+        <div class="mySearch">
+            <div class="row">
+                <div class="col-md-12" style="padding:10px 0px">
+                    <div class="row">
+                        <div class="col-xs-1">
+                            <button type="button" class="layui-btn layui-btn-normal" onclick="UnitItemCreate()"  style="float:left;">发布</button>
+                        </div>
+
+                        <div class="col-xs-1">
+                            <label class="margin-5">栏目：</label>
+                        </div>
+                        <div class="col-xs-2">
+                            <select class="form-control" id="qry_Type" >
+                                <option value=""></option>
+                                <option v-for="(item,index) in type['@Session["UnitType"]']" :key="index" :value="item.value">
+                                    {{item.name}}
+                                </option>
+                            </select>
+                        </div>
+              
+                        <div class="col-xs-1">
+                            <label>内容检索：</label>
+                        </div>
+
+                        <div class="col-xs-2">
+                            <input autocomplete="off"  type="text" name="Title" id="qry_Title" class="layui-input" />
+                        </div>
+                        <div class="col-xs-2">
+                            <button class="layui-btn layuiadmin-btn-list" onclick="queryDataGrid()">
+                                <i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>
+                            </button>
+                            <button class="layui-btn layui-btn-primary layuiadmin-btn-list" onclick="myClear()">
+                                <i class="layui-icon layui-icon-refresh-1 layuiadmin-button-btn"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div style="width:100%;">
+                    <table id="UnitItemList_table" class="table table-striped table-no-bordered table-hover"></table>
+                </div>
+            </div>
+        </div>
+
+
+        <!--添加编辑界面-->
+        <div id="EditUnitItem" style="padding:0 15px;display:none">
+            <div class="row">
+                <div class="col-xs-12">
+
+                    <div v-show="IsShow" style="float:right;margin-right:20px;margin-top:10px">
+                        <button type="button" class="layui-btn  layui-btn-normal" onclick="UnitItem_Save()">保存</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <form  id="Report_Edit" action="" data-toggle="validator" enctype="multipart/form-data">
+                        <div class="row" v-show="IsShow">
+                            <input autocomplete="off" type="hidden" name="ID" id="KeyItemID" />
+
+                            <div class="col-xs-1">
+                                <label class="margin-5 margin-top-10">填报时间：</label>
+                            </div>
+                            <div class="col-xs-2 margin-top-10">
+                                <input autocomplete="off" class="form-control" placeholder="填报时间" id="ReportTime" name="ReportTime" required>
+
+                            </div>
+                            <div class="col-xs-1">
+                                <label class="margin-5 margin-top-10">栏目：</label> <!--公告类型  select2  !!!-->
+                            </div>
+                            <div class="col-xs-2 margin-top-10">
+                                <select class="form-control" id="ReportType" name="ReportType">
+                                    <option value=""></option>
+                                    <option v-for="(item,index) in type['@Session["UnitType"]']" :key="index" :value="item.value">
+                                        {{item.name}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row" v-show="DetailShow" style="width:1200px!important;margin:0 auto!important">
+                            <input autocomplete="off" type="hidden" name="ID" id="KeyItemID" />
+                            <h3 id="ReportTitle1" style="text-align:center;color:#b10000;font-family:'Microsoft YaHei';font-weight:bold"></h3>
+                            <div id="area" style="margin:30px 0;text-align:center;    border-bottom: 2px solid #e3edf6;    padding-bottom: 10px;">
+                                <span id="ReportType1" style="margin-right:15px;font-size:16px"></span>
+                                <span id="ReportTime1" style="margin-left:15px;font-size:16px"></span>
+                            </div>
+                        </div>
+                        <div class="row" v-show="IsShow">
+                            <div class="col-xs-1">
+                                <label class="margin-5 margin-top-10">标题：</label>
+                            </div>
+                            <div class="col-xs-5 margin-top-10">
+                                <input autocomplete="off" type="text" name="ReportTitle" value="" id="ReportTitle" class="form-control" required />
+                            </div>
+                        </div>
+
+                        <div class="row" v-show="IsShow">
+                            <div class="col-xs-12 margin-top-10">
+
+                                <input autocomplete="off" type="text" id="ReportContent" name="Content" class="form-control">
+
+
+                            </div>
+
+                        </div>
+                        <div class="row" v-show="DetailShow" style="width:1200px!important;margin:0 auto!important">
+                            <div class="col-xs-12 margin-top-10">
+
+                                <div id="ReportContentDetail" contenteditable="false"></div>
+
+
+                            </div>
+
+                        </div>
+
+                        <!--文件上传-->
+                        <div id="filecontainer" class="row" v-show="IsShow">
+                            <div class="col-md-12 margin-top-10" style="margin-top:30px;">
+                                <label style="float:left"></label>
+                            </div>
+                            <div class="col-md-1 margin-top-10">
+                                <input autocomplete="off" id="KeyItemfile_upload" name="KeyItemfile_upload" type="file" multiple="true" />
+                            </div>
+                            <div class="col-md-2 margin-top-10">
+                                <a class="layui-btn " id="KeyItem_btnUpload" href="javascript:KeyItem_checkQueue()">上传</a>
+                                <a class="layui-btn " id="KeyItem_btnCancelUpload" data-options="iconCls:'icon-cancel'" href="javascript:KeyItem_checkCancel()">取消</a>
+                            </div>
+                            <div class="col-md-9 margin-top-10">
+                                <div id="KeyItem_queue"></div>
+                            </div>
+                      
+                        </div>
+                       
+                        <div class="row" :class="{chakan:DetailShow}" v-show="IsShow||DetailShow">
+
+
+                            <div class="col-md-12 margin-top-10">
+                                <div style="width:100%;">
+                                    <table id="KeyItemFile_table" class="table table-striped table-no-bordered table-hover"></table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+
+            </div>
+    @RenderPage("~/Views/Share/delConfirm.cshtml")
+
+
+</body>
+
+
+</html>
+
+
+<script type="text/javascript">
+
+    var vm = new Vue({
+        el: "#container_main",
+        data: {
+            edit:true,
+            type: {
+                "a": [{
+                    name: "组织政治生活(三会一课)",
+                    value: "a1"
+                }, {
+                    name: "研究部署党风廉政建设工作情况",
+                    value: "a2"
+                },
+                {
+                    name: "落实全面从严治党主体责任述职报告",
+                    value: "a3"
+                },
+                {
+                    name: "党风廉政建设责任制自查发现问题及整改情况",
+                    value: "a4"
+                },
+                {
+                    name: "上级党风廉政建设责任制检查考核反馈整改落实情况",
+                    value: "a5"
+                },
+                {
+                    name: "贯彻落实上级重要工作部署",
+                    value: "a6"
+                }
+                ],
+                "b": [{
+                    name: "“三重一大”监督情况",
+                    value: "b1"
+                }, {
+                    name: "巡察、专项检查发现问题及整改情况",
+                    value: "b2"
+                },
+                {
+                    name: "对中层干部问责、纪律处分情况",
+                    value: "b3"
+                },
+                {
+                    name: "监督意见或建议",
+                    value: "b4"
+                },
+                {
+                    name: "监督履责报告",
+                    value: "b5"
+                }
+                ],
+                "c": [{
+                    name: "专项监督意见",
+                    value: "c1"
+                }, {
+                    name: "专项监督整改方案",
+                    value: "c2"
+                },
+                {
+                    name: "专项监督落实情况",
+                    value: "c3"
+                }
+                ],
+                "d": [{
+                    name: "巡视巡察反馈意见",
+                    value: "d1"
+                }, {
+                    name: "巡视巡察整改情况",
+                    value: "d2"
+                },
+                {
+                    name: "专项监督落实情况",
+                    value: "d3"
+                }
+                ],
+
+                "e": [{
+                    name: "审计反馈意见",
+                    value: "e1"
+                }, {
+                    name: "审计整改情况",
+                    value: "e2"
+                }
+                ],
+
+                "f": [{
+                    name: "风险点排查情况",
+                    value: "f1"
+                }, {
+                    name: "履责经验做法",
+                    value: "f2"
+                }
+                ],
+            },
+            IsShow: false,
+            DetailShow: false,
+            ReportType: "",
+            ReportTitle: "",
+            ReportTime: ""
+        },
+    });
+
+    var UnitItemurl = '/Unit/GetReportList';
+
+    var list = [];
+    var data1 = [];
+
+    var SearchHeight = $(".mySearch").height();
+    $('#ReportContent').summernote({
+        height: 300,
+        focus: true,
+        lang: 'zh-CN',
+        toolbar: [
+            ['style', ['style']],
+            ['font', ['bold', 'italic', 'underline', 'superscript', 'subscript', 'strikethrough', 'clear']],
+            ['fontname', ['fontname']],
+            ['fontsize', ['fontsize']], // Still buggy
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['height', ['height']],
+            ['table', ['table']],
+            ['insert', ['link', 'picture', 'video', 'hr']],
+            ['view', ['fullscreen', 'codeview']],
+            ['help', ['help']]
+        ],
+        callbacks: {
+            onImageUpload: function (files) {
+                //上传图片到服务器，使用了formData对象，至于兼容性...据说对低版本IE不太友好
+                var formData = new FormData();
+                formData.append('file', files[0]);
+                $.ajax({
+                    url: '/ClassFile/up.ashx',//后台文件上传接口
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (imgUrl) {
+                        $('#ReportContent').summernote('insertImage', imgUrl, 'img');
+                    }
+                });
+            }
+        }
+    });
+    $(document).ready(function () {
+
+        $('#UnitItemList_table').bootstrapTable({
+            url: UnitItemurl,
+            height: $(window).height() - SearchHeight - 20,
+            sortable: true,      //是否启用排序
+            sortName: "ReportTime",
+            sortOrder: "asc",     //排序方式
+            title: "发布",
+            striped: true,
+            clickToSelect: true,
+            queryParamsType: '',
+            pageSize: 20,
+            sidePagination: 'server',
+            pageList: [10, 30, 50],
+            pagination: true,     //是否显示分页（*）
+            method: 'get',
+
+            columns: [
+
+                {
+                    field: 'ReportType', title: '栏目', editable: false, width: 150, sortable: true, formatter: function (value, row, index) {
+
+
+
+                        for (var i in vm.type) {
+                            var obj = vm.type[i];
+                            for (var j in obj) {
+
+                                if (row.ReportType == obj[j].value) {
+                                    var name = "";
+                                    name = obj[j].name;
+                                    var str = "<span>" + name + "</span>";
+                                    return str;
+                                }
+                            }
+                        }
+
+
+                    }
+                },
+                { field: 'ReportTitle', title: '标题', editable: false, width: 200, halign: "center", align: "left", sortable: true },
+                {
+                    field: 'ReportTime', title: '填报时间', editable: false, width: 50, sortable: true
+                },
+                { field: '报告内容', title: '操作', width: 80, editable: false, formatter: operateFormatterUnitItemList },
+            ],
+
+            queryParams: function (params) {
+
+
+                return {
+                    sort: "ReportTime",
+                    order: "desc",
+                    key1: $('#qry_Title').val(),
+                    key2: $('#qry_Type').val(),
+                    key3:"@Session["UnitType"]",
+                pageSize: params.pageSize,
+                pageNumber: params.pageNumber
+            }
+        },
+    });
+    });
+
+    function operateFormatterUnitItemList(value, row, index) {
+
+        if(row.IsSync==0)
+
+        return [
+            '<a  href="javascript:UnitItemEdit(\'' + row.ID + '\')" id="btn_detail" type="button" class="layui-btn layui-btn-sm " style="margin-right:20px;">编辑</a>',
+            '<a  href="javascript:Submit(\'' + row.ID + '\')" id="btn_detail" type="button" class="layui-btn layui-btn-normal layui-btn-sm" style="margin-right:20px;">上报</a>',
+            '<a  href="javascript:Del_UnitItem(\'' + row.ID + '\')"  type="button" class="layui-btn layui-btn-danger layui-btn-sm">删除</a>',
+            ].join('');
+
+        else
+            return [
+                '<a  href="javascript:UnitItemDetail(\'' + row.ID + '\')" id="btn_detail" type="button" class="layui-btn layui-btn-sm " style="margin-right:20px;">查看</a>'
+
+            ].join('');
+
+    };
+
+    function Submit(ID) {
+
+        $.ajax({
+            type: "post",
+            url: "/Unit/Submit",
+            data: {
+                ID: ID
+            },
+            success: function (data) {
+                layer.alert("上报成功!");
+                refeshGridUnitItem();
+
+
+            }
+        });
+    }
+    function Del_UnitItem(id) {
+        var UnitItemDeleteUrl = "/UnitItem/Delete?ID=" + id;
+        $.ajax({
+            type: "post",
+            url: "/UnitItem/Delete",
+            data: {
+                id: id
+            },
+            success: function (data) {
+                alert("删除成功!");
+                refeshGridUnitItem();
+
+
+            }
+        });
+    }
+    function refeshGridUnitItem() {
+        $('#UnitItemList_table').bootstrapTable("refresh", { url: UnitItemurl, pageNumber: 1 });
+    }
+    var index;
+
+    function UnitItemCreate() {
+        var guid = Guid.NewGuid().ToString();
+        vm.IsShow = true;
+        vm.DetailShow = false;
+        vm.edit = true;
+
+        $("#Report_Edit")[0].reset();
+        $('#ReportContent').code("")
+        $("#KeyItemID").val(guid);
+        KeyItem_upload();
+        refeshEditKeyItemFileGrid();
+
+    index =    layer.open({
+        type: 1,
+        shadeClose: true,
+        shade: false,
+        title: "发布",
+
+        maxmin: true, //开启最大化最小化按钮
+
+            area: ['100%', '100%'], //宽高
+            content: $('#EditUnitItem'), //捕获的元素，注意：最好该指定的元素要存放在body最外层，否则可能被其它的相对元素所影响
+        });
+    }
+    function UnitItem_Save() {
+        var test = $("#ReportContent").code();
+        if ($("#ReportTime").val() == "" || $("#ReportTitle").val() == "" || $("#ReportType").val() == ""){
+
+
+            layer.msg("请填写完整");
+            return;
+        }
+
+
+        $("#ReportContent").val(test);
+        var postData = $("#Report_Edit").serializeArray();
+        console.log(postData);
+        for (var i = 0; i < postData.length; i++) {
+            var obj = postData[i];
+            if (obj.name == "Content") {
+                obj.value = encodeURIComponent(obj.value);
+            }
+        }
+        console.log(postData);
+        $.ajax({
+            url: "/Unit/SendReport",
+            type: "post",
+            data: postData,
+            success: function (data) {
+                layer.alert("保存成功", function (no) {
+
+                    refeshGridUnitItem();
+                    layer.close(index);
+                    layer.close(no);
+
+                });
+
+                //$("#EditUnitItem").modal("hide");
+            }
+        });
+
+
+        //$.post('/UnitItem/SendReport', postData, function (data) {
+        //    //可增加其他处理
+        //    refeshGridUnitItem();
+        //    $("#EditUnitItem").modal("hide");
+
+        //}).error(function () {
+        //});
+
+    };
+
+    function UnitItemEdit(id) {
+        //$('#EditUnitItem').modal();
+        vm.IsShow = true;
+        vm.DetailShow = false;
+        vm.edit = true;
+
+        $.ajax({
+            type: "POST",
+            url: '/Unit/Edit2',
+            data: {
+                "Type": "Edit",
+                "ID":id
+            },
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
+
+                $("#ReportTime").val(data.ReportTime);
+                $("#ReportTitle").val(data.ReportTitle);
+                $('#ReportContent').code(data.Content);
+                $("#KeyItemID").val(data.ID);
+
+                $("#ReportType").val(data.ReportType);
+
+                //$("#dept").val(data.ReportDept).select2();
+
+
+                KeyItem_upload();
+                refeshEditKeyItemFileGrid();
+
+
+                index = layer.open({
+                    type: 1,
+                    shadeClose: true,
+                    shade: false,
+                    title: data.ReportTitle,
+
+                    maxmin: true, //开启最大化最小化按钮
+                    area: ['100%', '100%'], //宽高
+                    content: $('#EditUnitItem'), //捕获的元素，注意：最好该指定的元素要存放在body最外层，否则可能被其它的相对元素所影响
+                });
+
+
+            },
+            error: function () {
+                alert("数据获取失败");
+            }
+        });
+    }
+
+    function UnitItemDetail(id) {
+        //$('#EditUnitItem').modal();
+        vm.IsShow = false;
+        vm.DetailShow = true;
+
+        $.ajax({
+            type: "POST",
+            url: '/Unit/Edit2',
+            data: {
+                "Type": "Detail",
+                "ID": id
+            },            dataType: "json",
+            success: function (data) {
+                vm.edit = false;
+                $("#ReportTime1").text(data.ReportTime);
+                $("#ReportTitle1").text(data.ReportTitle);
+
+                $("#KeyItemID").val(data.ID);
+                $('#ReportContentDetail').html(data.Content);
+
+                for (var i in vm.type) {
+                    var obj = vm.type[i];
+                    for (var j in obj) {
+
+                        if (obj[j].value == data.ReportType) {
+                            $("#ReportType1").text(obj[j].name);
+
+
+                        }
+                    }
+                }
+
+                $("#ReportType1").text(vm.type["" + data.ReportType + ""]);
+
+                //$("#dept").val(data.ReportDept).select2();
+
+
+                KeyItem_upload();
+                refeshEditKeyItemFileGrid();
+
+                index = layer.open({
+                    type: 1,
+                    shadeClose: true,
+                    shade: false,
+                    title: data.ReportTitle,
+                    maxmin: true, //开启最大化最小化按钮
+                    area: ['100%', '100%'], //宽高
+                    content: $('#EditUnitItem'), //捕获的元素，注意：最好该指定的元素要存放在body最外层，否则可能被其它的相对元素所影响
+                });
+            },
+            error: function () {
+                alert("数据获取失败");
+            }
+        });
+
+
+
+
+
+    }
+    function KeyItem_upload() {
+        var a = 0;
+        $('#KeyItemfile_upload').uploadifive({
+            'auto': false,
+            'fileSizeLimit': '102400KB',
+            'buttonText': '浏  览',
+            'multi': true,
+            'removeCompleted': true,
+            'queueID': 'KeyItem_queue',
+            'uploadScript': '/File/Upload',
+            'formData': { 'ID': $("#KeyItemID").val(), 'type': '公告' },
+            'onUploadComplete': function (file, data) {
+                a = a + 1;
+                if ($("#KeyItem_queue").children().length - a == 0) {
+                    a = 0;
+                    KeyItem_checkCancel();
+                }
+            }
+        });
+    }
+
+    function Affix(ID) {
+        console.log(ID);
+        $("#url").val(ID);
+        //$("#pdf").attr('src', $("#pdf").attr('src'));
+        LayerModal("附件预览", "/Person/Pdf");
+
+    }
+
+
+    $('#KeyItemFile_table').bootstrapTable({
+        method: 'post',
+        url: '/File/GetList?ID=' + $("#KeyItemID").val() + '&Type=公告',
+        striped: true,
+        clickToSelect: true,
+        pageSize: 100,
+        sidePagination: 'server',
+        pageList: [10, 20, 50, 100, 200, 500],
+        queryParamsType: 'limit',
+        pagination: false,     //是否显示分页（*）
+
+        sortName: 'ID',
+        sortOrder: 'asc',
+
+        columns: [
+            { field: 'FileName', title: '文件名', width: 200, editable: false, },
+            { field: 'opt', title: '操作', width: 100, editable: false, formatter: KeyItemoperateFormatterHandleEdit },
+        ],
+
+    });
+    function KeyItemoperateFormatterHandleEdit(value, row, index) {
+
+
+                       if (vm.edit)
+                       {
+            return [
+                '<a  href="/File/Download?ID=' + row.ID + '" id="btn_detail" type="button" class="layui-btn layui-btn-xs" style="margin-right:20px;">下载</a>',
+                '<a  href="javascript:DelKeyItem_File(\'' + row.ID + '\')"  type="button" class="layui-btn layui-btn-danger layui-btn-xs">删除</a>',
+
+        ].join('');
+                       }
+                       else
+
+                       {
+                           return [
+                               '<a  href="/File/Download?ID=' + row.ID + '" id="btn_detail" type="button" class="layui-btn layui-btn-xs" style="margin-right:20px;">下载</a>',
+                               '<a  href="javascript:Affix(\'' + row.ID + '\')"  type="button" class="layui-btn layui-btn-normal layui-btn-xs">预览</a>',
+
+                           ].join('');
+
+    }
+
+
+    }
+    function DelKeyItem_File(id) {
+        $('#id').val(id);//给会话中的隐藏属性URL赋值
+        $('#idName').val("ID");
+        $('#backMsg').val("KeyItemFile_table");
+        $('#urlDel').val("/File/Delete?ID=" + id + "");
+        $('#urlBack').val("/File/GetList?ID=" + $("#KeyItemID").val() + "&Type=公告");
+        $('#delcfmModel').modal();
+    }
+
+    function refeshEditKeyItemFileGrid() {
+        $('#KeyItemFile_table').bootstrapTable("refresh", { url: '/File/GetList?ID=' + $("#KeyItemID").val() + '&Type=公告' });
+    }
+    function KeyItem_checkQueue() {
+        if ($("#KeyItem_queue").children().length == 0) {
+            alert("请先点击浏览选择要上传的文件！");
+        } else {
+            $('#KeyItemfile_upload').uploadifive('upload');
+        }
+    }
+    function KeyItem_checkCancel() {
+        if ($("#KeyItem_queue").children().length == 0) {
+            alert("没有待上传的文件！");
+        } else {
+            $('#KeyItemfile_upload').uploadifive('clearQueue');
+            refeshEditKeyItemFileGrid();
+        }
+    }
+
+    //function refeshDetailKeyItemFileGrid() {
+    //    $('#KeyItemFileDetail_table').bootstrapTable("refresh", { url: '/File/GetList?ID=' + $("#KeyItemID").val() + '&Type=重大事项报告' });
+    //}
+    function queryDataGrid() {
+        $('#UnitItemList_table').bootstrapTable('refresh', {
+            pageNumber: 1,
+        })
+    }
+    function myClear() {
+        $('#qry_Type').val("");
+        $('#qry_Title').val("");
+
+
+        queryDataGrid();
+    };
+
+
+    laydate.render({
+        elem: "#ReportTime",
+    });
+
+
+
+</script>

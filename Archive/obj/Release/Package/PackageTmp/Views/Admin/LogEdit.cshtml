@@ -1,0 +1,76 @@
+﻿
+@using Model;
+@{
+    
+    Layout = null;
+    Log item= ViewBag.log;
+}
+<!-- 不使用EasyUI LayOut样式，防止GariGrid悬浮 -->
+<div id="win_panel" class="mng_panel">
+    <div style="margin-top:8px;margin-bottom:8px">
+        <div>
+            <form id="frm_win_add" name="frm_win_add" method="post">
+                @Html.HiddenFor(i=>item.ID)
+                <!-- 显示域 -->
+                <table class="detail_table" border="0" cellspacing="1" cellpadding="0" width="98%">
+               
+                    <tr class="detail_tr">
+                        <td class="detail_td1">操作人员 </td>
+                        <td class="detail_td2">
+                            @item.Account
+                        </td>
+                    </tr>
+                    <tr class="detail_tr">
+                        <td class="detail_td1">操作类型 </td>
+                        <td class="detail_td2">
+                            @item.OptType
+                        </td>
+                    </tr>
+                    <tr class="detail_tr">
+                        <td class="detail_td1">操作时间</td>
+                        <td class="detail_td2">
+                            @item.OptTime
+                        </td>
+                    </tr>
+                    <tr class="detail_tr">
+                        <td class="detail_td1">内容</td>
+                        <td class="detail_td2">@Html.TextAreaFor(i => item.Content, new { cols = "70%", rows = "5" })</td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+<div style="text-align:center;height:35px;line-height:35px;margin-top:5px;">
+    
+    <a class="easyui-linkbutton" icon="icon-cancel" plain="true" href="javascript:void(0)" onclick="closeMyWindow()">关闭</a>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        var panel = document.getElementById("win_panel");
+        //Form高度为弹出窗高度减去按钮和其他高度
+        panel.style.height = $('#mywindow').window('options').height - 98 + 'px';
+        panel.style.overflowY = 'scroll';
+        panel.style.overflowX = 'hidden';
+
+        $("#item_DeptID").combotree({
+            url: '/Admin/GetShowDeptList',
+            valueField: 'ID',
+            textField: 'DeptName',
+            required: true,
+            width: 250
+        });
+
+        $("#item_RoleKey").combobox({
+            url: '/Admin/GetShowRoleList',
+            valueField: 'ID',
+            textField: 'RoleName',
+            width: 250,
+            required: true
+        });
+
+    });
+</script>
+

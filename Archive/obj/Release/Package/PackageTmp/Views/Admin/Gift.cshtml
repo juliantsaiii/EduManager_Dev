@@ -1,0 +1,50 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    @RenderPage("~/Views/Shared/Include.cshtml")
+
+    <link href="~/Resource/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <script type="text/javascript">
+        function getselected() {
+            var nodes = JSON.stringify($("#tt").tree("getChecked"));
+            var role = parent.document.getElementById("item_RoleID").value
+
+            $.post("/Admin/getselected",
+                {
+                    menu: "礼品礼金",
+                    dept: nodes,
+                    role: role
+                },
+                function (data, status) {
+                    alert(data);
+                });
+
+        }
+        $(function () {
+            $('#tt').tree({
+                url: '/Admin/GetShowDeptList',
+                checkbox: true,
+                onCheck: function (node, checked) {
+                    node.checked = !node.checked;
+                    //    selected.push(node);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <ul id="tt"></ul>
+    <div style="margin-top:30px">
+        <button class="btn btn-default" onclick="getselected()">保存</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,198 @@
+﻿@using Model;
+@{
+    Layout = null;
+    Person item = ViewBag.person;
+
+}
+<div>
+    <div style="width:100%;margin-top:20px;">
+        <label>第一种形态</label>
+        <table id="FirstFormList_table" class="table table-striped table-bordered table-hover"></table>
+    </div>
+</div>
+<div>
+    <div style="width:100%;margin-top:20px;">
+        <label>问责信息</label>
+        <table id="AccountList_table" class="table table-striped table-bordered table-hover"></table>
+    </div>
+</div>
+<div>
+    <div style="width:100%;margin-top:20px;">
+        <label>线索处置</label>
+        <table id="FourForm_table" class="table table-striped table-bordered table-hover"></table>
+    </div>
+</div>
+<div>
+    <div style="width:100%;margin-top:20px;">
+        <label>纪律处分</label>
+        <table id="CaseList_table" class="table table-striped table-bordered table-hover"></table>
+    </div>
+</div>
+<div>
+    <div style="width:100%;margin-top:20px;">
+        <label>组织调整</label>
+        <table id="AdjustList_table" class="table table-striped table-bordered table-hover"></table>
+    </div>
+</div>
+<script>
+    //第一种形态
+    $('#FirstFormList_table').bootstrapTable({
+        url: '/FirstForm/GetFirstFormTotalList?ID=@item.ID',
+        method: 'get',
+        toolbar: '#toolbar',    //工具按钮用哪个容器
+        striped: true,      //是否显示行间隔色
+        cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+        pagination: true,     //是否显示分页（*）
+        sortable: false,      //是否启用排序
+        //  sortName:"HandleTime",
+        //  sortOrder: "HandleTime desc",     //排序方式
+        pageNumber: 1,      //初始化加载第一页，默认第一页
+        pageSize: 100,      //每页的记录行数（*）
+        pageList: [10, 25, 50, 100],  //可供选择的每页的行数（*）
+        queryParamsType: '', //默认值为 'limit' ,在默认情况下 传给服务端的参数为：offset,limit,sort
+        // 设置为 ''  在这种情况下传给服务器的参数为：pageSize,pageNumber
+
+        //queryParams: queryParams,//前端调用服务时，会默认传递上边提到的参数，如果需要添加自定义参数，可以自定义一个函数返回请求参数
+        sidePagination: "server",   //分页方式：client客户端分页，server服务端分页（*）
+        //search: true,      //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
+        strictSearch: true,
+        //showColumns: true,     //是否显示所有的列
+        //showRefresh: true,     //是否显示刷新按钮
+        minimumCountColumns: 2,    //最少允许的列数
+        clickToSelect: true,    //是否启用点击选中行
+        columns: [
+            { field: 'HandleTime', title: '实施时间', width: 50, editable: false, formatter: IfEmpty },
+            { field: 'PersonArea', title: '地区或部门', width: 50, editable: false, formatter: IfEmpty },
+            { field: 'HandleUnit', title: '实施机关', width: 100, editable: false, formatter: IfEmpty },
+            { field: 'FirstFormType', title: '实施方式', width: 100, editable: false, formatter: IfEmpty },
+            { field: 'PersonName', title: '被实施者', width: 50, editable: false, formatter: IfEmpty },
+            { field: 'PersonUnit', title: '所在单位', width: 100, editable: false, formatter: IfEmpty },
+            { field: 'opt', title: '操作', width: 60, editable: false, formatter: operateFormatterFirstForm },
+        ],
+    });
+    function operateFormatterFirstForm(value, row, index) {
+        return [
+            '<a  href="/FirstForm/Detail?ID=' + row.ID + '" id="btn_detail" type="button" class="btn btn-primary btn-xs" style="margin-right:10px"><span class="glyphicon glyphicon-pencil"></span>查看</a>',
+        ].join('');
+    }
+    //问责信息
+    $('#AccountList_table').bootstrapTable({
+        url: '/ComPerson/GetAccountInfoList?ID=@item.ID',
+        method: 'get',
+        toolbar: '#toolbar',    //工具按钮用哪个容器
+        striped: true,      //是否显示行间隔色
+        cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+        pagination: false,     //是否显示分页（*）
+        sortable: false,      //是否启用排序
+        sortOrder: "asc",     //排序方式
+        pageNumber: 1,      //初始化加载第一页，默认第一页
+        pageSize: 10,      //每页的记录行数（*）
+        pageList: [10, 25, 50, 100],  //可供选择的每页的行数（*）
+        queryParamsType: '', //默认值为 'limit' ,在默认情况下 传给服务端的参数为：offset,limit,sort
+        sidePagination: "server",   //分页方式：client客户端分页，server服务端分页（*）
+        strictSearch: true,
+        minimumCountColumns: 2,    //最少允许的列数
+        clickToSelect: true,    //是否启用点击选中行
+        columns: [
+            { field: 'HandleTime', title: '问责时间', width: 50, editable: false, formatter: IfEmpty },
+            { field: 'AccountType', title: '问责方式', width: 100, editable: false, formatter: IfEmpty },
+            { field: 'HandleUnit', title: '问责机关', width: 100, editable: false, formatter: IfEmpty },
+            { field: 'PersonArea', title: '地区或部门', width: 100, editable: false, formatter: IfEmpty },
+            { field: 'MainProblem', title: '主要问题', width: 200, editable: false, align: "left", formatter: IfEmpty },
+            { field: 'opt', title: '操作', width: 50, editable: false, formatter: operateFormatterAccount },
+        ],
+    });
+    function operateFormatterAccount(value, row, index) {
+        return [
+            '<a  href="/Account/Detail?ID=' + row.ID + '" id="btn_detail" type="button" class="btn btn-primary btn-xs" style="margin-right:10px"><span class="glyphicon glyphicon-list-alt"></span>查看</a>',
+        ].join('');
+    }
+    //四种形态
+    $('#FourForm_table').bootstrapTable({
+        method: 'post',
+        url: '/ComPerson/GetFourFormsList?ID=@item.ID',
+        striped: true,
+        clickToSelect: true,
+        pageSize: 10,
+        sidePagination: 'server',
+        pageList: [10, 20, 50, 100, 200, 500],
+        queryParamsType: 'limit',
+        sortName: 'Name',
+        sortOrder: 'asc',
+        columns: [
+            { field: 'AcceptTime', title: '受理时间', width: 50, editable: false, formatter: IfEmpty },
+            { field: 'ClueSource', title: '线索来源', width: 100, editable: false, formatter: IfEmpty },
+            { field: 'IllegalBehavior', title: '违纪问题', width: 100, editable: false, align: "left", formatter: IfEmpty },
+            { field: 'LawBehavior', title: '涉法问题', width: 100, editable: false, align: "left", formatter: IfEmpty },
+            { field: 'MainClue', title: '主要问题', width: 200, editable: false, align: "left", formatter: IfEmpty },
+            { field: 'opt', title: '操作', width: 50, editable: false, formatter: operateFormatterFourForms },
+        ],
+    });
+    function operateFormatterFourForms(value, row, index) {
+        return [
+            '<a  href="/FourForms/Detail?ID=' + row.ID + '" id="btn_detail" type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-eye-open"></span>查看</a>',
+        ].join('');
+    }
+
+    $('#CaseList_table').bootstrapTable({
+        url: '/ComPerson/GetCaseInfoList?ID=@item.ID',
+        method: 'get',
+        toolbar: '#toolbar',    //工具按钮用哪个容器
+        striped: true,      //是否显示行间隔色
+        cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+        pagination: false,     //是否显示分页（*）
+        sortable: false,      //是否启用排序
+        sortOrder: "asc",     //排序方式
+        pageNumber: 1,      //初始化加载第一页，默认第一页
+        pageSize: 10,      //每页的记录行数（*）
+        pageList: [10, 25, 50, 100],  //可供选择的每页的行数（*）
+        queryParamsType: '', //默认值为 'limit' ,在默认情况下 传给服务端的参数为：offset,limit,sort        
+        sidePagination: "server",   //分页方式：client客户端分页，server服务端分页（*）        
+        minimumCountColumns: 2,    //最少允许的列数
+        clickToSelect: true,    //是否启用点击选中行
+        columns: [
+            { field: 'FilingTime', title: '立案时间', width: 50, editable: false, formatter: IfEmpty },
+            { field: 'PartyPunish', title: '党纪处分', width: 100, editable: false, formatter: IfEmpty },
+            { field: 'GovenPunish', title: '政纪处分', width: 100, editable: false, formatter: IfEmpty },
+            { field: 'OrgMeasure', title: '组织处理', width: 100, editable: false, formatter: IfEmpty },
+            { field: 'JudicalPunish', title: '司法处理', width: 100, editable: false, formatter: IfEmpty },
+            { field: 'opt', title: '操作', width: 50, editable: false, formatter: operateFormatterCaseList },
+        ],
+    });
+    function operateFormatterCaseList(value, row, index) {
+        return [
+            '<a  href="/Case/Detail?ID=' + row.ID + '" id="btn_detail" type="button" class="btn btn-primary btn-xs" style="margin-right:10px"><span class="glyphicon glyphicon-list-alt"></span>查看</a>',
+        ].join('');
+    }
+
+    $('#AdjustList_table').bootstrapTable({
+        url: '/ComPerson/GetAdjustInfoList?ID=@item.ID',
+        method: 'get',
+        toolbar: '#toolbar',    //工具按钮用哪个容器
+        striped: true,      //是否显示行间隔色
+        cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+        pagination: false,     //是否显示分页（*）
+        sortable: false,      //是否启用排序
+        sortOrder: "asc",     //排序方式
+        pageNumber: 1,      //初始化加载第一页，默认第一页
+        pageSize: 10,      //每页的记录行数（*）
+        pageList: [10, 25, 50, 100],  //可供选择的每页的行数（*）
+        queryParamsType: '', //默认值为 'limit' ,在默认情况下 传给服务端的参数为：offset,limit,sort
+        sidePagination: "server",   //分页方式：client客户端分页，server服务端分页（*）
+        strictSearch: true,
+        minimumCountColumns: 2,    //最少允许的列数
+        clickToSelect: true,    //是否启用点击选中行
+        
+        columns: [
+            { field: 'AdjustTime', title: '调整时间', width: 50, editable: false, formatter: IfEmpty },
+            { field: 'FilingUnit', title: '处理机关', width: 100, editable: false, formatter: IfEmpty },
+            { field: 'AdjustType', title: '调整方式', width: 100, editable: false, formatter: IfEmpty },
+            { field: 'opt', title: '操作', width: 50, editable: false, formatter: operateFormatterAdjust },
+        ],
+    });
+    function operateFormatterAdjust(value, row, index) {
+        return [
+            '<a  href="/Adjust/Detail?ID=' + row.ID + '" id="btn_detail" type="button" class="btn btn-primary btn-xs" style="margin-right:10px"><span class="glyphicon glyphicon-list-alt"></span>查看</a>',
+        ].join('');
+    }
+</script>

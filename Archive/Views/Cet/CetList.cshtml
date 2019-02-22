@@ -1,0 +1,135 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+
+    @RenderPage("~/Views/Share/bootstrap.cshtml")
+    <link href="~/Resource/plugins/radio/css/jquery-labelauty.css" rel="stylesheet" />
+    <script src="~/Resource/plugins/radio/js/jquery-labelauty.js"></script>
+    <style>
+        li {
+            list-style: none;
+        }
+
+        .labelauty-checked, .labelauty-unchecked {
+            font-size: 12px !important;
+        }
+
+        .dowebok li label {
+            padding: 7px 10px !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <div class="col-xs-1" style="width:80px">
+            <label class="margin-5">姓名：</label>
+        </div>
+        <div class="col-xs-2">
+            <input type="text" name="Name" id="qry_Name" class="form-control" />
+        </div>
+        <div class="col-xs-1">
+            <label class="margin-5">学号：</label>
+        </div>
+        <div class="col-xs-2">
+            <input type="text" name="ID" id="qry_ID" class="form-control" />
+        </div>
+
+        <div class="col-xs-3">
+            <button type="button" class="layui-btn" onclick="Create()" style="margin-left:10px;"><span class="glyphicon glyphicon-plus"></span></button>
+            <button class="layui-btn" style="float:left;" onclick="queryDataGrid()">查询</button>
+            <button class="layui-btn" style="float:left;margin-left:10px;" onclick="myClear()">清空</button>
+        </div>
+    </div>
+   
+    <div style="margin-top:10px">
+        <table id="CetList_table"></table>
+    </div>
+    @RenderPage("~/Views/Share/delConfirm.cshtml")
+</body>
+</html>
+
+<script type="text/javascript">
+    $('#CetList_table').bootstrapTable({
+        height: $(window).height() - 95,
+        url: '/Cet/GetCet',
+        method: 'get',
+        toolbar: '#toolbar',    //工具按钮用哪个容器
+        striped: true,      //是否显示行间隔色
+        cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+        pagination: true,     //是否显示分页（*）
+        sortable: true,      //是否启用排序
+        sortName: "Cet4",     //排序方式
+        sortOrder: "desc",     //排序方式
+        pageNumber: 1,      //初始化加载第一页，默认第一页
+        pageSize: 100,      //每页的记录行数（*）
+        pageList: [10, 25, 50, 100],  //可供选择的每页的行数（*）
+        queryParamsType: '', //默认值为 'limit' ,在默认情况下 传给服务端的参数为：offset,limit,sort
+        sidePagination: "server",   //分页方式：client客户端分页，server服务端分页（*）
+        strictSearch: true,
+        minimumCountColumns: 2,    //最少允许的列数
+        clickToSelect: true,    //是否启用点击选中行
+        queryParams: function (params) {
+            console.log(params);
+            return {
+                keyword1: $('#qry_Name').val(),
+                keyword2: $('#qry_ID').val(),
+                pageSize: params.pageSize,
+                pageNumber: params.pageNumber,
+                sort: params.sortName,
+                order: params.sortOrder
+            };
+        },
+        columns: [
+            { field: 'Name', title: '姓名', width: 50, editable: false, sortable: true},
+            { field: 'ID', title: '学号', width: 100, editable: false, align: 'left', sortable: true },
+            { field: 'Cet4', title: '四级成绩', width: 100, editable: false, align: 'left', sortable: true },
+            { field: 'Cet6', title: '六级成绩', width: 100, editable: false, align: 'left', sortable: true },
+            { field: 'opt', title: '操作', width: 80, editable: false, formatter: operateFormatterCet }
+        ]
+    });
+    function operateFormatterCet(value, row, index) {
+        return [
+            '<a  href="/Cet/ComCetEdit?ID=' + row.ID + '" id="btn_detail" type="button" class="btn btn-primary btn-xs" style="margin-right:10px"><span class="glyphicon glyphicon-pencil"></span>编辑</a>',
+            '<a  href="javascript:deleteByID(\'' + row.ID + '\')" id="btn_detail" type="button" class="btn btn-warning btn-xs" style="margin-right:10px"><span class="glyphicon glyphicon-trash"></span>删除</a>',
+        ].join('');
+    }
+    function queryDataGrid() {
+        $('#CetList_table').bootstrapTable('refresh', {
+            pageNumber: 1
+        });
+    }
+    function myClear() {
+        $('#qry_Name').val("");
+        $('#qry_ID').val("");
+        queryDataGrid();
+    };
+    function Create() {
+        window.location.href = "/Cet/CetCreate";
+    }
+
+    function deleteByID(id) {
+        console.log(id);
+        $.ajax({
+            type: "POST",
+            url: "/Cet/CetDelete",
+            data: { "ID": id },
+            success: function (msg) {
+                alert(msg);
+                queryDataGrid();           
+            },
+            error: function () {
+                alert("删除失败");
+            }
+        });
+
+
+
+    }
+ 
+</script>

@@ -1,0 +1,1660 @@
+﻿@using Model;
+@{
+    Layout = null;
+    CaseInfo item = ViewBag.caseinfo;
+    Person person = ViewBag.person;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    @RenderPage("~/Views/Share/bootstrap.cshtml")
+    <script src="~/Resource/edit.js"></script>
+    <script src="~/Web/guid.js"></script>
+</head>
+
+<body>
+    @RenderPage("~/Views/Share/GuanLian2.cshtml")
+    <div>
+
+        <form id="Case" name="Case" method="post" class="form-inline">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3 class="Gradient">纪律处分情况登记表</h3>
+                </div>
+                <input autocomplete = "off" style="display:none" type="text" id="PersonID" name="PersonID" value="@person.ID" />
+                <input autocomplete = "off" style="display:none" type="text" value="@item.ID" id="ID" name="ID" />
+                <input autocomplete = "off" style="display:none" type="text" value="@item.HandleStaff" id="HandleStaff" name="HandleStaff" />
+                <input autocomplete = "off" style="display:none" type="text" value="@item.HandleDept" id="HandleDept" name="HandleDept" />
+                <input autocomplete = "off" style="display:none" type="text" value="@item.PersonAge" id="PersonAge" name="PersonAge" />
+                <input autocomplete = "off" style="display:none" type="text" value="@item.PersonUnitClassify1" id="PersonUnitClassify1" name="PersonUnitClassify1" />
+                <input autocomplete = "off" style="display:none" type="text" value="@item.LevelType" id="LevelType" name="LevelType" />
+                <input autocomplete = "off" style="display:none" type="text" value="@item.FilingCensusTime" id="FilingCensusTime" name="FilingCensusTime" />
+                <input autocomplete = "off" style="display:none" type="text" value="@item.TwoGCensusTime" id="TwoGCensusTime" name="TwoGCensusTime" />
+                <input autocomplete = "off" style="display:none" type="text" value="@item.CloseCensusTime" id="CloseCensusTime" name="CloseCensusTime" />
+                <input autocomplete = "off" style="display:none" type="text" value="@item.PartyCensusTime" id="PartyCensusTime" name="PartyCensusTime" />
+                <input autocomplete = "off" style="display:none" type="text" value="@item.GovenCensusTime" id="GovenCensusTime" name="GovenCensusTime" />
+                <input autocomplete = "off" style="display:none" type="text" value="@item.OtherCensusTime" id="OtherCensusTime" name="OtherCensusTime" />
+                <input autocomplete = "off" style="display:none" type="text" value="@item.OrgCensusTime" id="OrgCensusTime" name="OrgCensusTime" />
+                <input autocomplete = "off" style="display:none" type="text" value="@item.TransferCensusTime" id="TransferCensusTime" name="TransferCensusTime" />
+                <input autocomplete = "off" style="display:none" type="text" value="@item.JudicalPunishSecond" id="JudicalPunishSecond" name="JudicalPunishSecond" />
+                <input autocomplete = "off" style="display:none" type="text" value="@item.MainPunishYear" id="MainPunishYear" name="MainPunishYear" />
+                <input autocomplete = "off" style="display:none" type="text" value="@item.MainPunishMonth" id="MainPunishMonth" name="MainPunishMonth" />
+                <input autocomplete = "off" style="display:none" type="text" value="@item.ProbateYear" id="ProbateYear" name="ProbateYear" />
+                <input autocomplete = "off" style="display:none" type="text" value="@item.ProbateMonth" id="ProbateMonth" name="ProbateMonth" />
+                <input autocomplete = "off" style="display:none" type="text" value="@item.JudicalCensusTime" id="JudicalCensusTime" name="JudicalCensusTime" />
+                <input autocomplete = "off" style="display:none" type="text" value="@item.RunCensusTime" id="RunCensusTime" name="RunCensusTime" />
+                <input autocomplete = "off" style="display:none" type="text" value="@item.HearCensusTime" id="HearCensusTime" name="HearCensusTime" />
+                <input autocomplete = "off" style="display:none" type="text" value="@item.HearEndCensusTime" id="HearEndCensusTime" name="HearEndCensusTime" />
+                <input autocomplete = "off" style="display:none" type="text" value="@item.PoliticDetail" id="PoliticDetail" name="PoliticDetail" />
+                <input autocomplete = "off" style="display:none" type="text" value="@item.LeaderDetail" id="LeaderDetail" name="LeaderDetail" />
+                <input autocomplete = "off" style="display:none" type="text" value="@item.LeaderDetail2" id="LeaderDetail2" name="LeaderDetail2" />
+                <input autocomplete = "off" style="display:none" type="text" value="@item.PartyObserveYear" id="PartyObserveYear" name="PartyObserveYear" />
+                <input autocomplete = "off" style="display:none" type="text" value="@item.RunDirectionDetail" id="RunDirectionDetail" name="RunDirectionDetail" />
+                <input autocomplete = "off" style="display:none" type="text" value="@item.InvestigateEndCensusTime" id="InvestigateEndCensusTime" name="InvestigateEndCensusTime" />
+                <input autocomplete = "off" style="display:none" type="text" value="@item.CaptureCensusTime" id="CaptureCensusTime" name="CaptureCensusTime" />
+                <input autocomplete = "off" style="display:none" type="text" value="@item.CaseReportCensusTime" id="CaseReportCensusTime" name="CaseReportCensusTime" />
+                <input autocomplete = "off" style="display:none" type="text" value="@item.Post" id="Post" name="Post" />
+                <input autocomplete = "off" style="display:none" type="text" value="@item.CaseExecution" id="CaseExecution" name="CaseExecution" />
+                <input autocomplete = "off" style="display:none" type="text" value="@item.CaseInvestigation" id="CaseInvestigation" name="CaseInvestigation" />
+                <input autocomplete = "off" style="display:none" type="text" value="@item.TwoGEndCensusTime" id="TwoGEndCensusTime" name="TwoGEndCensusTime" />
+                <input autocomplete = "off" type="hidden" value="@item.TableUnitCode" id="TableUnitCode" name="TableUnitCode" />
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="TableUnitName">填报单位：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="form-control" type="text" id="TableUnitName" name="TableUnitName" value="@item.TableUnitName" />
+                </div>
+        
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="CaseCode">案件编码：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="form-control" type="text" id="CaseCode" name="CaseCode" value="@item.CaseCode" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="PersonCode">涉案人员编号：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="form-control" type="text" id="PersonCode" name="PersonCode" value="@item.PersonCode" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="IsUnit">是否对单位或事件事故：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <select id="IsUnit" class=" form-control selectpicker" name="IsUnit">
+                        <option value="@item.IsUnit">@item.IsUnit</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="PersonName">被调查人：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="form-control" type="text" id="PersonName" name="PersonName" value="@item.PersonName" />
+                    <button class="btn btn-success" type="button" onclick="OpenModal()" style="position:absolute;top:0;right:-80px;z-index:10">人员识别</button>
+
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="PersonGender">性别：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <select id="PersonGender" class=" form-control selectpicker" name="PersonGender">
+                        <option value="@item.PersonGender">@item.PersonGender</option>
+                        <option value="男">男</option>
+                        <option value="女">女</option>
+                    </select>
+                </div>
+
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="Nation">民族：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="form-control" type="text" id="Nation" name="Nation" value="@item.Nation" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="BirthDate">出生年月：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="laydate-icon form-control layer-date" name="BirthDate" value="@item.BirthDate" onclick="laydate({istime: true, format: 'YYYY-MM'})">
+                    
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="PersonPolitic">政治面貌：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="form-control" type="text" id="PersonPolitic" name="PersonPolitic" value="@item.PersonPolitic" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="PartyTime">入党时间：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="laydate-icon form-control layer-date" name="PartyTime" value="@item.PartyTime" onclick="laydate({istime: true, format: 'YYYY-MM'})">
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="PersonUnit">工作单位及职务：</label>
+                </div>
+                <div class="col-xs-6 margin-top-10">
+                    <input autocomplete = "off" class="form-control" type="text" id="PersonUnit" name="PersonUnit" value="@item.PersonUnit" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="PersonAuthority">干部管理权限：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="form-control" name="PersonAuthority" value="@item.PersonAuthority" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="PersonEducation">学历：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="form-control" name="PersonEducation" value="@item.PersonEducation">
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="PersonLevel">职级：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="form-control" name="PersonLevel" value="@item.PersonLevel">
+                    @*<select id="PersonLevel" class="form-control selectpicker"  name="PersonLevel">
+                            <option value="@item.PersonLevel">@item.PersonLevel</option>
+                            <option value="正厅">正厅</option>
+                            <option value="副厅">副厅</option>
+                            <option value="正处">正处</option>
+                            <option value="副处">副处</option>
+                            <option value="正科">正科</option>
+                            <option value="副科">副科</option>
+                            <option value="其他">其他</option>
+                        </select>*@
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="CurrentDutyTime">任现职时间：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="laydate-icon form-control layer-date" name="CurrentDutyTime" value="@item.CurrentDutyTime" onclick="laydate({istime: true, format: 'YYYY-MM'})">
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="IsDeputy">人大代表：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <select id="IsDeputy" class=" form-control selectpicker" name="IsDeputy">
+                        <option value="@item.IsDeputy">@item.IsDeputy</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="IsCPPCC">政协委员：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <select id="IsCPPCC" class=" form-control selectpicker" name="IsCPPCC">
+                        <option value="@item.IsCPPCC">@item.IsCPPCC</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="IsSupervior">是否监察对象：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <select id="IsSupervior" class=" form-control selectpicker" name="IsSupervior">
+                        <option value="@item.IsSupervior">@item.IsSupervior</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="PersonUnitClassify">部门分类：</label>
+                </div>
+                <div class="col-xs-6 margin-top-10">
+                    <input autocomplete = "off" class="form-control" type="text" id="PersonUnitClassify" name="PersonUnitClassify" value="@item.PersonUnitClassify" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="PersonAuthority">是否国家公务员：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <select id="IsCivilServant" class=" form-control selectpicker" name="IsCivilServant">
+                        <option value="@item.IsCivilServant">@item.IsCivilServant</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="CompamyProperty">企业性质：</label>
+                </div>
+                <div class="col-xs-6 margin-top-10">
+                    <input autocomplete = "off" class="form-control" type="text" id="CompamyProperty" name="CompamyProperty" value="@item.CompamyProperty" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="CompanyLevel">企业级别：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="form-control" type="text" id="CompanyLevel" name="CompanyLevel" value="@item.CompanyLevel" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="CompamyPost">企业性质1：</label>
+                </div>
+                <div class="col-xs-6 margin-top-10">
+                    <input autocomplete = "off" class="form-control" type="text" id="CompamyProperty1" name="CompamyProperty1" value="@item.CompamyProperty1" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="CompanyStaffType">企业人员类别：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="form-control" type="text" id="CompanyStaffType" name="CompanyStaffType" value="@item.CompanyStaffType" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="LeaderDiscipline">一把手违纪：</label>
+                </div>
+                <div class="col-xs-6 margin-top-10">
+                    <input autocomplete = "off" class="form-control" type="text" id="LeaderDiscipline" name="LeaderDiscipline" value="@item.LeaderDiscipline" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="CaseSource">案件来源：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="form-control" type="text" id="CaseSource" name="CaseSource" value="@item.CaseSource" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="IllegalBehavior">违纪行为：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10 ">
+                    <input autocomplete = "off" type="hidden" value="@item.IllegalBehavior" id="IllegalBehavior" name="IllegalBehavior" />
+                    <button type="button" class="btn btn-info" data-toggle="modal" onclick="zhikong()" data-target="#Maimweiji" style="float:left;">编辑</button>
+                </div>
+                <div class="col-xs-10 margin-top-10 col-xs-offset-2">
+                    <table id="weiji_table"></table>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="LawBehavior">涉法行为：</label>
+                    <input autocomplete = "off" type="hidden" value="@item.LawBehavior" id="LawBehavior" name="LawBehavior" />
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    <button type="button" class="btn btn-info" data-toggle="modal" onclick="zhikong2()" data-target="#Maimshefa" style="float:left;">编辑</button>
+                </div>
+                <div class="col-xs-10 margin-top-10 col-xs-offset-2">
+                    <table id="shefa_table"></table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="TotalAccount">涉及金额(万元)：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="form-control" type="text" id="TotalAccount" name="TotalAccount" value="@item.TotalAccount" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="IllegalAccount">违纪总金额(万元)：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="form-control" type="text" id="IllegalAccount" name="IllegalAccount" value="@item.IllegalAccount" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="TakeoverAccount">收缴涉案金额(万元)：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="form-control" type="text" id="TakeoverAccount" name="TakeoverAccount" value="@item.TakeoverAccount" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="LossSaving">挽回经济损失(万元)：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="form-control" type="text" id="LossSaving" name="LossSaving" value="@item.LossSaving" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="LossMisconduct">失职渎职造成损失金额(万元)：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="form-control" type="text" id="LossMisconduct" name="LossMisconduct" value="@item.LossMisconduct" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="IllegalFirstTime">首次违纪时间：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="laydate-icon form-control layer-date" name="IllegalFirstTime" value="@item.IllegalFirstTime" onclick="laydate({istime: true, format: 'YYYY'})">
+                    
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="IllegalLastTime">末次违纪时间：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="laydate-icon form-control layer-date" name="IllegalLastTime" value="@item.IllegalLastTime" onclick="laydate({istime: true, format: 'YYYY'})">
+                    
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="MainIllegalTime">主要违纪问题发生时间：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="laydate-icon form-control layer-date" name="MainIllegalTime" value="@item.MainIllegalTime" >
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="CaseUnit">立案机关：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="form-control" type="text" id="CaseUnit" name="CaseUnit" value="@item.CaseUnit" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="FilingTime">立案时间：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="laydate-icon form-control layer-date" name="FilingTime" value="@item.FilingTime" >
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="Measurement">使用措施：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="form-control" type="text" id="Measurement" name="Measurement" value="@item.Measurement" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="TwoMeasureUnit">使用措施机关：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="form-control" type="text" id="TwoMeasureUnit" name="TwoMeasureUnit" value="@item.TwoMeasureUnit" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="MeasureTime">两规两指开始时间：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="laydate-icon form-control layer-date " name="MeasureTime" value="@item.MeasureTime"  />
+                    
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="MeasureCloseTime">两规两指结束时间：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="laydate-icon form-control layer-date " name="MeasureCloseTime" value="@item.MeasureCloseTime"  />
+                    
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="InvestigateEndTime">调查中（终）止时间：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="laydate-icon form-control layer-date" name="InvestigateEndTime" value="@item.InvestigateEndTime" >
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="HearOrg">审理机关：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="form-control" name="HearOrg" value="@item.HearOrg" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="HearTime">审理受理时间：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="laydate-icon form-control layer-date" name="HearTime" value="@item.HearTime" >
+                    
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="HearEndTime">审结时间：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="laydate-icon form-control layer-date" name="HearEndTime" value="@item.HearEndTime" >
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="RunTime">潜逃时间：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="laydate-icon form-control layer-date" name="RunTime" value="@item.RunTime" >
+                    
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="RunDirection">潜逃去向：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="form-control" name="RunDirection" value="@item.RunDirection" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="CaptureTime">抓获时间：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="laydate-icon form-control layer-date" name="CaptureTime" value="@item.CaptureTime" >
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="ClosingTime">结案时间：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="laydate-icon form-control layer-date" name="ClosingTime" value="@item.ClosingTime" >
+                    
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="CancelTime">销案时间：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="laydate-icon form-control layer-date" name="CancelTime" value="@item.CancelTime" onclick="laydate({istime: true, format: 'YYYY-MM'})">
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="PartyPunish">党纪处分：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="form-control" name="PartyPunish" value="@item.PartyPunish" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="GovenPunish">政纪处分：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="form-control" name="GovenPunish" value="@item.GovenPunish" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="GovenPunishEndTime">政纪处分结束时间：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="laydate-icon form-control layer-date " name="GovenPunishEndTime" value="@item.GovenPunishEndTime"  />
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="OtherPunish">其他处理：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="form-control" name="OtherPunish" value="@item.OtherPunish" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="OrgMeasure">组织措施：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="form-control" name="OrgMeasure" value="@item.OrgMeasure" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="Account">责任追究：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="form-control" name="Account" value="@item.Account" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="JudicalTransferTime">移送司法机关时间：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="laydate-icon form-control layer-date" name="JudicalTransferTime" value="@item.JudicalTransferTime" onclick="laydate({istime: true, format: 'YYYY-MM'})" />
+                    
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="JudicalTime">公检法等机关处理时间：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="laydate-icon form-control layer-date" name="JudicalTime" value="@item.JudicalTime" onclick="laydate({istime: true, format: 'YYYY-MM'})" />
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="JudicalPunish">公检法等机关处理内容：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="form-control" name="JudicalPunish" value="@item.JudicalPunish" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="JudicalAmount">司法判决金额(万元)：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input autocomplete = "off" class="form-control" name="JudicalAmount" value="@item.JudicalAmount" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="BriefCase">简要案情：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    <textarea rows="5" id="BriefCase" name="BriefCase" class="form-control">@item.BriefCase</textarea>
+                </div>
+            </div>
+            @*<div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="CaseInvestigation">调查报告：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    <textarea rows="5" id="CaseSanCaseInvestigationction" name="CaseInvestigation" class="form-control">@item.CaseInvestigation</textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-10 col-xs-offset-2">
+                    <label style="float:left">上传文件</label>
+                </div>
+                <div class="col-xs-1 margin-top-10 col-xs-offset-2">
+                    <input autocomplete = "off" id="file_upload" name="file_upload" type="file" multiple="true" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <a class="layui-btn " id="btnUpload" href="javascript:checkQueue()">上传</a>
+                    <a class="layui-btn " id="btnCancelUpload" data-options="iconCls:'icon-cancel'" href="javascript:checkCancel()">取消</a>
+                </div>
+                <div class="col-xs-7 margin-top-10">
+                    <div id="queue"></div>
+                </div>
+                <div class="col-xs-10 margin-top-10 col-xs-offset-2">
+                    <div style="width:100%;">
+                        <table id="Case_table" class="table table-striped table-no-bordered table-hover"></table>
+                    </div>
+                </div>
+            </div>*@
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="CaseApproval">立案呈批报告：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    <textarea rows="5" id="CaseApproval" name="CaseApproval" class="form-control">@item.CaseApproval</textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-10 col-xs-offset-2">
+                    <label style="float:left">上传文件</label>
+                </div>
+                <div class="col-xs-1 margin-top-10 col-xs-offset-2">
+                    <input autocomplete = "off" id="Approvalfile_upload" name="file_upload" type="file" multiple="true" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <a class="layui-btn " id="btnUpload" href="javascript:checkQueueApproval()">上传</a>
+                    <a class="layui-btn " id="btnCancelUpload" data-options="iconCls:'icon-cancel'" href="javascript:checkCancelApproval()">取消</a>
+                </div>
+                <div class="col-xs-7 margin-top-10">
+                    <div id="queueApproval"></div>
+                </div>
+                <div class="col-xs-10 margin-top-10 col-xs-offset-2">
+                    <div style="width:100%;">
+                        <table id="CaseApproval_table" class="table table-striped table-no-bordered table-hover"></table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="CaseDecision">立案决定书：</label>
+                </div>
+
+                <div class="col-xs-10 margin-top-10">
+                    <textarea rows="5" id="CaseDecision" name="CaseDecision" class="form-control">@item.CaseDecision</textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-10 col-xs-offset-2">
+                    <label style="float:left">上传文件</label>
+                </div>
+                <div class="col-xs-1 margin-top-10 col-xs-offset-2">
+                    <input autocomplete = "off" id="Decisionfile_upload" name="file_upload" type="file" multiple="true" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <a class="layui-btn " id="btnUpload" href="javascript:checkQueueDecision()">上传</a>
+                    <a class="layui-btn " id="btnCancelUpload" data-options="iconCls:'icon-cancel'" href="javascript:checkCancelDecision()">取消</a>
+                </div>
+                <div class="col-xs-7 margin-top-10">
+                    <div id="queueDecision"></div>
+                </div>
+                <div class="col-xs-10 margin-top-10 col-xs-offset-2">
+                    <div style="width:100%;">
+                        <table id="CaseDecision_table" class="table table-striped table-no-bordered table-hover"></table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="CaseAdjudication">审理报告：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    <textarea rows="5" id="CaseAdjudication" name="CaseAdjudication" class="form-control">@item.CaseAdjudication</textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-10 col-xs-offset-2">
+                    <label style="float:left">上传文件</label>
+                </div>
+                <div class="col-xs-1 margin-top-10 col-xs-offset-2">
+                    <input autocomplete = "off" id="Adjudicationfile_upload" name="file_upload" type="file" multiple="true" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <a class="layui-btn " id="btnUpload" href="javascript:checkQueueAdjudication()">上传</a>
+                    <a class="layui-btn " id="btnCancelUpload" data-options="iconCls:'icon-cancel'" href="javascript:checkCancelAdjudication()">取消</a>
+                </div>
+                <div class="col-xs-7 margin-top-10">
+                    <div id="queueAdjudication"></div>
+                </div>
+                <div class="col-xs-10 margin-top-10 col-xs-offset-2">
+                    <div style="width:100%;">
+                        <table id="CaseAdjudication_table" class="table table-striped table-no-bordered table-hover"></table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="CaseSanction">处分决定：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    <textarea rows="5" id="CaseSanction" name="CaseSanction" class="form-control">@item.CaseSanction</textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-10 col-xs-offset-2">
+                    <label style="float:left">上传文件</label>
+                </div>
+                <div class="col-xs-1 margin-top-10 col-xs-offset-2">
+                    <input autocomplete = "off" id="Sanctionfile_upload" name="file_upload" type="file" multiple="true" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <a class="layui-btn " id="btnUpload" href="javascript:checkQueueSanction()">上传</a>
+                    <a class="layui-btn " id="btnCancelUpload" data-options="iconCls:'icon-cancel'" href="javascript:checkCancelSanction()">取消</a>
+                </div>
+                <div class="col-xs-7 margin-top-10">
+                    <div id="queueSanction"></div>
+                </div>
+                <div class="col-xs-10 margin-top-10 col-xs-offset-2">
+                    <div style="width:100%;">
+                        <table id="CaseSanction_table" class="table table-striped table-no-bordered table-hover"></table>
+                    </div>
+                </div>
+            </div>
+            @*<div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="CaseExecution">案件剖析报告：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    <textarea rows="5" id="CaseExecution" name="CaseExecution" class="form-control">@item.CaseExecution</textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-10 col-xs-offset-2">
+                    <label style="float:left">上传文件</label>
+                </div>
+                <div class="col-xs-1 margin-top-10 col-xs-offset-2">
+                    <input autocomplete = "off" id="Executionfile_upload" name="file_upload" type="file" multiple="true" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <a class="layui-btn " id="btnUpload" href="javascript:checkQueueExecution()">上传</a>
+                    <a class="layui-btn " id="btnCancelUpload" data-options="iconCls:'icon-cancel'" href="javascript:checkCancelExecution()">取消</a>
+                </div>
+                <div class="col-xs-7 margin-top-10">
+                    <div id="queueExecution"></div>
+                </div>
+                <div class="col-xs-10 margin-top-10 col-xs-offset-2">
+                    <div style="width:100%;">
+                        <table id="CaseExecution_table" class="table table-striped table-no-bordered table-hover"></table>
+                    </div>
+                </div>
+            </div>*@
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="GovenEndReport">解除政纪处分决定：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    <textarea rows="5" id="GovenEndReport" name="GovenEndReport" class="form-control">@item.GovenEndReport</textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-10 col-xs-offset-2">
+                    <label style="float:left">上传文件</label>
+                </div>
+                <div class="col-xs-1 margin-top-10 col-xs-offset-2">
+                    <input autocomplete = "off" id="GovenPunishEndfile_upload" name="file_upload" type="file" multiple="true" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <a class="layui-btn " id="btnUpload" href="javascript:checkQueueGovenPunishEnd()">上传</a>
+                    <a class="layui-btn " id="btnCancelUpload" data-options="iconCls:'icon-cancel'" href="javascript:checkCancelGovenPunishEnd()">取消</a>
+                </div>
+                <div class="col-xs-7 margin-top-10">
+                    <div id="queueGovenPunishEnd"></div>
+                </div>
+                <div class="col-xs-10 margin-top-10 col-xs-offset-2">
+                    <div style="width:100%;">
+                        <table id="CaseGovenPunishEnd_table" class="table table-striped table-no-bordered table-hover"></table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="Remark">备注：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    <textarea rows="5" id="Remark" name="Remark" class="form-control">@item.Remark</textarea>
+                </div>
+            </div>
+
+    </form>
+
+    <div align="center" style="margin-top:20px;">
+        <button type="button" class="layui-btn" onclick="CaseListSubmit()">保存</button>
+    </div>
+    </div>
+    @RenderPage("~/Views/Share/delConfirm.cshtml")
+    <div class="modal fade" id="Maimweiji">
+        <div class="modal-dialog" style="width:600px;">
+            <div class="modal-content message_align">
+                <div class="modal-header" style="padding:10px 15px">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title">违纪行为</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-6 margin-top-10">
+                            <select id="selweiji11" class="form-control selectpicker" name="">
+                                <option value=""></option>
+                                <option value="违反政治纪律">违反政治纪律</option>
+                                <option value="违反组织纪律">违反组织纪律</option>
+                                <option value="违反廉洁纪律">违反廉洁纪律</option>
+                                <option value="违反群众纪律">违反群众纪律</option>
+                                <option value="违反工作纪律">违反工作纪律</option>
+                                <option value="违反生活纪律">违反生活纪律</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-6 margin-top-10">
+                            <select id="selweiji12" class="form-control selectpicker" name="">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 margin-top-10">
+                            <select id="selweiji21" class="form-control selectpicker" name="">
+                                <option value=""></option>
+                                <option value="违反政治纪律">违反政治纪律</option>
+                                <option value="违反组织纪律">违反组织纪律</option>
+                                <option value="违反廉洁纪律">违反廉洁纪律</option>
+                                <option value="违反群众纪律">违反群众纪律</option>
+                                <option value="违反工作纪律">违反工作纪律</option>
+                                <option value="违反生活纪律">违反生活纪律</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-6 margin-top-10">
+                            <select id="selweiji22" class="form-control selectpicker" name="">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 margin-top-10">
+                            <select id="selweiji31" class="form-control selectpicker" name="">
+                                <option value=""></option>
+                                <option value="违反政治纪律">违反政治纪律</option>
+                                <option value="违反组织纪律">违反组织纪律</option>
+                                <option value="违反廉洁纪律">违反廉洁纪律</option>
+                                <option value="违反群众纪律">违反群众纪律</option>
+                                <option value="违反工作纪律">违反工作纪律</option>
+                                <option value="违反生活纪律">违反生活纪律</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-6 margin-top-10">
+                            <select id="selweiji32" class="form-control selectpicker" name="">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer" style="padding:10px 15px">
+                    <button type="button" class="layui-btn layui-btn-primary layui-btn-sm" data-dismiss="modal">取消</button>
+                    <button type="button" class="layui-btn  layui-btn-sm" data-dismiss="modal" onclick="addMaimweiji()">保存</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    <div class="modal fade" id="Maimshefa">
+        <div class="modal-dialog" style="width:600px;">
+            <div class="modal-content message_align">
+                <div class="modal-header" style="padding:10px 15px">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title">涉法行为</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-6 margin-top-10">
+                            <select id="selshefa11" class="form-control selectpicker" name="LawBehaviour">
+                                <option value=""></option>
+                                <option value="贪污贿赂">贪污贿赂</option>
+                                <option value="破坏社会主义经济秩序">破坏社会主义经济秩序</option>
+                                <option value="失职渎职">失职渎职</option>
+                                <option value="侵犯公民人身权利民主权利">侵犯公民人身权利民主权利</option>
+                                <option value="妨害社会管理秩序">妨害社会管理秩序</option>
+                                <option value="其他涉法行为">其他涉法行为</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-6 margin-top-10">
+                            <select id="selshefa12" class="form-control selectpicker" name="Gender">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 margin-top-10">
+                            <select id="selshefa21" class="form-control selectpicker" name="LawBehaviour">
+                                <option value=""></option>
+                                <option value="贪污贿赂">贪污贿赂</option>
+                                <option value="破坏社会主义经济秩序">破坏社会主义经济秩序</option>
+                                <option value="失职渎职">失职渎职</option>
+                                <option value="侵犯公民人身权利民主权利">侵犯公民人身权利民主权利</option>
+                                <option value="妨害社会管理秩序">妨害社会管理秩序</option>
+                                <option value="其他涉法行为">其他涉法行为</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-6 margin-top-10">
+                            <select id="selshefa22" class="form-control selectpicker" name="Gender">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 margin-top-10">
+                            <select id="selshefa31" class="form-control selectpicker" name="LawBehaviour">
+                                <option value=""></option>
+                                <option value="贪污贿赂">贪污贿赂</option>
+                                <option value="破坏社会主义经济秩序">破坏社会主义经济秩序</option>
+                                <option value="失职渎职">失职渎职</option>
+                                <option value="侵犯公民人身权利民主权利">侵犯公民人身权利民主权利</option>
+                                <option value="妨害社会管理秩序">妨害社会管理秩序</option>
+                                <option value="其他涉法行为">其他涉法行为</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-6 margin-top-10">
+                            <select id="selshefa32" class="form-control selectpicker" name="Gender">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer" style="padding:10px 15px">
+                    <button type="button" class="layui-btn layui-btn-primary layui-btn-sm" data-dismiss="modal">取消</button>
+                    <button type="button" class="layui-btn  layui-btn-sm" data-dismiss="modal" onclick="addMaimshefa()">保存</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+</body>
+</html>
+<script>
+    function checkQueue() {
+        if ($("#queue").children().length == 0) {
+            alert("请先点击浏览选择要上传的文件！");
+        } else {
+            $('#file_upload').uploadifive('upload');
+        }
+    }
+    function checkCancel() {
+        if ($("#queue").children().length == 0) {
+            alert("没有待上传的文件！");
+        } else {
+
+            $('#file_upload').uploadifive('clearQueue');
+            refeshGrid();
+        }
+    }
+    function refeshGrid() {
+        $('#Case_table').bootstrapTable("refresh", { url: '/File/GetList?ID=@item.ID&Type=Case' });
+    }
+    function delcfm(id) {
+        $('#id').val(id);//给会话中的隐藏属性URL赋值
+        $('#idName').val("ID");
+        $('#backMsg').val("Case_table");
+        $('#urlDel').val("/File/Delete");
+        $('#urlBack').val("/File/GetList?ID=@item.ID&Type=Case");
+        $('#delcfmModel').modal();
+    }
+    $(function () {
+        var a = 0;
+        $('#file_upload').uploadifive({
+            'auto': false,
+            'fileSizeLimit': '102400KB',
+            'buttonText': '浏  览',
+            'multi': true,
+            'queueID': 'queue',
+            'uploadScript': '/File/Upload',
+            'formData': { 'ID': '@item.ID', 'type': 'Case' },
+            'onUploadComplete': function (file, data) {
+                a = a + 1;
+                if ($("#queue").children().length - a == 0) {
+                    checkCancel();
+                    a = 0;
+                }
+            }
+        });
+        $('#Case_table').bootstrapTable({
+            method: 'post',
+            url: '/File/GetList?ID=@item.ID&Type=Case',
+            striped: true,
+            clickToSelect: true,
+            pageSize: 10,
+            sidePagination: 'server',
+            pageList: [10, 20, 50, 100, 200, 500],
+            queryParamsType: 'limit',
+            sortName: 'ID',
+            sortOrder: 'asc',
+            columns: [
+                { field: 'FileName', title: '文件名', width: 200, editable: false, },
+                { field: 'opt', title: '操作', width: 100, editable: false, formatter: operateFormatterCase },
+            ],
+        });
+        function operateFormatterCase(value, row, index) {
+            return [
+            '<a  href="/File/Download?ID=' + row.ID + '" id="btn_detail" type="button" class="layui-btn layui-btn-danger layui-btn-sm" style="margin-right:20px;"><span class="glyphicon glyphicon-floppy-save"></span>下载</a>',
+            '<a  href="javascript:delcfm(\'' + row.ID + '\')"  type="button" class="layui-btn layui-btn-danger layui-btn-xs"><span class="glyphicon glyphicon-trash"></span>删除</a>',
+            ].join('');
+        }
+    });
+    //
+    function checkQueueApproval() {
+        if ($("#queueApproval").children().length == 0) {
+            alert("请先点击浏览选择要上传的文件！");
+        } else {
+            $('#Approvalfile_upload').uploadifive('upload');
+        }
+    }
+    function checkCancelApproval() {
+        if ($("#queueApproval").children().length == 0) {
+            alert("没有待上传的文件！");
+        } else {
+
+            $('#Approvalfile_upload').uploadifive('clearQueue');
+            refeshGridApproval();
+        }
+    }
+    function refeshGridApproval() {
+        $('#CaseApproval_table').bootstrapTable("refresh", { url: '/File/GetList?ID=@item.ID&Type=CaseApproval' });
+    }
+    function delcfmApproval(id) {
+        $('#id').val(id);//给会话中的隐藏属性URL赋值
+        $('#idName').val("ID");
+        $('#backMsg').val("CaseApproval_table");
+        $('#urlDel').val("/File/Delete");
+        $('#urlBack').val("/File/GetList?ID=@item.ID&Type=CaseApproval");
+        $('#delcfmModel').modal();
+    }
+    $(function () {
+        var a = 0;
+        $('#Approvalfile_upload').uploadifive({
+            'auto': false,
+            'fileSizeLimit': '102400KB',
+            'buttonText': '浏  览',
+            'multi': true,
+            'queueID': 'queueApproval',
+            'uploadScript': '/File/Upload',
+            'formData': { 'ID': '@item.ID', 'type': 'CaseApproval' },
+            'onUploadComplete': function (file, data) {
+                a = a + 1;
+                if ($("#queueApproval").children().length - a == 0) {
+                    checkCancelApproval();
+                    a = 0;
+                }
+            }
+        });
+        $('#CaseApproval_table').bootstrapTable({
+            method: 'post',
+            url: '/File/GetList?ID=@item.ID&Type=CaseApproval',
+            striped: true,
+            clickToSelect: true,
+            pageSize: 10,
+            sidePagination: 'server',
+            pageList: [10, 20, 50, 100, 200, 500],
+            queryParamsType: 'limit',
+            sortName: 'ID',
+            sortOrder: 'asc',
+            columns: [
+                { field: 'FileName', title: '文件名', width: 200, editable: false, },
+                { field: 'opt', title: '操作', width: 100, editable: false, formatter: operateFormatterCaseApproval },
+            ],
+        });
+        function operateFormatterCaseApproval(value, row, index) {
+            return [
+            '<a  href="/File/Download?ID=' + row.ID + '" id="btn_detail" type="button" class="layui-btn layui-btn-danger layui-btn-sm" style="margin-right:20px;"><span class="glyphicon glyphicon-floppy-save"></span>下载</a>',
+            '<a  href="javascript:delcfmApproval(\'' + row.ID + '\')"  type="button" class="layui-btn layui-btn-danger layui-btn-xs"><span class="glyphicon glyphicon-trash"></span>删除</a>',
+            ].join('');
+        }
+    });
+    //
+    function checkQueueDecision() {
+        if ($("#queueDecision").children().length == 0) {
+            alert("请先点击浏览选择要上传的文件！");
+        } else {
+            $('#Decisionfile_upload').uploadifive('upload');
+        }
+    }
+    function checkCancelDecision() {
+        if ($("#queueDecision").children().length == 0) {
+            alert("没有待上传的文件！");
+        } else {
+
+            $('#Decisionfile_upload').uploadifive('clearQueue');
+            refeshGridDecision();
+        }
+    }
+    function refeshGridDecision() {
+        $('#CaseDecision_table').bootstrapTable("refresh", { url: '/File/GetList?ID=@item.ID&Type=CaseDecision' });
+    }
+    function delcfmDecision(id) {
+        $('#id').val(id);//给会话中的隐藏属性URL赋值
+        $('#idName').val("ID");
+        $('#backMsg').val("CaseDecision_table");
+        $('#urlDel').val("/File/Delete");
+        $('#urlBack').val("/File/GetList?ID=@item.ID&Type=CaseDecision");
+        $('#delcfmModel').modal();
+    }
+    $(function () {
+        var a = 0;
+        $('#Decisionfile_upload').uploadifive({
+            'auto': false,
+            'fileSizeLimit': '102400KB',
+            'buttonText': '浏  览',
+            'multi': true,
+            'queueID': 'queueDecision',
+            'uploadScript': '/File/Upload',
+            'formData': { 'ID': '@item.ID', 'type': 'CaseDecision' },
+            'onUploadComplete': function (file, data) {
+                a = a + 1;
+                if ($("#queueDecision").children().length - a == 0) {
+                    checkCancelDecision();
+                    a = 0;
+                }
+            }
+        });
+        $('#CaseDecision_table').bootstrapTable({
+            method: 'post',
+            url: '/File/GetList?ID=@item.ID&Type=CaseDecision',
+            striped: true,
+            clickToSelect: true,
+            pageSize: 10,
+            sidePagination: 'server',
+            pageList: [10, 20, 50, 100, 200, 500],
+            queryParamsType: 'limit',
+            sortName: 'ID',
+            sortOrder: 'asc',
+            columns: [
+                { field: 'FileName', title: '文件名', width: 200, editable: false, },
+                { field: 'opt', title: '操作', width: 100, editable: false, formatter: operateFormatterCaseDecision },
+            ],
+        });
+        function operateFormatterCaseDecision(value, row, index) {
+            return [
+            '<a  href="/File/Download?ID=' + row.ID + '" id="btn_detail" type="button" class="layui-btn layui-btn-danger layui-btn-sm" style="margin-right:20px;"><span class="glyphicon glyphicon-floppy-save"></span>下载</a>',
+            '<a  href="javascript:delcfmDecision(\'' + row.ID + '\')"  type="button" class="layui-btn layui-btn-danger layui-btn-xs"><span class="glyphicon glyphicon-trash"></span>删除</a>',
+            ].join('');
+        }
+    });
+    //
+    function checkQueueAdjudication() {
+        if ($("#queueAdjudication").children().length == 0) {
+            alert("请先点击浏览选择要上传的文件！");
+        } else {
+            $('#Adjudicationfile_upload').uploadifive('upload');
+        }
+    }
+    function checkCancelAdjudication() {
+        if ($("#queueAdjudication").children().length == 0) {
+            alert("没有待上传的文件！");
+        } else {
+
+            $('#Adjudicationfile_upload').uploadifive('clearQueue');
+            refeshGridAdjudication();
+        }
+    }
+    function refeshGridAdjudication() {
+        $('#CaseAdjudication_table').bootstrapTable("refresh", { url: '/File/GetList?ID=@item.ID&Type=CaseAdjudication' });
+    }
+    function delcfmAdjudication(id) {
+        $('#id').val(id);//给会话中的隐藏属性URL赋值
+        $('#idName').val("ID");
+        $('#backMsg').val("CaseAdjudication_table");
+        $('#urlDel').val("/File/Delete");
+        $('#urlBack').val("/File/GetList?ID=@item.ID&Type=CaseAdjudication");
+        $('#delcfmModel').modal();
+    }
+    $(function () {
+        var a = 0;
+        $('#Adjudicationfile_upload').uploadifive({
+            'auto': false,
+            'fileSizeLimit': '102400KB',
+            'buttonText': '浏  览',
+            'multi': true,
+            'queueID': 'queueAdjudication',
+            'uploadScript': '/File/Upload',
+            'formData': { 'ID': '@item.ID', 'type': 'CaseAdjudication' },
+            'onUploadComplete': function (file, data) {
+                a = a + 1;
+                if ($("#queueAdjudication").children().length - a == 0) {
+                    checkCancelAdjudication();
+                    a = 0;
+                }
+            }
+        });
+        $('#CaseAdjudication_table').bootstrapTable({
+            method: 'post',
+            url: '/File/GetList?ID=@item.ID&Type=CaseAdjudication',
+            striped: true,
+            clickToSelect: true,
+            pageSize: 10,
+            sidePagination: 'server',
+            pageList: [10, 20, 50, 100, 200, 500],
+            queryParamsType: 'limit',
+            sortName: 'ID',
+            sortOrder: 'asc',
+            columns: [
+                { field: 'FileName', title: '文件名', width: 200, editable: false, },
+                { field: 'opt', title: '操作', width: 100, editable: false, formatter: operateFormatterCaseAdjudication },
+            ],
+        });
+        function operateFormatterCaseAdjudication(value, row, index) {
+            return [
+            '<a  href="/File/Download?ID=' + row.ID + '" id="btn_detail" type="button" class="layui-btn layui-btn-danger layui-btn-sm" style="margin-right:20px;"><span class="glyphicon glyphicon-floppy-save"></span>下载</a>',
+            '<a  href="javascript:delcfmAdjudication(\'' + row.ID + '\')"  type="button" class="layui-btn layui-btn-danger layui-btn-xs"><span class="glyphicon glyphicon-trash"></span>删除</a>',
+            ].join('');
+        }
+    });
+    //
+    function checkQueueSanction() {
+        if ($("#queueSanction").children().length == 0) {
+            alert("请先点击浏览选择要上传的文件！");
+        } else {
+            $('#Sanctionfile_upload').uploadifive('upload');
+        }
+    }
+    function checkCancelSanction() {
+        if ($("#queueSanction").children().length == 0) {
+            alert("没有待上传的文件！");
+        } else {
+
+            $('#Sanctionfile_upload').uploadifive('clearQueue');
+            refeshGridSanction();
+        }
+    }
+    function refeshGridSanction() {
+        $('#CaseSanction_table').bootstrapTable("refresh", { url: '/File/GetList?ID=@item.ID&Type=CaseSanction' });
+    }
+    function delcfmSanction(id) {
+        $('#id').val(id);//给会话中的隐藏属性URL赋值
+        $('#idName').val("ID");
+        $('#backMsg').val("CaseSanction_table");
+        $('#urlDel').val("/File/Delete");
+        $('#urlBack').val("/File/GetList?ID=@item.ID&Type=CaseSanction");
+        $('#delcfmModel').modal();
+    }
+    $(function () {
+        var a = 0;
+        $('#Sanctionfile_upload').uploadifive({
+            'auto': false,
+            'fileSizeLimit': '102400KB',
+            'buttonText': '浏  览',
+            'multi': true,
+            'queueID': 'queueSanction',
+            'uploadScript': '/File/Upload',
+            'formData': { 'ID': '@item.ID', 'type': 'CaseSanction' },
+            'onUploadComplete': function (file, data) {
+                a = a + 1;
+                if ($("#queueSanction").children().length - a == 0) {
+                    checkCancelSanction();
+                    a = 0;
+                }
+            }
+        });
+        $('#CaseSanction_table').bootstrapTable({
+            method: 'post',
+            url: '/File/GetList?ID=@item.ID&Type=CaseSanction',
+            striped: true,
+            clickToSelect: true,
+            pageSize: 10,
+            sidePagination: 'server',
+            pageList: [10, 20, 50, 100, 200, 500],
+            queryParamsType: 'limit',
+            sortName: 'ID',
+            sortOrder: 'asc',
+            columns: [
+                { field: 'FileName', title: '文件名', width: 200, editable: false, },
+                { field: 'opt', title: '操作', width: 100, editable: false, formatter: operateFormatterCaseSanction },
+            ],
+        });
+        function operateFormatterCaseSanction(value, row, index) {
+            return [
+            '<a  href="/File/Download?ID=' + row.ID + '" id="btn_detail" type="button" class="layui-btn layui-btn-danger layui-btn-sm" style="margin-right:20px;"><span class="glyphicon glyphicon-floppy-save"></span>下载</a>',
+            '<a  href="javascript:delcfmSanction(\'' + row.ID + '\')"  type="button" class="layui-btn layui-btn-danger layui-btn-xs"><span class="glyphicon glyphicon-trash"></span>删除</a>',
+            ].join('');
+        }
+    });
+    //
+    function checkQueueExecution() {
+        if ($("#queueExecution").children().length == 0) {
+            alert("请先点击浏览选择要上传的文件！");
+        } else {
+            $('#Executionfile_upload').uploadifive('upload');
+        }
+    }
+    function checkCancelExecution() {
+        if ($("#queueExecution").children().length == 0) {
+            alert("没有待上传的文件！");
+        } else {
+
+            $('#Executionfile_upload').uploadifive('clearQueue');
+            refeshGridExecution();
+        }
+    }
+    function refeshGridExecution() {
+        $('#CaseExecution_table').bootstrapTable("refresh", { url: '/File/GetList?ID=@item.ID&Type=CaseExecution' });
+    }
+    function delcfmExecution(id) {
+        $('#id').val(id);//给会话中的隐藏属性URL赋值
+        $('#idName').val("ID");
+        $('#backMsg').val("CaseExecution_table");
+        $('#urlDel').val("/File/Delete");
+        $('#urlBack').val("/File/GetList?ID=@item.ID&Type=CaseExecution");
+        $('#delcfmModel').modal();
+    }
+    $(function () {
+        var a = 0;
+        $('#Executionfile_upload').uploadifive({
+            'auto': false,
+            'fileSizeLimit': '102400KB',
+            'buttonText': '浏  览',
+            'multi': true,
+            'queueID': 'queueExecution',
+            'uploadScript': '/File/Upload',
+            'formData': { 'ID': '@item.ID', 'type': 'CaseExecution' },
+            'onUploadComplete': function (file, data) {
+                a = a + 1;
+                if ($("#queueExecution").children().length - a == 0) {
+                    checkCancelExecution();
+                    a = 0;
+                }
+            }
+        });
+        $('#CaseExecution_table').bootstrapTable({
+            method: 'post',
+            url: '/File/GetList?ID=@item.ID&Type=CaseExecution',
+            striped: true,
+            clickToSelect: true,
+            pageSize: 10,
+            sidePagination: 'server',
+            pageList: [10, 20, 50, 100, 200, 500],
+            queryParamsType: 'limit',
+            sortName: 'ID',
+            sortOrder: 'asc',
+            columns: [
+                { field: 'FileName', title: '文件名', width: 200, editable: false, },
+                { field: 'opt', title: '操作', width: 100, editable: false, formatter: operateFormatterCaseExecution },
+            ],
+        });
+        function operateFormatterCaseExecution(value, row, index) {
+            return [
+            '<a  href="/File/Download?ID=' + row.ID + '" id="btn_detail" type="button" class="layui-btn layui-btn-danger layui-btn-sm" style="margin-right:20px;"><span class="glyphicon glyphicon-floppy-save"></span>下载</a>',
+            '<a  href="javascript:delcfmExecution(\'' + row.ID + '\')"  type="button" class="layui-btn layui-btn-danger layui-btn-xs"><span class="glyphicon glyphicon-trash"></span>删除</a>',
+            ].join('');
+        }
+    });
+    //
+    function checkQueueGovenPunishEnd() {
+        if ($("#queueGovenPunishEnd").children().length == 0) {
+            alert("请先点击浏览选择要上传的文件！");
+        } else {
+            $('#GovenPunishEndfile_upload').uploadifive('upload');
+        }
+    }
+    function checkCancelGovenPunishEnd() {
+        if ($("#queueGovenPunishEnd").children().length == 0) {
+            alert("没有待上传的文件！");
+        } else {
+
+            $('#GovenPunishEndfile_upload').uploadifive('clearQueue');
+            refeshGridGovenPunishEnd();
+        }
+    }
+    function refeshGridGovenPunishEnd() {
+        $('#CaseGovenPunishEnd_table').bootstrapTable("refresh", { url: '/File/GetList?ID=@item.ID&Type=CaseGovenPunishEnd' });
+    }
+    function delcfmGovenPunishEnd(id) {
+        $('#id').val(id);//给会话中的隐藏属性URL赋值
+        $('#idName').val("ID");
+        $('#backMsg').val("CaseGovenPunishEnd_table");
+        $('#urlDel').val("/File/Delete");
+        $('#urlBack').val("/File/GetList?ID=@item.ID&Type=CaseGovenPunishEnd");
+        $('#delcfmModel').modal();
+    }
+    $(function () {
+        var a = 0;
+        $('#GovenPunishEndfile_upload').uploadifive({
+            'auto': false,
+            'fileSizeLimit': '102400KB',
+            'buttonText': '浏  览',
+            'multi': true,
+            'queueID': 'queueGovenPunishEnd',
+            'uploadScript': '/File/Upload',
+            'formData': { 'ID': '@item.ID', 'type': 'CaseGovenPunishEnd' },
+            'onUploadComplete': function (file, data) {
+                a = a + 1;
+                if ($("#queueGovenPunishEnd").children().length - a == 0) {
+                    checkCancelGovenPunishEnd();
+                    a = 0;
+                }
+            }
+        });
+        $('#CaseGovenPunishEnd_table').bootstrapTable({
+            method: 'post',
+            url: '/File/GetList?ID=@item.ID&Type=CaseGovenPunishEnd',
+            striped: true,
+            clickToSelect: true,
+            pageSize: 10,
+            sidePagination: 'server',
+            pageList: [10, 20, 50, 100, 200, 500],
+            queryParamsType: 'limit',
+            sortName: 'ID',
+            sortOrder: 'asc',
+            columns: [
+                { field: 'FileName', title: '文件名', width: 200, editable: false, },
+                { field: 'opt', title: '操作', width: 100, editable: false, formatter: operateFormatterCaseGovenPunishEnd },
+            ],
+        });
+        function operateFormatterCaseGovenPunishEnd(value, row, index) {
+            return [
+            '<a  href="/File/Download?ID=' + row.ID + '" id="btn_detail" type="button" class="layui-btn layui-btn-danger layui-btn-sm" style="margin-right:20px;"><span class="glyphicon glyphicon-floppy-save"></span>下载</a>',
+            '<a  href="javascript:delcfmGovenPunishEnd(\'' + row.ID + '\')"  type="button" class="layui-btn layui-btn-danger layui-btn-xs"><span class="glyphicon glyphicon-trash"></span>删除</a>',
+            ].join('');
+        }
+    });
+    function CaseListSubmit() {
+        if ($("#PersonID").val() == "") {
+            layer.msg("请填写人员姓名");
+            return;
+        }
+        $('#Case').form('submit', {
+            url: "/Case/Save",
+            onSubmit: function () {
+            },
+            success: function (data) {
+                layer.alert("保存成功", function () {
+                    window.parent.layer.closeAll();
+
+                    window.location.href = "/Case/CaseList";
+                });    
+            }
+        });
+    }
+    function Canel() {
+        window.history.go(-1);
+    }
+    //涉法
+    function zhikong2() {
+        $("#selshefa11").val('');
+        $("#selshefa12").val('');
+        $("#selshefa21").val('');
+        $("#selshefa22").val('');
+        $("#selshefa31").val('');
+        $("#selshefa32").val('');
+        $("#selshefa11").selectpicker('refresh');
+        $("#selshefa12").selectpicker('refresh');
+        $("#selshefa21").selectpicker('refresh');
+        $("#selshefa22").selectpicker('refresh');
+        $("#selshefa31").selectpicker('refresh');
+        $("#selshefa32").selectpicker('refresh');
+    }
+
+    $("#selshefa11").change(function () {
+        var selshefa11 = $("#selshefa11").val();
+        $("#selshefa12 option").remove();
+        var shefaid = "selshefa12";
+        shefapipei(shefaid, selshefa11)
+    });
+    $("#selshefa21").change(function () {
+        var selshefa21 = $("#selshefa21").val();
+        $("#selshefa22 option").remove();
+        var shefaid = "selshefa22";
+        shefapipei(shefaid, selshefa21)
+    });
+    $("#selshefa31").change(function () {
+        var selshefa31 = $("#selshefa31").val();
+        $("#selshefa32 option").remove();
+        var shefaid = "selshefa32";
+        shefapipei(shefaid, selshefa31)
+    })
+    function shefapipei(shefaid, selshefa) {
+        switch (selshefa) {
+            case "贪污贿赂":
+                $("#" + shefaid).append("<option value=''></option><option value='贪污'>贪污</option><option value='挪用公款'>挪用公款</option><option value='受贿'>受贿</option><option value='行贿'>行贿</option><option value='巨额财产来源不明'>巨额财产来源不明</option><option value='私分国有资产'>私分国有资产</option><option value='其他贪污贿赂行为'>其他贪污贿赂行为</option>");
+                break;
+            case "破坏社会主义经济秩序":
+                $("#" + shefaid).append("<option value=''></option><option value='挪用资金'>挪用资金</option><option value='职务侵占'>职务侵占</option><option value='非国家工作人员受贿'>非国家工作人员受贿</option><option value='私设“小金库”'>私设“小金库”</option><option value='其他破坏社会主义经济秩序行为'>其他破坏社会主义经济秩序行为</option>");
+                break;
+            case "失职渎职":
+                $("#" + shefaid).append("<option value=''></option><option value='滥用职权'>滥用职权</option><option value='玩忽职守'>玩忽职守</option><option value='徇私枉法'>徇私枉法</option><option value='安全责任事故'>安全责任事故</option><option value='其他失职渎职行为'>其他失职渎职行为</option>");
+                break;
+            case "侵犯公民人身权利民主权利":
+                $("#" + shefaid).append("<option value=''></option><option value=''></option>");
+                break;
+            case "妨害社会管理秩序":
+                $("#" + shefaid).append("<option value=''></option><option value='嫖娼'>嫖娼</option><option value='赌博'>赌博</option><option value='妨碍司法'>妨碍司法</option><option value='扰乱公共秩序'>扰乱公共秩序</option><option value='违反人口与计划生育法规'>违反人口与计划生育法规</option><option value='其他妨害社会管理秩序行为'>其他妨害社会管理秩序行为</option>");
+                break;
+            case "其他涉法行为":
+                $("#" + shefaid).append("<option value=''></option>");
+                break;
+        };
+        $("#" + shefaid).selectpicker('refresh');
+    };
+    $('#shefa_table').bootstrapTable({
+        method: 'post',
+        url: '/Case/LawBehaviour?ID=@item.ID',
+        title: "",
+        striped: true,
+        pagination: false,
+        clickToSelect: true,
+        pageSize: 10,
+        sidePagination: 'server',
+        pageList: [10, 20, 50, 100, 200, 500],
+        queryParamsType: 'limit',
+        columns: [
+            {
+                field: 'LawBehaviorType', title: '涉法行为', editable: false, width: 100
+            },
+            { field: 'LawBehaviorDetail', title: '涉法行为', editable: false, width: 100 },
+        ],
+    });
+    function delshefa(id) {
+        var shefaDeleteUrl = "/Person/shefaDelete?ID=" + id;
+        $('#id').val(id);//给会话中的隐藏属性URL赋值
+        $('#idName').val("ID");
+        $('#backMsg').val("shefa_table");
+        $('#urlDel').val(shefaDeleteUrl);
+        $('#urlBack').val(shefaurl);
+        $('#delcfmModel').modal();
+    }
+    function refeshGridshefa() {
+        $('#shefa_table').bootstrapTable("refresh", { url: '' });
+    }
+    function addMaimshefa() {;
+        var shefadata = "1" + $("#selshefa11").val() + $("#selshefa12").val() + "2" + $("#selshefa21").val() + $("#selshefa22").val() + "3" + $("#selshefa31").val() + $("#selshefa32").val();
+        $.ajax({
+            type: "POST",
+            url: '/Case/LawBehaviorSave?ID=@item.ID',
+            data: { LawBehaviorType1: $("#selshefa11").val(), LawBehaviorDetail1: $("#selshefa12").val(), LawBehaviorType2: $("#selshefa21").val(), LawBehaviorDetail2: $("#selshefa22").val(), LawBehaviorType3: $("#selshefa31").val(), LawBehaviorDetail3: $("#selshefa32").val() },
+            dataType: "json",
+            success: function (data) {
+                alert("数据提交成功");
+                refeshGridshefa();
+                $("#LawBehavior").val(data);
+            }
+        });
+    }
+    function shefaEdit(id) {
+        console.log("id=" + id);
+        $('#Maimshefa').modal();
+        $.ajax({
+            type: "POST",
+            url: '',
+            data: "ID=" + id,
+            dataType: "json",
+            success: function (data) {
+                $("#shefa").val();
+                $("#shefa2").val();
+                $("#id").val(data.ID);
+            },
+            error: function () {
+                alert("数据提交失败");
+            }
+        });
+    }
+    //违纪
+    $("#selweiji11").change(function () {
+        var selweiji1 = $("#selweiji11").val();
+        console.log(selweiji1)
+        $("#selweiji12 option").remove();
+        var id = "selweiji12"
+        weijipipei(id, selweiji1);
+        console.log(selweiji1);
+    });
+    $("#selweiji21").change(function () {
+        var selweiji2 = $("#selweiji21").val();
+        $("#selweiji22 option").remove();
+        var id = "selweiji22"
+        weijipipei(id, selweiji2);
+    });
+    $("#selweiji31").change(function () {
+        var selweiji3 = $("#selweiji31").val();
+        $("#selweiji32 option").remove();
+        var id = "selweiji32"
+        weijipipei(id, selweiji3);
+    })
+    function weijipipei(id, selweiji) {
+        switch (selweiji) {
+            case "违反政治纪律":
+                $("#" + id).append("<option value=''></option><option value='发表危害党的言论'>发表危害党的言论</option><option value='破坏党的团结统一'>破坏党的团结统一</option><option value='损害中央权威妨碍党和国家方针政策实施'>损害中央权威妨碍党和国家方针政策实施</option><option value='对抗组织审查'>对抗组织审查</option><option value='组织参加迷信活动'>组织参加迷信活动</option><option value='叛逃及在涉外活动中损害党和国家尊严利益'>叛逃及在涉外活动中损害党和国家尊严利益</option><option value='违反政治规矩'>违反政治规矩</option>");
+                break;
+            case "违反组织纪律":
+                $("#" + id).append("<option value=''></option><option value='违反民主集中制原则'>违反民主集中制原则</option><option value='侵犯党员权利'>侵犯党员权利</option><option value='违反组织工作原则'>违反组织工作原则</option><option value='违规办理因私出国（境）证件和在国（境）外擅自脱离组织'>违规办理因私出国（境）证件和在国（境）外擅自脱离组织</option>");
+                break;
+            case "违反廉洁纪律":
+                $("#" + id).append("<option value=''></option><option value='以权谋私'>以权谋私</option><option value='违规接受礼品礼金和服务'>违规接受礼品礼金和服务</option><option value='违规从事营利性活动'>违规从事营利性活动</option><option value='违反工作生活待遇规定'>违反工作生活待遇规定</option><option value='违规占有使用公款公物'>违规占有使用公款公物</option><option value='违反厉行节约反对浪费规定'>违反厉行节约反对浪费规定</option><option value='权色或钱色交易'>权色或钱色交易</option><option value='其他违反廉洁纪律行为'>其他违反廉洁纪律行为</option>");
+                break;
+            case "违反群众纪律":
+                $("#" + id).append("<option value=''></option><option value='侵害群众利益'>侵害群众利益</option><option value='漠视群众利益'>漠视群众利益</option><option value='侵犯群众知情权'>侵犯群众知情权</option><option value='其他违反群众纪律行为'>其他违反群众纪律行为</option>");
+                break;
+            case "违反工作纪律":
+                $("#" + id).append("<option value=''></option><option value='党组织失职'>党组织失职</option><option value='滥用职权和玩忽职守'>滥用职权和玩忽职守</option><option value='失泄密'>失泄密</option><option value='违反外事工作纪律'>违反外事工作纪律</option><option value='其他违反工作纪律行为'>其他违反工作纪律行为</option>");
+                break;
+            case "违反生活纪律":
+                $("#" + id).append("<option value=''></option><option value='生活奢靡'>生活奢靡</option><option value='违背家庭伦理和社会道德'>违背家庭伦理和社会道德</option><option value='其他违反生活纪律行为'>其他违反生活纪律行为</option>");
+                break;
+        };
+        $("#" + id).selectpicker('refresh');
+    };
+    function zhikong() {
+        $("#selweiji11").val('');
+        $("#selweiji12").val('');
+        $("#selweiji21").val('');
+        $("#selweiji22").val('');
+        $("#selweiji31").val('');
+        $("#selweiji32").val('');
+        $("#selweiji11").selectpicker('refresh');
+        $("#selweiji12").selectpicker('refresh');
+        $("#selweiji21").selectpicker('refresh');
+        $("#selweiji22").selectpicker('refresh');
+        $("#selweiji31").selectpicker('refresh');
+        $("#selweiji32").selectpicker('refresh');
+    };
+    $('#weiji_table').bootstrapTable({
+        method: 'get',
+        url: '/Case/IllegalBehavior?ID=@item.ID',
+        title: "违纪行为",
+        toolbar: '#toolbar',    //工具按钮用哪个容器
+        striped: true,      //是否显示行间隔色
+        cache: false,      //是否使用缓存默认为true所以一般情况下需要设置一下这个属性（*）
+        pagination: false,     //是否显示分页（*）
+        sortable: false,      //是否启用排序
+        pageNumber: 1,      //初始化加载第一页默认第一页
+        pageSize: 10,      //每页的记录行数（*）
+        pageList: [10, 25, 50, 100],  //可供选择的每页的行数（*）
+        queryParamsType: '', //默认值为 'limit' ,在默认情况下 传给服务端的参数为：offset,limit,sort
+        sidePagination: "server",   //分页方式：client客户端分页server服务端分页（*）
+        strictSearch: true,
+        minimumCountColumns: 2,    //最少允许的列数
+        clickToSelect: true,    //是否启用点击选中行
+        columns: [
+            {
+                field: 'IllegalBehaviorType', title: '违纪行为', editable: false, width: 100
+            },
+            { field: 'IllegalBehaviorDetail', title: '违纪行为', editable: false, width: 100 },
+
+        ],
+    });
+
+    function delweiji(id) {
+        var weijiDeleteUrl = "/Person/weijiDelete?ID=" + id;
+        $('#id').val(id);//给会话中的隐藏属性URL赋值
+        $('#idName').val("ID");
+        $('#backMsg').val("weiji_table");
+        $('#urlDel').val(weijiDeleteUrl);
+        $('#urlBack').val(weijiurl);
+        $('#delcfmModel').modal();
+    }
+    function refeshGridweiji() {
+        $('#weiji_table').bootstrapTable("refresh", { url: '' });
+    }
+    function addMaimweiji() {
+        $.ajax({
+            type: "POST",
+            url: '/Case/IllegalBehaviorSave?ID=@item.ID',
+            data: { IllegalBehaviorType1: $("#selweiji11").val(), IllegalBehaviorDetail1: $("#selweiji12").val(), IllegalBehaviorType2: $("#selweiji21").val(), IllegalBehaviorDetail2: $("#selweiji22").val(), IllegalBehaviorType3: $("#selweiji31").val(), IllegalBehaviorDetail3: $("#selweiji32").val() },
+            dataType: "json",
+            success: function (data) {
+                alert("数据提交成功");
+                refeshGridweiji();
+                $("#IllegalBehavior").val(data);
+            }
+        });
+    }
+    function weijiEdit(id) {
+        console.log("id=" + id);
+        $('#Maimweiji').modal();
+        $.ajax({
+            type: "POST",
+            url: '',
+            data: "ID=" + id,
+            dataType: "json",
+            success: function (data) {
+                $("#weiji").val();
+                $("#weiji2").val();
+                $("#id").val(data.ID);
+            },
+            error: function () {
+                alert("数据提交失败");
+            }
+        });
+    }
+</script>

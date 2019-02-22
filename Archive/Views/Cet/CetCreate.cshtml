@@ -1,0 +1,95 @@
+﻿@using Model;
+@{
+    Layout = null;
+    Cet item = ViewBag.cet;
+
+}
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+
+    @RenderPage("~/Views/Share/bootstrap.cshtml")
+    <link href="~/Resource/plugins/radio/css/jquery-labelauty.css" rel="stylesheet" />
+    <script src="~/Resource/plugins/radio/js/jquery-labelauty.js"></script>
+</head>
+<body>
+
+
+    <div>
+        <form id="CetInfo" method="post" class="form-inline">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3 class="Gradient">四六级成绩编辑</h3>
+                </div>                
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="WorkUnit">学号：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    <input class="form-control" type="text" id="ID" name="ID" value="" required />
+                </div>
+
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="Name">姓名：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    <input class="form-control" type="text" id="Name" name="Name" value="" required />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="Gender">四级成绩：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    <input class="form-control" type="text" id="Cet4" name="Cet4" value="" required />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="BirthData">六级成绩：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    <input class="form-control" type="text" id="Cet6" name="Cet6" value="" required />
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div align="center" style="margin:20px 0px;">
+        <button type="button" class="btn btn-primary" onclick="CetListSubmit()">保存</button>
+        <button type="button" class="btn btn-default" onclick="javascript: window.history.back(-1);">返回</button>
+    </div>
+    
+
+
+    
+</body>
+
+<script type="text/javascript">
+
+
+    function CetListSubmit() {
+        $('#CetInfo').form('submit', {
+            url: "/Cet/Save",
+            onSubmit: function () {
+                var Name = $('#Name').val();
+                var ID = $('#ID').val();
+
+                if (Name == "" || ID == "") {
+                    alert("学号和姓名不能为空")
+                    return false;
+                }
+            },
+            success: function (data) {
+                alert("保存成功");
+                window.history.back();
+            }
+        });
+    }
+    function Canel() {
+        window.history.back();
+    }
+    function zhikong() {
+        $("#ReLaTitle").val("");
+        $("#RelaName").val("");
+        $("#RelaAge").val("");
+        $("#RelaPoliticsStatus").val("");
+        $("#RelaWorkUnit").val("");
+        $("#Relation_id").val("");
+    }
+</script>

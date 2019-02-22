@@ -1,0 +1,1380 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ArchiveSZGXModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AccountInfo" EntityType="ArchiveSZGXModel.AccountInfo" />
+    <EntitySet Name="AdjustInfo" EntityType="ArchiveSZGXModel.AdjustInfo" />
+    <EntitySet Name="Affix" EntityType="ArchiveSZGXModel.Affix" />
+    <EntitySet Name="Assess" EntityType="ArchiveSZGXModel.Assess" />
+    <EntitySet Name="AssetCaseInfo" EntityType="ArchiveSZGXModel.AssetCaseInfo" />
+    <EntitySet Name="AssetGoodsInfo" EntityType="ArchiveSZGXModel.AssetGoodsInfo" />
+    <EntitySet Name="AssetMoneyInfo" EntityType="ArchiveSZGXModel.AssetMoneyInfo" />
+    <EntitySet Name="BriberyInfo" EntityType="ArchiveSZGXModel.BriberyInfo" />
+    <EntitySet Name="CaseInfo" EntityType="ArchiveSZGXModel.CaseInfo" />
+    <EntitySet Name="CaseInfo1" EntityType="ArchiveSZGXModel.CaseInfo1" />
+    <EntitySet Name="ClueInfo" EntityType="ArchiveSZGXModel.ClueInfo" />
+    <EntitySet Name="ClueLink" EntityType="ArchiveSZGXModel.ClueLink" />
+    <EntitySet Name="CrimeInfo" EntityType="ArchiveSZGXModel.CrimeInfo" />
+    <EntitySet Name="DataAccount" EntityType="ArchiveSZGXModel.DataAccount" />
+    <EntitySet Name="DataCase" EntityType="ArchiveSZGXModel.DataCase" />
+    <EntitySet Name="DataDiscipline" EntityType="ArchiveSZGXModel.DataDiscipline" />
+    <EntitySet Name="DataFirstForm" EntityType="ArchiveSZGXModel.DataFirstForm" />
+    <EntitySet Name="DataFourForms" EntityType="ArchiveSZGXModel.DataFourForms" />
+    <EntitySet Name="DataScore" EntityType="ArchiveSZGXModel.DataScore" />
+    <EntitySet Name="DataUnit" EntityType="ArchiveSZGXModel.DataUnit" />
+    <EntitySet Name="DeclareInfo" EntityType="ArchiveSZGXModel.DeclareInfo" />
+    <EntitySet Name="Dept" EntityType="ArchiveSZGXModel.Dept" />
+    <EntitySet Name="FirstForm" EntityType="ArchiveSZGXModel.FirstForm" />
+    <EntitySet Name="FourForms" EntityType="ArchiveSZGXModel.FourForms" />
+    <EntitySet Name="GiftInfo" EntityType="ArchiveSZGXModel.GiftInfo" />
+    <EntitySet Name="Handle" EntityType="ArchiveSZGXModel.Handle" />
+    <EntitySet Name="JD_Advice" EntityType="ArchiveSZGXModel.JD_Advice" />
+    <EntitySet Name="JD_Meeting" EntityType="ArchiveSZGXModel.JD_Meeting" />
+    <EntitySet Name="JD_Punish" EntityType="ArchiveSZGXModel.JD_Punish" />
+    <EntitySet Name="JD_RiskInfo" EntityType="ArchiveSZGXModel.JD_RiskInfo" />
+    <EntitySet Name="JD_Supervise" EntityType="ArchiveSZGXModel.JD_Supervise" />
+    <EntitySet Name="JD_Tour" EntityType="ArchiveSZGXModel.JD_Tour" />
+    <EntitySet Name="Log" EntityType="ArchiveSZGXModel.Log" />
+    <EntitySet Name="Menu" EntityType="ArchiveSZGXModel.Menu" />
+    <EntitySet Name="NoticeBoard" EntityType="ArchiveSZGXModel.NoticeBoard" />
+    <EntitySet Name="Person" EntityType="ArchiveSZGXModel.Person" />
+    <EntitySet Name="PersonCharge" EntityType="ArchiveSZGXModel.PersonCharge" />
+    <EntitySet Name="PersonItem" EntityType="ArchiveSZGXModel.PersonItem" />
+    <EntitySet Name="RelationInfo" EntityType="ArchiveSZGXModel.RelationInfo" />
+    <EntitySet Name="Resume" EntityType="ArchiveSZGXModel.Resume" />
+    <EntitySet Name="Rewards" EntityType="ArchiveSZGXModel.Rewards" />
+    <EntitySet Name="Role" EntityType="ArchiveSZGXModel.Role" />
+    <EntitySet Name="RoleFuncData" EntityType="ArchiveSZGXModel.RoleFuncData" />
+    <EntitySet Name="RoleMenu" EntityType="ArchiveSZGXModel.RoleMenu" />
+    <EntitySet Name="TalkQuery" EntityType="ArchiveSZGXModel.TalkQuery" />
+    <EntitySet Name="Unit" EntityType="ArchiveSZGXModel.Unit" />
+    <EntitySet Name="UnitItem" EntityType="ArchiveSZGXModel.UnitItem" />
+    <EntitySet Name="UserDept" EntityType="ArchiveSZGXModel.UserDept" />
+    <EntitySet Name="Users" EntityType="ArchiveSZGXModel.Users" />
+  </EntityContainer>
+  <EntityType Name="AccountInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="HandleDept" Type="Guid" />
+    <Property Name="HandleStaff" Type="Guid" />
+    <Property Name="PersonID" Type="Guid" />
+    <Property Name="KeyTrade" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="KeyArea" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PersonName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IDCard" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PersonGender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PersonPolitic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PersonArea" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PersonUnit" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PersonDuty" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PersonLevel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AccountType" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="IsAssigned" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IsTwoDid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="HandleUnit" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="HandleTime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="AccountNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DueTime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MainProblem" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="BriefCase" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="HandleDetail" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Remark" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Timestamp" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="AdjustInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="HandleDept" Type="Guid" />
+    <Property Name="HandleStaff" Type="Guid" />
+    <Property Name="PersonID" Type="Guid" />
+    <Property Name="PersonName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IDCard" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PersonUnit" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PersonDuty" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="AdjustTime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="FilingUnit" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FilingCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="AdjustType" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="AdjustReason" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="WagesChange" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Remark" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Timestamp" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="Affix">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="MasterID" Type="Guid" />
+    <Property Name="Prev" Type="Guid" />
+    <Property Name="Next" Type="Guid" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FileName" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="SaveName" Type="String" Nullable="false" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="FileExtension" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="ContentType" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Content" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="Timestamp" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="Assess">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="HandleDept" Type="Guid" />
+    <Property Name="HandleStaff" Type="Guid" />
+    <Property Name="PersonID" Type="Guid" />
+    <Property Name="AssessYear" Type="Int32" />
+    <Property Name="Result" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Timestamp" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="AssetCaseInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="HandleDept" Type="Guid" />
+    <Property Name="HandleStaff" Type="Guid" />
+    <Property Name="PersonID" Type="Guid" />
+    <Property Name="CaseName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CaseCode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="UnderTakenDept" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="UnderTakenStaff" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PersonName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PersonIDCard" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ObjectName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="UnderTaker" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="SaveCharger" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DetainDate" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DetainReason" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FormedDate" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="HandleDate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="TransferWorker" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ReceiveWorker" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="TransferDate" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ReceiveDate" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Remark" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Timestamp" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="AssetGoodsInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="HandleDept" Type="Guid" />
+    <Property Name="HandleStaff" Type="Guid" />
+    <Property Name="PersonID" Type="Guid" />
+    <Property Name="MasterID" Type="Guid" />
+    <Property Name="GoodsCode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="OriginalHolder" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Account" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Spec" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="unit" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="Double" />
+    <Property Name="Description" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="SaveMethod" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="HandleMethod" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="HandleStatus" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="HandleDate" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Remark" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="GoodsProperty" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Timestamp" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="AssetMoneyInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="HandleDept" Type="Guid" />
+    <Property Name="HandleStaff" Type="Guid" />
+    <Property Name="PersonID" Type="Guid" />
+    <Property Name="MasterID" Type="Guid" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Account" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Spec" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="SaveDept" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="HandleMethod" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="HandleStatus" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Remark" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Timestamp" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="BriberyInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="HandleDept" Type="Guid" />
+    <Property Name="HandleStaff" Type="Guid" />
+    <Property Name="Number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PersonID" Type="Guid" />
+    <Property Name="PersonIDCard" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PersonName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PersonUnit" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="PersonDuty" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="PersonLevel" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CaseName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Briber" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BriberIDCard" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BriberUnit" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="BriberDuty" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="BriberContact" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BriberResume" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="BriberAddress" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="BribeAccount" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BribeVoncher" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BribeValuables" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="TimeAndAddress" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="BriefCase" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="BriefReason" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="JusticeRecord" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Timestamp" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="CaseInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="HandleDept" Type="Guid" />
+    <Property Name="HandleStaff" Type="Guid" />
+    <Property Name="PersonID" Type="Guid" />
+    <Property Name="TableUnitCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TableUnitName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="IsUnit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CaseCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PersonCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PersonName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IDCard" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PersonGender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PersonAge" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PersonEducation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PersonPolitic" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PartyTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PersonUnit" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PersonUnitClassify" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PersonUnitClassify1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CompamyProperty" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CompamyProperty1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="LeaderDiscipline" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="IsSupervior" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PersonLevel" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="LevelType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CompanyStaffType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CurrentDutyTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="LossMisconduct" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="IllegalAccount" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="TotalAccount" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="MainIllegalTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FilingCensusTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FilingTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CaseUnit" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Measurement" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="MeasureTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="TwoGCensusTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="MeasureCloseTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="TwoMeasureUnit" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CloseCensusTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CancelTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ClosingTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Account" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PartyPunish" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PartyCensusTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="GovenPunish" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="GovenCensusTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="OtherPunish" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="OtherCensusTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="OrgMeasure" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="OrgCensusTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="JudicalTransferTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="TransferCensusTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="JudicalPunish" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="JudicalPunishSecond" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="MainPunishYear" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MainPunishMonth" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProbateYear" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ProbateMonth" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="JudicalCensusTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="LossSaving" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="BriefCase" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Remark" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="TakeoverAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IllegalFirstTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="IllegalLastTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="RunTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="RunCensusTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="HearTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="HearCensusTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="HearOrg" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="HearEndTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="HearEndCensusTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CaseSanction" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Nation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BirthDate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeputy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsCPPCC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsCivilServant" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PoliticDetail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="JudicalTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="JudicalAmount" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CaseApproval" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="CaseDecision" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="CaseInvestigation" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="CaseAdjudication" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="CaseExecution" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="LeaderDetail" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="LeaderDetail2" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="PartyObserveYear" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CompanyLevel" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="RunDirection" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="RunDirectionDetail" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="InvestigateEndTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="InvestigateEndCensusTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="GovenPunishEndTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="GovenEndReport" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="CaptureTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CaptureCensusTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CaseReportCensusTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CaseSource" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="IllegalBehavior" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="LawBehavior" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Post" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="PersonAuthority" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="TwoGEndCensusTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Timestamp" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="CaseInfo1">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="HandleDept" Type="Guid" />
+    <Property Name="HandleStaff" Type="Guid" />
+    <Property Name="PersonID" Type="Guid" />
+    <Property Name="TableUnitCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TableUnitName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="IsUnit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CaseCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PersonCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PersonName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IDCard" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PersonGender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PersonAge" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PersonEducation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PersonPolitic" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PartyTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PersonUnit" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PersonUnitClassify" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PersonUnitClassify1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CompamyProperty" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CompamyProperty1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="LeaderDiscipline" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="IsSupervior" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PersonLevel" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="LevelType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CompanyStaffType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CurrentDutyTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="LossMisconduct" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="IllegalAccount" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="TotalAccount" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="MainIllegalTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FilingCensusTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FilingTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CaseUnit" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Measurement" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="MeasureTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="TwoGCensusTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="MeasureCloseTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="TwoMeasureUnit" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CloseCensusTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CancelTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ClosingTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Account" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PartyPunish" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PartyCensusTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="GovenPunish" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="GovenCensusTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="OtherPunish" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="OtherCensusTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="OrgMeasure" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="OrgCensusTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="JudicalTransferTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="TransferCensusTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="JudicalPunish" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="JudicalPunishSecond" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="MainPunishYear" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MainPunishMonth" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProbateYear" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ProbateMonth" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="JudicalCensusTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="LossSaving" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="BriefCase" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Remark" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="TakeoverAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IllegalFirstTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="IllegalLastTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="RunTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="RunCensusTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="HearTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="HearCensusTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="HearOrg" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="HearEndTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="HearEndCensusTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CaseSanction" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Nation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BirthDate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeputy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsCPPCC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsCivilServant" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PoliticDetail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="JudicalTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="JudicalAmount" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CaseApproval" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="CaseDecision" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="CaseInvestigation" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="CaseAdjudication" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="CaseExecution" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="LeaderDetail" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="LeaderDetail2" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="PartyObserveYear" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CompanyLevel" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="RunDirection" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="RunDirectionDetail" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="InvestigateEndTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="InvestigateEndCensusTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="GovenPunishEndTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="GovenEndReport" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="CaptureTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CaptureCensusTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CaseReportCensusTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CaseSource" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="IllegalBehavior" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="LawBehavior" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Post" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="PersonAuthority" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="TwoGEndCensusTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Timestamp" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="ClueInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="HandleDept" Type="Guid" />
+    <Property Name="HandleStaff" Type="Guid" />
+    <Property Name="PersonID" Type="Guid" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="HandleType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ClueCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BarCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ClueMode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ClueDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ClueType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ClueSource" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ClueNum" Type="Int32" />
+    <Property Name="Urgency" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ObjType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ObjName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ObjIDCard" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ObjAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ObjAdminLvl" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ObjComMode" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ObjArea" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ObjPost" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ObjControler" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ObjIsManager" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ObjIsLeader" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ObjCardNum" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ObjSex" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ObjBirthday" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ObjNation" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ReflectIsSign" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ReflectName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ReflectAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ReflectAdminLvl" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ReflectLinkPhone" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ReflectArea" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ReflectPost" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ReflectEmail" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ReflectZipCode" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ReflectTxaddress" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ReflectNation" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ReflectSex" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ReflectPolitics" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ReflectVocation" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ReflectCardNumr" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="MainMode" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="BelongAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="OtherMode" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="KeyWord" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Des" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="Remark" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="ReplyNote" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="RollOut" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="TimeStamp" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="ClueLink">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="HandleDept" Type="Guid" />
+    <Property Name="HandleStaff" Type="Guid" />
+    <Property Name="PersonID" Type="Guid" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="HandleDeptName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="HandleStaffName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ClueCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BarCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ClueMode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ClueDate" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ClueType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ClueSource" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ClueNum" Type="Int32" />
+    <Property Name="Urgency" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ObjType" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ObjName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ObjAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ObjAdminLvl" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ObjComMode" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ObjArea" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ObjPost" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ObjControler" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ObjIsManager" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ObjIsLeader" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ObjCardNum" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ObjSex" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ObjBirthday" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ObjNation" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ReflectIsSign" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ReflectName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ReflectAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ReflectAdminLvl" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ReflectLinkPhone" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ReflectArea" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ReflectPost" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ReflectEmail" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ReflectZipCode" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ReflectTxaddress" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ReflectNation" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ReflectSex" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ReflectPolitics" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ReflectVocation" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ReflectCardNumr" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="MainMode" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="BelongAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="KeyWord" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Des" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Remark" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="ReplyNote" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="FillInDate" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Undertaker" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DeviseOpinion" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="DeptOpinion" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="LeaderInstruction" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="SaveDate" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="HandleType" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ViolateDate" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CrimeDate" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="UndertakeDate" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="HandleSource" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="QuestionNature" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CrimeMoney" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="BasicInfo" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="ClueSourceAndMainProblem" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="HandleMethod" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="HandleReasonAndProgress" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Notes" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="InvestigateOpinion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="UndertakeDeptOpinion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="DeptLeaderOpinion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="MainLeaderOpinion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="TimeStamp" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="CrimeInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="HandleDept" Type="Guid" />
+    <Property Name="HandleStaff" Type="Guid" />
+    <Property Name="PersonID" Type="Guid" />
+    <Property Name="PersonName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PersonUnit" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PersonDuty" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PersonPolitic" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CaseType" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FilingTime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ClosingTime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CaseUnit" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CaseCode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ReportUnit" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ReportDate" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="HandoverDate" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PenaltyType" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PenaltyInfo" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="Remark" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="Examine" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ExamineTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Timestamp" Type="DateTime" />
+    <Property Name="IDCard" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="DataAccount">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Area" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CountDate" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="AccountTotal" Type="Int32" />
+    <Property Name="AccountType1" Type="Int32" />
+    <Property Name="AccountType2" Type="Int32" />
+    <Property Name="AccountType3" Type="Int32" />
+    <Property Name="AccountType4" Type="Int32" />
+    <Property Name="AccountType5" Type="Int32" />
+    <Property Name="AccountType6" Type="Int32" />
+    <Property Name="AccountType7" Type="Int32" />
+    <Property Name="AccountType8" Type="Int32" />
+    <Property Name="AccountType9" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Timestamp" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="DataCase">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Area" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CountDate" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ClueTotal" Type="Int32" />
+    <Property Name="TalkTotal" Type="Int32" />
+    <Property Name="CaseTotal" Type="Int32" />
+    <Property Name="CaseOwn" Type="Int32" />
+    <Property Name="Case1" Type="Int32" />
+    <Property Name="Case2" Type="Int32" />
+    <Property Name="CaseClose" Type="Int32" />
+    <Property Name="HandlePerson" Type="Int32" />
+    <Property Name="PartyPunish" Type="Int32" />
+    <Property Name="GovernPunish" Type="Int32" />
+    <Property Name="CaseOne" Type="Int32" />
+    <Property Name="OrgPunish" Type="Int32" />
+    <Property Name="JudicialTransfer" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Timestamp" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="DataDiscipline">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Area" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CountDate" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Discipline1" Type="Int32" />
+    <Property Name="Discipline2" Type="Int32" />
+    <Property Name="Discipline3" Type="Int32" />
+    <Property Name="Discipline4" Type="Int32" />
+    <Property Name="Discipline5" Type="Int32" />
+    <Property Name="Discipline6" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Timestamp" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="DataFirstForm">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Area" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CountDate" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FirstFormTotal" Type="Int32" />
+    <Property Name="FirstFormType1" Type="Int32" />
+    <Property Name="FirstFormType2" Type="Int32" />
+    <Property Name="FirstFormType3" Type="Int32" />
+    <Property Name="FirstFormType4" Type="Int32" />
+    <Property Name="FirstFormType5" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Timestamp" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="DataFourForms">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Area" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CountDate" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Form1" Type="Int32" />
+    <Property Name="Form2" Type="Int32" />
+    <Property Name="Form3" Type="Int32" />
+    <Property Name="Form4" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Timestamp" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="DataScore">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Area" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CountDate" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Score" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Timestamp" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="DataUnit">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="UnitID" Type="Guid" />
+    <Property Name="UnitName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Type" Type="Int32" />
+    <Property Name="Year" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Score" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DeclareInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="HandleDept" Type="Guid" />
+    <Property Name="HandleStaff" Type="Guid" />
+    <Property Name="PersonID" Type="Guid" />
+    <Property Name="DeclareDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="DeclareInfo1" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="DeclareResult" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Timestamp" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="Dept">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="DeptName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserID" Type="Guid" />
+    <Property Name="ParentID" Type="Guid" />
+    <Property Name="Sequence" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="Timestamp" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="FirstForm">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="HandleDept" Type="Guid" />
+    <Property Name="HandleStaff" Type="Guid" />
+    <Property Name="PersonID" Type="Guid" />
+    <Property Name="KeyTrade" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="KeyArea" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PersonName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IDCard" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PersonPolitic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PersonArea" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PersonGender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PersonUnit" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PersonDuty" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PersonLevel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FirstFormType" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="IsAssigned" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IsTwoDid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="HandlePerson" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="HandleIDCard" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="HandleDuty" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="HandleLevel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="HandleUnit" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="HandleTime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="HandleDetail" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="MainProblem" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Reform" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="Remark" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Timestamp" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="FourForms">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="HandleDept" Type="Guid" />
+    <Property Name="HandleStaff" Type="Guid" />
+    <Property Name="PersonID" Type="Guid" />
+    <Property Name="FourFormNO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IsUnit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UnitName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ReportStaff" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CheckStaff" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ReportDate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="UnitCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IsCensusMark" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ClueCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PersonCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PersonName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PersonIDCard" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Politic" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PersonAuthority" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="PersonUnit" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PersonDuty" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="IsSupervision" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PersonLevel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RetrieveEconomicLoss" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CaptureAssetMoney" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="OrgMeasure" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="HandleUnit" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="MainClue" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="HandleRemark" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Nation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ChildID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BirthDate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeputy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsCPPCC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsCivilServant" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PoliticDetail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="HandleReport" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="ReportID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PartyTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="SecondLevel" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="AcceptTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Handle1Time" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Handle1CensusTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="HandleType1First" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="HandleType1Second" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Handle2Time" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Handle2CensusTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="HandleType2First" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="HandleType2Second" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Handle3Time" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Handle3CensusTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="HandleType3First" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="HandleType3Second" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Handle4Time" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Handle4CensustTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="HandleType4First" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="HandleType4Second" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Handle5Time" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Handle5Census" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="HandleType5First" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="HandleType5Second" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Handle6Time" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Handle6CensusTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="HandleType6First" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="HandleType6Second" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Handle7Time" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Handle7CensusTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="HandleType7First" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="HandleType7Second" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Handle8Time" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Handle8CensusTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="HandleType8First" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="HandleType8Second" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IsRepeated" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ClueSource" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="IllegalBehavior" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="LawBehaviour" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="IsChecked" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Timestamp" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="GiftInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="HandleStaff" Type="Guid" />
+    <Property Name="HandleDept" Type="Guid" />
+    <Property Name="PersonID" Type="Guid" />
+    <Property Name="ObjName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IDCard" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="HandInTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="HandInAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="UnderTakenDept" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="UnderTakenStaff" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ReceiveStaff" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Remark" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Timestamp" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="Handle">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="HandleStaff" Type="Guid" />
+    <Property Name="HandleDept" Type="Guid" />
+    <Property Name="PersonID" Type="Guid" />
+    <Property Name="ClueID" Type="Guid" />
+    <Property Name="HandleType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="HandleLink" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TargetName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="IDCard" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Sex" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="DOB" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PartyDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="WorkDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Culture" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Dept" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Post" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ViolateDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ClueSource" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CrimeDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="QuestionNature" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CrimeMoney" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="UndertakeDate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="MainFact" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="InvestigateOpinion" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="InvestigateOpinionDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="UndertakeDeptOpinion" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="UndertakeDeptOpinionDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MainLeaderOpinion" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="MainLeaderOpinionDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Notes" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="SubmitDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Age" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Nation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UndertakeDeptOpinionSign" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DeptLeaderOpinion" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="DeptLeaderOpinionSign" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DeptLeaderOpinionDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MainLeaderOpinionSign" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FillInDept" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FillInPerson" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ClueCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="SaveDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="RefNum" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="DealDept" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DealOpinion" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="UndertakerOpinion" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="UndertakeDept" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Undertaker" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FinishDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="BasicInfo" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="ClueSourceAndMainProblem" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="HandleMethod" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="HandleReasonAndProgress" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="Reply" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="TimeStamp" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="JD_Advice">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="HandleDept" Type="Guid" />
+    <Property Name="HandleStaff" Type="Guid" />
+    <Property Name="UnitID" Type="Guid" />
+    <Property Name="HandleTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="HandleType" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="ReplyTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="SenderUnit" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="WatchResult" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="SenderTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="AgainTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="MainProblem" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="CountTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Result" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Handle" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Timestamp" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="JD_Meeting">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="HandleDept" Type="Guid" />
+    <Property Name="HandleStaff" Type="Guid" />
+    <Property Name="UnitID" Type="Guid" />
+    <Property Name="MeetingType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="MeetingTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Position" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PartyInfo" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="PZInfo" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="HasLeader" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ZJInfo" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="MainProblem" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="Reform" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Timestamp" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="JD_Punish">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="HandleDept" Type="Guid" />
+    <Property Name="HandleStaff" Type="Guid" />
+    <Property Name="UnitID" Type="Guid" />
+    <Property Name="SubID" Type="Guid" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="WorkDuty" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="WorkLevel" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="HandleTime" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="DocNo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="FourForms" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="PartyPunish" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="GovenPunish" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Des" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Timestamp" Type="DateTime" />
+    <Property Name="Item" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="JD_RiskInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="HandleDept" Type="Guid" />
+    <Property Name="HandleStaff" Type="Guid" />
+    <Property Name="UnitID" Type="Guid" />
+    <Property Name="SubID" Type="Guid" />
+    <Property Name="Item" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Risk" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Des" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Handle" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Timestamp" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="JD_Supervise">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="HandleDept" Type="Guid" />
+    <Property Name="HandleStaff" Type="Guid" />
+    <Property Name="UnitID" Type="Guid" />
+    <Property Name="HandleTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Problem" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Advice" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="ReplyTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CountResult" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="CountTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Handle" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Timestamp" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="JD_Tour">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="HandleDept" Type="Guid" />
+    <Property Name="HandleStaff" Type="Guid" />
+    <Property Name="UnitID" Type="Guid" />
+    <Property Name="HandleTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="HandleUnit" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="RequestInfo" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="Handle" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Timestamp" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="Log">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="UserID" Type="Guid" />
+    <Property Name="OptTime" Type="DateTime" />
+    <Property Name="IP" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OptType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Content" Type="String" MaxLength="10000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Icon" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ParentID" Type="Guid" />
+    <Property Name="Url" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Sequence" Type="Int32" />
+    <Property Name="Timestamp" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="NoticeBoard">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="HandleStaff" Type="Guid" />
+    <Property Name="HandleDept" Type="Guid" />
+    <Property Name="Type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ReportTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ReportTitle" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ReportUnit" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DocNo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Keyword" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="ViewCount" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Timestamp" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="Person">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="HandleStaff" Type="Guid" />
+    <Property Name="HandleDept" Type="Guid" />
+    <Property Name="IdCard" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UnitID" Type="Guid" />
+    <Property Name="WorkUnit" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="WorkDuty" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="WorkLevel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DutyTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="LevelTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="WorkTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Nation" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Photo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="NativePlace" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BirthDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="BirthPlace" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="GrowPlace" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PartyDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PoliticsStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Marriage" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Health" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Education" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="School" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Major" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="MajorSchool" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Sequence" Type="Int32" />
+    <Property Name="MobilePhone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="TelePhone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Skill" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="SpecialDuty" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ParttimeJob" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Resume" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Rewards" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Timestamp" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="PersonCharge">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="PersonID" Type="Guid" />
+    <Property Name="UnitName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="UnitID" Type="Guid" />
+  </EntityType>
+  <EntityType Name="PersonItem">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="PersonID" Type="Guid" />
+    <Property Name="ReportTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ReportType" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ReportTitle" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Content" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="HandleType" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Handle" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Timestamp" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="RelationInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="HandleDept" Type="Guid" />
+    <Property Name="HandleStaff" Type="Guid" />
+    <Property Name="PersonID" Type="Guid" />
+    <Property Name="IDCard" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PersonName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Title" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="RelationIDCard" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="BirthDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PoliticsStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="WorkUnit" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="WorkLevel" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Timestamp" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="Resume">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="PersonID" Type="Guid" />
+    <Property Name="PersonName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CurrentDuty" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="IDCard" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="StartDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="EndDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Experience" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Timestamp" Type="DateTime" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rewards">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="PersonID" Type="Guid" />
+    <Property Name="Type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="GetTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Reason" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="GetUnit" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Doc" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Remark" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Timestamp" Type="DateTime" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Rank" Type="Int32" />
+    <Property Name="Url" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="Timestamp" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="RoleFuncData">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="RoleId" Type="Guid" />
+    <Property Name="FuncName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DeptList" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Timestamp" Type="DateTime" />
+    <Property Name="IsChecked" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="RoleMenu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="RoleID" Type="Guid" />
+    <Property Name="MenuID" Type="Guid" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="Timestamp" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="TalkQuery">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="HandleDept" Type="Guid" />
+    <Property Name="HandleStaff" Type="Guid" />
+    <Property Name="ReceiveDate" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="IsRepeat" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ClueSource" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ClueCode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PersonID" Type="Guid" />
+    <Property Name="PersonName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IDCard" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PersonGender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PersonPolitic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PersonUnit" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PersonDuty" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PersonLevel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PersonPhone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="MainProblem" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="ApprovalDate" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="HandleType" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="SendLetterDate" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="IsCC" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ReceiveLetterDate" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="TalkDate" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="TalkArea" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="HandleDate" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FirstFormType" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Result" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="ResultTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Reform" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="ArchiveDate" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Remark" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Timestamp" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="Unit">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="UnitName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ParentID" Type="Guid" />
+    <Property Name="DeptID" Type="Guid" />
+    <Property Name="Sequence" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Type" Type="Int32" />
+    <Property Name="Timestamp" Type="DateTime" />
+    <Property Name="Score" Type="Int32" />
+  </EntityType>
+  <EntityType Name="UnitItem">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="UnitID" Type="Guid" />
+    <Property Name="HandleDept" Type="Guid" />
+    <Property Name="HandleStaff" Type="Guid" />
+    <Property Name="ReportTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ReportType" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ReportTitle" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Content" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="IsSync" Type="Int32" />
+    <Property Name="ViewCount" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Timestamp" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="UserDept">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="UserID" Type="Guid" />
+    <Property Name="DeptID" Type="Guid" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="Timestamp" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="DeptID" Type="Guid" />
+    <Property Name="RoleID" Type="Guid" />
+    <Property Name="MasterID" Type="Guid" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RealName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Rank" Type="Int32" />
+    <Property Name="IsKeyNode" Type="Boolean" Nullable="false" />
+    <Property Name="MasterType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IP" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="Timestamp" Type="DateTime" />
+  </EntityType>
+</Schema>

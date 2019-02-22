@@ -1,0 +1,109 @@
+﻿    @media print {
+        a[href]:after {
+            content: none !important;
+        }
+    }
+ .row {
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+    }
+
+        .row label {
+            float: right;
+            padding-top: 8px;
+        }
+
+        .row input {
+            width: 100% !important;
+        }
+
+    .form-group {
+        width: 100%;
+    }
+
+    .row select {
+        width: 100% !important;
+    }
+
+    .row textarea {
+        width: 100% !important;
+    }
+
+    .margin-top-10 {
+        margin-top: 10px;
+    }
+
+    .uploadifive-button {
+        width: auto !important;
+        height: 38px !important;
+    }
+
+    .uploadifive-queue-item {
+        margin-top: 0px !important;
+        padding: 5px !important;
+        height: 38px !important;
+        border: 1px dotted #D5D5D5;
+        background-color: #ffffff !important;
+    }
+
+    .table th, .table td {
+        text-align: center;
+        vertical-align: middle !important;
+    }
+
+    .bootstrap-select > select {
+        left: 0px;
+    }
+
+    .layer-date {
+        max-width: none;
+    }
+
+    .Gradient {
+        width: 80%;
+        padding: 10px;
+        background: -ms-linear-gradient(right, #fff, #8fe3ff); /* IE 10 */
+        background: -moz-linear-gradient(right,#fff,#8fe3ff); /*火狐*/
+        background: -webkit-gradient(linear, 100% 0%, 0% 0%,from(#b8c4cb), to(#8fe3ff)); /*谷歌*/
+        background: -webkit-gradient(linear, 100% 0%, 0% 0%, from(#fff), to(#8fe3ff)); /* Safari 4-5, Chrome 1-9*/
+        background: -webkit-linear-gradient(right, #fff, #8fe3ff); /*Safari5.1 Chrome 10+*/
+        background: -o-linear-gradient(top, #fff, #8fe3ff); /*Opera 11.10+*/
+    }
+
+
+
+        .fixed-table-toolbar .bs-bars {
+            margin: 0px;
+        }
+
+    #myMasks {
+        width: 100%;
+        background-color: rgba(0,0,0,0.5);
+        z-index: 9999;
+        position: fixed;
+        top: 0px;
+        display: none;
+    }
+
+    .tooltip-inner {
+        background-color: #2F4050;
+    }
+
+    .tooltip.top .tooltip-arrow {
+        border-top-color: #2F4050;
+    }
+
+    .tooltip.right .tooltip-arrow {
+        border-right-color: #2F4050;
+    }
+
+    .tooltip.bottom .tooltip-arrow {
+        border-bottom-color: #2F4050;
+    }
+
+    .tooltip.left .tooltip-arrow {
+        border-left-color: #2F4050;
+    }
+    .layer-date{
+        font-size:14px !important;
+    }

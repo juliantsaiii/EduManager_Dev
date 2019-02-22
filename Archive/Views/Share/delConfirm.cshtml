@@ -1,0 +1,48 @@
+﻿<div class="modal fade" id="delcfmModel" style="z-index:20000000">
+    <div class="modal-dialog" style="width:300px;">
+        <div class="modal-content message_align">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">提示信息</h4>
+            </div>
+            <div class="modal-body">
+                <p>您确认要删除吗？</p>
+            </div>
+            <div class="modal-footer">
+                <input type="hidden" id="id" />
+                <input type="hidden" id="idName" />
+                <input type="hidden" id="backMsg" />
+                <input type="hidden" id="urlDel" />
+                <input type="hidden" id="urlBack" />
+                <button type="button" class="layui-btn layui-btn-primary layui-btn-sm" data-dismiss="modal">取消</button>
+                <a onclick="idSubmit()" class="btn btn-danger btn-sm" data-dismiss="modal">确定</a>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+<script>
+    function idSubmit() {
+        var id = $("#id").val();
+        var idName = $("#idName").val();
+        var backMsg = $("#backMsg").val();
+        var urlDel = $("#urlDel").val();
+        var urlBack = $("#urlBack").val();
+        $.ajax({
+            type: "POST",
+            url: urlDel,
+            data: id,
+            success: function (msg) {
+                //var fun = new getFunByName(fun_name);
+                //fun.func();
+                //console.log(urlBack);
+                $('#' + backMsg).bootstrapTable("refresh", { url: urlBack });
+                console.log(backMsg);
+                try{
+                    queryDataGrid();}
+                catch (err) {
+                    console.log(err);
+                }
+            }
+        });
+    }
+</script>

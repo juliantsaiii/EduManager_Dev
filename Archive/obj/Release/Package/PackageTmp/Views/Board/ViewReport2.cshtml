@@ -1,0 +1,333 @@
+﻿@using Model;
+@{
+    Layout = null;
+    NoticeBoard item = ViewBag.NoticeBoard;
+
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    @RenderPage("~/Views/Share/bootstrap.cshtml")
+    <script src="~/Web/guid.js"></script>
+    <style>
+        .fixed-table-container {
+            border: none !important;
+        }
+
+        .col-xs-9 span {
+            height: 42px;
+            line-height: 38px;
+        }
+    </style>
+
+</head>
+<body>
+    <input type="hidden" id="url" />
+    <div class="mySearch">
+        <div class="row">
+            <div class="col-md-12" style="padding:10px 0px">
+                <div class="row">
+
+
+                    <div class="col-xs-1">
+                        <label>标题：</label>
+                    </div>
+
+                    <div class="col-xs-2">
+                        <input class="form-control" type="text" name="Title" id="qry_Title" />
+                    </div>
+                    <div class="col-xs-1">
+                        <label>关键词：</label>
+                    </div>
+
+                    <div class="col-xs-2">
+                        <input class="form-control" type="text" name="Title" id="qry_Keyword" />
+                    </div>
+                    <div class="col-xs-1">
+                        <label>文号：</label>
+                    </div>
+
+                    <div class="col-xs-2">
+                        <input class="form-control" type="text" name="Title" id="qry_DocNo" />
+                    </div>
+                    <div class="col-xs-2">
+                        <button class="layui-btn layuiadmin-btn-list" onclick="queryDataGrid()">
+                            <i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>
+                        </button>
+                        <button class="layui-btn layui-btn-primary layuiadmin-btn-list" onclick="myClear()">
+                            <i class="layui-icon layui-icon-refresh-1 layuiadmin-button-btn"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div style="width:100%;">
+                <table id="BoardList_table" class="table table-no-bordered table-striped table-hover"></table>
+            </div>
+        </div>
+    </div>
+
+
+    <!--添加编辑界面-->
+    <div id="EditBoard" style="display:none">
+
+        <div class="row">
+            <div class="col-xs-3">
+                <label class="margin-5 margin-top-10">发布单位：</label>
+            </div>
+            <div class="col-xs-9 margin-top-10">
+                <span name="ReportUnit" id="ReportUnit"></span>
+            </div>
+        </div>
+        <div class="row">
+            <input class="form-control" type="hidden" name="ID" id="KeyItemID" />
+
+            <div class="col-xs-3">
+                <label class="margin-5 margin-top-10">发布时间：</label>
+            </div>
+            <div class="col-xs-9 margin-top-10">
+                <span name="ReportUnit" id="ReportTime"></span>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-3">
+                <label class="margin-5 margin-top-10">标题：</label>
+            </div>
+            <div class="col-xs-9 margin-top-10">
+                <span name="ReportUnit" id="ReportTitle"></span>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-xs-3">
+                <label class="margin-5 margin-top-10">文号：</label>
+
+            </div>
+            <div class="col-xs-9 margin-top-10">
+                <span name="ReportUnit" id="DocNo"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">
+                <label class="margin-5 margin-top-10">关键词：</label>
+
+            </div><div class="col-xs-9 margin-top-10">
+                <span name="ReportUnit" id="Keyword"></span>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-12 margin-top-10">
+                <div style="width:100%;">
+                    <table id="KeyItemFile_table" class="table table-striped table-hover"></table>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+</body>
+
+</html>
+
+
+<script type="text/javascript">
+    var Boardurl = '/Board/GetReportList';
+
+    var list = [];
+    var data1 = [];
+
+    var SearchHeight = $(".mySearch").height();
+
+
+    $('#BoardList_table').bootstrapTable({
+        url: Boardurl,
+        height: $(window).height() - SearchHeight - 20,
+
+        title: "发布公告",
+        striped: true,
+        clickToSelect: true,
+        queryParamsType: '',
+        pageSize: 10,
+        sidePagination: 'server',
+        pageList: [10, 30, 50],
+        pagination: true,     //是否显示分页（*）
+        method: 'get',
+
+        columns: [
+            {
+                field: 'ReportUnit', title: '发布单位', editable: false, width: 100
+            },
+            {
+                field: 'ReportTime', title: '发布时间', editable: false, width: 100
+            },
+            { field: 'Type', title: '类型', editable: false, width: 100 },
+            { field: 'ReportTitle', title: '标题', editable: false, width: 200, halign: "center", align: "left" },
+            { field: 'DocNo', title: '文号', editable: false, width: 50 },
+            { field: 'Keyword', title: '关键词', editable: false, width: 50 },
+
+            { field: 'ViewCount', title: '浏览量', editable: false, width: 50 },
+
+            { field: '报告内容', title: '操作', width: 100, editable: false, formatter: operateFormatterBoardList },
+        ],
+
+        queryParams: function (params) {
+
+
+            return {
+                key1: $('#qry_Keyword').val(),
+                key2: $('#qry_DocNo').val(),
+                key3: $('#qry_Title').val(),
+                Type: "2",
+
+                pageSize: params.pageSize,
+                pageNumber: params.pageNumber
+            }
+        },
+    });
+    function operateFormatterBoardList(value, row, index) {
+        return [
+            '<a  href="javascript:BoardEdit(\'' + row.ID + '\')" id="btn_detail" type="button" class="layui-btn  layui-btn-sm" style="margin-right:20px;">查看详情</a>',
+        ].join('');
+    };
+
+    function refeshGridBoard() {
+        $('#BoardList_table').bootstrapTable("refresh", { url: Boardurl, pageNumber: 1 });
+    }
+
+
+
+
+    function BoardEdit(id) {
+        //$('#EditBoard').modal();
+
+        $.ajax({
+            type: "POST",
+            url: '/Board/ViewBoard',
+            data: "ID=" + id,
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
+                $("#ReportUnit").text(data.ReportUnit);
+                $("#DocNo").text(data.DocNo);
+                $("#Keyword").text(data.Keyword);
+
+                $("#KeyItemID").val(data.ID);
+
+                $("#ReportTime").text(data.ReportTime);
+                $("#ReportTitle").text(data.ReportTitle);
+
+                $("#Type").text(data.Type);
+                queryDataGrid();
+                //$("#dept").val(data.ReportDept).select2();
+
+
+                KeyItem_upload();
+                refeshEditKeyItemFileGrid();
+                LayerModalByID(data.ReportTitle, $("#EditBoard"));
+
+            },
+            error: function () {
+                alert("数据获取失败");
+            }
+        });
+    }
+
+
+    function KeyItem_upload() {
+        var a = 0;
+        $('#KeyItemfile_upload').uploadifive({
+            'auto': false,
+            'fileSizeLimit': '102400KB',
+            'buttonText': '浏  览',
+            'multi': true,
+            'removeCompleted': true,
+            'queueID': 'KeyItem_queue',
+            'uploadScript': '/File/Upload',
+            'formData': { 'ID': $("#KeyItemID").val(), 'type': '公告' },
+            'onUploadComplete': function (file, data) {
+                a = a + 1;
+                if ($("#KeyItem_queue").children().length - a == 0) {
+                    a = 0;
+                    KeyItem_checkCancel();
+                }
+            }
+        });
+    }
+    $('#KeyItemFile_table').bootstrapTable({
+        method: 'post',
+        url: '/File/GetList?ID=' + $("#KeyItemID").val() + '&Type=公告',
+        striped: true,
+        clickToSelect: true,
+        pageSize: 100,
+        sidePagination: 'server',
+        pageList: [10, 20, 50, 100, 200, 500],
+        queryParamsType: 'limit',
+        sortName: 'ID',
+        sortOrder: 'asc',
+        pagination: false,     //是否显示分页（*）
+
+        columns: [
+            { field: 'FileName', title: '文件名', width: 200, editable: false, },
+            { field: 'opt', title: '操作', width: 100, editable: false, formatter: KeyItemoperateFormatterHandleEdit },
+        ],
+
+    });
+    function KeyItemoperateFormatterHandleEdit(value, row, index) {
+        return [
+            '<a  href="/File/Download?ID=' + row.ID + '" id="btn_detail" type="button" class="layui-btn  layui-btn-sm" style="margin-right:20px;">下载</a>',
+            '<a  href="javascript:Affix(\'' + row.ID + '\')"  type="button" class="layui-btn layui-btn-normal layui-btn-sm">预览</a>',
+
+        ].join('');
+    }
+
+    function refeshEditKeyItemFileGrid() {
+        $('#KeyItemFile_table').bootstrapTable("refresh", { url: '/File/GetList?ID=' + $("#KeyItemID").val() + '&Type=公告' });
+    }
+
+    function queryDataGrid() {
+        $('#BoardList_table').bootstrapTable('refresh', {
+            pageNumber: 1,
+        })
+    }
+    function myClear() {
+        $('#qry_Title').val("");
+        $('#qry_DocNo').val("");
+        $('#qry_Keyword').val("");
+
+        queryDataGrid();
+    };
+
+    function Affix(ID) {
+        console.log(ID);
+        $("#url").val(ID);
+        //$("#pdf").attr('src', $("#pdf").attr('src'));
+        LayerModal("附件预览", "/Person/Pdf");
+
+    }
+
+
+
+
+
+
+</script>

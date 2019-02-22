@@ -1,0 +1,818 @@
+﻿@using Model;
+@{
+    Layout = null;
+    CaseInfo item = ViewBag.caseinfo;
+    Person person = ViewBag.person;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    @RenderPage("~/Views/Share/bootstrap.cshtml")
+    <script src="~/Resource/edit.js"></script>
+    <script src="~/Web/guid.js"></script>
+</head>
+
+<body>
+    <div class="row" style="margin-top:20px;">
+        <div class="col-xs-1">
+            <input name="b_print" type="button" class="ipt btn btn-primary " onclick="printdiv('div_print');" value="打印">
+        </div>
+    </div>
+    <div id="div_print">
+        <form id="Case" name="Case" method="post" class="form-inline">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3 class="Gradient">纪律处分情况登记表</h3>
+                </div>
+                <input readonly style="display:none" type="text" id="PersonID" name="PersonID" value="@person.ID" />
+                <input readonly style="display:none" type="text" value="@item.ID" id="ID" name="ID" />
+                <input readonly style="display:none" type="text" value="@item.HandleStaff" id="HandleStaff" name="HandleStaff" />
+                <input readonly style="display:none" type="text" value="@item.HandleDept" id="HandleDept" name="HandleDept" />
+                <input readonly type="hidden" value="@item.TableUnitCode" id="TableUnitCode" name="TableUnitCode" />
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="TableUnitName">填报单位：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class="form-control" type="text" id="TableUnitName" name="TableUnitName" value="@item.TableUnitName" />
+                </div>
+                @*<div class="col-xs-2 margin-top-10">
+
+                        <label class="margin-5" for="TableDate">填报日期：</label>
+                    </div>
+                    <div class="col-xs-2 margin-top-10">
+                        <input readonly class=" form-control " name="TableDate" value="@item.TableDate" />
+
+                    </div>*@
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="CaseCode">案件编码：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class="form-control" type="text" id="CaseCode" name="CaseCode" value="@item.CaseCode" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="PersonCode">涉案人员编号：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class="form-control" type="text" id="PersonCode" name="PersonCode" value="@item.PersonCode" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="IsUnit">是否对单位或事件事故：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class="form-control" type="text" id="IsUnit" name="IsUnit" value="@item.IsUnit" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="PersonName">被调查人：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class="form-control" type="text" id="PersonName" name="PersonName" value="@item.PersonName" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="PersonGender">性别：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class="form-control" type="text" id="PersonGender" name="PersonGender" value="@item.PersonGender" />
+                </div>
+
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="Nation">民族：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class="form-control" type="text" id="Nation" name="Nation" value="@item.Nation" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="BirthDate">出生年月：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class="form-control" type="text" id="BirthDate" name="BirthDate" value="@item.BirthDate" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="PersonPolitic">政治面貌：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class="form-control" type="text" id="PersonPolitic" name="PersonPolitic" value="@item.PersonPolitic" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="PartyTime">入党时间：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class=" form-control " name="PartyTime" value="@item.PartyTime" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="PersonUnit">工作单位及职务：</label>
+                </div>
+                <div class="col-xs-6 margin-top-10">
+                    <input readonly class="form-control" type="text" id="PersonUnit" name="PersonUnit" value="@item.PersonUnit" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="PersonAuthority">干部管理权限：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class="form-control" name="PersonAuthority" value="@item.PersonAuthority" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="PersonEducation">学历：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class="form-control" name="PersonEducation" value="@item.PersonEducation">
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="PersonLevel">职级：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class="form-control" name="PersonLevel" value="@item.PersonLevel">
+                    @*<select id="PersonLevel" class="form-control selectpicker"  name="PersonLevel">
+                            <option value="@item.PersonLevel">@item.PersonLevel</option>
+                            <option value="正厅">正厅</option>
+                            <option value="副厅">副厅</option>
+                            <option value="正处">正处</option>
+                            <option value="副处">副处</option>
+                            <option value="正科">正科</option>
+                            <option value="副科">副科</option>
+                            <option value="其他">其他</option>
+                        </select>*@
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="CurrentDutyTime">任现职时间：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class=" form-control " name="CurrentDutyTime" value="@item.CurrentDutyTime" />
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="IsDeputy">人大代表：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class=" form-control " name="IsDeputy" value="@item.IsDeputy" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="IsCPPCC">政协委员：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class=" form-control " name="IsCPPCC" value="@item.IsCPPCC" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="IsSupervior">是否监察对象：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class=" form-control " name="IsSupervior" value="@item.IsSupervior" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="PersonUnitClassify">部门分类：</label>
+                </div>
+                <div class="col-xs-6 margin-top-10">
+                    <input readonly class="form-control" type="text" id="PersonUnitClassify" name="PersonUnitClassify" value="@item.PersonUnitClassify" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="PersonAuthority">是否国家公务员：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class="form-control" type="text" id="IsCivilServant" name="IsCivilServant" value="@item.IsCivilServant" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="CompamyProperty">企业性质：</label>
+                </div>
+                <div class="col-xs-6 margin-top-10">
+                    <input readonly class="form-control" type="text" id="CompamyProperty" name="CompamyProperty" value="@item.CompamyProperty" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="CompanyLevel">企业级别：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class="form-control" type="text" id="CompanyLevel" name="CompanyLevel" value="@item.CompanyLevel" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="CompamyPost">企业性质1：</label>
+                </div>
+                <div class="col-xs-6 margin-top-10">
+                    <input readonly class="form-control" type="text" id="CompamyProperty1" name="CompamyProperty1" value="@item.CompamyProperty1" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="CompanyStaffType">企业人员类别：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class="form-control" type="text" id="CompanyStaffType" name="CompanyStaffType" value="@item.CompanyStaffType" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="LeaderDiscipline">一把手违纪：</label>
+                </div>
+                <div class="col-xs-6 margin-top-10">
+                    <input readonly class="form-control" type="text" id="LeaderDiscipline" name="LeaderDiscipline" value="@item.LeaderDiscipline" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="CaseSource">案件来源：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class="form-control" type="text" id="CaseSource" name="CaseSource" value="@item.CaseSource" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="IllegalBehavior">违纪行为：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10 ">
+                    <table id="weiji_table"></table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="LawBehavior">涉法行为：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10 ">
+                    <table id="shefa_table"></table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="TotalAccount">涉及金额(万元)：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class="form-control" type="text" id="TotalAccount" name="TotalAccount" value="@item.TotalAccount" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="IllegalAccount">违纪总金额(万元)：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class="form-control" type="text" id="IllegalAccount" name="IllegalAccount" value="@item.IllegalAccount" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="TakeoverAccount">收缴涉案金额(万元)：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class="form-control" type="text" id="TakeoverAccount" name="TakeoverAccount" value="@item.TakeoverAccount" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="LossSaving">挽回经济损失(万元)：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class="form-control" type="text" id="LossSaving" name="LossSaving" value="@item.LossSaving" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="LossMisconduct">失职渎职造成损失金额(万元)：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class="form-control" type="text" id="LossMisconduct" name="LossMisconduct" value="@item.LossMisconduct" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="IllegalFirstTime">首次违纪时间：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class=" form-control " name="IllegalFirstTime" value="@item.IllegalFirstTime" onclick="laydate({istime: true, format: 'YYYY'})">
+
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="IllegalLastTime">末次违纪时间：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class=" form-control " name="IllegalLastTime" value="@item.IllegalLastTime" onclick="laydate({istime: true, format: 'YYYY'})">
+
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="MainIllegalTime">主要违纪问题发生时间：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class="form-control" name="MainIllegalTime" value="@item.MainIllegalTime">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="CaseUnit">立案机关：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class="form-control" type="text" id="CaseUnit" name="CaseUnit" value="@item.CaseUnit" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="FilingTime">立案时间：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class=" form-control " name="FilingTime" value="@item.FilingTime" />
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="Measurement">使用措施：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class="form-control" type="text" id="Measurement" name="Measurement" value="@item.Measurement" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="TwoMeasureUnit">使用措施机关：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class="form-control" type="text" id="TwoMeasureUnit" name="TwoMeasureUnit" value="@item.TwoMeasureUnit" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="MeasureTime">两规两指开始时间：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class="form-control " name="MeasureTime" value="@item.MeasureTime" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="MeasureCloseTime">两规两指结束时间：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input class=" form-control" name="MeasureCloseTime" value="@item.MeasureCloseTime" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="InvestigateEndTime">调查中（终）止时间：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class=" form-control" name="InvestigateEndTime" value="@item.InvestigateEndTime">
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="HearOrg">审理机关：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class="form-control" name="HearOrg" value="@item.HearOrg" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="HearTime">审理受理时间：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class=" form-control " name="HearTime" value="@item.HearTime" onclick="laydate({istime: true, format: 'YYYY-MM-DD'})">
+
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="HearEndTime">审结时间：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class=" form-control " name="HearEndTime" value="@item.HearEndTime" onclick="laydate({istime: true, format: 'YYYY-MM-DD'})">
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="RunTime">潜逃时间：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class=" form-control " name="RunTime" value="@item.RunTime" onclick="laydate({istime: true, format: 'YYYY-MM-DD'})">
+
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="RunDirection">潜逃去向：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class=" form-control " name="RunDirection" value="@item.RunDirection" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="CaptureTime">抓获时间：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class=" form-control " name="CaptureTime" value="@item.CaptureTime" onclick="laydate({istime: true, format: 'YYYY-MM-DD'})">
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="ClosingTime">结案时间：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class=" form-control " name="ClosingTime" value="@item.ClosingTime" onclick="laydate({istime: true, format: 'YYYY-MM-DD'})">
+
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="CancelTime">销案时间：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class=" form-control " name="CancelTime" value="@item.CancelTime" />
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="PartyPunish">党纪处分：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class="form-control" name="PartyPunish" value="@item.PartyPunish" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="GovenPunish">政纪处分：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class="form-control" name="GovenPunish" value="@item.GovenPunish" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="GovenPunishEndTime">政纪处分结束时间：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input class="form-control" readonly name="GovenPunishEndTime" value="@item.GovenPunishEndTime" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="OtherPunish">其他处理：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class="form-control" name="OtherPunish" value="@item.OtherPunish" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="OrgMeasure">组织措施：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class="form-control" name="OrgMeasure" value="@item.OrgMeasure" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="Account">责任追究：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class="form-control" name="Account" value="@item.Account" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="JudicalTransferTime">移送司法机关时间：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class="form-control" name="JudicalTransferTime" value="@item.JudicalTransferTime" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="JudicalTime">公检法等机关处理时间：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class="form-control" name="JudicalTime" value="@item.JudicalTime" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="JudicalPunish">公检法等机关处理内容：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class="form-control" name="JudicalPunish" value="@item.JudicalPunish" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="JudicalAmount">司法判决金额(万元)：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input readonly class="form-control" name="JudicalAmount" value="@item.JudicalAmount" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="BriefCase">简要案情：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    <textarea readonly rows="5" id="BriefCase" name="BriefCase" class="form-control">@item.BriefCase</textarea>
+                </div>
+            </div>
+            @*<div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="CaseInvestigation">调查报告：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    <textarea rows="5" id="CaseSanCaseInvestigationction" name="CaseInvestigation" class="form-control">@item.CaseInvestigation</textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-10 margin-top-10 col-xs-offset-2">
+                    <div style="width:100%;">
+                        <table id="Case_table" class="table table-striped table-no-bordered table-hover"></table>
+                    </div>
+                </div>
+            </div>*@
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="CaseApproval">立案呈批报告：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    <textarea rows="5" id="CaseApproval" name="CaseApproval" class="form-control">@item.CaseApproval</textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-10 margin-top-10 col-xs-offset-2">
+                    <div style="width:100%;">
+                        <table id="CaseApproval_table" class="table table-striped table-no-bordered table-hover"></table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="CaseDecision">立案决定书：</label>
+                </div>
+
+                <div class="col-xs-10 margin-top-10">
+                    <textarea rows="5" id="CaseDecision" name="CaseDecision" class="form-control">@item.CaseDecision</textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-10 margin-top-10 col-xs-offset-2">
+                    <div style="width:100%;">
+                        <table id="CaseDecision_table" class="table table-striped table-no-bordered table-hover"></table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="CaseAdjudication">审理报告：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    <textarea rows="5" id="CaseAdjudication" name="CaseAdjudication" class="form-control">@item.CaseAdjudication</textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-10 margin-top-10 col-xs-offset-2">
+                    <div style="width:100%;">
+                        <table id="CaseAdjudication_table" class="table table-striped table-no-bordered table-hover"></table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="CaseSanction">处分决定：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    <textarea rows="5" id="CaseSanction" name="CaseSanction" class="form-control">@item.CaseSanction</textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-10 margin-top-10 col-xs-offset-2">
+                    <div style="width:100%;">
+                        <table id="CaseSanction_table" class="table table-striped table-no-bordered table-hover"></table>
+                    </div>
+                </div>
+            </div>
+            @*<div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="CaseExecution">案件剖析报告：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    <textarea rows="5" id="CaseExecution" name="CaseExecution" class="form-control">@item.CaseExecution</textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-10 margin-top-10 col-xs-offset-2">
+                    <div style="width:100%;">
+                        <table id="CaseExecution_table" class="table table-striped table-no-bordered table-hover"></table>
+                    </div>
+                </div>
+            </div>*@
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="GovenEndReport">解除政纪处分决定：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    <textarea rows="5" id="GovenEndReport" name="GovenEndReport" class="form-control">@item.GovenEndReport</textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-10 margin-top-10 col-xs-offset-2">
+                    <div style="width:100%;">
+                        <table id="CaseGovenPunishEnd_table" class="table table-striped table-no-bordered table-hover"></table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="Remark">备注：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    <textarea readonly rows="5" id="Remark" name="Remark" class="form-control">@item.Remark</textarea>
+                </div>
+            </div>
+        </form>
+    </div>
+        <div class="row">
+            <div class="col-xs-12 margin-top-10">
+                <div style="width:100%;">
+                    <table id="Case_table" class="table table-striped table-no-bordered table-hover"></table>
+                </div>
+            </div>
+        </div>
+        <div align="center" style="margin-top:20px;">
+
+        </div>
+    
+</body>
+</html>
+<script>
+
+        $('#Case_table').bootstrapTable({
+            method: 'post',
+            url: '/File/GetList?ID=@item.ID&Type=Case',
+            striped: true,
+            clickToSelect: true,
+            pageSize: 10,
+            sidePagination: 'server',
+            pageList: [10, 20, 50, 100, 200, 500],
+            queryParamsType: 'limit',
+            sortName: 'ID',
+            sortOrder: 'asc',
+            columns: [
+                { field: 'FileName', title: '文件名', width: 200, editable: false, },
+                { field: 'opt', title: '操作', width: 100, editable: false, formatter: operateFormatterCase },
+            ],
+        });
+        function operateFormatterCase(value, row, index) {
+            return [
+            '<a  href="/File/Download?ID=' + row.ID + '" id="btn_detail" type="button" class="layui-btn layui-btn-danger layui-btn-sm" style="margin-right:20px;"><span class="glyphicon glyphicon-floppy-save"></span>下载</a>',
+            ].join('');
+        }
+        $('#CaseApproval_table').bootstrapTable({
+            method: 'post',
+            url: '/File/GetList?ID=@item.ID&Type=CaseApproval',
+            striped: true,
+            clickToSelect: true,
+            pageSize: 10,
+            sidePagination: 'server',
+            pageList: [10, 20, 50, 100, 200, 500],
+            queryParamsType: 'limit',
+            sortName: 'ID',
+            sortOrder: 'asc',
+            columns: [
+                { field: 'FileName', title: '文件名', width: 200, editable: false, },
+                { field: 'opt', title: '操作', width: 100, editable: false, formatter: operateFormatterCaseApproval },
+            ],
+        });
+        function operateFormatterCaseApproval(value, row, index) {
+            return [
+            '<a  href="/File/Download?ID=' + row.ID + '" id="btn_detail" type="button" class="layui-btn layui-btn-danger layui-btn-sm" style="margin-right:20px;"><span class="glyphicon glyphicon-floppy-save"></span>下载</a>',
+            ].join('');
+        }
+            $('#CaseDecision_table').bootstrapTable({
+                method: 'post',
+                url: '/File/GetList?ID=@item.ID&Type=CaseDecision',
+                striped: true,
+                clickToSelect: true,
+                pageSize: 10,
+                sidePagination: 'server',
+                pageList: [10, 20, 50, 100, 200, 500],
+                queryParamsType: 'limit',
+                sortName: 'ID',
+                sortOrder: 'asc',
+                columns: [
+                    { field: 'FileName', title: '文件名', width: 200, editable: false, },
+                    { field: 'opt', title: '操作', width: 100, editable: false, formatter: operateFormatterCaseDecision },
+                ],
+            });
+            function operateFormatterCaseDecision(value, row, index) {
+                return [
+                '<a  href="/File/Download?ID=' + row.ID + '" id="btn_detail" type="button" class="layui-btn layui-btn-danger layui-btn-sm" style="margin-right:20px;"><span class="glyphicon glyphicon-floppy-save"></span>下载</a>',
+                ].join('');
+            }
+            $('#CaseAdjudication_table').bootstrapTable({
+                method: 'post',
+                url: '/File/GetList?ID=@item.ID&Type=CaseAdjudication',
+                striped: true,
+                clickToSelect: true,
+                pageSize: 10,
+                sidePagination: 'server',
+                pageList: [10, 20, 50, 100, 200, 500],
+                queryParamsType: 'limit',
+                sortName: 'ID',
+                sortOrder: 'asc',
+                columns: [
+                    { field: 'FileName', title: '文件名', width: 200, editable: false, },
+                    { field: 'opt', title: '操作', width: 100, editable: false, formatter: operateFormatterCaseAdjudication },
+                ],
+            });
+            function operateFormatterCaseAdjudication(value, row, index) {
+                return [
+                '<a  href="/File/Download?ID=' + row.ID + '" id="btn_detail" type="button" class="layui-btn layui-btn-danger layui-btn-sm" style="margin-right:20px;"><span class="glyphicon glyphicon-floppy-save"></span>下载</a>',
+                ].join('');
+            }
+            $('#CaseSanction_table').bootstrapTable({
+                method: 'post',
+                url: '/File/GetList?ID=@item.ID&Type=CaseSanction',
+                striped: true,
+                clickToSelect: true,
+                pageSize: 10,
+                sidePagination: 'server',
+                pageList: [10, 20, 50, 100, 200, 500],
+                queryParamsType: 'limit',
+                sortName: 'ID',
+                sortOrder: 'asc',
+                columns: [
+                    { field: 'FileName', title: '文件名', width: 200, editable: false, },
+                    { field: 'opt', title: '操作', width: 100, editable: false, formatter: operateFormatterCaseSanction },
+                ],
+            });
+            function operateFormatterCaseSanction(value, row, index) {
+                return [
+                '<a  href="/File/Download?ID=' + row.ID + '" id="btn_detail" type="button" class="layui-btn layui-btn-danger layui-btn-sm" style="margin-right:20px;"><span class="glyphicon glyphicon-floppy-save"></span>下载</a>',
+                ].join('');
+            }
+            $('#CaseExecution_table').bootstrapTable({
+                method: 'post',
+                url: '/File/GetList?ID=@item.ID&Type=CaseExecution',
+                striped: true,
+                clickToSelect: true,
+                pageSize: 10,
+                sidePagination: 'server',
+                pageList: [10, 20, 50, 100, 200, 500],
+                queryParamsType: 'limit',
+                sortName: 'ID',
+                sortOrder: 'asc',
+                columns: [
+                    { field: 'FileName', title: '文件名', width: 200, editable: false, },
+                    { field: 'opt', title: '操作', width: 100, editable: false, formatter: operateFormatterCaseExecution },
+                ],
+            });
+            function operateFormatterCaseExecution(value, row, index) {
+                return [
+                '<a  href="/File/Download?ID=' + row.ID + '" id="btn_detail" type="button" class="layui-btn layui-btn-danger layui-btn-sm" style="margin-right:20px;"><span class="glyphicon glyphicon-floppy-save"></span>下载</a>',
+                ].join('');
+            }
+
+            $('#CaseGovenPunishEnd_table').bootstrapTable({
+                method: 'post',
+                url: '/File/GetList?ID=@item.ID&Type=CaseGovenPunishEnd',
+                striped: true,
+                clickToSelect: true,
+                pageSize: 10,
+                sidePagination: 'server',
+                pageList: [10, 20, 50, 100, 200, 500],
+                queryParamsType: 'limit',
+                sortName: 'ID',
+                sortOrder: 'asc',
+                columns: [
+                    { field: 'FileName', title: '文件名', width: 200, editable: false, },
+                    { field: 'opt', title: '操作', width: 100, editable: false, formatter: operateFormatterCaseGovenPunishEnd },
+                ],
+            });
+            function operateFormatterCaseGovenPunishEnd(value, row, index) {
+                return [
+                '<a  href="/File/Download?ID=' + row.ID + '" id="btn_detail" type="button" class="layui-btn layui-btn-danger layui-btn-sm" style="margin-right:20px;"><span class="glyphicon glyphicon-floppy-save"></span>下载</a>',
+                ].join('');
+            }
+    function Canel() {
+        window.location.href = "/Case/CaseList";
+    }
+    $('#shefa_table').bootstrapTable({
+        method: 'post',
+        url: '/Case/LawBehaviour?ID=@item.ID',
+        title: "",
+        striped: true,
+        pagination: false,
+        clickToSelect: true,
+        pageSize: 10,
+        sidePagination: 'server',
+        pageList: [10, 20, 50, 100, 200, 500],
+        queryParamsType: 'limit',
+        columns: [
+            {
+                field: 'LawBehaviorType', title: '涉法行为', editable: false, width: 100
+            },
+            { field: 'LawBehaviorDetail', title: '涉法行为', editable: false, width: 100 },
+        ],
+    });
+    $('#weiji_table').bootstrapTable({
+        method: 'get',
+        url: '/Case/IllegalBehavior?ID=@item.ID',
+        title: "违纪行为",
+        toolbar: '#toolbar',    //工具按钮用哪个容器
+        striped: true,      //是否显示行间隔色
+        cache: false,      //是否使用缓存默认为true所以一般情况下需要设置一下这个属性（*）
+        pagination: false,     //是否显示分页（*）
+        sortable: false,      //是否启用排序
+        pageNumber: 1,      //初始化加载第一页默认第一页
+        pageSize: 10,      //每页的记录行数（*）
+        pageList: [10, 25, 50, 100],  //可供选择的每页的行数（*）
+        queryParamsType: '', //默认值为 'limit' ,在默认情况下 传给服务端的参数为：offset,limit,sort
+        sidePagination: "server",   //分页方式：client客户端分页server服务端分页（*）
+        strictSearch: true,
+        minimumCountColumns: 2,    //最少允许的列数
+        clickToSelect: true,    //是否启用点击选中行
+        columns: [
+            {
+                field: 'IllegalBehaviorType', title: '违纪行为', editable: false, width: 100
+            },
+            { field: 'IllegalBehaviorDetail', title: '违纪行为', editable: false, width: 100 },
+
+        ],
+    });
+</script>

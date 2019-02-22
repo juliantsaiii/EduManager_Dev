@@ -1,0 +1,32 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <script src="~/Resource/EasyUI/jquery1.8min.js"></script>
+    <!--<script language="javascript" type="text/javascript">
+            window.open('http://www.anshare.com.cn');
+    </script>-->
+
+</head>
+<body>
+    @*<div>
+            <a href="http://www.anshare.com.cn" target="_blank">南京安夏电子科技有限公司</a>
+        </div>*@
+    <iframe src="http://156.11.1.190:8080/WebReport/ReportServer?reportlet=AnalysisHA4.cpt&op=view" id="myiframepage" name=" ifm" onload="iFrameHeight()" border="0" marginwidth="0" marginheight="0" scrolling="yes" allowtransparency="yes" frameborder="no" width="100%"></iframe>
+</body>
+</html>
+<script>
+    function iFrameHeight() {
+        var ifm = document.getElementById("myiframepage");
+
+        ifm.height = $(window).height() - 10 + 'px';
+
+    }
+
+</script>

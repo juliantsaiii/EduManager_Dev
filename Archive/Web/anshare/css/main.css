@@ -1,0 +1,49 @@
+﻿
+    body {
+        background-color: #FFFFFF;
+    }
+    .detail_tr {
+        background: #ffffff;
+    }
+    .detail_td1 {
+        width: 105px;
+        padding: 4px;
+        text-align: right;
+        word-break: break-all;
+        line-height: 26px;
+        white-space: nowrap;
+    }
+    .ui-jqgrid tr.ui-row-ltr td, .ui-jqgrid tr.ui-row-rtl td {
+        padding: 2px;
+    }
+    .ui-jqgrid .ui-jqgrid-labels th {
+        text-align: center!important;
+    }
+    .detail_td2 {
+        width: 275px;
+        padding: 4px;
+        background: #ffffff;
+        word-break: break-all;
+    }
+    .panel-header, .panel-body {
+        border-width: 0px;
+    }
+
+    .datagrid, .combo-p {
+        border: solid 1px #D4D4D4;
+    }
+    .menu-text, .menu-text span {
+        font-size: 12px;
+    }
+
+    .menu-text {
+        float: none;
+        height: 20px;
+        line-height: 20px;
+        padding-left: 28px;
+    }
+        .datagrid * {
+            -webkit-box-sizing: content-box;
+            -moz-box-sizing: content-box;
+            box-sizing: content-box;
+        }  

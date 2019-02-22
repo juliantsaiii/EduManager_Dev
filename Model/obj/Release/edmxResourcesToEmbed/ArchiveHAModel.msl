@@ -1,0 +1,1806 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ArchiveHAModelStoreContainer" CdmEntityContainer="DBEntities">
+    <EntitySetMapping Name="AccountInfo">
+      <EntityTypeMapping TypeName="ArchiveHAModel.AccountInfo">
+        <MappingFragment StoreEntitySet="AccountInfo">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="HandleDetail" ColumnName="HandleDetail" />
+          <ScalarProperty Name="BriefCase" ColumnName="BriefCase" />
+          <ScalarProperty Name="MainProblem" ColumnName="MainProblem" />
+          <ScalarProperty Name="DueTime" ColumnName="DueTime" />
+          <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+          <ScalarProperty Name="HandleTime" ColumnName="HandleTime" />
+          <ScalarProperty Name="HandleUnit" ColumnName="HandleUnit" />
+          <ScalarProperty Name="IsTwoDid" ColumnName="IsTwoDid" />
+          <ScalarProperty Name="IsAssigned" ColumnName="IsAssigned" />
+          <ScalarProperty Name="AccountType" ColumnName="AccountType" />
+          <ScalarProperty Name="PersonLevel" ColumnName="PersonLevel" />
+          <ScalarProperty Name="PersonDuty" ColumnName="PersonDuty" />
+          <ScalarProperty Name="PersonUnit" ColumnName="PersonUnit" />
+          <ScalarProperty Name="PersonArea" ColumnName="PersonArea" />
+          <ScalarProperty Name="PersonPolitic" ColumnName="PersonPolitic" />
+          <ScalarProperty Name="PersonGender" ColumnName="PersonGender" />
+          <ScalarProperty Name="IDCard" ColumnName="IDCard" />
+          <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+          <ScalarProperty Name="KeyArea" ColumnName="KeyArea" />
+          <ScalarProperty Name="KeyTrade" ColumnName="KeyTrade" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdjustInfo">
+      <EntityTypeMapping TypeName="ArchiveHAModel.AdjustInfo">
+        <MappingFragment StoreEntitySet="AdjustInfo">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="WagesChange" ColumnName="WagesChange" />
+          <ScalarProperty Name="AdjustReason" ColumnName="AdjustReason" />
+          <ScalarProperty Name="AdjustType" ColumnName="AdjustType" />
+          <ScalarProperty Name="FilingCode" ColumnName="FilingCode" />
+          <ScalarProperty Name="FilingUnit" ColumnName="FilingUnit" />
+          <ScalarProperty Name="AdjustTime" ColumnName="AdjustTime" />
+          <ScalarProperty Name="PersonDuty" ColumnName="PersonDuty" />
+          <ScalarProperty Name="PersonUnit" ColumnName="PersonUnit" />
+          <ScalarProperty Name="IDCard" ColumnName="IDCard" />
+          <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Affix">
+      <EntityTypeMapping TypeName="ArchiveHAModel.Affix">
+        <MappingFragment StoreEntitySet="Affix">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="ContentType" ColumnName="ContentType" />
+          <ScalarProperty Name="FileExtension" ColumnName="FileExtension" />
+          <ScalarProperty Name="SaveName" ColumnName="SaveName" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Next" ColumnName="Next" />
+          <ScalarProperty Name="Prev" ColumnName="Prev" />
+          <ScalarProperty Name="MasterID" ColumnName="MasterID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Assess">
+      <EntityTypeMapping TypeName="ArchiveHAModel.Assess">
+        <MappingFragment StoreEntitySet="Assess">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="AssessYear" ColumnName="AssessYear" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AssetCaseInfo">
+      <EntityTypeMapping TypeName="ArchiveHAModel.AssetCaseInfo">
+        <MappingFragment StoreEntitySet="AssetCaseInfo">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="ReceiveDate" ColumnName="ReceiveDate" />
+          <ScalarProperty Name="TransferDate" ColumnName="TransferDate" />
+          <ScalarProperty Name="ReceiveWorker" ColumnName="ReceiveWorker" />
+          <ScalarProperty Name="TransferWorker" ColumnName="TransferWorker" />
+          <ScalarProperty Name="HandleDate" ColumnName="HandleDate" />
+          <ScalarProperty Name="FormedDate" ColumnName="FormedDate" />
+          <ScalarProperty Name="DetainReason" ColumnName="DetainReason" />
+          <ScalarProperty Name="DetainDate" ColumnName="DetainDate" />
+          <ScalarProperty Name="SaveCharger" ColumnName="SaveCharger" />
+          <ScalarProperty Name="UnderTaker" ColumnName="UnderTaker" />
+          <ScalarProperty Name="ObjectName" ColumnName="ObjectName" />
+          <ScalarProperty Name="PersonIDCard" ColumnName="PersonIDCard" />
+          <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+          <ScalarProperty Name="UnderTakenStaff" ColumnName="UnderTakenStaff" />
+          <ScalarProperty Name="UnderTakenDept" ColumnName="UnderTakenDept" />
+          <ScalarProperty Name="CaseCode" ColumnName="CaseCode" />
+          <ScalarProperty Name="CaseName" ColumnName="CaseName" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AssetGoodsInfo">
+      <EntityTypeMapping TypeName="ArchiveHAModel.AssetGoodsInfo">
+        <MappingFragment StoreEntitySet="AssetGoodsInfo">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="GoodsProperty" ColumnName="GoodsProperty" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="HandleDate" ColumnName="HandleDate" />
+          <ScalarProperty Name="HandleStatus" ColumnName="HandleStatus" />
+          <ScalarProperty Name="HandleMethod" ColumnName="HandleMethod" />
+          <ScalarProperty Name="SaveMethod" ColumnName="SaveMethod" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="unit" ColumnName="unit" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Spec" ColumnName="Spec" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="OriginalHolder" ColumnName="OriginalHolder" />
+          <ScalarProperty Name="GoodsCode" ColumnName="GoodsCode" />
+          <ScalarProperty Name="MasterID" ColumnName="MasterID" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AssetMoneyInfo">
+      <EntityTypeMapping TypeName="ArchiveHAModel.AssetMoneyInfo">
+        <MappingFragment StoreEntitySet="AssetMoneyInfo">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="HandleStatus" ColumnName="HandleStatus" />
+          <ScalarProperty Name="HandleMethod" ColumnName="HandleMethod" />
+          <ScalarProperty Name="SaveDept" ColumnName="SaveDept" />
+          <ScalarProperty Name="Spec" ColumnName="Spec" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="MasterID" ColumnName="MasterID" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BriberyInfo">
+      <EntityTypeMapping TypeName="ArchiveHAModel.BriberyInfo">
+        <MappingFragment StoreEntitySet="BriberyInfo">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="JusticeRecord" ColumnName="JusticeRecord" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="BriefReason" ColumnName="BriefReason" />
+          <ScalarProperty Name="BriefCase" ColumnName="BriefCase" />
+          <ScalarProperty Name="TimeAndAddress" ColumnName="TimeAndAddress" />
+          <ScalarProperty Name="BribeValuables" ColumnName="BribeValuables" />
+          <ScalarProperty Name="BribeVoncher" ColumnName="BribeVoncher" />
+          <ScalarProperty Name="BribeAccount" ColumnName="BribeAccount" />
+          <ScalarProperty Name="BriberAddress" ColumnName="BriberAddress" />
+          <ScalarProperty Name="BriberResume" ColumnName="BriberResume" />
+          <ScalarProperty Name="BriberContact" ColumnName="BriberContact" />
+          <ScalarProperty Name="BriberDuty" ColumnName="BriberDuty" />
+          <ScalarProperty Name="BriberUnit" ColumnName="BriberUnit" />
+          <ScalarProperty Name="BriberIDCard" ColumnName="BriberIDCard" />
+          <ScalarProperty Name="Briber" ColumnName="Briber" />
+          <ScalarProperty Name="CaseName" ColumnName="CaseName" />
+          <ScalarProperty Name="PersonLevel" ColumnName="PersonLevel" />
+          <ScalarProperty Name="PersonDuty" ColumnName="PersonDuty" />
+          <ScalarProperty Name="PersonUnit" ColumnName="PersonUnit" />
+          <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+          <ScalarProperty Name="PersonIDCard" ColumnName="PersonIDCard" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CaseInfo">
+      <EntityTypeMapping TypeName="ArchiveHAModel.CaseInfo">
+        <MappingFragment StoreEntitySet="CaseInfo">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="TwoGEndCensusTime" ColumnName="TwoGEndCensusTime" />
+          <ScalarProperty Name="PersonAuthority" ColumnName="PersonAuthority" />
+          <ScalarProperty Name="Post" ColumnName="Post" />
+          <ScalarProperty Name="LawBehavior" ColumnName="LawBehavior" />
+          <ScalarProperty Name="IllegalBehavior" ColumnName="IllegalBehavior" />
+          <ScalarProperty Name="CaseSource" ColumnName="CaseSource" />
+          <ScalarProperty Name="CaseReportCensusTime" ColumnName="CaseReportCensusTime" />
+          <ScalarProperty Name="CaptureCensusTime" ColumnName="CaptureCensusTime" />
+          <ScalarProperty Name="CaptureTime" ColumnName="CaptureTime" />
+          <ScalarProperty Name="GovenEndReport" ColumnName="GovenEndReport" />
+          <ScalarProperty Name="GovenPunishEndTime" ColumnName="GovenPunishEndTime" />
+          <ScalarProperty Name="InvestigateEndCensusTime" ColumnName="InvestigateEndCensusTime" />
+          <ScalarProperty Name="InvestigateEndTime" ColumnName="InvestigateEndTime" />
+          <ScalarProperty Name="RunDirectionDetail" ColumnName="RunDirectionDetail" />
+          <ScalarProperty Name="RunDirection" ColumnName="RunDirection" />
+          <ScalarProperty Name="CompanyLevel" ColumnName="CompanyLevel" />
+          <ScalarProperty Name="PartyObserveYear" ColumnName="PartyObserveYear" />
+          <ScalarProperty Name="LeaderDetail2" ColumnName="LeaderDetail2" />
+          <ScalarProperty Name="LeaderDetail" ColumnName="LeaderDetail" />
+          <ScalarProperty Name="CaseExecution" ColumnName="CaseExecution" />
+          <ScalarProperty Name="CaseAdjudication" ColumnName="CaseAdjudication" />
+          <ScalarProperty Name="CaseInvestigation" ColumnName="CaseInvestigation" />
+          <ScalarProperty Name="CaseDecision" ColumnName="CaseDecision" />
+          <ScalarProperty Name="CaseApproval" ColumnName="CaseApproval" />
+          <ScalarProperty Name="JudicalAmount" ColumnName="JudicalAmount" />
+          <ScalarProperty Name="JudicalTime" ColumnName="JudicalTime" />
+          <ScalarProperty Name="PoliticDetail" ColumnName="PoliticDetail" />
+          <ScalarProperty Name="IsCivilServant" ColumnName="IsCivilServant" />
+          <ScalarProperty Name="IsCPPCC" ColumnName="IsCPPCC" />
+          <ScalarProperty Name="IsDeputy" ColumnName="IsDeputy" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="Nation" ColumnName="Nation" />
+          <ScalarProperty Name="CaseSanction" ColumnName="CaseSanction" />
+          <ScalarProperty Name="HearEndCensusTime" ColumnName="HearEndCensusTime" />
+          <ScalarProperty Name="HearEndTime" ColumnName="HearEndTime" />
+          <ScalarProperty Name="HearOrg" ColumnName="HearOrg" />
+          <ScalarProperty Name="HearCensusTime" ColumnName="HearCensusTime" />
+          <ScalarProperty Name="HearTime" ColumnName="HearTime" />
+          <ScalarProperty Name="RunCensusTime" ColumnName="RunCensusTime" />
+          <ScalarProperty Name="RunTime" ColumnName="RunTime" />
+          <ScalarProperty Name="IllegalLastTime" ColumnName="IllegalLastTime" />
+          <ScalarProperty Name="IllegalFirstTime" ColumnName="IllegalFirstTime" />
+          <ScalarProperty Name="TakeoverAccount" ColumnName="TakeoverAccount" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="BriefCase" ColumnName="BriefCase" />
+          <ScalarProperty Name="LossSaving" ColumnName="LossSaving" />
+          <ScalarProperty Name="JudicalCensusTime" ColumnName="JudicalCensusTime" />
+          <ScalarProperty Name="ProbateMonth" ColumnName="ProbateMonth" />
+          <ScalarProperty Name="ProbateYear" ColumnName="ProbateYear" />
+          <ScalarProperty Name="MainPunishMonth" ColumnName="MainPunishMonth" />
+          <ScalarProperty Name="MainPunishYear" ColumnName="MainPunishYear" />
+          <ScalarProperty Name="JudicalPunishSecond" ColumnName="JudicalPunishSecond" />
+          <ScalarProperty Name="JudicalPunish" ColumnName="JudicalPunish" />
+          <ScalarProperty Name="TransferCensusTime" ColumnName="TransferCensusTime" />
+          <ScalarProperty Name="JudicalTransferTime" ColumnName="JudicalTransferTime" />
+          <ScalarProperty Name="OrgCensusTime" ColumnName="OrgCensusTime" />
+          <ScalarProperty Name="OrgMeasure" ColumnName="OrgMeasure" />
+          <ScalarProperty Name="OtherCensusTime" ColumnName="OtherCensusTime" />
+          <ScalarProperty Name="OtherPunish" ColumnName="OtherPunish" />
+          <ScalarProperty Name="GovenCensusTime" ColumnName="GovenCensusTime" />
+          <ScalarProperty Name="GovenPunish" ColumnName="GovenPunish" />
+          <ScalarProperty Name="PartyCensusTime" ColumnName="PartyCensusTime" />
+          <ScalarProperty Name="PartyPunish" ColumnName="PartyPunish" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="ClosingTime" ColumnName="ClosingTime" />
+          <ScalarProperty Name="CancelTime" ColumnName="CancelTime" />
+          <ScalarProperty Name="CloseCensusTime" ColumnName="CloseCensusTime" />
+          <ScalarProperty Name="TwoMeasureUnit" ColumnName="TwoMeasureUnit" />
+          <ScalarProperty Name="MeasureCloseTime" ColumnName="MeasureCloseTime" />
+          <ScalarProperty Name="TwoGCensusTime" ColumnName="TwoGCensusTime" />
+          <ScalarProperty Name="MeasureTime" ColumnName="MeasureTime" />
+          <ScalarProperty Name="Measurement" ColumnName="Measurement" />
+          <ScalarProperty Name="CaseUnit" ColumnName="CaseUnit" />
+          <ScalarProperty Name="FilingTime" ColumnName="FilingTime" />
+          <ScalarProperty Name="FilingCensusTime" ColumnName="FilingCensusTime" />
+          <ScalarProperty Name="MainIllegalTime" ColumnName="MainIllegalTime" />
+          <ScalarProperty Name="TotalAccount" ColumnName="TotalAccount" />
+          <ScalarProperty Name="IllegalAccount" ColumnName="IllegalAccount" />
+          <ScalarProperty Name="LossMisconduct" ColumnName="LossMisconduct" />
+          <ScalarProperty Name="CurrentDutyTime" ColumnName="CurrentDutyTime" />
+          <ScalarProperty Name="CompanyStaffType" ColumnName="CompanyStaffType" />
+          <ScalarProperty Name="LevelType" ColumnName="LevelType" />
+          <ScalarProperty Name="PersonLevel" ColumnName="PersonLevel" />
+          <ScalarProperty Name="IsSupervior" ColumnName="IsSupervior" />
+          <ScalarProperty Name="LeaderDiscipline" ColumnName="LeaderDiscipline" />
+          <ScalarProperty Name="CompamyProperty1" ColumnName="CompamyProperty1" />
+          <ScalarProperty Name="CompamyProperty" ColumnName="CompamyProperty" />
+          <ScalarProperty Name="PersonUnitClassify1" ColumnName="PersonUnitClassify1" />
+          <ScalarProperty Name="PersonUnitClassify" ColumnName="PersonUnitClassify" />
+          <ScalarProperty Name="PersonUnit" ColumnName="PersonUnit" />
+          <ScalarProperty Name="PartyTime" ColumnName="PartyTime" />
+          <ScalarProperty Name="PersonPolitic" ColumnName="PersonPolitic" />
+          <ScalarProperty Name="PersonEducation" ColumnName="PersonEducation" />
+          <ScalarProperty Name="PersonAge" ColumnName="PersonAge" />
+          <ScalarProperty Name="PersonGender" ColumnName="PersonGender" />
+          <ScalarProperty Name="IDCard" ColumnName="IDCard" />
+          <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+          <ScalarProperty Name="PersonCode" ColumnName="PersonCode" />
+          <ScalarProperty Name="CaseCode" ColumnName="CaseCode" />
+          <ScalarProperty Name="IsUnit" ColumnName="IsUnit" />
+          <ScalarProperty Name="TableUnitName" ColumnName="TableUnitName" />
+          <ScalarProperty Name="TableUnitCode" ColumnName="TableUnitCode" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CaseInfo1">
+      <EntityTypeMapping TypeName="ArchiveHAModel.CaseInfo1">
+        <MappingFragment StoreEntitySet="CaseInfo1">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="TwoGEndCensusTime" ColumnName="TwoGEndCensusTime" />
+          <ScalarProperty Name="PersonAuthority" ColumnName="PersonAuthority" />
+          <ScalarProperty Name="Post" ColumnName="Post" />
+          <ScalarProperty Name="LawBehavior" ColumnName="LawBehavior" />
+          <ScalarProperty Name="IllegalBehavior" ColumnName="IllegalBehavior" />
+          <ScalarProperty Name="CaseSource" ColumnName="CaseSource" />
+          <ScalarProperty Name="CaseReportCensusTime" ColumnName="CaseReportCensusTime" />
+          <ScalarProperty Name="CaptureCensusTime" ColumnName="CaptureCensusTime" />
+          <ScalarProperty Name="CaptureTime" ColumnName="CaptureTime" />
+          <ScalarProperty Name="GovenEndReport" ColumnName="GovenEndReport" />
+          <ScalarProperty Name="GovenPunishEndTime" ColumnName="GovenPunishEndTime" />
+          <ScalarProperty Name="InvestigateEndCensusTime" ColumnName="InvestigateEndCensusTime" />
+          <ScalarProperty Name="InvestigateEndTime" ColumnName="InvestigateEndTime" />
+          <ScalarProperty Name="RunDirectionDetail" ColumnName="RunDirectionDetail" />
+          <ScalarProperty Name="RunDirection" ColumnName="RunDirection" />
+          <ScalarProperty Name="CompanyLevel" ColumnName="CompanyLevel" />
+          <ScalarProperty Name="PartyObserveYear" ColumnName="PartyObserveYear" />
+          <ScalarProperty Name="LeaderDetail2" ColumnName="LeaderDetail2" />
+          <ScalarProperty Name="LeaderDetail" ColumnName="LeaderDetail" />
+          <ScalarProperty Name="CaseExecution" ColumnName="CaseExecution" />
+          <ScalarProperty Name="CaseAdjudication" ColumnName="CaseAdjudication" />
+          <ScalarProperty Name="CaseInvestigation" ColumnName="CaseInvestigation" />
+          <ScalarProperty Name="CaseDecision" ColumnName="CaseDecision" />
+          <ScalarProperty Name="CaseApproval" ColumnName="CaseApproval" />
+          <ScalarProperty Name="JudicalAmount" ColumnName="JudicalAmount" />
+          <ScalarProperty Name="JudicalTime" ColumnName="JudicalTime" />
+          <ScalarProperty Name="PoliticDetail" ColumnName="PoliticDetail" />
+          <ScalarProperty Name="IsCivilServant" ColumnName="IsCivilServant" />
+          <ScalarProperty Name="IsCPPCC" ColumnName="IsCPPCC" />
+          <ScalarProperty Name="IsDeputy" ColumnName="IsDeputy" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="Nation" ColumnName="Nation" />
+          <ScalarProperty Name="CaseSanction" ColumnName="CaseSanction" />
+          <ScalarProperty Name="HearEndCensusTime" ColumnName="HearEndCensusTime" />
+          <ScalarProperty Name="HearEndTime" ColumnName="HearEndTime" />
+          <ScalarProperty Name="HearOrg" ColumnName="HearOrg" />
+          <ScalarProperty Name="HearCensusTime" ColumnName="HearCensusTime" />
+          <ScalarProperty Name="HearTime" ColumnName="HearTime" />
+          <ScalarProperty Name="RunCensusTime" ColumnName="RunCensusTime" />
+          <ScalarProperty Name="RunTime" ColumnName="RunTime" />
+          <ScalarProperty Name="IllegalLastTime" ColumnName="IllegalLastTime" />
+          <ScalarProperty Name="IllegalFirstTime" ColumnName="IllegalFirstTime" />
+          <ScalarProperty Name="TakeoverAccount" ColumnName="TakeoverAccount" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="BriefCase" ColumnName="BriefCase" />
+          <ScalarProperty Name="LossSaving" ColumnName="LossSaving" />
+          <ScalarProperty Name="JudicalCensusTime" ColumnName="JudicalCensusTime" />
+          <ScalarProperty Name="ProbateMonth" ColumnName="ProbateMonth" />
+          <ScalarProperty Name="ProbateYear" ColumnName="ProbateYear" />
+          <ScalarProperty Name="MainPunishMonth" ColumnName="MainPunishMonth" />
+          <ScalarProperty Name="MainPunishYear" ColumnName="MainPunishYear" />
+          <ScalarProperty Name="JudicalPunishSecond" ColumnName="JudicalPunishSecond" />
+          <ScalarProperty Name="JudicalPunish" ColumnName="JudicalPunish" />
+          <ScalarProperty Name="TransferCensusTime" ColumnName="TransferCensusTime" />
+          <ScalarProperty Name="JudicalTransferTime" ColumnName="JudicalTransferTime" />
+          <ScalarProperty Name="OrgCensusTime" ColumnName="OrgCensusTime" />
+          <ScalarProperty Name="OrgMeasure" ColumnName="OrgMeasure" />
+          <ScalarProperty Name="OtherCensusTime" ColumnName="OtherCensusTime" />
+          <ScalarProperty Name="OtherPunish" ColumnName="OtherPunish" />
+          <ScalarProperty Name="GovenCensusTime" ColumnName="GovenCensusTime" />
+          <ScalarProperty Name="GovenPunish" ColumnName="GovenPunish" />
+          <ScalarProperty Name="PartyCensusTime" ColumnName="PartyCensusTime" />
+          <ScalarProperty Name="PartyPunish" ColumnName="PartyPunish" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="ClosingTime" ColumnName="ClosingTime" />
+          <ScalarProperty Name="CancelTime" ColumnName="CancelTime" />
+          <ScalarProperty Name="CloseCensusTime" ColumnName="CloseCensusTime" />
+          <ScalarProperty Name="TwoMeasureUnit" ColumnName="TwoMeasureUnit" />
+          <ScalarProperty Name="MeasureCloseTime" ColumnName="MeasureCloseTime" />
+          <ScalarProperty Name="TwoGCensusTime" ColumnName="TwoGCensusTime" />
+          <ScalarProperty Name="MeasureTime" ColumnName="MeasureTime" />
+          <ScalarProperty Name="Measurement" ColumnName="Measurement" />
+          <ScalarProperty Name="CaseUnit" ColumnName="CaseUnit" />
+          <ScalarProperty Name="FilingTime" ColumnName="FilingTime" />
+          <ScalarProperty Name="FilingCensusTime" ColumnName="FilingCensusTime" />
+          <ScalarProperty Name="MainIllegalTime" ColumnName="MainIllegalTime" />
+          <ScalarProperty Name="TotalAccount" ColumnName="TotalAccount" />
+          <ScalarProperty Name="IllegalAccount" ColumnName="IllegalAccount" />
+          <ScalarProperty Name="LossMisconduct" ColumnName="LossMisconduct" />
+          <ScalarProperty Name="CurrentDutyTime" ColumnName="CurrentDutyTime" />
+          <ScalarProperty Name="CompanyStaffType" ColumnName="CompanyStaffType" />
+          <ScalarProperty Name="LevelType" ColumnName="LevelType" />
+          <ScalarProperty Name="PersonLevel" ColumnName="PersonLevel" />
+          <ScalarProperty Name="IsSupervior" ColumnName="IsSupervior" />
+          <ScalarProperty Name="LeaderDiscipline" ColumnName="LeaderDiscipline" />
+          <ScalarProperty Name="CompamyProperty1" ColumnName="CompamyProperty1" />
+          <ScalarProperty Name="CompamyProperty" ColumnName="CompamyProperty" />
+          <ScalarProperty Name="PersonUnitClassify1" ColumnName="PersonUnitClassify1" />
+          <ScalarProperty Name="PersonUnitClassify" ColumnName="PersonUnitClassify" />
+          <ScalarProperty Name="PersonUnit" ColumnName="PersonUnit" />
+          <ScalarProperty Name="PartyTime" ColumnName="PartyTime" />
+          <ScalarProperty Name="PersonPolitic" ColumnName="PersonPolitic" />
+          <ScalarProperty Name="PersonEducation" ColumnName="PersonEducation" />
+          <ScalarProperty Name="PersonAge" ColumnName="PersonAge" />
+          <ScalarProperty Name="PersonGender" ColumnName="PersonGender" />
+          <ScalarProperty Name="IDCard" ColumnName="IDCard" />
+          <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+          <ScalarProperty Name="PersonCode" ColumnName="PersonCode" />
+          <ScalarProperty Name="CaseCode" ColumnName="CaseCode" />
+          <ScalarProperty Name="IsUnit" ColumnName="IsUnit" />
+          <ScalarProperty Name="TableUnitName" ColumnName="TableUnitName" />
+          <ScalarProperty Name="TableUnitCode" ColumnName="TableUnitCode" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClueInfo">
+      <EntityTypeMapping TypeName="ArchiveHAModel.ClueInfo">
+        <MappingFragment StoreEntitySet="ClueInfo">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="RollOut" ColumnName="RollOut" />
+          <ScalarProperty Name="ReplyNote" ColumnName="ReplyNote" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Des" ColumnName="Des" />
+          <ScalarProperty Name="KeyWord" ColumnName="KeyWord" />
+          <ScalarProperty Name="OtherMode" ColumnName="OtherMode" />
+          <ScalarProperty Name="BelongAddress" ColumnName="BelongAddress" />
+          <ScalarProperty Name="MainMode" ColumnName="MainMode" />
+          <ScalarProperty Name="ReflectCardNumr" ColumnName="ReflectCardNumr" />
+          <ScalarProperty Name="ReflectVocation" ColumnName="ReflectVocation" />
+          <ScalarProperty Name="ReflectPolitics" ColumnName="ReflectPolitics" />
+          <ScalarProperty Name="ReflectSex" ColumnName="ReflectSex" />
+          <ScalarProperty Name="ReflectNation" ColumnName="ReflectNation" />
+          <ScalarProperty Name="ReflectTxaddress" ColumnName="ReflectTxaddress" />
+          <ScalarProperty Name="ReflectZipCode" ColumnName="ReflectZipCode" />
+          <ScalarProperty Name="ReflectEmail" ColumnName="ReflectEmail" />
+          <ScalarProperty Name="ReflectPost" ColumnName="ReflectPost" />
+          <ScalarProperty Name="ReflectArea" ColumnName="ReflectArea" />
+          <ScalarProperty Name="ReflectLinkPhone" ColumnName="ReflectLinkPhone" />
+          <ScalarProperty Name="ReflectAdminLvl" ColumnName="ReflectAdminLvl" />
+          <ScalarProperty Name="ReflectAddress" ColumnName="ReflectAddress" />
+          <ScalarProperty Name="ReflectName" ColumnName="ReflectName" />
+          <ScalarProperty Name="ReflectIsSign" ColumnName="ReflectIsSign" />
+          <ScalarProperty Name="ObjNation" ColumnName="ObjNation" />
+          <ScalarProperty Name="ObjBirthday" ColumnName="ObjBirthday" />
+          <ScalarProperty Name="ObjSex" ColumnName="ObjSex" />
+          <ScalarProperty Name="ObjCardNum" ColumnName="ObjCardNum" />
+          <ScalarProperty Name="ObjIsLeader" ColumnName="ObjIsLeader" />
+          <ScalarProperty Name="ObjIsManager" ColumnName="ObjIsManager" />
+          <ScalarProperty Name="ObjControler" ColumnName="ObjControler" />
+          <ScalarProperty Name="ObjPost" ColumnName="ObjPost" />
+          <ScalarProperty Name="ObjArea" ColumnName="ObjArea" />
+          <ScalarProperty Name="ObjComMode" ColumnName="ObjComMode" />
+          <ScalarProperty Name="ObjAdminLvl" ColumnName="ObjAdminLvl" />
+          <ScalarProperty Name="ObjAddress" ColumnName="ObjAddress" />
+          <ScalarProperty Name="ObjIDCard" ColumnName="ObjIDCard" />
+          <ScalarProperty Name="ObjName" ColumnName="ObjName" />
+          <ScalarProperty Name="ObjType" ColumnName="ObjType" />
+          <ScalarProperty Name="Urgency" ColumnName="Urgency" />
+          <ScalarProperty Name="ClueNum" ColumnName="ClueNum" />
+          <ScalarProperty Name="ClueSource" ColumnName="ClueSource" />
+          <ScalarProperty Name="ClueType" ColumnName="ClueType" />
+          <ScalarProperty Name="ClueDate" ColumnName="ClueDate" />
+          <ScalarProperty Name="ClueMode" ColumnName="ClueMode" />
+          <ScalarProperty Name="BarCode" ColumnName="BarCode" />
+          <ScalarProperty Name="ClueCode" ColumnName="ClueCode" />
+          <ScalarProperty Name="HandleType" ColumnName="HandleType" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClueLink">
+      <EntityTypeMapping TypeName="ArchiveHAModel.ClueLink">
+        <MappingFragment StoreEntitySet="ClueLink">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="MainLeaderOpinion" ColumnName="MainLeaderOpinion" />
+          <ScalarProperty Name="DeptLeaderOpinion" ColumnName="DeptLeaderOpinion" />
+          <ScalarProperty Name="UndertakeDeptOpinion" ColumnName="UndertakeDeptOpinion" />
+          <ScalarProperty Name="InvestigateOpinion" ColumnName="InvestigateOpinion" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="HandleReasonAndProgress" ColumnName="HandleReasonAndProgress" />
+          <ScalarProperty Name="HandleMethod" ColumnName="HandleMethod" />
+          <ScalarProperty Name="ClueSourceAndMainProblem" ColumnName="ClueSourceAndMainProblem" />
+          <ScalarProperty Name="BasicInfo" ColumnName="BasicInfo" />
+          <ScalarProperty Name="CrimeMoney" ColumnName="CrimeMoney" />
+          <ScalarProperty Name="QuestionNature" ColumnName="QuestionNature" />
+          <ScalarProperty Name="HandleSource" ColumnName="HandleSource" />
+          <ScalarProperty Name="UndertakeDate" ColumnName="UndertakeDate" />
+          <ScalarProperty Name="CrimeDate" ColumnName="CrimeDate" />
+          <ScalarProperty Name="ViolateDate" ColumnName="ViolateDate" />
+          <ScalarProperty Name="HandleType" ColumnName="HandleType" />
+          <ScalarProperty Name="SaveDate" ColumnName="SaveDate" />
+          <ScalarProperty Name="LeaderInstruction" ColumnName="LeaderInstruction" />
+          <ScalarProperty Name="DeptOpinion" ColumnName="DeptOpinion" />
+          <ScalarProperty Name="DeviseOpinion" ColumnName="DeviseOpinion" />
+          <ScalarProperty Name="Undertaker" ColumnName="Undertaker" />
+          <ScalarProperty Name="FillInDate" ColumnName="FillInDate" />
+          <ScalarProperty Name="ReplyNote" ColumnName="ReplyNote" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Des" ColumnName="Des" />
+          <ScalarProperty Name="KeyWord" ColumnName="KeyWord" />
+          <ScalarProperty Name="BelongAddress" ColumnName="BelongAddress" />
+          <ScalarProperty Name="MainMode" ColumnName="MainMode" />
+          <ScalarProperty Name="ReflectCardNumr" ColumnName="ReflectCardNumr" />
+          <ScalarProperty Name="ReflectVocation" ColumnName="ReflectVocation" />
+          <ScalarProperty Name="ReflectPolitics" ColumnName="ReflectPolitics" />
+          <ScalarProperty Name="ReflectSex" ColumnName="ReflectSex" />
+          <ScalarProperty Name="ReflectNation" ColumnName="ReflectNation" />
+          <ScalarProperty Name="ReflectTxaddress" ColumnName="ReflectTxaddress" />
+          <ScalarProperty Name="ReflectZipCode" ColumnName="ReflectZipCode" />
+          <ScalarProperty Name="ReflectEmail" ColumnName="ReflectEmail" />
+          <ScalarProperty Name="ReflectPost" ColumnName="ReflectPost" />
+          <ScalarProperty Name="ReflectArea" ColumnName="ReflectArea" />
+          <ScalarProperty Name="ReflectLinkPhone" ColumnName="ReflectLinkPhone" />
+          <ScalarProperty Name="ReflectAdminLvl" ColumnName="ReflectAdminLvl" />
+          <ScalarProperty Name="ReflectAddress" ColumnName="ReflectAddress" />
+          <ScalarProperty Name="ReflectName" ColumnName="ReflectName" />
+          <ScalarProperty Name="ReflectIsSign" ColumnName="ReflectIsSign" />
+          <ScalarProperty Name="ObjNation" ColumnName="ObjNation" />
+          <ScalarProperty Name="ObjBirthday" ColumnName="ObjBirthday" />
+          <ScalarProperty Name="ObjSex" ColumnName="ObjSex" />
+          <ScalarProperty Name="ObjCardNum" ColumnName="ObjCardNum" />
+          <ScalarProperty Name="ObjIsLeader" ColumnName="ObjIsLeader" />
+          <ScalarProperty Name="ObjIsManager" ColumnName="ObjIsManager" />
+          <ScalarProperty Name="ObjControler" ColumnName="ObjControler" />
+          <ScalarProperty Name="ObjPost" ColumnName="ObjPost" />
+          <ScalarProperty Name="ObjArea" ColumnName="ObjArea" />
+          <ScalarProperty Name="ObjComMode" ColumnName="ObjComMode" />
+          <ScalarProperty Name="ObjAdminLvl" ColumnName="ObjAdminLvl" />
+          <ScalarProperty Name="ObjAddress" ColumnName="ObjAddress" />
+          <ScalarProperty Name="ObjName" ColumnName="ObjName" />
+          <ScalarProperty Name="ObjType" ColumnName="ObjType" />
+          <ScalarProperty Name="Urgency" ColumnName="Urgency" />
+          <ScalarProperty Name="ClueNum" ColumnName="ClueNum" />
+          <ScalarProperty Name="ClueSource" ColumnName="ClueSource" />
+          <ScalarProperty Name="ClueType" ColumnName="ClueType" />
+          <ScalarProperty Name="ClueDate" ColumnName="ClueDate" />
+          <ScalarProperty Name="ClueMode" ColumnName="ClueMode" />
+          <ScalarProperty Name="BarCode" ColumnName="BarCode" />
+          <ScalarProperty Name="ClueCode" ColumnName="ClueCode" />
+          <ScalarProperty Name="HandleStaffName" ColumnName="HandleStaffName" />
+          <ScalarProperty Name="HandleDeptName" ColumnName="HandleDeptName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CrimeInfo">
+      <EntityTypeMapping TypeName="ArchiveHAModel.CrimeInfo">
+        <MappingFragment StoreEntitySet="CrimeInfo">
+          <ScalarProperty Name="IDCard" ColumnName="IDCard" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="ExamineTime" ColumnName="ExamineTime" />
+          <ScalarProperty Name="Examine" ColumnName="Examine" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="PenaltyInfo" ColumnName="PenaltyInfo" />
+          <ScalarProperty Name="PenaltyType" ColumnName="PenaltyType" />
+          <ScalarProperty Name="HandoverDate" ColumnName="HandoverDate" />
+          <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
+          <ScalarProperty Name="ReportUnit" ColumnName="ReportUnit" />
+          <ScalarProperty Name="CaseCode" ColumnName="CaseCode" />
+          <ScalarProperty Name="CaseUnit" ColumnName="CaseUnit" />
+          <ScalarProperty Name="ClosingTime" ColumnName="ClosingTime" />
+          <ScalarProperty Name="FilingTime" ColumnName="FilingTime" />
+          <ScalarProperty Name="CaseType" ColumnName="CaseType" />
+          <ScalarProperty Name="PersonPolitic" ColumnName="PersonPolitic" />
+          <ScalarProperty Name="PersonDuty" ColumnName="PersonDuty" />
+          <ScalarProperty Name="PersonUnit" ColumnName="PersonUnit" />
+          <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DataAccount">
+      <EntityTypeMapping TypeName="ArchiveHAModel.DataAccount">
+        <MappingFragment StoreEntitySet="DataAccount">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="AccountType9" ColumnName="AccountType9" />
+          <ScalarProperty Name="AccountType8" ColumnName="AccountType8" />
+          <ScalarProperty Name="AccountType7" ColumnName="AccountType7" />
+          <ScalarProperty Name="AccountType6" ColumnName="AccountType6" />
+          <ScalarProperty Name="AccountType5" ColumnName="AccountType5" />
+          <ScalarProperty Name="AccountType4" ColumnName="AccountType4" />
+          <ScalarProperty Name="AccountType3" ColumnName="AccountType3" />
+          <ScalarProperty Name="AccountType2" ColumnName="AccountType2" />
+          <ScalarProperty Name="AccountType1" ColumnName="AccountType1" />
+          <ScalarProperty Name="AccountTotal" ColumnName="AccountTotal" />
+          <ScalarProperty Name="CountDate" ColumnName="CountDate" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DataCase">
+      <EntityTypeMapping TypeName="ArchiveHAModel.DataCase">
+        <MappingFragment StoreEntitySet="DataCase">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="JudicialTransfer" ColumnName="JudicialTransfer" />
+          <ScalarProperty Name="OrgPunish" ColumnName="OrgPunish" />
+          <ScalarProperty Name="CaseOne" ColumnName="CaseOne" />
+          <ScalarProperty Name="GovernPunish" ColumnName="GovernPunish" />
+          <ScalarProperty Name="PartyPunish" ColumnName="PartyPunish" />
+          <ScalarProperty Name="HandlePerson" ColumnName="HandlePerson" />
+          <ScalarProperty Name="CaseClose" ColumnName="CaseClose" />
+          <ScalarProperty Name="Case2" ColumnName="Case2" />
+          <ScalarProperty Name="Case1" ColumnName="Case1" />
+          <ScalarProperty Name="CaseOwn" ColumnName="CaseOwn" />
+          <ScalarProperty Name="CaseTotal" ColumnName="CaseTotal" />
+          <ScalarProperty Name="TalkTotal" ColumnName="TalkTotal" />
+          <ScalarProperty Name="ClueTotal" ColumnName="ClueTotal" />
+          <ScalarProperty Name="CountDate" ColumnName="CountDate" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DataDiscipline">
+      <EntityTypeMapping TypeName="ArchiveHAModel.DataDiscipline">
+        <MappingFragment StoreEntitySet="DataDiscipline">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Discipline6" ColumnName="Discipline6" />
+          <ScalarProperty Name="Discipline5" ColumnName="Discipline5" />
+          <ScalarProperty Name="Discipline4" ColumnName="Discipline4" />
+          <ScalarProperty Name="Discipline3" ColumnName="Discipline3" />
+          <ScalarProperty Name="Discipline2" ColumnName="Discipline2" />
+          <ScalarProperty Name="Discipline1" ColumnName="Discipline1" />
+          <ScalarProperty Name="CountDate" ColumnName="CountDate" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DataFirstForm">
+      <EntityTypeMapping TypeName="ArchiveHAModel.DataFirstForm">
+        <MappingFragment StoreEntitySet="DataFirstForm">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="FirstFormType5" ColumnName="FirstFormType5" />
+          <ScalarProperty Name="FirstFormType4" ColumnName="FirstFormType4" />
+          <ScalarProperty Name="FirstFormType3" ColumnName="FirstFormType3" />
+          <ScalarProperty Name="FirstFormType2" ColumnName="FirstFormType2" />
+          <ScalarProperty Name="FirstFormType1" ColumnName="FirstFormType1" />
+          <ScalarProperty Name="FirstFormTotal" ColumnName="FirstFormTotal" />
+          <ScalarProperty Name="CountDate" ColumnName="CountDate" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DataFourForms">
+      <EntityTypeMapping TypeName="ArchiveHAModel.DataFourForms">
+        <MappingFragment StoreEntitySet="DataFourForms">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Form4" ColumnName="Form4" />
+          <ScalarProperty Name="Form3" ColumnName="Form3" />
+          <ScalarProperty Name="Form2" ColumnName="Form2" />
+          <ScalarProperty Name="Form1" ColumnName="Form1" />
+          <ScalarProperty Name="CountDate" ColumnName="CountDate" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DataScore">
+      <EntityTypeMapping TypeName="ArchiveHAModel.DataScore">
+        <MappingFragment StoreEntitySet="DataScore">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="CountDate" ColumnName="CountDate" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeclareInfo">
+      <EntityTypeMapping TypeName="ArchiveHAModel.DeclareInfo">
+        <MappingFragment StoreEntitySet="DeclareInfo">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="DeclareResult" ColumnName="DeclareResult" />
+          <ScalarProperty Name="DeclareInfo1" ColumnName="DeclareInfo" />
+          <ScalarProperty Name="DeclareDate" ColumnName="DeclareDate" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dept">
+      <EntityTypeMapping TypeName="ArchiveHAModel.Dept">
+        <MappingFragment StoreEntitySet="Dept">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="DeptName" ColumnName="DeptName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FirstForm">
+      <EntityTypeMapping TypeName="ArchiveHAModel.FirstForm">
+        <MappingFragment StoreEntitySet="FirstForm">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Reform" ColumnName="Reform" />
+          <ScalarProperty Name="MainProblem" ColumnName="MainProblem" />
+          <ScalarProperty Name="HandleDetail" ColumnName="HandleDetail" />
+          <ScalarProperty Name="HandleTime" ColumnName="HandleTime" />
+          <ScalarProperty Name="HandleUnit" ColumnName="HandleUnit" />
+          <ScalarProperty Name="HandleLevel" ColumnName="HandleLevel" />
+          <ScalarProperty Name="HandleDuty" ColumnName="HandleDuty" />
+          <ScalarProperty Name="HandleIDCard" ColumnName="HandleIDCard" />
+          <ScalarProperty Name="HandlePerson" ColumnName="HandlePerson" />
+          <ScalarProperty Name="IsTwoDid" ColumnName="IsTwoDid" />
+          <ScalarProperty Name="IsAssigned" ColumnName="IsAssigned" />
+          <ScalarProperty Name="FirstFormType" ColumnName="FirstFormType" />
+          <ScalarProperty Name="PersonLevel" ColumnName="PersonLevel" />
+          <ScalarProperty Name="PersonDuty" ColumnName="PersonDuty" />
+          <ScalarProperty Name="PersonUnit" ColumnName="PersonUnit" />
+          <ScalarProperty Name="PersonGender" ColumnName="PersonGender" />
+          <ScalarProperty Name="PersonArea" ColumnName="PersonArea" />
+          <ScalarProperty Name="PersonPolitic" ColumnName="PersonPolitic" />
+          <ScalarProperty Name="IDCard" ColumnName="IDCard" />
+          <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+          <ScalarProperty Name="KeyArea" ColumnName="KeyArea" />
+          <ScalarProperty Name="KeyTrade" ColumnName="KeyTrade" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FourForms">
+      <EntityTypeMapping TypeName="ArchiveHAModel.FourForms">
+        <MappingFragment StoreEntitySet="FourForms">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsChecked" ColumnName="IsChecked" />
+          <ScalarProperty Name="LawBehaviour" ColumnName="LawBehaviour" />
+          <ScalarProperty Name="IllegalBehavior" ColumnName="IllegalBehavior" />
+          <ScalarProperty Name="ClueSource" ColumnName="ClueSource" />
+          <ScalarProperty Name="IsRepeated" ColumnName="IsRepeated" />
+          <ScalarProperty Name="HandleType8Second" ColumnName="HandleType8Second" />
+          <ScalarProperty Name="HandleType8First" ColumnName="HandleType8First" />
+          <ScalarProperty Name="Handle8CensusTime" ColumnName="Handle8CensusTime" />
+          <ScalarProperty Name="Handle8Time" ColumnName="Handle8Time" />
+          <ScalarProperty Name="HandleType7Second" ColumnName="HandleType7Second" />
+          <ScalarProperty Name="HandleType7First" ColumnName="HandleType7First" />
+          <ScalarProperty Name="Handle7CensusTime" ColumnName="Handle7CensusTime" />
+          <ScalarProperty Name="Handle7Time" ColumnName="Handle7Time" />
+          <ScalarProperty Name="HandleType6Second" ColumnName="HandleType6Second" />
+          <ScalarProperty Name="HandleType6First" ColumnName="HandleType6First" />
+          <ScalarProperty Name="Handle6CensusTime" ColumnName="Handle6CensusTime" />
+          <ScalarProperty Name="Handle6Time" ColumnName="Handle6Time" />
+          <ScalarProperty Name="HandleType5Second" ColumnName="HandleType5Second" />
+          <ScalarProperty Name="HandleType5First" ColumnName="HandleType5First" />
+          <ScalarProperty Name="Handle5Census" ColumnName="Handle5Census" />
+          <ScalarProperty Name="Handle5Time" ColumnName="Handle5Time" />
+          <ScalarProperty Name="HandleType4Second" ColumnName="HandleType4Second" />
+          <ScalarProperty Name="HandleType4First" ColumnName="HandleType4First" />
+          <ScalarProperty Name="Handle4CensustTime" ColumnName="Handle4CensustTime" />
+          <ScalarProperty Name="Handle4Time" ColumnName="Handle4Time" />
+          <ScalarProperty Name="HandleType3Second" ColumnName="HandleType3Second" />
+          <ScalarProperty Name="HandleType3First" ColumnName="HandleType3First" />
+          <ScalarProperty Name="Handle3CensusTime" ColumnName="Handle3CensusTime" />
+          <ScalarProperty Name="Handle3Time" ColumnName="Handle3Time" />
+          <ScalarProperty Name="HandleType2Second" ColumnName="HandleType2Second" />
+          <ScalarProperty Name="HandleType2First" ColumnName="HandleType2First" />
+          <ScalarProperty Name="Handle2CensusTime" ColumnName="Handle2CensusTime" />
+          <ScalarProperty Name="Handle2Time" ColumnName="Handle2Time" />
+          <ScalarProperty Name="HandleType1Second" ColumnName="HandleType1Second" />
+          <ScalarProperty Name="HandleType1First" ColumnName="HandleType1First" />
+          <ScalarProperty Name="Handle1CensusTime" ColumnName="Handle1CensusTime" />
+          <ScalarProperty Name="Handle1Time" ColumnName="Handle1Time" />
+          <ScalarProperty Name="AcceptTime" ColumnName="AcceptTime" />
+          <ScalarProperty Name="SecondLevel" ColumnName="SecondLevel" />
+          <ScalarProperty Name="PartyTime" ColumnName="PartyTime" />
+          <ScalarProperty Name="ReportID" ColumnName="ReportID" />
+          <ScalarProperty Name="HandleReport" ColumnName="HandleReport" />
+          <ScalarProperty Name="PoliticDetail" ColumnName="PoliticDetail" />
+          <ScalarProperty Name="IsCivilServant" ColumnName="IsCivilServant" />
+          <ScalarProperty Name="IsCPPCC" ColumnName="IsCPPCC" />
+          <ScalarProperty Name="IsDeputy" ColumnName="IsDeputy" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="ChildID" ColumnName="ChildID" />
+          <ScalarProperty Name="Nation" ColumnName="Nation" />
+          <ScalarProperty Name="HandleRemark" ColumnName="HandleRemark" />
+          <ScalarProperty Name="MainClue" ColumnName="MainClue" />
+          <ScalarProperty Name="HandleUnit" ColumnName="HandleUnit" />
+          <ScalarProperty Name="OrgMeasure" ColumnName="OrgMeasure" />
+          <ScalarProperty Name="CaptureAssetMoney" ColumnName="CaptureAssetMoney" />
+          <ScalarProperty Name="RetrieveEconomicLoss" ColumnName="RetrieveEconomicLoss" />
+          <ScalarProperty Name="PersonLevel" ColumnName="PersonLevel" />
+          <ScalarProperty Name="IsSupervision" ColumnName="IsSupervision" />
+          <ScalarProperty Name="PersonDuty" ColumnName="PersonDuty" />
+          <ScalarProperty Name="PersonUnit" ColumnName="PersonUnit" />
+          <ScalarProperty Name="PersonAuthority" ColumnName="PersonAuthority" />
+          <ScalarProperty Name="Politic" ColumnName="Politic" />
+          <ScalarProperty Name="PersonIDCard" ColumnName="PersonIDCard" />
+          <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+          <ScalarProperty Name="PersonCode" ColumnName="PersonCode" />
+          <ScalarProperty Name="ClueCode" ColumnName="ClueCode" />
+          <ScalarProperty Name="IsCensusMark" ColumnName="IsCensusMark" />
+          <ScalarProperty Name="UnitCode" ColumnName="UnitCode" />
+          <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
+          <ScalarProperty Name="CheckStaff" ColumnName="CheckStaff" />
+          <ScalarProperty Name="ReportStaff" ColumnName="ReportStaff" />
+          <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+          <ScalarProperty Name="IsUnit" ColumnName="IsUnit" />
+          <ScalarProperty Name="FourFormNO" ColumnName="FourFormNO" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GiftInfo">
+      <EntityTypeMapping TypeName="ArchiveHAModel.GiftInfo">
+        <MappingFragment StoreEntitySet="GiftInfo">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="ReceiveStaff" ColumnName="ReceiveStaff" />
+          <ScalarProperty Name="UnderTakenStaff" ColumnName="UnderTakenStaff" />
+          <ScalarProperty Name="UnderTakenDept" ColumnName="UnderTakenDept" />
+          <ScalarProperty Name="HandInAddress" ColumnName="HandInAddress" />
+          <ScalarProperty Name="HandInTime" ColumnName="HandInTime" />
+          <ScalarProperty Name="IDCard" ColumnName="IDCard" />
+          <ScalarProperty Name="ObjName" ColumnName="ObjName" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Handle">
+      <EntityTypeMapping TypeName="ArchiveHAModel.Handle">
+        <MappingFragment StoreEntitySet="Handle">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Reply" ColumnName="Reply" />
+          <ScalarProperty Name="HandleReasonAndProgress" ColumnName="HandleReasonAndProgress" />
+          <ScalarProperty Name="HandleMethod" ColumnName="HandleMethod" />
+          <ScalarProperty Name="ClueSourceAndMainProblem" ColumnName="ClueSourceAndMainProblem" />
+          <ScalarProperty Name="BasicInfo" ColumnName="BasicInfo" />
+          <ScalarProperty Name="FinishDate" ColumnName="FinishDate" />
+          <ScalarProperty Name="Undertaker" ColumnName="Undertaker" />
+          <ScalarProperty Name="UndertakeDept" ColumnName="UndertakeDept" />
+          <ScalarProperty Name="UndertakerOpinion" ColumnName="UndertakerOpinion" />
+          <ScalarProperty Name="DealOpinion" ColumnName="DealOpinion" />
+          <ScalarProperty Name="DealDept" ColumnName="DealDept" />
+          <ScalarProperty Name="RefNum" ColumnName="RefNum" />
+          <ScalarProperty Name="SaveDate" ColumnName="SaveDate" />
+          <ScalarProperty Name="ClueCode" ColumnName="ClueCode" />
+          <ScalarProperty Name="FillInPerson" ColumnName="FillInPerson" />
+          <ScalarProperty Name="FillInDept" ColumnName="FillInDept" />
+          <ScalarProperty Name="MainLeaderOpinionSign" ColumnName="MainLeaderOpinionSign" />
+          <ScalarProperty Name="DeptLeaderOpinionDate" ColumnName="DeptLeaderOpinionDate" />
+          <ScalarProperty Name="DeptLeaderOpinionSign" ColumnName="DeptLeaderOpinionSign" />
+          <ScalarProperty Name="DeptLeaderOpinion" ColumnName="DeptLeaderOpinion" />
+          <ScalarProperty Name="UndertakeDeptOpinionSign" ColumnName="UndertakeDeptOpinionSign" />
+          <ScalarProperty Name="Nation" ColumnName="Nation" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="SubmitDate" ColumnName="SubmitDate" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="MainLeaderOpinionDate" ColumnName="MainLeaderOpinionDate" />
+          <ScalarProperty Name="MainLeaderOpinion" ColumnName="MainLeaderOpinion" />
+          <ScalarProperty Name="UndertakeDeptOpinionDate" ColumnName="UndertakeDeptOpinionDate" />
+          <ScalarProperty Name="UndertakeDeptOpinion" ColumnName="UndertakeDeptOpinion" />
+          <ScalarProperty Name="InvestigateOpinionDate" ColumnName="InvestigateOpinionDate" />
+          <ScalarProperty Name="InvestigateOpinion" ColumnName="InvestigateOpinion" />
+          <ScalarProperty Name="MainFact" ColumnName="MainFact" />
+          <ScalarProperty Name="UndertakeDate" ColumnName="UndertakeDate" />
+          <ScalarProperty Name="CrimeMoney" ColumnName="CrimeMoney" />
+          <ScalarProperty Name="QuestionNature" ColumnName="QuestionNature" />
+          <ScalarProperty Name="CrimeDate" ColumnName="CrimeDate" />
+          <ScalarProperty Name="ClueSource" ColumnName="ClueSource" />
+          <ScalarProperty Name="ViolateDate" ColumnName="ViolateDate" />
+          <ScalarProperty Name="Post" ColumnName="Post" />
+          <ScalarProperty Name="Dept" ColumnName="Dept" />
+          <ScalarProperty Name="Culture" ColumnName="Culture" />
+          <ScalarProperty Name="WorkDate" ColumnName="WorkDate" />
+          <ScalarProperty Name="PartyDate" ColumnName="PartyDate" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="IDCard" ColumnName="IDCard" />
+          <ScalarProperty Name="TargetName" ColumnName="TargetName" />
+          <ScalarProperty Name="HandleLink" ColumnName="HandleLink" />
+          <ScalarProperty Name="HandleType" ColumnName="HandleType" />
+          <ScalarProperty Name="ClueID" ColumnName="ClueID" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JD_Meeting">
+      <EntityTypeMapping TypeName="ArchiveHAModel.JD_Meeting">
+        <MappingFragment StoreEntitySet="JD_Meeting">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Reform" ColumnName="Reform" />
+          <ScalarProperty Name="MainProblem" ColumnName="MainProblem" />
+          <ScalarProperty Name="ZJInfo" ColumnName="ZJInfo" />
+          <ScalarProperty Name="HasLeader" ColumnName="HasLeader" />
+          <ScalarProperty Name="PZInfo" ColumnName="PZInfo" />
+          <ScalarProperty Name="PartyInfo" ColumnName="PartyInfo" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="MeetingTime" ColumnName="MeetingTime" />
+          <ScalarProperty Name="MeetingType" ColumnName="MeetingType" />
+          <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JD_Punish">
+      <EntityTypeMapping TypeName="ArchiveHAModel.JD_Punish">
+        <MappingFragment StoreEntitySet="JD_Punish">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Des" ColumnName="Des" />
+          <ScalarProperty Name="GovenPunish" ColumnName="GovenPunish" />
+          <ScalarProperty Name="PartyPunish" ColumnName="PartyPunish" />
+          <ScalarProperty Name="FourForms" ColumnName="FourForms" />
+          <ScalarProperty Name="DocNo" ColumnName="DocNo" />
+          <ScalarProperty Name="HandleTime" ColumnName="HandleTime" />
+          <ScalarProperty Name="WorkLevel" ColumnName="WorkLevel" />
+          <ScalarProperty Name="WorkDuty" ColumnName="WorkDuty" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SubID" ColumnName="SubID" />
+          <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JD_RiskInfo">
+      <EntityTypeMapping TypeName="ArchiveHAModel.JD_RiskInfo">
+        <MappingFragment StoreEntitySet="JD_RiskInfo">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Handle" ColumnName="Handle" />
+          <ScalarProperty Name="Des" ColumnName="Des" />
+          <ScalarProperty Name="Risk" ColumnName="Risk" />
+          <ScalarProperty Name="Item" ColumnName="Item" />
+          <ScalarProperty Name="SubID" ColumnName="SubID" />
+          <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Log">
+      <EntityTypeMapping TypeName="ArchiveHAModel.Log">
+        <MappingFragment StoreEntitySet="Log">
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="OptType" ColumnName="OptType" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="IP" ColumnName="IP" />
+          <ScalarProperty Name="OptTime" ColumnName="OptTime" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Menu">
+      <EntityTypeMapping TypeName="ArchiveHAModel.Menu">
+        <MappingFragment StoreEntitySet="Menu">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PC_Case">
+      <EntityTypeMapping TypeName="ArchiveHAModel.PC_Case">
+        <MappingFragment StoreEntitySet="PC_Case">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="ExamineTime" ColumnName="ExamineTime" />
+          <ScalarProperty Name="Examine" ColumnName="Examine" />
+          <ScalarProperty Name="CaseTime" ColumnName="CaseTime" />
+          <ScalarProperty Name="CaseType" ColumnName="CaseType" />
+          <ScalarProperty Name="CaseStatus" ColumnName="CaseStatus" />
+          <ScalarProperty Name="CaseName" ColumnName="CaseName" />
+          <ScalarProperty Name="CaseResult" ColumnName="CaseResult" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IDCard" ColumnName="IDCard" />
+          <ScalarProperty Name="CaseNo" ColumnName="CaseNo" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PC_CitizenCard">
+      <EntityTypeMapping TypeName="ArchiveHAModel.PC_CitizenCard">
+        <MappingFragment StoreEntitySet="PC_CitizenCard">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="jtaddress" ColumnName="jtaddress" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="certcardno" ColumnName="certcardno" />
+          <ScalarProperty Name="certcardtype" ColumnName="certcardtype" />
+          <ScalarProperty Name="birthdate" ColumnName="birthdate" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="employerid" ColumnName="employerid" />
+          <ScalarProperty Name="bankcardno" ColumnName="bankcardno" />
+          <ScalarProperty Name="securityno" ColumnName="securityno" />
+          <ScalarProperty Name="cardno" ColumnName="cardno" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PC_CompanyInfo">
+      <EntityTypeMapping TypeName="ArchiveHAModel.PC_CompanyInfo">
+        <MappingFragment StoreEntitySet="PC_CompanyInfo">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="hpxydj" ColumnName="hpxydj" />
+          <ScalarProperty Name="djrq" ColumnName="djrq" />
+          <ScalarProperty Name="djjg" ColumnName="djjg" />
+          <ScalarProperty Name="jyfw" ColumnName="jyfw" />
+          <ScalarProperty Name="jyjzrq" ColumnName="jyjzrq" />
+          <ScalarProperty Name="clrq" ColumnName="clrq" />
+          <ScalarProperty Name="zczj" ColumnName="zczj" />
+          <ScalarProperty Name="sfzhm" ColumnName="sfzhm" />
+          <ScalarProperty Name="fddbr" ColumnName="fddbr" />
+          <ScalarProperty Name="zs" ColumnName="zs" />
+          <ScalarProperty Name="qylx" ColumnName="qylx" />
+          <ScalarProperty Name="qymc" ColumnName="qymc" />
+          <ScalarProperty Name="tyshdm" ColumnName="tyshdm" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PC_DrivingLicense">
+      <EntityTypeMapping TypeName="ArchiveHAModel.PC_DrivingLicense">
+        <MappingFragment StoreEntitySet="PC_DrivingLicense">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+          <ScalarProperty Name="ValidEndDate" ColumnName="ValidEndDate" />
+          <ScalarProperty Name="ValidStartDate" ColumnName="ValidStartDate" />
+          <ScalarProperty Name="FirstLicenseDate" ColumnName="FirstLicenseDate" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="IDCard" ColumnName="IDCard" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="LicenseType" ColumnName="LicenseType" />
+          <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+          <ScalarProperty Name="RegisterAddress" ColumnName="RegisterAddress" />
+          <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PC_DrivingPermit">
+      <EntityTypeMapping TypeName="ArchiveHAModel.PC_DrivingPermit">
+        <MappingFragment StoreEntitySet="PC_DrivingPermit">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="WrongCode" ColumnName="WrongCode" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+          <ScalarProperty Name="LicensePlateNumber" ColumnName="LicensePlateNumber" />
+          <ScalarProperty Name="LicensePlateType" ColumnName="LicensePlateType" />
+          <ScalarProperty Name="CarType" ColumnName="CarType" />
+          <ScalarProperty Name="CarBrand" ColumnName="CarBrand" />
+          <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+          <ScalarProperty Name="IDCard" ColumnName="IDCard" />
+          <ScalarProperty Name="IdentificationCode" ColumnName="IdentificationCode" />
+          <ScalarProperty Name="CarID" ColumnName="CarID" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PC_FaithBreak">
+      <EntityTypeMapping TypeName="ArchiveHAModel.PC_FaithBreak">
+        <MappingFragment StoreEntitySet="PC_FaithBreak">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="ExamineTime" ColumnName="ExamineTime" />
+          <ScalarProperty Name="Examine" ColumnName="Examine" />
+          <ScalarProperty Name="lastupdate" ColumnName="lastupdate" />
+          <ScalarProperty Name="ztmc" ColumnName="ztmc" />
+          <ScalarProperty Name="sxxwqxmc" ColumnName="sxxwqxmc" />
+          <ScalarProperty Name="bdje" ColumnName="bdje" />
+          <ScalarProperty Name="ajzt" ColumnName="ajzt" />
+          <ScalarProperty Name="zxfymc" ColumnName="zxfymc" />
+          <ScalarProperty Name="larq" ColumnName="larq" />
+          <ScalarProperty Name="ah" ColumnName="ah" />
+          <ScalarProperty Name="zzjgdm" ColumnName="zzjgdm" />
+          <ScalarProperty Name="zjhm" ColumnName="zjhm" />
+          <ScalarProperty Name="zjlxmc" ColumnName="zjlxmc" />
+          <ScalarProperty Name="bzxrmc" ColumnName="bzxrmc" />
+          <ScalarProperty Name="xh" ColumnName="xh" />
+          <ScalarProperty Name="ahdm" ColumnName="ahdm" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PC_FundLoan">
+      <EntityTypeMapping TypeName="ArchiveHAModel.PC_FundLoan">
+        <MappingFragment StoreEntitySet="PC_FundLoan">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="houseaddress" ColumnName="houseaddress" />
+          <ScalarProperty Name="gyemployer" ColumnName="gyemployer" />
+          <ScalarProperty Name="gygjjaccount" ColumnName="gygjjaccount" />
+          <ScalarProperty Name="gyresidentid" ColumnName="gyresidentid" />
+          <ScalarProperty Name="gyname" ColumnName="gyname" />
+          <ScalarProperty Name="spouseemployer" ColumnName="spouseemployer" />
+          <ScalarProperty Name="spousegjjaccount" ColumnName="spousegjjaccount" />
+          <ScalarProperty Name="spouseresidentid" ColumnName="spouseresidentid" />
+          <ScalarProperty Name="spousename" ColumnName="spousename" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="livingaddress" ColumnName="livingaddress" />
+          <ScalarProperty Name="employer" ColumnName="employer" />
+          <ScalarProperty Name="accountid" ColumnName="accountid" />
+          <ScalarProperty Name="resident_id" ColumnName="resident_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="housename" ColumnName="housename" />
+          <ScalarProperty Name="loanname" ColumnName="loanname" />
+          <ScalarProperty Name="loaddate" ColumnName="loaddate" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PC_Gas">
+      <EntityTypeMapping TypeName="ArchiveHAModel.PC_Gas">
+        <MappingFragment StoreEntitySet="PC_Gas">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="htbh" ColumnName="htbh" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="sfzh" ColumnName="sfzh" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="hzhb" ColumnName="hzhb" />
+          <ScalarProperty Name="fangj" ColumnName="fangj" />
+          <ScalarProperty Name="dany" ColumnName="dany" />
+          <ScalarProperty Name="louh" ColumnName="louh" />
+          <ScalarProperty Name="xqu" ColumnName="xqu" />
+          <ScalarProperty Name="jied" ColumnName="jied" />
+          <ScalarProperty Name="quy" ColumnName="quy" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PC_Health">
+      <EntityTypeMapping TypeName="ArchiveHAModel.PC_Health">
+        <MappingFragment StoreEntitySet="PC_Health">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="HospitalTime" ColumnName="HospitalTime" />
+          <ScalarProperty Name="CYZD" ColumnName="CYZD" />
+          <ScalarProperty Name="RZKS" ColumnName="RZKS" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="YBH" ColumnName="YBH" />
+          <ScalarProperty Name="ZYH" ColumnName="ZYH" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IDCard" ColumnName="IDCard" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PC_House">
+      <EntityTypeMapping TypeName="ArchiveHAModel.PC_House">
+        <MappingFragment StoreEntitySet="PC_House">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="sub_type" ColumnName="sub_type" />
+          <ScalarProperty Name="t_type" ColumnName="t_type" />
+          <ScalarProperty Name="qz_code" ColumnName="qz_code" />
+          <ScalarProperty Name="qz_type" ColumnName="qz_type" />
+          <ScalarProperty Name="t_value" ColumnName="t_value" />
+          <ScalarProperty Name="use_for" ColumnName="use_for" />
+          <ScalarProperty Name="cq_area" ColumnName="cq_area" />
+          <ScalarProperty Name="zlocation" ColumnName="zlocation" />
+          <ScalarProperty Name="zone_name" ColumnName="zone_name" />
+          <ScalarProperty Name="keycode" ColumnName="keycode" />
+          <ScalarProperty Name="ycqrcode" ColumnName="ycqrcode" />
+          <ScalarProperty Name="ycqr" ColumnName="ycqr" />
+          <ScalarProperty Name="pid_code" ColumnName="pid_code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="reg_date" ColumnName="reg_date" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PC_HouseAll">
+      <EntityTypeMapping TypeName="ArchiveHAModel.PC_HouseAll">
+        <MappingFragment StoreEntitySet="PC_HouseAll">
+          <ScalarProperty Name="htbasj" ColumnName="htbasj" />
+          <ScalarProperty Name="yt" ColumnName="yt" />
+          <ScalarProperty Name="buildarea" ColumnName="buildarea" />
+          <ScalarProperty Name="locations" ColumnName="locations" />
+          <ScalarProperty Name="cid" ColumnName="cid" />
+          <ScalarProperty Name="buyer" ColumnName="buyer" />
+          <ScalarProperty Name="seller" ColumnName="seller" />
+          <ScalarProperty Name="caseid" ColumnName="caseid" />
+          <ScalarProperty Name="C_district" ColumnName="﻿district" />
+          <ScalarProperty Name="zid" ColumnName="zid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PC_Household">
+      <EntityTypeMapping TypeName="ArchiveHAModel.PC_Household">
+        <MappingFragment StoreEntitySet="PC_Household">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="XLH" ColumnName="XLH" />
+          <ScalarProperty Name="ResidenceStatus" ColumnName="ResidenceStatus" />
+          <ScalarProperty Name="ResidencePlace" ColumnName="ResidencePlace" />
+          <ScalarProperty Name="NativePlace" ColumnName="NativePlace" />
+          <ScalarProperty Name="Marriage" ColumnName="Marriage" />
+          <ScalarProperty Name="Education" ColumnName="Education" />
+          <ScalarProperty Name="DeathConfirmType" ColumnName="DeathConfirmType" />
+          <ScalarProperty Name="DeathConfirmDate" ColumnName="DeathConfirmDate" />
+          <ScalarProperty Name="DeathDate" ColumnName="DeathDate" />
+          <ScalarProperty Name="JobCode" ColumnName="JobCode" />
+          <ScalarProperty Name="Job" ColumnName="Job" />
+          <ScalarProperty Name="BloodType" ColumnName="BloodType" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="CancellationCode" ColumnName="CancellationCode" />
+          <ScalarProperty Name="LeaveDate" ColumnName="LeaveDate" />
+          <ScalarProperty Name="HouseType" ColumnName="HouseType" />
+          <ScalarProperty Name="HouseCode" ColumnName="HouseCode" />
+          <ScalarProperty Name="OlderName" ColumnName="OlderName" />
+          <ScalarProperty Name="WrongCode" ColumnName="WrongCode" />
+          <ScalarProperty Name="DeleteMark" ColumnName="DeleteMark" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+          <ScalarProperty Name="HolderRelation" ColumnName="HolderRelation" />
+          <ScalarProperty Name="HouseNumber" ColumnName="HouseNumber" />
+          <ScalarProperty Name="IDCard" ColumnName="IDCard" />
+          <ScalarProperty Name="HouseholdAddress" ColumnName="HouseholdAddress" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Nation" ColumnName="Nation" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PC_HouseTrade">
+      <EntityTypeMapping TypeName="ArchiveHAModel.PC_HouseTrade">
+        <MappingFragment StoreEntitySet="PC_HouseTrade">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="yt" ColumnName="yt" />
+          <ScalarProperty Name="buildarea" ColumnName="buildarea" />
+          <ScalarProperty Name="district" ColumnName="district" />
+          <ScalarProperty Name="seller" ColumnName="seller" />
+          <ScalarProperty Name="cid" ColumnName="cid" />
+          <ScalarProperty Name="buyer" ColumnName="buyer" />
+          <ScalarProperty Name="locations" ColumnName="locations" />
+          <ScalarProperty Name="caseid" ColumnName="caseid" />
+          <ScalarProperty Name="htbasj" ColumnName="htbasj" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PC_HousingFund">
+      <EntityTypeMapping TypeName="ArchiveHAModel.PC_HousingFund">
+        <MappingFragment StoreEntitySet="PC_HousingFund">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="canceldate" ColumnName="canceldate" />
+          <ScalarProperty Name="balanceamount" ColumnName="balanceamount" />
+          <ScalarProperty Name="lastamountintererest" ColumnName="lastamountintererest" />
+          <ScalarProperty Name="lastleftamount" ColumnName="lastleftamount" />
+          <ScalarProperty Name="usedamount" ColumnName="usedamount" />
+          <ScalarProperty Name="depositamount" ColumnName="depositamount" />
+          <ScalarProperty Name="gjjaccount" ColumnName="gjjaccount" />
+          <ScalarProperty Name="resident_id" ColumnName="resident_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="gjjstartdate" ColumnName="gjjstartdate" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PC_HumanSociety">
+      <EntityTypeMapping TypeName="ArchiveHAModel.PC_HumanSociety">
+        <MappingFragment StoreEntitySet="PC_HumanSociety">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="OptionType" ColumnName="OptionType" />
+          <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="TID" ColumnName="TID" />
+          <ScalarProperty Name="OutUnit" ColumnName="OutUnit" />
+          <ScalarProperty Name="OldUnitNumber" ColumnName="OldUnitNumber" />
+          <ScalarProperty Name="MedicalStaffType" ColumnName="MedicalStaffType" />
+          <ScalarProperty Name="OldUnitType" ColumnName="OldUnitType" />
+          <ScalarProperty Name="IDCard" ColumnName="IDCard" />
+          <ScalarProperty Name="UserNumber" ColumnName="UserNumber" />
+          <ScalarProperty Name="OldNumber" ColumnName="OldNumber" />
+          <ScalarProperty Name="JobDate" ColumnName="JobDate" />
+          <ScalarProperty Name="OverallNumber" ColumnName="OverallNumber" />
+          <ScalarProperty Name="RetireDate" ColumnName="RetireDate" />
+          <ScalarProperty Name="InInstitutionsNumber" ColumnName="InInstitutionsNumber" />
+          <ScalarProperty Name="InInstitutionsAddress" ColumnName="InInstitutionsAddress" />
+          <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+          <ScalarProperty Name="OutInstitutionsAddress" ColumnName="OutInstitutionsAddress" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PC_Marriage">
+      <EntityTypeMapping TypeName="ArchiveHAModel.PC_Marriage">
+        <MappingFragment StoreEntitySet="PC_Marriage">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="INSERT_DATE" ColumnName="INSERT_DATE" />
+          <ScalarProperty Name="NATION_WOMAN" ColumnName="NATION_WOMAN" />
+          <ScalarProperty Name="NATION_MAN" ColumnName="NATION_MAN" />
+          <ScalarProperty Name="FOLK_WOMAN" ColumnName="FOLK_WOMAN" />
+          <ScalarProperty Name="FOLK_MAN" ColumnName="FOLK_MAN" />
+          <ScalarProperty Name="CERT_NUM_WOMAN" ColumnName="CERT_NUM_WOMAN" />
+          <ScalarProperty Name="CERT_NUM_MAN" ColumnName="CERT_NUM_MAN" />
+          <ScalarProperty Name="NAME_WOMAN" ColumnName="NAME_WOMAN" />
+          <ScalarProperty Name="NAME_MAN" ColumnName="NAME_MAN" />
+          <ScalarProperty Name="CERT_NO" ColumnName="CERT_NO" />
+          <ScalarProperty Name="OP_DATE" ColumnName="OP_DATE" />
+          <ScalarProperty Name="OP_TYPE" ColumnName="OP_TYPE" />
+          <ScalarProperty Name="DEPT_QH" ColumnName="DEPT_QH" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PC_Mobile">
+      <EntityTypeMapping TypeName="ArchiveHAModel.PC_Mobile">
+        <MappingFragment StoreEntitySet="PC_Mobile">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="ic_addr" ColumnName="ic_addr" />
+          <ScalarProperty Name="ic_no" ColumnName="ic_no" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="msisdn" ColumnName="msisdn" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PC_Penalty">
+      <EntityTypeMapping TypeName="ArchiveHAModel.PC_Penalty">
+        <MappingFragment StoreEntitySet="PC_Penalty">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="ExamineTime" ColumnName="ExamineTime" />
+          <ScalarProperty Name="Examine" ColumnName="Examine" />
+          <ScalarProperty Name="ResultTime" ColumnName="ResultTime" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CaseNo" ColumnName="CaseNo" />
+          <ScalarProperty Name="IDCard" ColumnName="IDCard" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PC_Project">
+      <EntityTypeMapping TypeName="ArchiveHAModel.PC_Project">
+        <MappingFragment StoreEntitySet="PC_Project">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Due" ColumnName="Due" />
+          <ScalarProperty Name="FinishDate" ColumnName="FinishDate" />
+          <ScalarProperty Name="ManagerIdCard" ColumnName="ManagerIdCard" />
+          <ScalarProperty Name="GetManager" ColumnName="GetManager" />
+          <ScalarProperty Name="LeaderIdCard" ColumnName="LeaderIdCard" />
+          <ScalarProperty Name="GetUnitAddress" ColumnName="GetUnitAddress" />
+          <ScalarProperty Name="GetUnitLeader" ColumnName="GetUnitLeader" />
+          <ScalarProperty Name="GetUnit" ColumnName="GetUnit" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="LimitPrice" ColumnName="LimitPrice" />
+          <ScalarProperty Name="PubStartDate" ColumnName="PubStartDate" />
+          <ScalarProperty Name="StartPoint" ColumnName="StartPoint" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="PubDate" ColumnName="PubDate" />
+          <ScalarProperty Name="AgentPhone" ColumnName="AgentPhone" />
+          <ScalarProperty Name="AgentLeader" ColumnName="AgentLeader" />
+          <ScalarProperty Name="AgentUnit" ColumnName="AgentUnit" />
+          <ScalarProperty Name="UnitPhone" ColumnName="UnitPhone" />
+          <ScalarProperty Name="UnitLeader" ColumnName="UnitLeader" />
+          <ScalarProperty Name="ProjectUnit" ColumnName="ProjectUnit" />
+          <ScalarProperty Name="ProjectType" ColumnName="ProjectType" />
+          <ScalarProperty Name="ProjectBid" ColumnName="ProjectBid" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PC_Rule">
+      <EntityTypeMapping TypeName="ArchiveHAModel.PC_Rule">
+        <MappingFragment StoreEntitySet="PC_Rule">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="PenaltyMoney" ColumnName="PenaltyMoney" />
+          <ScalarProperty Name="Point" ColumnName="Point" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="PenaltyTime" ColumnName="PenaltyTime" />
+          <ScalarProperty Name="CarOwner" ColumnName="CarOwner" />
+          <ScalarProperty Name="CarType" ColumnName="CarType" />
+          <ScalarProperty Name="CarLicense" ColumnName="CarLicense" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IDCard" ColumnName="IDCard" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PC_Tax">
+      <EntityTypeMapping TypeName="ArchiveHAModel.PC_Tax">
+        <MappingFragment StoreEntitySet="PC_Tax">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="djxh" ColumnName="djxh" />
+          <ScalarProperty Name="rksj" ColumnName="rksj" />
+          <ScalarProperty Name="xxytbmmc" ColumnName="xxytbmmc" />
+          <ScalarProperty Name="zzjgdm" ColumnName="zzjgdm" />
+          <ScalarProperty Name="skssqz" ColumnName="skssqz" />
+          <ScalarProperty Name="nsrsbh" ColumnName="nsrsbh" />
+          <ScalarProperty Name="sjgxsj" ColumnName="sjgxsj" />
+          <ScalarProperty Name="qymc" ColumnName="qymc" />
+          <ScalarProperty Name="skssqq" ColumnName="skssqq" />
+          <ScalarProperty Name="shxydm" ColumnName="shxydm" />
+          <ScalarProperty Name="szmc" ColumnName="szmc" />
+          <ScalarProperty Name="jnje" ColumnName="jnje" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PC_Water">
+      <EntityTypeMapping TypeName="ArchiveHAModel.PC_Water">
+        <MappingFragment StoreEntitySet="PC_Water">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="lxdz" ColumnName="lxdz" />
+          <ScalarProperty Name="ztbz" ColumnName="ztbz" />
+          <ScalarProperty Name="gddh" ColumnName="gddh" />
+          <ScalarProperty Name="yddh" ColumnName="yddh" />
+          <ScalarProperty Name="sfzh" ColumnName="sfzh" />
+          <ScalarProperty Name="zhbmc" ColumnName="zhbmc" />
+          <ScalarProperty Name="zhbh" ColumnName="zhbh" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Person">
+      <EntityTypeMapping TypeName="ArchiveHAModel.Person">
+        <MappingFragment StoreEntitySet="Person">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="Democratic" ColumnName="Democratic" />
+          <ScalarProperty Name="Skill" ColumnName="Skill" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="HighestEducation" ColumnName="HighestEducation" />
+          <ScalarProperty Name="Major" ColumnName="Major" />
+          <ScalarProperty Name="School" ColumnName="School" />
+          <ScalarProperty Name="Education" ColumnName="Education" />
+          <ScalarProperty Name="Health" ColumnName="Health" />
+          <ScalarProperty Name="Marriage" ColumnName="Marriage" />
+          <ScalarProperty Name="PoliticsStatus" ColumnName="PoliticsStatus" />
+          <ScalarProperty Name="PartyDate" ColumnName="PartyDate" />
+          <ScalarProperty Name="GrowPlace" ColumnName="GrowPlace" />
+          <ScalarProperty Name="BirthPlace" ColumnName="BirthPlace" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="NativePlace" ColumnName="NativePlace" />
+          <ScalarProperty Name="Nation" ColumnName="Nation" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="WorkTime" ColumnName="WorkTime" />
+          <ScalarProperty Name="LevelTime" ColumnName="LevelTime" />
+          <ScalarProperty Name="DutyTime" ColumnName="DutyTime" />
+          <ScalarProperty Name="WorkLevel" ColumnName="WorkLevel" />
+          <ScalarProperty Name="WorkCharge" ColumnName="WorkCharge" />
+          <ScalarProperty Name="WorkDuty" ColumnName="WorkDuty" />
+          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+          <ScalarProperty Name="WorkUnit" ColumnName="WorkUnit" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IdCard" ColumnName="IdCard" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PersonCharge">
+      <EntityTypeMapping TypeName="ArchiveHAModel.PersonCharge">
+        <MappingFragment StoreEntitySet="PersonCharge">
+          <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+          <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RelationInfo">
+      <EntityTypeMapping TypeName="ArchiveHAModel.RelationInfo">
+        <MappingFragment StoreEntitySet="RelationInfo">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="WorkLevel" ColumnName="WorkLevel" />
+          <ScalarProperty Name="WorkUnit" ColumnName="WorkUnit" />
+          <ScalarProperty Name="PoliticsStatus" ColumnName="PoliticsStatus" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="RelationIDCard" ColumnName="RelationIDCard" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+          <ScalarProperty Name="IDCard" ColumnName="IDCard" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Resume">
+      <EntityTypeMapping TypeName="ArchiveHAModel.Resume">
+        <MappingFragment StoreEntitySet="Resume">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="Experience" ColumnName="Experience" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="IDCard" ColumnName="IDCard" />
+          <ScalarProperty Name="CurrentDuty" ColumnName="CurrentDuty" />
+          <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rewards">
+      <EntityTypeMapping TypeName="ArchiveHAModel.Rewards">
+        <MappingFragment StoreEntitySet="Rewards">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Doc" ColumnName="Doc" />
+          <ScalarProperty Name="GetUnit" ColumnName="GetUnit" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="GetTime" ColumnName="GetTime" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="ArchiveHAModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoleFuncData">
+      <EntityTypeMapping TypeName="ArchiveHAModel.RoleFuncData">
+        <MappingFragment StoreEntitySet="RoleFuncData">
+          <ScalarProperty Name="IsChecked" ColumnName="IsChecked" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="DeptList" ColumnName="DeptList" />
+          <ScalarProperty Name="FuncName" ColumnName="FuncName" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoleMenu">
+      <EntityTypeMapping TypeName="ArchiveHAModel.RoleMenu">
+        <MappingFragment StoreEntitySet="RoleMenu">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TalkQuery">
+      <EntityTypeMapping TypeName="ArchiveHAModel.TalkQuery">
+        <MappingFragment StoreEntitySet="TalkQuery">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="ArchiveDate" ColumnName="ArchiveDate" />
+          <ScalarProperty Name="Reform" ColumnName="Reform" />
+          <ScalarProperty Name="ResultTime" ColumnName="ResultTime" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="FirstFormType" ColumnName="FirstFormType" />
+          <ScalarProperty Name="HandleDate" ColumnName="HandleDate" />
+          <ScalarProperty Name="TalkArea" ColumnName="TalkArea" />
+          <ScalarProperty Name="TalkDate" ColumnName="TalkDate" />
+          <ScalarProperty Name="ReceiveLetterDate" ColumnName="ReceiveLetterDate" />
+          <ScalarProperty Name="IsCC" ColumnName="IsCC" />
+          <ScalarProperty Name="SendLetterDate" ColumnName="SendLetterDate" />
+          <ScalarProperty Name="HandleType" ColumnName="HandleType" />
+          <ScalarProperty Name="ApprovalDate" ColumnName="ApprovalDate" />
+          <ScalarProperty Name="MainProblem" ColumnName="MainProblem" />
+          <ScalarProperty Name="PersonPhone" ColumnName="PersonPhone" />
+          <ScalarProperty Name="PersonLevel" ColumnName="PersonLevel" />
+          <ScalarProperty Name="PersonDuty" ColumnName="PersonDuty" />
+          <ScalarProperty Name="PersonUnit" ColumnName="PersonUnit" />
+          <ScalarProperty Name="PersonPolitic" ColumnName="PersonPolitic" />
+          <ScalarProperty Name="PersonGender" ColumnName="PersonGender" />
+          <ScalarProperty Name="IDCard" ColumnName="IDCard" />
+          <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="ClueCode" ColumnName="ClueCode" />
+          <ScalarProperty Name="ClueSource" ColumnName="ClueSource" />
+          <ScalarProperty Name="IsRepeat" ColumnName="IsRepeat" />
+          <ScalarProperty Name="ReceiveDate" ColumnName="ReceiveDate" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Unit">
+      <EntityTypeMapping TypeName="ArchiveHAModel.Unit">
+        <MappingFragment StoreEntitySet="Unit">
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+          <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UnitItem">
+      <EntityTypeMapping TypeName="ArchiveHAModel.UnitItem">
+        <MappingFragment StoreEntitySet="UnitItem">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="ReportTitle" ColumnName="ReportTitle" />
+          <ScalarProperty Name="ReportType" ColumnName="ReportType" />
+          <ScalarProperty Name="ReportTime" ColumnName="ReportTime" />
+          <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserDept">
+      <EntityTypeMapping TypeName="ArchiveHAModel.UserDept">
+        <MappingFragment StoreEntitySet="UserDept">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="ArchiveHAModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="IP" ColumnName="IP" />
+          <ScalarProperty Name="MasterType" ColumnName="MasterType" />
+          <ScalarProperty Name="IsKeyNode" ColumnName="IsKeyNode" />
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+          <ScalarProperty Name="RealName" ColumnName="RealName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="MasterID" ColumnName="MasterID" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,362 @@
+﻿@using Model;
+@{
+    Layout = null;
+    AccountInfo item = ViewBag.accountinfo;
+    Person person = ViewBag.person;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    @RenderPage("~/Views/Share/bootstrap.cshtml")
+    <script src="~/Resource/edit.js"></script>
+    <script src="~/Web/guid.js"></script>
+</head>
+
+<body>
+    @RenderPage("~/Views/Share/GuanLian2.cshtml")
+    <div>
+
+        <form id="Account" name="Account" method="post" class="form-inline" enctype="multipart/form-data">
+
+            <div class="col-md-12">
+                <h3 class="Gradient">问责情况登记表</h3>
+            </div>
+            <input autocomplete = "off" style="display:none" type="text" id="PersonID" name="PersonID" value="@person.ID" />
+            <input autocomplete = "off" style="display:none" type="text" value="@item.ID" id="ID" name="ID" />
+            <input autocomplete = "off" style="display:none" type="text" value="@item.HandleStaff" id="HandleStaff" name="HandleStaff" />
+            <input autocomplete = "off" style="display:none" type="text" value="@item.HandleDept" id="HandleDept" name="HandleDept" />
+            <div class="row">
+                <div class="col-md-2 margin-top-10">
+                    <label class="margin-5" for="PersonName">姓名：</label>
+
+                </div>
+                <div class="col-md-2 margin-top-10">
+                    <input autocomplete = "off" class="form-control" type="text" id="PersonName" name="PersonName" required="required" value="@item.PersonName" />
+                    <button class="btn btn-success" type="button" onclick="OpenModal()" style="position:absolute;top:0;right:-80px;z-index:10">人员识别</button>
+
+                </div>
+                <div class="col-md-2 margin-top-10">
+                    <label class="margin-5" for="IDCard">身份证号：</label>
+                </div>
+                <div class="col-md-2 margin-top-10">
+                    <input autocomplete = "off" class="form-control" type="text" id="IDCard" name="IDCard" required="required" value="@item.IDCard" />
+                </div>
+                <div class="col-md-2 margin-top-10">
+                    <label class="margin-5" for="PersonGender">性别：</label>
+                </div>
+                <div class="col-md-2 margin-top-10">
+                    <select id="PersonGender" class="form-control selectpicker" name="PersonGender" required="required">
+                        <option value="@item.PersonGender">@item.PersonGender</option>
+                        <option value="男">男</option>
+                        <option value="女">女</option>
+                    </select>
+                </div>
+                <div style="clear:both"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 margin-top-10">
+                    <label class="margin-5" for="PersonArea">地区或部门：</label>
+                </div>
+                <div class="col-md-2 margin-top-10">
+                    <input autocomplete = "off" class="form-control" type="text" id="PersonArea" name="PersonArea" required="required" value="@item.PersonArea" />
+                </div>
+                <div class="col-md-2 margin-top-10">
+                    <label class="margin-5" for="KeyTrade">重点行业：</label>
+                </div>
+                <div class="col-md-2 margin-top-10">
+                    <select id="PersonGender" class="form-control selectpicker" required="required" name="KeyTrade">
+                        <option value="@item.KeyTrade">@item.KeyTrade</option>
+                        <option value="国土">国土</option>
+                        <option value="科技">科技</option>
+                        <option value="民政">民政</option>
+                        <option value="安监">安监</option>
+                        <option value="农机">农机</option>
+                        <option value="环保">环保</option>
+                        <option value="教育">教育</option>
+                        <option value="卫生">卫生</option>
+                        <option value="交通">交通</option>
+                        <option value="水利">水利</option>
+                    </select>
+                </div>
+                <div class="col-md-2 margin-top-10">
+                    <label class="margin-5" for="KeyArea">重点领域：</label>
+                </div>
+                <div class="col-md-2 margin-top-10">
+                    <select id="PersonGender" class="form-control selectpicker" required="required" name="KeyArea">
+                        <option value="@item.KeyArea">@item.KeyArea</option>
+                        <option value="扶贫">扶贫</option>
+                        <option value="招投标">招投标</option>
+                        <option value="征地拆迁">征地拆迁</option>
+                        <option value="工程建设">工程建设</option>
+                    </select>
+                </div>
+                <div style="clear:both"></div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="PersonPolitic">政治面貌：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <select id="PersonPolitic" class="form-control selectpicker" name="PersonPolitic" required="required">
+                        <option value="@item.PersonPolitic">@item.PersonPolitic</option>
+                        <option value="中共党员">中共党员</option>
+                        <option value="中共预备党员">中共预备党员</option>
+                        <option value="共青团员">共青团员</option>
+                        <option value="民主党派人士">民主党派人士</option>
+                        <option value="无党派民主人士">无党派民主人士</option>
+                        <option value="群众">群众</option>
+                    </select>
+                </div>
+                <div class="col-md-2 margin-top-10">
+                    <label class="margin-5" for="PersonUnit">单位：</label>
+                </div>
+                <div class="col-md-2 margin-top-10">
+                    <input autocomplete = "off" class="form-control" type="text" id="PersonUnit" name="PersonUnit" required="required" value="@item.PersonUnit" />
+                </div>
+                <div class="col-md-2 margin-top-10">
+                    <label class="margin-5" for="PersonDuty">职务：</label>
+                </div>
+                <div class="col-md-2 margin-top-10">
+                    <input autocomplete = "off" class="form-control" type="text" id="PersonDuty" name="PersonDuty" required="required" value="@item.PersonDuty" />
+                </div>
+                <div style="clear:both"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 margin-top-10">
+                    <label class="margin-5" for="PersonLevel">级别：</label>
+                </div>
+                <div class="col-md-2 margin-top-10">
+                    <select id="PersonPolitic" class="form-control selectpicker" required="required" name="PersonLevel">
+                        <option value="@item.PersonLevel">@item.PersonLevel</option>
+                        <option value="正厅">正厅</option>
+                        <option value="副厅">副厅</option>
+                        <option value="正处">正处</option>
+                        <option value="副处">副处</option>
+                        <option value="正科">正科</option>
+                        <option value="副科">副科</option>
+                        <option value="一般干部">一般干部</option>
+                        <option value="其他人员">其他人员</option>
+                    </select>
+                </div>
+                <div class="col-md-8 margin-top-10">
+                </div>
+                <div style="clear:both"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 margin-top-10">
+                    <label class="margin-5" for="MainProblem">违规违纪问题（请列明时间、人物、事情经过、原因等：</label>
+                </div>
+                <div class="col-md-10 margin-top-10">
+                    <textarea rows="5" id="MainProblem" name="MainProblem" required="required" class="form-control">@item.MainProblem</textarea>
+                </div>
+                <div style="clear:both"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 margin-top-10">
+                    <label class="margin-5" for="HandleUnit">处理机关：</label>
+                </div>
+                <div class="col-md-2 margin-top-10">
+                    <input autocomplete = "off" class="form-control" type="text" id="HandleUnit" name="HandleUnit" required="required" value="@item.HandleUnit" />
+                </div>
+                <div class="col-md-2 margin-top-10">
+                    <label class="margin-5" for="AccountType">问责方式(可多选)：</label>
+                </div>
+                <div class="col-md-6 margin-top-10">
+                    <input autocomplete = "off" id="huixian" type="hidden" required="required" value="@item.AccountType" name="AccountType" />
+                    <select id="AccountType" class=" form-control" multiple>
+                        <option value="通报">通报</option>
+                        <option value="诫勉谈话">诫勉谈话</option>
+                        <option value="书面检查">书面检查</option>
+                        <option value="责令公开道歉">责令公开道歉</option>
+                        <option value="停职检查">停职检查</option>
+                        <option value="引咎辞职">引咎辞职</option>
+                        <option value="责令辞职">责令辞职</option>
+                        <option value="免职">免职</option>
+                        <option value="辞退或解聘">辞退或解聘</option>
+                    </select>
+                </div>
+                <div class="col-md-2 margin-top-10">
+                    <label class="margin-5" for="AccountNo">问责文号：</label>
+                </div>
+                <div class="col-md-2 margin-top-10">
+                    <input autocomplete = "off" class="form-control" type="text" id="AccountNo" name="AccountNo" required="required" value="@item.AccountNo" />
+                </div>
+                <div style="clear:both"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 margin-top-10">
+                    <label class="margin-5" for="HandleTime">处理时间：</label>
+                </div>
+                <div class="col-md-2 margin-top-10">
+                    <div class="form-group">
+                        <input autocomplete = "off" class="laydate-icon form-control layer-date" required="required" name="HandleTime" value="@item.HandleTime" >
+                        
+                    </div>
+                </div>
+                <div class="col-md-2 margin-top-10">
+                    <label class="margin-5" for="IsAssigned">是否上级交办：</label>
+                </div>
+                <div class="col-md-2 margin-top-10">
+                    <select id="IsAssigned" class=" form-control selectpicker" name="IsAssigned" required="required">
+                        <option value="@item.IsAssigned">@item.IsAssigned</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
+                </div>
+                <div class="col-md-2 margin-top-10">
+                    <label class="margin-5" for="IsTwoDid">是否“两为”：</label>
+                </div>
+                <div class="col-md-2 margin-top-10">
+                    <select id="IsTwoDid" class=" form-control selectpicker" name="IsTwoDid" required="required">
+                        <option value="@item.IsTwoDid">@item.IsTwoDid</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
+                </div>
+                <div style="clear:both"></div>
+                <div class="col-md-2 margin-top-10">
+                    <label class="margin-5" for="Remark">备注：</label>
+                </div>
+                <div class="col-md-10 margin-top-10">
+                    <textarea rows="5" id="Remark" name="Remark" class="form-control" required="required">@item.Remark</textarea>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <div class="row">
+        <div class="col-md-12 margin-top-10" style="margin-top:30px;">
+            <label style="float:left"></label>
+        </div>
+        <div class="col-md-1 margin-top-10">
+            <input autocomplete = "off" id="file_upload" name="file_upload" type="file" multiple="true" />
+        </div>
+        <div class="col-md-2 margin-top-10">
+            <a class="layui-btn " id="btnUpload" href="javascript:checkQueue()">上传</a>
+            <a class="layui-btn " id="btnCancelUpload" data-options="iconCls:'icon-cancel'" href="javascript:checkCancel()">取消</a>
+        </div>
+        <div class="col-md-9 margin-top-10">
+            <div id="queue"></div>
+        </div>
+        <div class="col-md-12 margin-top-10">
+            <div style="width:100%;">
+                <table id="Account_table" class="table table-striped table-no-bordered table-hover"></table>
+            </div>
+        </div>
+    </div>
+    <div align="center" style="margin-top:20px;">
+        <button type="button" class="layui-btn" onclick="AccountListSubmit()">保存</button>
+    </div>
+    @RenderPage("~/Views/Share/delConfirm.cshtml")
+</body>
+</html>
+<script>
+    function checkQueue() {
+        if ($("#queue").children().length == 0) {
+            alert("请先点击浏览选择要上传的文件！");
+        } else {
+            $('#file_upload').uploadifive('upload');
+        }
+    }
+    function checkCancel() {
+        if ($("#queue").children().length == 0) {
+            alert("没有待上传的文件！");
+        } else {
+
+            $('#file_upload').uploadifive('clearQueue');
+            refeshGrid();
+        }
+    }
+    function refeshGrid() {
+        $('#Account_table').bootstrapTable("refresh", { url: '/File/GetList?ID=@item.ID&Type=Account' });
+    }
+    function delcfm(id) {
+        $('#id').val(id);//给会话中的隐藏属性URL赋值
+        $('#idName').val("ID");
+        $('#backMsg').val("Account_table");
+        $('#urlDel').val("/File/Delete");
+        $('#urlBack').val("/File/GetList?ID=@item.ID&Type=Account");
+        $('#delcfmModel').modal();
+    }
+    $(function () {
+        var a = 0;
+        $('#file_upload').uploadifive({
+            'auto': false,
+            'fileSizeLimit': '102400KB',
+            'buttonText': '浏  览',
+            'multi': true,
+            'queueID': 'queue',
+            'uploadScript': '/File/Upload',
+            'formData': { 'ID': '@item.ID', 'type': 'Account' },
+            'onUploadComplete': function (file, data) {
+                a = a + 1;
+                if ($("#queue").children().length - a == 0) {
+                    checkCancel();
+                    a = 0;
+                }
+            }
+        });
+        $('#Account_table').bootstrapTable({
+            method: 'post',
+            url: '/File/GetList?ID=@item.ID&Type=Account',
+            striped: true,
+            clickToSelect: true,
+            pageSize: 10,
+            sidePagination: 'server',
+            pageList: [10, 20, 50, 100, 200, 500],
+            queryParamsType: 'limit',
+            sortName: 'ID',
+            sortOrder: 'asc',
+            columns: [
+                { field: 'FileName', title: '文件名', width: 200, editable: false, },
+                { field: 'opt', title: '操作', width: 100, editable: false, formatter: operateFormatterAccount },
+            ],
+        });
+        function operateFormatterAccount(value, row, index) {
+            return [
+            '<a  href="/File/Download?ID=' + row.ID + '" id="btn_detail" type="button" class="layui-btn layui-btn-danger layui-btn-sm" style="margin-right:20px;"><span class="glyphicon glyphicon-floppy-save"></span>下载</a>',
+            '<a  href="javascript:delcfm(\'' + row.ID + '\')"  type="button" class="layui-btn layui-btn-danger layui-btn-xs"><span class="glyphicon glyphicon-trash"></span>删除</a>',
+            ].join('');
+        }
+    });
+
+    function AccountListSubmit() {
+        var val = $("#AccountType").val();
+
+        if ($("#PersonID").val() == "") {
+            layer.msg("请填写人员姓名");
+            return;
+        }
+
+        $("#huixian").val(val);
+            $('#Account').form('submit', {
+                url: "/Account/Save",
+                onSubmit: function () {
+
+                },
+                success: function (data) {
+                    layer.alert("保存成功", function () {
+                        window.parent.layer.closeAll();
+
+                        window.location.href = "/Account/AccountList";
+
+                    });
+                }
+            });
+    }
+
+        function Canel() {
+            window.location.href = "/Account/AccountList";
+        }
+        $('#AccountType').selectpicker({
+            'selectedText': 'cat'
+        });
+        var arr = $("#huixian").val();
+        var arr = arr.split(',');
+        console.log(arr);
+        $('#AccountType').selectpicker('val', arr);
+</script>

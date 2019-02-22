@@ -1,0 +1,307 @@
+﻿@using Model;
+@{
+    Layout = null;
+    Cet item = ViewBag.person;
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    @RenderPage("~/Views/Share/Include.cshtml")
+    <script src="~/Resource/edit.js"></script>
+    @*<link href="~/Resource/form.css" rel="stylesheet" />*@
+    <script src="~/Resource/guid.js"></script>
+    @RenderPage("~/Views/Share/bootstrap.cshtml")
+</head>
+<body>
+    <div>
+        <form id="BasicInfo" method="post" class="form-inline">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="Gradient">个人基本情况</h3>
+                </div>
+                <input readonly style="" type="hidden" value="@item.ID" id="ID" name="ID" />
+                <input readonly style="" type="hidden" value="@item.HandleStaff" id="HandleStaff" name="HandleStaff" />
+                <input readonly style="" type="hidden" value="@item.HandleDept" id="HandleDept" name="HandleDept" />
+                <input readonly style="" type="hidden" value="@item.IsDeleted" id="IsDeleted" name="IsDeleted" />
+
+                <div class="col-md-2 margin-top-10">
+                    <label class="margin-5" for="Name">姓名：</label>
+                </div>
+                <div class="col-md-3 margin-top-10">
+                    <input readonly class="form-control" type="text" id="Name" name="Name" value="@item.Name" />
+                </div>
+                <div class="col-md-2 margin-top-10">
+                    <label class="margin-5" for="IdCard">身份证号：</label>
+                </div>
+                <div class="col-md-3 margin-top-10">
+                    <input readonly class="form-control" type="text" id="IdCard" name="IdCard" value="@item.IdCard" />
+                </div>
+                <div class="col-md-2 margin-top-10" style="height:34px;">
+                </div>
+
+                <div class="col-md-2 margin-top-10">
+                    <label class="margin-5" for="Gender">性别：</label>
+                </div>
+                <div class="col-md-3 margin-top-10">
+                    <input readonly class="form-control" type="text" id="Gender" name="Gender" value="@item.Gender" />
+                </div>
+                <div class="col-md-2 margin-top-10">
+                    <label class="margin-5" for="Nation">民族：</label>
+                </div>
+                <div class="col-md-3 margin-top-10">
+                    <input readonly class="form-control" type="text" id="Nation" name="Nation" value="@item.Nation" />
+                </div>
+                <div class="col-md-2 margin-top-10" style="height:34px;">
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="NativePlace">籍贯：</label>
+                </div>
+                <div class="col-xs-3 margin-top-10">
+                    <input readonly class="form-control" type="text" id="NativePlace" name="NativePlace" value="@item.NativePlace" />
+                </div>
+                <div class="col-md-2 margin-top-10">
+                    <label class="margin-5" for="BirthData">出生年月：</label>
+                </div>
+                <div class="col-md-3 margin-top-10">
+                    <input readonly class="form-control" type="text" id="BirthDate" name="BirthDate" value="@item.BirthDate" />
+                </div>
+                <div class="col-xs-2 margin-top-10" style="height:34px;">
+                </div>
+
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="Nation">出生地：</label>
+                </div>
+                <div class="col-xs-3 margin-top-10">
+                    <input readonly class="form-control" type="text" id="BirthPlace" name="BirthPlace" value="@item.BirthPlace" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="Nation">成长地：</label>
+                </div>
+                <div class="col-xs-3 margin-top-10">
+                    <input readonly class="form-control" type="text" id="GrowPlace" name="GrowPlace" value="@item.GrowPlace" />
+                </div>
+                <div class="col-xs-2 margin-top-10" style="height:34px;">
+                </div>
+
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="Marriage">婚姻状况：</label>
+                </div>
+                <div class="col-xs-3 margin-top-10">
+                    <input readonly class="form-control" type="text" id="Marriage" name="Marriage" value="@item.Marriage" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="Health">是否有重大疾病：</label>
+                </div>
+                <div class="col-xs-3 margin-top-10">
+                    <input readonly class="form-control" type="text" id="Health" name="Health" value="@item.Health" />
+                </div>
+                <div class="col-xs-2 margin-top-10" style="height:34px;">
+                </div>
+
+                <div class="col-md-2 margin-top-10">
+                    <label class="margin-5" for="Gender">政治面貌：</label>
+                </div>
+                <div class="col-md-3 margin-top-10">
+                    <input readonly class="form-control" type="text" id="PoliticsStatus" name="PoliticsStatus" value="@item.PoliticsStatus" />
+                </div>
+                <div class="col-md-2 margin-top-10">
+                    <label class="margin-5" for="PartyDate">入党时间：</label>
+                </div>
+                <div class="col-md-3 margin-top-10">
+                    <input readonly class="form-control" type="text" id="PartyDate" name="PartyDate" value="@item.PartyDate" />
+                </div>
+                <div class="col-md-2 margin-top-10" style="height:34px;">
+                </div>
+
+                <div class="col-md-2 margin-top-10">
+                    <label class="margin-5" for="WorkUnit">工作单位：</label>
+                </div>
+                <div class="col-md-3 margin-top-10">
+                    <input readonly class="form-control" type="text" id="WorkUnit" name="WorkUnit" value="@item.WorkUnit" />
+                </div>
+                <div class="col-md-2 margin-top-10">
+                    <label class="margin-5" for="WorkDuty">职务：</label>
+                </div>
+                <div class="col-md-3 margin-top-10">
+                    <input readonly class="form-control" type="text" id="WorkDuty" name="WorkDuty" value="@item.WorkDuty" />
+                </div>
+                <div class="col-md-2 margin-top-10" style="height:34px;">
+                </div>
+
+                <div class="col-md-2 margin-top-10">
+                    <label class="margin-5" for="PartyLevel">职级：</label>
+                </div>
+                <div class="col-md-3 margin-top-10">
+                    <input readonly class="form-control" type="text" id="WorkLevel" name="WorkLevel" value="@item.WorkLevel" />
+                </div>
+                <div class="col-md-2 margin-top-10">
+                    <label class="margin-5" for="DutyTime">任现职时间：</label>
+                </div>
+                <div class="col-md-3 margin-top-10">
+                    <input readonly class="form-control" type="text" id="DutyTime" name="DutyTime" value="@item.DutyTime" />
+                </div>
+                <div class="col-md-2 margin-top-10" style="height:34px;">
+                </div>
+
+                <div class="col-md-2 margin-top-10">
+                    <label class="margin-5" for="Education">学历：</label>
+                </div>
+                <div class="col-md-3 margin-top-10">
+                    <input readonly class="form-control" type="text" id="Education" name="Education" value="@item.Education" />
+                </div>
+                <div class="col-md-2 margin-top-10">
+                    <label class="margin-5" for="School">毕业院校及专业：</label>
+                </div>
+                <div class="col-md-3 margin-top-10">
+                    <input readonly readonly class="form-control" type="text" id="School" name="School" value="@item.School" />
+                </div>
+                <div class="col-md-2 margin-top-10" style="height:34px;">
+                </div>
+
+                <div class="col-md-2 margin-top-10">
+                    <label class="margin-5" for="Address">家庭住址：</label>
+                </div>
+                <div class="col-md-3 margin-top-10">
+                    <input readonly class="form-control" type="text" id="Address" name="Address" value="@item.Address" />
+                </div>
+                @*<div class="col-md-2 margin-top-10">
+                    <label class="margin-5" for="Phone">联系电话：</label>
+                </div>
+                <div class="col-md-3 margin-top-10">
+                    <input readonly class="form-control" type="text" id="Phone" name="Phone" value="@item.Phone" />
+                </div>*@
+                <div class="col-md-7 margin-top-10" style="height:34px;">
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <div class="col-md-12 margin-top-10" style="margin-top:30px;">
+                <label style="float:left">主要履历</label>
+            </div>
+            <div class="col-md-12 margin-top-10">
+                <div style="width:100%;">
+                    <table id="PersonList_table" class="table table-striped table-bordered table-hover"></table>
+                </div>
+            </div>
+            @*年度考核情况*@
+            <div class="col-md-12 margin-top-10" style="margin-top:30px;">
+                <label style="float:left">年度考核情况</label>
+            </div>
+            <div class="col-md-12 margin-top-10">
+                <div style="width:100%;">
+                    <table id="Person1_table" class="table table-striped table-bordered table-hover"></table>
+                </div>
+            </div>
+            @*重大事项核查结果*@
+            <div class="col-md-12 margin-top-10" style="margin-top:30px;">
+                <label style="float:left">重大事项核查结果</label>
+            </div>
+            <div class="col-md-12 margin-top-10">
+                <div style="width:100%;">
+                    <table id="Important_Table" class="table table-striped table-bordered table-hover"></table>
+                </div>
+            </div>
+            <div class="col-md-12 margin-top-10" style="margin-top:30px;">
+                <label style="float:left">述责述廉报告</label>
+            </div>
+            <div class="col-md-12 margin-top-10">
+                <div style="width:100%;">
+                    <table id="Report_Table" class="table table-striped table-bordered table-hover"></table>
+                </div>
+            </div>
+        </div>
+        <div align="center" style="margin:20px 0px;">
+            <button type="button" class="btn btn-default" onclick="javascript: window.history.back(-1);">返回</button>
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    var Resumeurl = '/Person/GetResumeList?ID=@item.ID';
+    $('#PersonList_table').bootstrapTable({
+        method: 'post',
+        url: Resumeurl,
+        title: "主要履历",
+        striped: true,
+        clickToSelect: true,
+        pageSize: 100,
+        sidePagination: 'server',
+        pageList: [10, 20, 50, 100, 200, 500],
+        queryParamsType: 'limit',
+        columns: [
+            {
+                field: 'StartDate', title: '起始年月', editable: false, width: 100
+            },
+            { field: 'EndDate', title: '截至年月', editable: false, width: 100 },
+            { field: 'Experience', title: '学习工作经历', editable: false, width: 200, },
+        ],
+    });
+    $('#Person1_table').bootstrapTable({
+        method: 'post',
+        url: '/File/GetList?ID=@item.ID&Type=Assess',
+        striped: true,
+        clickToSelect: true,
+        pageSize: 100,
+        sidePagination: 'server',
+        pageList: [10, 20, 50, 100, 200, 500],
+        queryParamsType: 'limit',
+        sortName: 'ID',
+        sortOrder: 'asc',
+        columns: [
+            { field: 'FileName', title: '文件名', width: 200, editable: false, },
+            { field: 'opt', title: '操作', width: 50, editable: false, formatter: operateFormatterPerson1 },
+        ],
+    });
+    function operateFormatterPerson1(value, row, index) {
+        return [
+            '<a  href="/File/Download?ID=' + row.ID + '" id="btn_detail" type="button" class="btn btn-primary btn-xs" style="margin-right:20px;"><span class="glyphicon glyphicon-floppy-save"></span>下载</a>',
+        ].join('');
+    }
+    $('#Important_Table').bootstrapTable({
+        method: 'post',
+        url: '/File/GetList?ID=@item.ID&Type=Important',
+        striped: true,
+        clickToSelect: true,
+        pageSize: 100,
+        sidePagination: 'server',
+        pageList: [10, 20, 50, 100, 200, 500],
+        queryParamsType: 'limit',
+        sortName: 'ID',
+        sortOrder: 'asc',
+        columns: [
+            { field: 'FileName', title: '文件名', width: 200, editable: false, },
+            { field: 'opt', title: '操作', width: 50, editable: false, formatter: operateFormatterImportant },
+        ],
+    });
+    function operateFormatterImportant(value, row, index) {
+        return [
+            '<a  href="/File/Download?ID=' + row.ID + '" id="btn_detail" type="button" class="btn btn-primary btn-xs" style="margin-right:20px;"><span class="glyphicon glyphicon-floppy-save"></span>下载</a>',
+        ].join('');
+    }
+    $('#Report_Table').bootstrapTable({
+        method: 'post',
+        url: '/File/GetList?ID=@item.ID&Type=Report',
+        striped: true,
+        clickToSelect: true,
+        pageSize: 100,
+        sidePagination: 'server',
+        pageList: [10, 20, 50, 100, 200, 500],
+        queryParamsType: 'limit',
+        sortName: 'ID',
+        sortOrder: 'asc',
+        columns: [
+            { field: 'FileName', title: '文件名', width: 200, editable: false, },
+            { field: 'opt', title: '操作', width: 50, editable: false, formatter: operateFormatterReport },
+        ],
+    });
+    function operateFormatterReport(value, row, index) {
+        return [
+            '<a  href="/File/Download?ID=' + row.ID + '" id="btn_detail" type="button" class="btn btn-primary btn-xs" style="margin-right:20px;"><span class="glyphicon glyphicon-floppy-save"></span>下载</a>',
+        ].join('');
+    }
+</script>

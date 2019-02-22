@@ -1,0 +1,68 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+
+    @RenderPage("~/Views/Share/bootstrap.cshtml")
+    <link href="~/Resource/plugins/radio/css/jquery-labelauty.css" rel="stylesheet" />
+    <script src="~/Resource/plugins/radio/js/jquery-labelauty.js"></script>
+</head>
+
+<body>
+    <div class="row">
+        <div class="col-xs-1" style="text-align:right;font-size:16px">
+            <label for="">角色：</label>
+        </div>
+        <div class="col-xs-8">
+            
+        </div>
+        <div class="col-xs-2">
+            <button class="btn btn-default" >保存</button>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-xs-1" style="text-align:right;font-size:16px">
+            <label>功能菜单：</label>
+        </div>
+        <div class="col-xs-5" style="margin:10px">
+            <ul class="nav nav-pills nav-stacked nav-tabs"  style="width:350px">
+                <li class="active"><a href="#a">个人信息</a></li>
+                <li><a href="#b">第一种形态</a></li>
+                <li><a href="#c">问责信息</a></li>
+                <li><a href="#d">线索处置</a></li>
+                <li><a href="#e">纪律处分</a></li>
+                <li><a href="#f">组织调整</a></li>
+                <li><a href="#g">违法犯罪</a></li>
+                <li><a href="#h">涉案犯罪</a></li>
+                <li><a href="#i">行贿人</a></li>
+            </ul>
+        </div>
+        <div class="col-xs-3">
+            <div class="tab-content">
+                <div class="tab-pane" id="a"><iframe src="/Admin/Person"></iframe>123</div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        $(document).ready(function () {
+            $(".nav li").click(function (e) {
+                e.preventDefault();
+                $(".nav li").removeClass("active");
+                $(this).addClass("active");
+               
+
+            });
+        });
+    </script>
+</body>
+</html>

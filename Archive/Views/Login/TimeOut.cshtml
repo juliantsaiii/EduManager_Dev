@@ -1,0 +1,57 @@
+﻿@using Model;
+@{
+
+    Layout = null;
+}
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta content="zh-cn" http-equiv="Content-Language" />
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <title>用户登录</title>
+    @RenderPage("~/Views/Shared/Frame.cshtml")
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#btnConfirm").click(function () {
+                top.location.href = '/Login/Login';
+            });
+            $("#btnExit").click(function () {
+                top.location.href = '/Login/Login';
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="modal show" id="myModal" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" id="btnExit"
+                            aria-hidden="true">
+                        ×
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        提示
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    您的登录已超时，请重新登录！
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary"
+                            id="btnConfirm">
+                        确认
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+</body>
+
+</html>

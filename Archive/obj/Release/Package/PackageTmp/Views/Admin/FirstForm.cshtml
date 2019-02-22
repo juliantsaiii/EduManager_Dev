@@ -1,0 +1,101 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    @RenderPage("~/Views/Shared/Include.cshtml")
+
+    <link href="~/Resource/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <script type="text/javascript">
+        var flag = 1;
+
+        function treeChecked(treeMenu) {
+            var roots = $('#' + treeMenu).tree('getRoots');//返回tree的所有根节点数组
+            if (flag == 1) {
+                for (var i = 0; i < roots.length; i++) {
+                    var node = $('#' + treeMenu).tree('find', roots[i].id);//查找节点
+                    $('#' + treeMenu).tree('check', node.target);//将得到的节点选中
+                }
+                flag = 0;
+            } else {
+                for (var i = 0; i < roots.length; i++) {
+                    var node = $('#' + treeMenu).tree('find', roots[i].id);
+                    $('#' + treeMenu).tree('uncheck', node.target);
+                }
+                flag = 1;
+            }
+        }
+
+        function getselected() {
+            var nodes = JSON.stringify($("#tt").tree("getChecked"));
+            var role = parent.document.getElementById("role").value
+
+            $.post("/Admin/getselected",
+                {
+                    menu: "第一种形态",
+                    dept: nodes,
+                    role: role
+                },
+                function (data, status) {
+                    alert(data);
+                    $("#tt").tree('reload');
+
+                });
+
+        }
+        $(function () {
+            $('#tt').tree({
+                url: '/Admin/GetShowDeptList',
+                checkbox: true,
+                onCheck: function (node, checked) {
+                    node.checked = !node.checked;
+                //    selected.push(node);
+                },
+                onLoadSuccess: function (node, data) {
+                    var role = parent.document.getElementById("role").value
+                    $.ajax({
+                        type: "POST",
+                        url: "/Admin/GetTree",
+                        data: {
+                            RoleID: role,
+                            FuncName:"第一种形态"
+                        },
+                        success: function (data) {
+                            console.log(data);
+                            var roots = $('#tt').tree('getRoots');//返回tree的所有根节点数组
+
+                            for (var i = 0; i < roots.length; i++) {
+                                var node = $('#tt').tree('find', roots[i].id);//查找节点
+                                for (var j = 0; j < data.length; j++) {
+                                    var obj = data[j];
+                                    if (obj.ID == node.id) {
+                                        $('#tt').tree('check', node.target);//将得到的节点选中
+                                    }
+                                }
+
+                            }
+
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <ul id="tt"></ul>
+    <div style="margin-top:30px">
+        <button class="btn btn-default" onclick="getselected()">保存</button>
+
+        <button class="btn btn-default" style="height:34px;" onclick="treeChecked('tt')">全选 <span class="glyphicon glyphicon-ok"></span></button>
+    </div>
+</body>
+</html>

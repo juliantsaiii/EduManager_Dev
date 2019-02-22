@@ -1,0 +1,223 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    @RenderPage("~/Views/Share/bootstrap.cshtml")
+
+ 
+    <script src="~/Resource/zTree_v3/js/jquery.ztree.all.min.js"></script>
+    <link href="~/Resource/zTree_v3/css/metroStyle/metroStyle.css" rel="stylesheet" />
+</head>
+<body>
+   
+    <div>
+        <button id="add" class="layui-btn layui-btn-danger">新增根节点</button>
+        <button id="open" class="layui-btn layui-btn-success">展开</button>
+        <button id="close" class="layui-btn layui-btn-normal">折叠</button>
+
+        <ul class="ztree" id="ztree1"></ul>
+    </div>
+
+    <script type="text/javascript">
+        $("#open").click(function () {
+            $.fn.zTree.getZTreeObj("ztree1").expandAll(true);
+        　　});
+        //收缩全部节点
+        $("#close").click(function () {
+            $.fn.zTree.getZTreeObj("ztree1").expandAll(false);
+        });
+
+
+
+        $(function () {
+        
+            $("#add").click(function () {
+                var name = "新增根节点" + (newCount++);
+                $.post('/Admin/NewParentNode', {
+                    'classification.classification': name
+                }, function (data, textStatus, xhr) {
+                    /*optional stuff to do after success */
+                    if (textStatus == "success") {
+                        var newID = data;
+                        zTreeObj.addNodes(null, {
+                            id: newID,
+                            name: name
+                        });
+                        var node = zTreeObj.getNodeByParam("id", newID, null); //根据新的id找到新添加的节点  
+                        zTreeObj.selectNode(node); //让新添加的节点处于选中状态+  
+                    } else {
+                        layer.alert("加载错误");
+                    }
+                });
+            });
+        });
+            var zTreeObj;
+
+            var setting = {
+                //checkable : true,
+                view: {
+                    enable: true,
+                    showLine: true,
+                    showIcon: showIconForTreeRight,
+                    addHoverDom: addHoverDom,
+                    removeHoverDom: removeHoverDom,
+
+                },
+
+                callback: {
+                    onClick: zTreeOnClickRight,
+                    beforeRemove: beforeRemove,
+                    onRename: zTreeOnRename,
+                    onRemove: zTreeOnRemove,
+                },
+                data: {
+                    simpleData: {
+                        enable: true
+                    }
+                    /**,
+                        key: {
+                            children: "nodes"
+                        }*/
+                },
+                edit: {
+                    enable: true,
+                    showRemoveBtn: true,
+                    showRenameBtn: true,
+                    removeTitle: "删除",
+                    renameTitle: "修改"
+                }
+            };
+
+            function showIconForTreeRight(treeId, treeNode) {
+                return !treeNode.isParent;
+            };
+            // 树的单击事件
+            function zTreeOnClickRight(event, treeId, treeNode) {
+                //var treeid = zTreeObj.getSelectedNodes()[0].id;
+                //var treepid = zTreeObj.getSelectedNodes()[0].pId;
+                //var treename = zTreeObj.getSelectedNodes()[0].name;
+                //$("#grid-table").jqGrid('setGridParam', {
+                //    datatype: 'json',
+                //    postData: { 'workOrderTDTO1.classification': treename }
+                //}).trigger("reloadGrid");
+            }
+
+            function zTreeOnRename(event, treeId, treeNode, isCancel) {
+                $.post('/Admin/EditDataMenuNode', {
+                    'classification.id': $.trim(treeNode.id),
+                    'classification.perId': $.trim(treeNode.pId),
+                    'classification.classification': treeNode.name
+                }, function (data, textStatus, xhr) {
+                    /*optional stuff to do after success */
+                    if (textStatus == "success") {
+                        layer.alert("修改成功");
+                    } else {
+                        layer.alert("修改失败");
+                    }
+                });
+            }
+            function zTreeOnRemove(event, treeId, treeNode) {
+                
+                    $.post('/Admin/DeleteDataMenuNode', {
+                        'classification.id': treeNode.id,
+                    }, function (data, textStatus, xhr) {
+                        // optional stuff to do after success
+                        if (textStatus == "success") {
+                            layer.msg("删除成功");
+                        } else {
+                            layer.msg("删除失败");
+                        }
+                    }); 
+
+
+            
+
+
+       
+            }
+
+            var newCount = 1;
+            function addHoverDom(treeId, treeNode) {
+                var sObj = $("#" + treeNode.tId + "_span");
+                var addBtn = $("#addBtn_" + treeNode.tId)
+                if (treeNode.editNameFlag || addBtn.length > 0) return;
+                var addStr = "<span class='button add' id='addBtn_" + treeNode.tId + "' title='新增' onfocus='this.blur();'></span>";
+
+                sObj.after(addStr);
+                var btn = $("#addBtn_" + treeNode.tId);
+
+                if (btn) btn.bind("click", function () {
+                    //      var zTree = $.fn.zTree.getZTreeObj("ztree1");
+                    var name = "新增节点" + (newCount++);
+                    $.post('/Admin/NewDataMenuNode', {
+                        'classification.perId': treeNode.id,
+                        'classification.classification': name
+                    }, function (data, textStatus, xhr) {
+                        /*optional stuff to do after success */
+                        if (textStatus == "success") {
+                            var newID = data;
+                            zTreeObj.addNodes(treeNode, {
+                                id: newID,
+                                pId: treeNode.id,
+                                name: name
+                            });
+                            var node = zTreeObj.getNodeByParam("id", newID, null); //根据新的id找到新添加的节点
+                            zTreeObj.selectNode(node); //让新添加的节点处于选中状态+
+                        } else {
+                            layer.msg("加载错误");
+                        }
+                    });
+
+                    return false;
+                });
+            }
+            function removeHoverDom(treeId, treeNode) {
+
+                $("#addBtn_" + treeNode.tId).unbind().remove();
+            }
+
+            function beforeRemove(treeId, treeNode) {
+                if (treeNode.isParent) {
+                    layer.alert("请先删除子节点");
+                    return false;
+                }
+            }
+
+            /**
+             * 显示ztree
+             */
+            function treeShow(data) {
+                zTreeObj = $.fn.zTree.init($("#ztree1"), setting, data);
+                zTreeObj.expandAll(true);
+            }
+            /**
+             * 加载ztree
+             */
+            $(function () {
+                $.ajax({
+                    async: true, //是否异步
+                    cache: false, //是否使用缓存
+                    type: 'post', //请求方式,post
+                    url: "/Admin/GetUnit", //请求链接
+                    success: function (data) {
+                        var zNodes = JSON.parse(data);
+
+                        treeShow(zNodes);
+
+                    }, error: function (XMLHttpRequest, data) {
+                        layer.alert(data);
+                    }
+                });
+
+            });
+
+    </script>
+
+</body>
+</html>

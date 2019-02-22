@@ -1,0 +1,43 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    @RenderPage("~/Views/Share/bootstrap.cshtml")
+    <script src="~/Resource/plugins/pdfobject.min.js"></script>
+    <style>
+        html, body {
+        
+        height:100%;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div id="exm" style="width:100%;height:100%">
+
+    </div>
+
+
+    <script type="text/javascript">
+        var obj = window.parent.$("#url").val();
+   
+        if (obj != "" && obj != null) {
+            console.log("值为" + obj);
+
+            PDFObject.embed("/UploadFiles/" + obj+".pdf", "#exm");
+
+        }
+ 
+
+    
+    </script>
+</body>
+</html>

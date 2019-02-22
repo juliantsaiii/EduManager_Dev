@@ -1,1 +1,1 @@
-EduManager_Dev
+EduManager

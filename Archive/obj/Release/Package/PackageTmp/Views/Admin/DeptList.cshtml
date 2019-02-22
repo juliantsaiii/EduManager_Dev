@@ -1,0 +1,401 @@
+﻿@using BLL;
+@using Model;
+@{
+
+    Layout = null;
+}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+         <title></title>
+         @RenderPage("~/Views/Shared/Include.cshtml")
+         <script src="../../Resource/public.js"></script>
+         <script>
+             //页面初始化
+             $(function () {
+                 $('#grid_table').treegrid({
+                     fit: true,
+                     url: '/Admin/GetDeptList',
+                     idField: 'ID',
+                     treeField: 'DeptName',
+                     frozenColumns: [[
+                         { field: 'ck', checkbox: false },
+
+                     ]],
+                     columns: [[
+                         { field: 'DeptName', title: '级别名称', width: 220 },
+                         //{ field: 'Remark', title: '备注', width: 220, align: 'center' },
+                         //{ field: 'Sequence', title: '排序', width: 220, align: 'center' },
+                                             {
+                                                 field: 'opt', title: '操作', width: 300, align: 'center',
+                                                 formatter: function (value, rec) {
+
+                                                         var optBtn='';
+                                                         optBtn += ' <a class="button blue small" style="color: white;text-decoration: none;" href="javascript:openWindow(\'Edit\',\'' + rec.ID + '\')" title=\"修改\">修改</a> ';
+                                                         //optBtn += ' <a class="button blue small" style="color: white;text-decoration: none;" href="javascript:delDep(\'' + rec.ID + '\')" title=\"删除\">删除</a> ';
+
+                                                         optBtn += ' <a class="button blue small" style="color: white;text-decoration: none;" href="javascript:openWindow(\'Create\',\'' + rec.ID + '\')" title=\"新增下级\">新增下级</a> ';
+                                                         return optBtn;
+
+                                                 }
+                                             }
+                     ]],
+                     /* toolbar: [{
+                         text: '刷新',
+                         iconCls: 'icon-reload',
+                         handler: function () {
+                             refeshTreeGrid();
+                         }
+                     }, '-', {
+                         text: '新增一级级别',
+                         iconCls: 'icon-add',
+                         handler: function () {
+                             openWindow("CreateLevelOne", null);
+                         }
+                     }]*/
+                 });
+             });
+
+             function refeshTreeGrid() {
+                 $('#grid_table').treegrid({
+                     url: '/Admin/GetDeptList'
+                 });
+             }
+
+             function openWindow(type, ID) {
+                 var res = type == "Edit" ? "修改" : "新增";
+                 var title = res + "级别";
+                 var url = '/Admin/DeptEdit?type=' + type;
+                 if (type != "CreateLevelOne") {
+                     url += '&ID=' + ID;
+                 }
+                 openMyWindow(title, url, 460, 270);
+             }
+
+             function funAfterSubmit() {
+                 refeshTreeGrid();
+                 closeMyWindow();
+             }
+
+             function delDep(ID) {
+                 removeObjWithConfirm(ID, "ID", '/Admin/DeptDelete', "refeshTreeGrid")
+             }
+         </script>
+     </head>
+     <body class="easyui-layout">
+         <div region="center" id="table_div" style="overflow:hidden;">
+             <table id="grid_table"></table>
+         </div>
+         <div id="mywindow" class="easyui-window" closed="true" cache="false" icon="icon-save" style="width:500px;height:200px;padding:5px;background: #fafafa;">
+
+         </div>
+     </body>
+     </html>
+@*<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="~/Resource/jquery-3.2.1.min.js"></script>
+    <script src="~/Resource/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <link href="~/Resource/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Resource/plugins/bootstrap-treeview/js/bootstrap-treeview.js"></script>
+    <link href="~/Resource/plugins/bootstrap-treeview/css/bootstrap-treeview.css" rel="stylesheet" />
+    <link href="~/Resource/plugins/bootstrap-table.css" rel="stylesheet" />
+    <script src="~/Resource/plugins/bootstrap-table.js"></script>
+    <script src="~/Resource/plugins/bootstrap-table-zh-CN.js"></script>
+    <style>
+        .row {
+            margin-left: 0px !important;
+            margin-right: 0px !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <input  type="hidden" id="MyUnitID" value=""/>
+        <div class="col-xs-4">
+            <div>
+                <button type="button" class="layui-btn" id="editSubordinate" style="margin-right:10px;">修改</button>
+                <button type="button" class="layui-btn" id="addSubordinate" >添加下级</button>
+            </div>
+            <div id="tree" style="margin-top:10px;width:100%;">
+                <ul></ul>
+            </div>
+        </div>
+        <div class="col-xs-8">
+            <label style="padding: 10px; height: 38px; ">人员列表</label>
+            <button type="button" onclick="AddPersonBtn()" class="layui-btn">添加人员</button>
+            <label>至</label><label id="MyTo" style="margin-left:5px;color:rgb(4, 71, 255)"></label>
+            <table id="Person_table2"></table>
+        </div>
+    </div>
+   
+    <div class="modal fade" id="Subordinate">
+        <div class="modal-dialog" style="width:500px;">
+            <div class="modal-content message_align">
+                <div class="modal-header" style="padding:10px 15px">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title">履历情况</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <input type="hidden" name="ParentID" id="ParentID" class="form-control" />
+                        <input type="hidden" name="ID" id="ID" class="form-control" />
+                        <div class="col-xs-3">
+                            <label class="margin-5">级别名称：</label>
+                        </div>
+                        <div class="col-xs-9">
+                            <input class="form-control" id="DeptName" name="DeptName" value="" />
+                        </div>
+                        <div class="col-xs-3">
+                            <label class="margin-5 ">排序：</label>
+                        </div>
+                        <div class="col-xs-9">
+                            <input type="text" name="Sequence" value="" id="Sequence" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer" style="padding:10px 15px">
+                    <button type="button" class="layui-btn layui-btn-primary layui-btn-sm" data-dismiss="modal">取消</button>
+                    <button type="button" class="layui-btn  layui-btn-sm" data-dismiss="modal" onclick="addSubordinate()">保存</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    <div class="modal fade" id="AddPerson">
+        <div class="modal-dialog" style="width:700px;">
+            <div class="modal-content message_align">
+                <div class="modal-header" style="padding:10px 15px">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title">添加人员</h4>
+                </div>
+                <div class="modal-body">
+                    <table id="AddPerson_table"></table>
+                </div>
+                <div class="modal-footer" style="padding:10px 15px">
+                    <button type="button" class="layui-btn layui-btn-primary layui-btn-sm" data-dismiss="modal">取消</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    <div id="chenggongtishi" style="height: 50px; width: 100px; border-radius: 5px; background-color: rgba(0,0,0,0.5); padding: 15px; font-size: 16px; text-align: center; color: #fff; position: fixed; top: 250px; left: 45%; display:none"><p>添加成功</p></div>
+</body>
+</html>
+<script>
+    //获取tree数据
+    function GetTree() {
+        $.ajax({
+            url: "/Admin/GetDeptList",
+            type: "post",
+            dataType: "json",
+            success: function (data) {
+                var defaultData = data;
+                $('#tree').treeview({
+                    data: defaultData,
+                    showTags: true,
+                    selectedColor: "#ffffff",
+                });
+                //data = jQuery.parseJSON(data);
+                //console.log("ggg="+data);
+            }
+        })
+    }
+    GetTree();
+    //初始化
+    function NewTree() {
+        $('#tree').treeview({
+            data: defaultData,
+            showTags: true,
+            selectedColor: "#ffffff",
+        });
+    };
+
+    //保存，ID为该条记录的ID，如果有值则为编辑将该值保存，如果为空则是新增，后台生成一个
+    function addSubordinate() {
+        var arr = $('#tree').treeview('getSelected');
+        if ($("#ParentID").length() > 0) {
+            var ParentID = $("#ParentID").val();
+        } else {
+            var ParentID = arr[0].ID;
+        };
+        $.ajax({
+            url: "",
+            type: "post",
+            dataType: "json",
+            data: "DeptName=" + $("#DeptName").val() + "&Sequence=" + $("#Sequence").val() + "&ParentID=" + ParentID + "&ID=" + $("#ID").val(),
+            success: function (data) {
+                GetTree();
+            }
+        });
+
+    };
+
+    //编辑从后台将选中的记录的数据取出显示
+    $("#editSubordinate").click(function () {
+        var arr = $('#tree').treeview('getSelected');
+        if (arr.length <= 0) {
+            alert("请先选择一条记录");
+        } else {
+            console.log(arr);
+            //var ID = arr[0].DeptName;
+            //console.log("ID=" + ID);
+            //$('#Subordinate').modal();
+            //$.ajax({
+            //    url: "",
+            //    type: "post",
+            //    dataType: "json",
+            //    data: "&ID=" + ID,
+            //    success: function (data) {
+            //        $("#DeptName").val(data.DeptName);
+            //        $("#Sequence").val(data.Sequence);
+            //        $("#ParentID").val(data.ParentID);
+            //        $("#ID").val(data.ID);
+            //    }
+            //})
+        };
+       
+    })
+    //新增下级
+    $("#addSubordinate").click(function () {
+        var arr = $('#tree').treeview('getSelected');
+        if (arr.length <= 0) {
+            alert("请先选择一条记录");
+        } else {
+            $("#DeptName").val("");
+            $("#Sequence").val("");
+            $("#ParentID").val("");
+            $("#ID").val("");
+            $('#Subordinate').modal();
+        }
+    })
+    //树节点点击事件
+    function itemOnclick(target) {
+        var nodeid = $(target).attr('data-nodeid');
+        var node = $("#tree").treeview('getNode', nodeid);
+        console.log("sss=" + node.ID);
+        $("#MyUnitID").val(node.ID);
+        $("#MyTo").html(node.text);
+        queryDataGrid();
+    }
+    function queryDataGrid() {
+        $('#Person_table2').bootstrapTable('refresh', {
+            pageNumber: 1,
+        });
+    }
+    function AddPersonBtn() {
+        if ($("#MyUnitID").val().length<=0) {
+            alert("请先选择部门");
+        } else {
+            $('#AddPerson').modal();
+            ShowPersonList();
+        }
+    }
+    //
+    $('#Person_table2').bootstrapTable({
+        height: $(window).height() - 45,
+        url: '/Person/GetPersonList',
+        method: 'get',
+        striped: true,      //是否显示行间隔色
+        cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+        pagination: true,     //是否显示分页（*）
+        sortable: false,      //是否启用排序
+        sortOrder: "asc",     //排序方式
+        pageNumber: 1,      //初始化加载第一页，默认第一页
+        pageSize: 100,      //每页的记录行数（*）
+        pageList: [10, 25, 50, 100],  //可供选择的每页的行数（*）
+        queryParamsType: '', //默认值为 'limit' ,在默认情况下 传给服务端的参数为：offset,limit,sort
+        // 设置为 ''  在这种情况下传给服务器的参数为：pageSize,pageNumber
+
+        //queryParams: queryParams,//前端调用服务时，会默认传递上边提到的参数，如果需要添加自定义参数，可以自定义一个函数返回请求参数
+        sidePagination: "server",   //分页方式：client客户端分页，server服务端分页（*）
+        //search: true,      //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
+        strictSearch: true,
+        //showColumns: true,     //是否显示所有的列
+        //showRefresh: true,     //是否显示刷新按钮
+        minimumCountColumns: 2,    //最少允许的列数
+        clickToSelect: true,    //是否启用点击选中行
+        queryParams: function (params) {
+            return {
+                sort: "Name",
+                order: "asc",
+                keyword1: $('#MyUnitID').val(),
+                pageSize: params.pageSize,
+                pageNumber: params.pageNumber,
+            }
+        },
+        columns: [
+            { field: 'Name', title: '姓名', width: 50, editable: false,},
+            { field: 'WorkUnit', title: '工作单位', width: 100, editable: false, align: 'left',},
+            { field: 'opt', title: '操作', width: 50, editable: false, formatter: operateFormatterPerson },
+        ],
+    });
+    function operateFormatterPerson(value, row, index) {
+        return [
+            '<a  href="/Person/Edit?ID=' + row.ID + '" id="btn_detail" type="button" class="layui-btn layui-btn-danger layui-btn-sm" style="margin-right:10px"><span class="glyphicon glyphicon-pencil"></span>编辑</a>',
+            //'<a  href="javascript:deleteByID(\'' + row.ID + '\')" id="btn_detail" type="button" class="layui-btn layui-btn-danger layui-btn-sm" style="margin-right:10px"><span class="glyphicon glyphicon-trash"></span>删除</a>',
+        ].join('');
+    }
+    //添加人员
+    function ShowPersonList() {
+        $('#AddPerson_table').bootstrapTable({
+            height: 500,
+            url: '/Person/GetPersonList',
+            method: 'get',
+            striped: true,      //是否显示行间隔色
+            cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+            pagination: true,     //是否显示分页（*）
+            sortable: false,      //是否启用排序
+            sortOrder: "asc",     //排序方式
+            pageNumber: 1,      //初始化加载第一页，默认第一页
+            pageSize: 10,      //每页的记录行数（*）
+            pageList: [10, 25, 50, 100],  //可供选择的每页的行数（*）
+            queryParamsType: '', //默认值为 'limit' ,在默认情况下 传给服务端的参数为：offset,limit,sort
+            // 设置为 ''  在这种情况下传给服务器的参数为：pageSize,pageNumber
+
+            //queryParams: queryParams,//前端调用服务时，会默认传递上边提到的参数，如果需要添加自定义参数，可以自定义一个函数返回请求参数
+            sidePagination: "server",   //分页方式：client客户端分页，server服务端分页（*）
+            //search: true,      //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
+            strictSearch: true,
+            //showColumns: true,     //是否显示所有的列
+            //showRefresh: true,     //是否显示刷新按钮
+            minimumCountColumns: 2,    //最少允许的列数
+            clickToSelect: true,    //是否启用点击选中行
+            queryParams: function (params) {
+                return {
+                    sort: "Name",
+                    order: "asc",
+                    keyword1: "",
+                    keyword2: "",
+                    pageSize: params.pageSize,
+                    pageNumber: params.pageNumber,
+                }
+            },
+            columns: [
+                { field: 'Name', title: '姓名', width: 50, editable: false, },
+                { field: 'WorkUnit', title: '工作单位', width: 100, editable: false, align: 'left', },
+                { field: 'opt', title: '操作', width: 50, editable: false, formatter: operateFormatterPerson },
+            ],
+        });
+        function operateFormatterPerson(value, row, index) {
+            return [
+               '<a  onclick=mySelect(\'' + row.ID + '\') id="btn_detail" type="button" class="layui-btn layui-btn-danger layui-btn-xs"><span class="glyphicon glyphicon-check"></span>选择</a>',
+            ].join('');
+        }
+    }
+    
+    function mySelect(ID) {
+        alert("");
+        $.ajax({
+            url: "",
+            type: "post",
+            dataType: "json",
+            data: "PersonID=" + ID + "&UnitID=" + $("#MyUnitID").val(),
+            success: function (data) {
+                $("#chenggongtishi").fadeIn(300);
+                $("#chenggongtishi").fadeOut(2000);
+                queryDataGrid();
+            }
+        })
+    }
+</script>*@

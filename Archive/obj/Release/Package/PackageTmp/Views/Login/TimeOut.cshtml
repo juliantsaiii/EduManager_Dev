@@ -1,0 +1,53 @@
+﻿@using Model;
+@{
+
+    Layout = null;
+}
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  style="background-color:#e4e6e9">
+
+<head>
+    <meta content="zh-cn" http-equiv="Content-Language" />
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <title>用户登录</title>
+    @RenderPage("~/Views/Shared/Frame.cshtml")
+    <link href="~/Resource/layui/layui/css/layui.css" rel="stylesheet" />
+    <link href="~/Resource/layui/layui/css/admin.css" rel="stylesheet" />
+    <link href="~/Resource/layui/layui/css/modules/layer/default/layer.css" rel="stylesheet" />
+    <link href="~/Resource/animate.css" rel="stylesheet" />
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#btnConfirm").click(function () {
+                top.location.href = '/Login/Login';
+            });
+            $("#btnExit").click(function () {
+                top.location.href = '/Login/Login';
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+
+    <div class="layui-fluid  animated bounceInDown">
+        <div class="layadmin-tips">
+            <i class="layui-icon" face=face>&#xe664;</i>
+
+            <div class="layui-text">
+               <button class="layui-btn layui-btn-primary" id="btnConfirm"  style="font-size: 26px;height:60px;line-height:60px">登陆超时,请重新登陆</button> 
+            </div>
+
+        </div>
+    </div>
+
+    <script src="~/Resource/layui/js/layer.js"></script>
+
+
+</body>
+
+</html>

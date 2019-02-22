@@ -1,0 +1,240 @@
+﻿<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/select2.min.js"></script>
+<link href="~/Scripts/select2.min.css" rel="stylesheet" />
+@*<script src="~/Resource/jquery-3.2.1.min.js"></script>*@
+<link href="~/Resource/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" />
+@*<link href="~/Resource/plugins/need/laydate.css" rel="stylesheet" />*@
+<link href="~/Resource/plugins/bootstrap-table.css" rel="stylesheet" />
+<link href="~/Resource/plugins/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet" />
+<link href="~/Resource/plugins/bootstrap-fileinput-master/css/fileinput.min.css" rel="stylesheet" />
+<link href="~/Resource/plugins/select/css/bootstrap-select.css" rel="stylesheet" />
+<script src="~/Resource/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+@*<script src="~/Resource/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>*@
+<script src="~/Resource/plugins/laydate.v2017.js"></script>
+<script src="~/Resource/plugins/bootstrap-table.js"></script>
+<script src="~/Resource/plugins/bootstrap3-editable/js/bootstrap-editable.js"></script>
+<script src="~/Resource/plugins/bootstrap-table-zh-CN.js"></script>
+<script src="~/Resource/plugins/bootstrap-table-editable.js"></script>
+<script src="~/Resource/plugins/bootstrap-fileinput-master/js/fileinput.min.js"></script>
+<script src="~/Resource/plugins/bootstrap-fileinput-master/js/locales/zh.js"></script>
+
+<link href="~/Resource/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<link href="~/Resource/upload/uploadifive.css" rel="stylesheet" />
+<script src="~/Resource/ajaxUpload/ajaxfileupload.js"></script>
+<script src="~/Resource/upload/jquery.uploadifive.min.js"></script>
+<script src="~/Resource/plugins/select/js/bootstrap-select.js"></script>
+<script src="~/Resource/plugins/select/js/i18n/defaults-zh_CN.min.js"></script>
+<script src="~/Resource/EasyUI/jquery.easyui.min.js"></script>
+<script src="~/Resource/plugins/spin.min.js/spin.min.js"></script>
+<link href="~/Resource/plugins/my.css" rel="stylesheet" />
+<script src="~/Resource/plugins/bootstrap-table-export.js"></script>
+<script src="~/Resource/plugins/tableExport.js"></script>
+<script src="~/Resource/plugins/jquery.base64.js"></script>
+<script src="~/Resource/plugins/layer.min.js"></script>
+<script src="~/Resource/vue.js"></script>
+
+<script src="~/Resource/bootstrap-summernote/summernote.min.js"></script>
+<script src="~/Resource/bootstrap-summernote/lang/summernote-zh-CN.js"></script>
+@*//<script src="~/Resource/bootstrap-summernote/summernote.js"></script>*@
+<link href="~/Resource/bootstrap-summernote/summernote.css" rel="stylesheet" />
+<link href="~/Resource/animate.css" rel="stylesheet" />
+
+<link href="~/Resource/layui/layui/css/layui.css" rel="stylesheet" />
+<link href="~/Resource/layui/layui/css/admin.css" rel="stylesheet" />
+<link href="~/Resource/layui/layui/css/modules/layer/default/layer.css" rel="stylesheet" />
+
+<link href="~/Resource/layui/layui/css/template.css" rel="stylesheet" />
+
+
+
+<style>
+
+    body {
+    
+    padding:15px 15px 0px 15px;
+    }
+    a {
+    text-decoration:none!important;
+    }
+  .dropdown-toggle {
+    
+    height:38px!important;
+    border-radius:0px!important;
+    }
+
+    .fixed-table-container {
+    
+    border:none!important;
+    }
+</style>
+<input id="start" type="hidden" />
+<input id="end" type="hidden"/>
+<script>
+    $.fn.modal.Constructor.prototype.enforceFocus = function () { };
+    function ChangeDateFormat(date) {
+
+        var mydate = new Date(parseInt(date.replace("/Date(", "").replace(")/", ""), 10));
+        var year = mydate.getFullYear();
+
+        var month = mydate.getMonth() + 1;
+
+        var day = mydate.getDate();
+
+        var hh = mydate.getHours();
+
+        var mm = mydate.getMinutes();
+
+        var ss = mydate.getSeconds();
+
+        return year + "-" + month + "-" + day + " " + hh + ":" + mm + ":" + ss;
+        //return oTime;
+    }
+    function LayerModalByID(title, url) {
+        console.log(title);
+        layer.open({
+            type: 1,
+            shadeClose: true,
+            shade: false,
+            title: title, //不显示标题
+            content: url, //捕获的元素，注意：最好该指定的元素要存放在body最外层，否则可能被其它的相对元素所影响
+            area: ['100%', '100%'],
+            maxmin: true, //开启最大化最小化按钮
+
+        });
+    }
+    function LayerModal(title, url) {
+        layer.open({
+            type: 2,
+            title: title,
+            shadeClose: true,
+            shade: false,
+            maxmin: true, //开启最大化最小化按钮
+            area: ['100%', '100%'],
+            content: url
+        });
+    }
+
+    function ChangeDateFormatSimple(date) {
+
+        var mydate = new Date(parseInt(date.replace("/Date(", "").replace(")/", ""), 10));
+        var year = mydate.getFullYear();
+
+        var month = mydate.getMonth() + 1;
+
+        var day = mydate.getDate();
+
+        var hh = mydate.getHours();
+
+        var mm = mydate.getMinutes();
+
+        var ss = mydate.getSeconds();
+
+        return year + "-" + month + "-" + day ;
+        //return oTime;
+    }
+    $(function () {
+        bitianxiang();
+        var ins1 = laydate.render({
+            elem: '#ins1',
+            //format: 'YYYY-MM',
+            //type: 'month',
+            min: '1900-06-16 23:59:59', //设定最小日期为当前日期
+            max: '2099-06-16 23:59:59', //最大日期
+            range: "~",
+            change: function(value, date, endDate){
+                $("#start").val(value.substring(0, 10));
+                $("#end").val(value.substring(13, 23));
+               // console.log($("#end").val());
+            },
+        });
+        lay('.layer-date').each(function () {
+            laydate.render({
+                elem: this
+              , trigger: 'click',type: 'month'
+            });
+        });
+
+
+        lay('.layer-date-day').each(function () {
+            laydate.render({
+                elem: this
+                , trigger: 'click'
+            });
+        });
+    })
+    function bitianxiang() {
+        $(".row").find("input[required]").each(function () {
+            $(this).blur(function () {
+                if ($(this).val() != "") {
+                    $(this).css("border-color", "#cccccc");
+                } else {
+                    $(this).css("border-color", "red");
+                }
+            })
+            if ($(this).val() == "") {
+                $(this).css("border-color", "red");
+            }
+        });
+    };
+    function IfEmpty(value, row, index) {
+        var a2 = "";
+        if (value == "" || value == null || value.length == 0) {
+            a2 = '<span data-toggle="tooltip" data-placement="right" title="此处信息不完整" ><i class="glyphicon glyphicon-question-sign" style="color:#d46c6c;font-size: 16px;"></i></span>'
+        } else {
+            a2 = value;
+        }
+        return value;
+    }
+
+
+    //打印
+    function printdiv(printpage) {
+        var headstr = "<html><head><title></title></head><body>";
+        var footstr = "</body></html>";
+        var newstr = document.all.item(printpage).innerHTML;
+        var oldstr = document.body.innerHTML;
+        console.log(oldstr);
+        //console.log(AddwaterMark);
+        document.body.innerHTML = headstr + newstr + footstr;
+        document.title = '综合信息查询';
+        //console.log(document.body.innerHTML);
+        window.print();
+        document.body.innerHTML = oldstr;
+
+        //$.ajax({
+        //    type: "post",
+        //    url: "/Admin/Log_Print",
+        //    data: {
+        //        personid: GetQueryString("ID"),
+        //        title: title
+        //    }
+        //});
+        
+        return false;
+
+    }
+
+
+    //打印end
+
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return null;
+    }
+
+    //清空查询条件
+    function mySearchClear() {
+        for (i = 0; i < $("input").length; i++) {
+            $("input")[i].value = "";
+        }
+        //console.log($("input[type='text']").length);
+        for (i = 0; i < $("select").length; i++) {
+            $("select")[i].value = "";
+            $("select").selectpicker('refresh');
+        }
+        queryDataGrid();
+    };
+  
+</script>

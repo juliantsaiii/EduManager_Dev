@@ -1,0 +1,434 @@
+﻿@{
+
+    Layout = null;
+}
+
+
+
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <link href="~/Resource/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Resource/plugins/metro/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/Resource/plugins/metro/css/jquery.easy-pie-chart.css" rel="stylesheet" />
+    <link href="~/Resource/plugins/metro/css/style-default.css" rel="stylesheet" />
+    <link href="~/Resource/plugins/metro/css/style.css" rel="stylesheet" />
+    <link href="~/Resource/plugins/metro/css/timeline-component.css" rel="stylesheet" />
+    <script src="~/Resource/plugins/metro/js/jquery-1.8.3.min.js"></script>
+    <script src="~/Resource/plugins/metro/js/bootstrap.min.js"></script>
+    <script src="~/Resource/Echarts/echarts.js"></script>
+    <script src="~/Resource/plugins/metro/js/jquery.easy-pie-chart.js"></script>
+    <style>
+        .row {
+            margin-left: 0px !important;
+            margin-right: 0px !important;
+        }
+        .alert {
+            padding: 8px 35px 8px 14px;
+            margin-bottom: 20px;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+            background-color: #fcf8e3;
+            border: 1px solid #fbeed5;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+        }
+            .alert, .alert h4 {
+                color: #c09853;
+            }
+        .myblock .text {
+            text-align: center;
+            position: relative;
+            top: 22%;
+        }
+
+            .myblock .text p {
+                font-size: 20px;
+                margin-top: 20px;
+            }
+
+        .wrapper {
+            padding: 20px;
+        }
+
+        .deptnamehead {
+            width: 200px;
+            height: 50px;
+            background-color: #ffc25a;
+            border-radius: 3px 3px 0px 0px;
+        }
+
+            .deptnamehead label, .deptnumber label {
+                text-align: center;
+                width: 200px;
+                font-size: 20px;
+                color: #ffffff;
+                font-family: "微软雅黑";
+                vertical-align: middle;
+                display: table-cell;
+            }
+
+            .deptnamehead label {
+                height: 50px;
+            }
+
+        .deptnumber label {
+            height: 100px;
+        }
+
+        .deptnumber {
+            width: 200px;
+            height: 100px;
+            background-color: #ffd791;
+            border-radius: 0px 0px 3px 3px;
+        }
+
+        .tubiao {
+            color: #fff;
+            font-size: 25px;
+            text-align: center;
+            width: 50px;
+            height: 50px;
+            vertical-align: middle;
+            display: table-cell;
+        }
+
+        .dingbu {
+            width: 10%;
+            height: 100px;
+            background-color: #ffffff;
+            box-shadow: 0px 0px 10px #cccccc;
+            vertical-align: middle;
+            display: table-cell;
+        }
+
+        .jianduzhiji-btn, .jianduzhiji2-btn {
+            width: 100%;
+            float: left;
+            height: 40px;
+            background-color: #ffffff;
+            border: 1px #ffffff solid;
+            background-color: #95cd92;
+            border-top: none;
+            font-size: 16px;
+            color: #ffffff;
+        }
+
+        .jianduzhiji-active, .jianduzhiji2-active {
+            background-color: #ffffff !important;
+            border: 1px #cccccc solid !important;
+            background-color: white !important;
+            border-right: none !important;
+            color: #1d1d1d !important;
+        }
+
+        button:focus {
+            outline: 0 !important;
+        }
+    </style>
+</head>
+<body style="background:#ffffff;">
+    @*<div class="row">
+        <div class="col-xs-12">
+            <button type="button" class="btn btn-default" onclick="window.location.href = '' ">刷新</button>
+        </div>
+    </div>*@
+    <div class="row">
+        <div class="col-xs-7">
+            <div class="widget blue">
+                <div class="widget-title">
+                    <h4><i class="icon-tasks"></i> 干部统计 </h4>
+                    
+                </div>
+                <div class="widget-body" style="height: 228px;padding: 55px 0px 0px 0px;">
+                    <div class="text-center">
+                        <div class="easy-pie-chart">
+                            <div class="percentage success easyPieChart" data-percent="100" style="width: 95px; height: 95px; line-height: 95px;"><span id="ganbu"></span><canvas width="95" height="95"></canvas></div>
+                            <div class="title">干部总数</div>
+                        </div>
+                        <div class="easy-pie-chart">
+                            <div class="percentage easyPieChart" data-percent="100" style="width: 95px; height: 95px; line-height: 95px;"><span id="chuji"></span><canvas width="95" height="95"></canvas></div>
+                            <div class="title">处级干部</div>
+                        </div>
+                        <div class="easy-pie-chart">
+                            <div class="percentage easyPieChart" data-percent="100" style="width: 95px; height: 95px; line-height: 95px;"><span id="keji"></span><canvas width="95" height="95"></canvas></div>
+                            <div class="title">科级干部</div>
+                        </div>
+                        <div class="easy-pie-chart">
+                            <div class="percentage easyPieChart" data-percent="100" style="width: 95px; height: 95px; line-height: 95px;"><span id="qita"></span><canvas width="95" height="95"></canvas></div>
+                            <div class="title">其他干部</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-5">
+            <div class="widget orange" >
+                <div class="widget-title">
+                    <h4><i class="icon-bell-alt"></i> 监督提醒</h4>
+                </div>
+                <div class="widget-body" id="tixing">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="metro-nav" id="ho">
+            </div>
+        </div>
+    </div>
+    <hr style="width: 97%; margin: 10px 15px 20px 15px;" />
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="metro-nav" id="hoo">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="widget green">
+                <div class="widget-title">
+                    <h4><i class="icon-reorder"> </i> 当月监督执纪数据填报</h4>
+                </div>
+                <div class="widget-body">
+                    <div class="text-center" style="height:370px">
+                        <div id="jianduzhijibar" style="width: 90%; height: 350px; float: right; border: 1px #cccccc solid; border-left: none;"></div>
+                        <div style="float:right;width:10%">
+                            <button value="FirstForm" class="jianduzhiji-btn jianduzhiji-active">第一种形态</button>
+                            <button value="AccountInfo" class="jianduzhiji-btn">问责信息</button>                
+                            @*<button value="MonitorInfo" class="jianduzhiji-btn">日常监督</button>*@
+                            <button value="FourForms" class="jianduzhiji-btn">线索处置</button>
+                            <button value="CaseInfo" class="jianduzhiji-btn">纪律处分</button>
+                            <button value="AdjustInfo" class="jianduzhiji-btn">组织调整</button>
+                            <button value="AssetGoodsInfo" class="jianduzhiji-btn">涉案款物</button>
+                            @*<button value="Assess" class="jianduzhiji-btn">人口库</button>*@
+                            <button value="BriberyInfo" class="jianduzhiji-btn">行贿人库</button>
+                            <button value="CrimeInfo" class="jianduzhiji-btn"style="height:60px;">行政司法处罚</button>
+                            @*<button value="CaseInfo1" class="jianduzhiji-btn">纪律处分导入</button>*@
+                            @*<button value="ReplyInfo" class="jianduzhiji-btn">廉政回复</button>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="~/Resource/plugins/metro/js/easy-pie-chart.js"></script>
+<script src="~/Resource/jquerySession.js"></script>
+
+<script>
+    $.ajax({
+        type: "post",
+        url: "/Statistics/RecordStatistics",
+        data: {},
+        dataType: "json",
+        success: function (data) {
+            // console.log(data);
+            $("#ganbu").text(data.rows[0].counts);
+            $("#chuji").text(data.rows[1].counts);
+            $("#keji").text(data.rows[2].counts);
+            $("#qita").text(data.rows[3].counts);
+            //$("#danwei").text(data.rows[4].counts);
+        }
+    });
+    //督办提醒
+    var zhixingcishu = "0";
+    var area = $.session.get('diqu') || '';
+    var reg = new RegExp("WorkUnit", "g");//g,表示全部替换。
+    area = area.replace(reg, "PersonUnit");
+    $.ajax({
+        url: "/Case/GetUrgeCaseCount",
+        type: "post",
+        data: { area: area },
+        dataType: "json",
+        success: function (data) {
+            //console.log(data);
+            if (data != 0) {
+                var html = '<div class="alert"><strong>有<span style="color:#F54343;font-size:20px"> ' + data + ' </span>条案件逾期或接近规定日期未结案</strong></div>';
+            }
+            $("#tixing").append(html);
+        }
+    })
+    $.ajax({
+        url: "/Case/GetGovenEndCount",
+        type: "post",
+        data: { area: area },
+        dataType: "json",
+        success: function (data) {
+            //console.log(data);
+            if (data != 0) {
+                var html = '<div class="alert"><strong>有<span style="color:#F54343;font-size:20px"> ' + data + ' </span>条政纪处分逾期未解除</strong></div>';
+            }
+            $("#tixing").append(html);
+        }
+    });
+    $.ajax({
+        url: "/Case/GetNotExaminedCount",
+        type: "post",
+        data: { area: area },
+        dataType: "json",
+        success: function (data) {
+            //console.log(data);
+            if (data != 0) {
+                var html = '<div class="alert"><strong>有<span style="color:#F54343;font-size:20px"> ' + data + ' </span>条案件逾期未审结</strong></div>';
+            }
+            $("#tixing").append(html);
+        }
+    });
+    //console.log(mydate);
+    $.ajax({
+        type: "post",
+        url: "/Statistics/BusinessTotalStatistics",
+        data: {},
+        dataType: "json",
+        success: function (data) {
+            //console.log(data);
+            var myclass = ["nav-block-orange", "nav-block-yellow", "nav-block-red"];
+            var myicon = ["icon-tasks", "icon-tags", "icon-bar-chart"];
+            var htmlli = "";
+            if (data.total > 0) {
+                for (i = 0; i < data.total; i++) {
+                    var j = i % 3
+                    if (i % 4 == 0) {
+                        htmlli += ""
+                    }
+                    htmlli = htmlli + '<div class="metro-nav-block ' + myclass[j] + '"  style="width:22%"><a data-original-title="" href="#"><i class="' + myicon[j] + '"></i><div class="info">' + data.rows[i].counts + '</div><div class="status">' + data.rows[i].RecordName + '</div></a></div>'
+                }
+            } else {
+                htmlli = "<label style='width:100%;font-algin:center;vertical-align: middle;display:table-cell;font-size:30px;'>暂无数据</label>"
+            }
+            //console.log(htmlli);
+            $("#ho").append(htmlli);
+            //$.mCustomScrollbar.defaults.theme = "light-2"; //set "light-2" as the default theme
+            //$("#ho").mCustomScrollbar({
+            //    axis: "x",
+            //    advanced: { autoExpandHorizontalScroll: true }
+            //});
+        }
+    });
+    $.ajax({
+        type: "post",
+        url: "/Statistics/PCTotalStatistics",
+        data: {},
+        dataType: "json",
+        success: function (data) {
+            //console.log(data);
+            var myclass = ["nav-light-blue", "nav-olive", "nav-block-green", "nav-light-green", "nav-block-grey"];
+            var myicon = ["icon-envelope", "icon-pencil", "icon-reorder", "icon-list-alt", "icon-file-text"];
+            var htmlli = "";
+            if (data.total > 0) {
+                for (i = 0; i < data.total; i++) {
+                    var j = i % 5
+                    htmlli = htmlli + '<div class="metro-nav-block ' + myclass[j] + '"><a data-original-title="" href="#"><i class="' + myicon[j] + '"></i><div class="info">' + data.rows[i].counts + '</div><div class="status">' + data.rows[i].RecordName + '</div></a></div>'
+                }
+            } else {
+                htmlli = "<label style='width:100%;font-algin:center;vertical-align: middle;display:table-cell;font-size:30px;'>暂无数据</label>"
+            }
+            //console.log(htmlli);
+            $("#hoo").append(htmlli);
+        }
+    });
+    $(".jianduzhiji-btn").each(function () {
+        $(this).on('click', function () {
+            $(".jianduzhiji-active").removeClass("jianduzhiji-active");
+            $(this).addClass("jianduzhiji-active");
+            getData($(this).val());
+        })
+
+    })
+    var date = new Date;
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    month = (month < 10 ? "0" + month : month);
+    var mydate = (year.toString() + "-" + month.toString());
+    //监督执纪
+    getData("FirstForm");
+    function getData(type) {
+        $.ajax({
+            type: "post",
+            url: "/Statistics/DeptBusinessStatistics",
+            data: { keyword1: type, mydate: mydate },
+            dataType: "json",
+            success: function (data) {
+                //console.log(data);
+                var RecordName = "";
+                var counts = "";
+                for (i = 0; i < data.total; i++) {
+                    RecordName = RecordName + "\"" + data.rows[i].RecordName + "\"" + ",";
+                    counts = counts + data.rows[i].counts + ",";
+                }
+                //console.log(RecordName);
+                //console.log(counts);
+                RecordName = $.parseJSON("[" + RecordName.substring(0, RecordName.length - 1) + "]");
+                counts = $.parseJSON("[" + counts.substring(0, counts.length - 1) + "]");
+                //console.log(RecordName);
+                //console.log(counts);
+                jianduzhijiChart(RecordName, counts);
+            }
+        })
+    }
+    function jianduzhijiChart(RecordName, counts) {
+        var jianduzhijiChart = echarts.init(document.getElementById('jianduzhijibar'), 'wonderland');
+        option6 = {
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                    type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                },
+
+            },
+            grid: {
+                top: '6%',
+                left: '3%',
+                right: '4%',
+                bottom: '9%',
+                containLabel: true
+            },
+            xAxis: [
+                {
+                    axisLabel: { //坐标轴刻度标签的相关设置。
+                        interval: 0,//横轴信息全部显示
+                        rotate: -30,//-30度角倾斜显示
+                    },
+                    type: 'category',
+                    axisTick: { show: true },
+                    data: RecordName,
+                    //show: false,
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value',
+                    //show: false,
+                }
+            ],
+            series: [
+                {
+                    name: '数量',
+                    type: 'bar',
+                    stack: '比例',
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'top'
+                        }
+                    },
+                    itemStyle: {
+                        normal: { color: '#8bcddd' }
+                    },
+                    barWidth: 20,//柱图宽度
+                    data: counts
+                }
+            ]
+        };
+        jianduzhijiChart.clear();
+        jianduzhijiChart.setOption(option6);
+    }
+</script>

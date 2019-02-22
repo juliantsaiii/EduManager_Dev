@@ -1,0 +1,292 @@
+﻿@using Model;
+@{
+    Layout = null;
+    ClueLink item = ViewBag.cluelink;
+    Person person = ViewBag.person;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    @RenderPage("~/Views/Share/bootstrap.cshtml")
+    <script src="~/Resource/edit.js"></script>
+    <script src="~/Web/guid.js"></script>
+    
+</head>
+<body>
+    @RenderPage("~/Views/Share/GuanLian2.cshtml")
+    <div>
+        <form id="Clue" name="Clue" method="post" class="form-inline">
+            <div class="row">
+                <input autocomplete = "off" style="display:none" type="text" id="PersonID" name="PersonID" value="@person.ID" />
+                <input autocomplete = "off" style="display:none" type="text" value="@item.ID" id="ID" name="ID" />
+                <input autocomplete = "off" style="display:none" type="text" value="@item.HandleStaff" id="HandleStaff" name="HandleStaff" />
+                <input autocomplete = "off" style="display:none" type="text" value="@item.HandleDept" id="HandleDept" name="HandleDept" />
+                <div class="col-xs-12">
+                    <h3 class="Gradient">信访举报</h3>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-2 margin-top-10">
+                        <label class="margin-5" for="HandleDeptName">处理部门：</label>
+                    </div>
+                    <div class="col-xs-2 margin-top-10">
+                        <input autocomplete = "off" class=" form-control" type="text" id="HandleDeptName"  name="HandleDeptName" value="@item.HandleDeptName" />
+                    </div>
+                    <div class="col-xs-2 margin-top-10">
+                        <label class="margin-5" for="ClueDate">登记日期：</label>
+                    </div>
+                    <div class="col-xs-2 margin-top-10">
+                        <div class="form-group">
+                            <input autocomplete = "off" class="laydate-icon form-control layer-date" required="required" name="ClueDate" value="@item.ClueDate">
+                            
+                        </div>
+                    </div>
+                </div>
+
+
+                
+
+
+                    
+
+
+                    <div class="row">
+                    
+                        <div class="col-xs-2 margin-top-10">
+                            <label class="margin-5" for="ObjName"> 被反映人姓名：</label>
+                        </div>
+                        <div class="col-xs-2 margin-top-10">
+                            <input autocomplete = "off" class="form-control" type="text" required="required" id="PersonName" name="ObjName" value="@item.ObjName" />
+                            <button class="btn btn-success"   type="button"   onclick="OpenModal()" style="position:absolute;top:0;right:-80px;z-index:10">人员识别</button>
+
+                        </div>
+                        <div class="col-xs-2 margin-top-10">
+                            <label class="margin-5" for="ObjPost">单位职务：</label>
+                        </div>
+                        <div class="col-xs-2 margin-top-10">
+                            <input autocomplete = "off" type="text" id="PersonDuty" name="ObjPost" class="form-control" value="@item.ObjPost" />
+                        </div>
+                        <div class="col-xs-2 margin-top-10">
+                            <label class="margin-5" for="ObjType"> 行政级别：</label>
+                        </div>
+                        <div class="col-xs-2 margin-top-10">
+                            <select id="ObjAdminLvl" class="form-control selectpicker" required="required" name="ObjAdminLvl">
+                                <option value="@item.ObjAdminLvl">@item.ObjAdminLvl</option>
+                                <option value="省部级">省部级</option>
+                                <option value="地厅级">地厅级</option>
+                                <option value="县处级">县处级</option>
+                                <option value="乡科级">乡科级</option>
+                                <option value="一般干部">一般干部</option>
+                                <option value="其他">其他</option>
+                                <option value="其他军队人员">其他军队人员</option>
+                                <option value="其他企业人员">其他企业人员</option>
+                                <option value="其他农村人员">其他农村人员</option>
+                                <option value="其他人员">其他人员</option>
+                            </select>
+                        </div>
+               
+                    </div>
+
+
+
+
+                    <div class="row">
+            
+                        <div class="col-xs-2 margin-top-10">
+                            <label class="margin-5" for="ReflectName"> 反映人姓名：</label>
+                        </div>
+                        <div class="col-xs-2 margin-top-10">
+                            <input autocomplete = "off" class="form-control" type="text" id="ReflectName"  name="ReflectName" value="@item.ReflectName" />
+                        </div>
+
+                        <div class="col-xs-2 margin-top-10">
+                            <label class="margin-5" for="ReflectPost">职务：</label>
+                        </div>
+                        <div class="col-xs-2 margin-top-10">
+                            <input autocomplete = "off" class="form-control" type="text" id="ReflectPost" name="ReflectPost" value="@item.ReflectPost" />
+                        </div>
+                        <div class="col-xs-2 margin-top-10">
+                            <label class="margin-5" for="ReflectAdminLvl"> 行政级别：</label>
+                        </div>
+                        <div class="col-xs-2 margin-top-10">
+                            <select id="ReflectAdminLvl" class="form-control selectpicker" name="ReflectAdminLvl">
+                                <option value="@item.ReflectAdminLvl">@item.ReflectAdminLvl</option>
+                                <option value="省部级">省部级</option>
+                                <option value="地厅级">地厅级</option>
+                                <option value="县处级">县处级</option>
+                                <option value="乡科级">乡科级</option>
+                                <option value="一般干部">一般干部</option>
+                                <option value="其他">其他</option>
+                                <option value="其他军队人员">其他军队人员</option>
+                                <option value="其他企业人员">其他企业人员</option>
+                                <option value="其他农村人员">其他农村人员</option>
+                                <option value="其他人员">其他人员</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-2 margin-top-10">
+                            <label class="margin-5" for="Des">主要内容：</label>
+                        </div>
+                        <div class="col-xs-10 margin-top-10">
+                            <textarea rows="5" id="Des"  name="Des" class=" margin-5 border w-adapt-text">@item.Des</textarea>
+                        </div>
+                    </div>
+             
+
+               
+                <div class="row">
+                    <div class="col-xs-2 margin-top-10">
+                        <label class="margin-5" for="DeviseOpinion">拟办意见：</label>
+                    </div>
+                    <div class="col-xs-10 margin-top-10">
+                        <textarea rows="5" id="DeviseOpinion"  name="DeviseOpinion" class=" margin-5 border w-adapt-text">@item.DeviseOpinion</textarea>
+                    </div>
+                </div>
+                
+            
+
+                <div class="row">
+                    <div class="col-xs-2 margin-top-10">
+                        <label class="margin-5" for="ReplyNote">领导批示：</label>
+                    </div>
+                    <div class="col-xs-10 margin-top-10">
+                        <textarea rows="5" id="ReplyNote"  name="ReplyNote" class=" margin-5 border w-adapt-text">@item.ReplyNote</textarea>
+                    </div>
+                </div>
+
+
+
+
+           </div>
+        </form>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 margin-top-10" style="margin-top:30px;">
+            <label style="float:left"></label>
+        </div>
+        <div class="col-xs-1 margin-top-10">
+            <input autocomplete = "off" id="file_upload" name="file_upload" type="file" multiple="true" />
+        </div>
+        <div class="col-xs-2 margin-top-10">
+            <a class="layui-btn " id="btnUpload" href="javascript:checkQueue()">上传</a>
+            <a class="layui-btn " id="btnCancelUpload" data-options="iconCls:'icon-cancel'" href="javascript:checkCancel()">取消</a>
+        </div>
+        <div class="col-xs-9 margin-top-10">
+            <div id="queue"></div>
+        </div>
+        <div class="col-xs-12 margin-top-10">
+            <div style="width:100%;">
+                <table id="Clue_table" class="table table-striped table-no-bordered table-hover"></table>
+            </div>
+        </div>
+    </div>
+        <div align="center" style="margin-top:20px;">
+            <button type="button" class="layui-btn" onclick="ClueListSubmit()">保存</button>
+        </div>
+   @RenderPage("~/Views/Share/delConfirm.cshtml")
+</body>
+</html>
+<script>
+    function checkQueue() {
+        if ($("#queue").children().length == 0) {
+            alert( "请先点击浏览选择要上传的文件！");
+        } else {
+            $('#file_upload').uploadifive('upload');
+        }
+    }
+    function checkCancel() {
+        if ($("#queue").children().length == 0) {
+            alert( "没有待上传的文件！");
+        } else {
+
+            $('#file_upload').uploadifive('clearQueue');
+            refeshGrid();
+        }
+    }
+    function refeshGrid() {
+        $('#Clue_table').bootstrapTable("refresh", { url: '/File/GetList?ID=@item.ID&Type=Clue' });
+    }
+    function delcfm(id) {
+        $('#id').val(id);//给会话中的隐藏属性URL赋值
+        $('#idName').val("ID");
+        $('#backMsg').val("Clue_table");
+        $('#urlDel').val("/File/Delete");
+        $('#urlBack').val("/File/GetList?ID=@item.ID&Type=Clue");
+        $('#delcfmModel').modal();
+    }
+    $(function () {
+        var a = 0;
+        $('#file_upload').uploadifive({
+            'auto': false,
+            'fileSizeLimit': '102400KB',
+            'buttonText': '浏  览',
+            'multi': true,
+            'queueID': 'queue',
+            'uploadScript': '/File/Upload',
+            'formData': { 'ID': '@item.ID', 'type': 'Clue' },
+            'onUploadComplete': function (file, data) {
+                a = a + 1;
+                if ($("#queue").children().length - a == 0) {
+                    checkCancel();
+                    a = 0;
+                }
+            }
+        
+        });
+        $('#Clue_table').bootstrapTable({
+            method: 'post',
+            url: '/File/GetList?ID=@item.ID&Type=Clue',
+            striped: true,
+            clickToSelect: true,
+            pageSize: 10,
+            sidePagination: 'server',
+            pageList: [10, 20, 50, 100, 200, 500],
+            queryParamsType: 'limit',
+            sortName: 'ID',
+            sortOrder: 'asc',
+            columns: [
+                { field: 'FileName', title: '文件名', width: 200, editable: false, },
+                { field: 'opt', title: '操作', width: 100, editable: false, formatter: operateFormatterClue },
+            ],
+        });
+        function operateFormatterClue(value, row, index) {
+            return [
+            '<a  href="/File/Download?ID=' + row.ID + '" id="btn_detail" type="button" class="layui-btn layui-btn-sm" style="margin-right:20px;">下载</a>',
+            '<a  href="javascript:delcfm(\'' + row.ID + '\')"  type="button" class="layui-btn layui-btn-danger layui-btn-sm">删除</a>',
+            ].join('');
+        }
+    });
+
+    function ClueListSubmit() {
+        if ($("#PersonID").val() == "") {
+            layer.msg("请填写人员姓名");
+            return;
+        }
+        $('#Clue').form('submit', {
+            url: "/Clue/Save",
+            onSubmit: function () {
+                //if ($('#PersonName').val() == "" || $('#ClueDate').val() == "" || $('#Status').val() == "") {
+                //    alert("请输入必填项信息")
+                //    return false;
+                //}
+
+            },
+            success: function (data) {
+                layer.alert("保存成功", function () {
+                    window.parent.layer.closeAll();
+                    window.location.href = "/Clue/ClueList";
+
+                });
+            }
+        });
+    }
+    function Canel() {
+        window.location.href = "/Clue/ClueList";
+    }
+</script>

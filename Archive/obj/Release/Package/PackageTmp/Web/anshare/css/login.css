@@ -1,0 +1,38 @@
+.login .logo { 
+  text-align: center;
+}  
+
+.login .content {
+	position:absolute;
+	left:50%;
+	top:50%;
+	transform:translate(-50%,-50%);
+	-webkit-transform:translate(-50%,-50%);
+  background-color:rgba(0,0,0,0.1); 
+  width: 350px;
+  margin: 0 auto;
+  margin-bottom: 0px;
+  padding: 20px;  
+  padding-top: 20px;  
+  padding-bottom: 15px;  
+}
+.login .content .input-icon {
+  border-left: 2px solid #35aa47 !important;
+}
+
+.login .copyright {
+  text-align: center;
+  margin: 0px auto 0 auto; 
+  padding: 10px 10px 10px 10px;
+  color: #000;
+  font-size: 18px;
+}
+.login .anshare_input{
+	padding: 5px 5px 5px 5px;
+}
+
+.background-pic{
+	position:relative;
+	background:url(../image/background_pic.jpg) no-repeat 50%;
+	height:500px;
+}

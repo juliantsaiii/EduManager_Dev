@@ -1,0 +1,336 @@
+﻿@using Model;
+@{
+    Layout = null;
+    TalkQuery item = ViewBag.TalkQuery;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    @RenderPage("~/Views/Share/bootstrap.cshtml")
+    <script src="~/Resource/edit.js"></script>
+    <script src="~/Web/guid.js"></script>
+
+</head>
+
+<body>
+    <div>
+        <form id="TalkQuery" name="TalkQuery" method="post" class="form-inline">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3 class="Gradient">"第一种形态"情况登记表</h3>
+                </div>
+                <button type="button" class="btn btn-default" style="position:absolute;right:10px;top:20px" onclick="javascript: history.back();">返回</button>
+
+                <input style="display:none" type="text" value="@item.ID" id="ID" name="ID" />
+                <input style="display:none" type="text" value="@item.HandleStaff" id="HandleStaff" name="HandleStaff" />
+                <input style="display:none" type="text" value="@item.HandleDept" id="HandleDept" name="HandleDept" />
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="PersonName">收到日期：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input class="form-control  layer-date" type="text" id="ReceiveDate" name="ReceiveDate" required="required" value="@item.ReceiveDate" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="IDCard">是否为重复件：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <select id="IsRepeat" class="form-control selectpicker" required="required" name="IsRepeat">
+                        <option value="@item.IsRepeat">@item.IsRepeat</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="PersonGender">线索来源：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <select id="ClueSource" class="form-control selectpicker" required="required" name="ClueSource">
+                        <option value="@item.ClueSource">@item.ClueSource</option>
+                        <option>上级交办</option>
+                        <option>巡视巡察</option>
+                        <option>审查调查发现</option>
+                        <option>信访举报</option>
+                    </select>
+                </div>
+            </div>
+            <div style="clear:both"></div>
+
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="PersonArea">信访编号：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input class="form-control" type="text" id="ClueCode" name="ClueCode" required="required" value="@item.ClueCode" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="PersonName">被反映人姓名：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input class="form-control" type="text" id="PersonName" name="PersonName" required="required" value="@item.PersonName" />
+
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="IDCard">身份证号码：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input class="form-control" type="text" id="IDCard" name="IDCard" required="required" value="@item.IDCard" />
+
+                </div>
+            </div>
+            <div style="clear:both"></div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="PersonGender">性别：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <select id="PersonGender" class="form-control selectpicker" required="required" name="PersonGender">
+                        <option value="@item.PersonGender">@item.PersonGender</option>
+                        <option value="男">男</option>
+                        <option value="女">女</option>
+
+                    </select>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="PersonPolitic">政治面貌：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input class="form-control" type="text" id="PersonPolitic" name="PersonPolitic" required="required" value="@item.PersonPolitic" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="PersonPhone">联系方式：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input class="form-control" type="text" id="PersonPhone" name="PersonPhone" required="required" value="@item.PersonPhone" />
+                </div>
+            </div>
+
+            <div style="clear:both"></div>
+
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="PersonDuty">职务：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input class="form-control" type="text" id="PersonDuty" name="PersonDuty" required="required" value="@item.PersonDuty" />
+
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="PersonLevel">级别</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input class="form-control" type="text" id="PersonLevel" name="PersonLevel" required="required" value="@item.PersonLevel" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="PersonUnit">单位名称：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input class="form-control" type="text" id="PersonUnit" name="PersonUnit" required="required" value="@item.PersonUnit" />
+                </div>
+            </div>
+            <div style="clear:both"></div>
+
+
+            <div class="row">
+
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="MainProblem">线索反映主要问题：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input class="form-control" type="text" id="MainProblem" name="MainProblem" required="required" value="@item.MainProblem" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="ApprovalDate">签批日期：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input class="form-control  layer-date" type="text" id="ApprovalDate" name="ApprovalDate" required="required" value="@item.ApprovalDate" />
+                </div>
+            </div>
+
+            <div style="clear:both"></div>
+
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="HandleLevel">处置方式：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <select id="HandleLevel" class="form-control selectpicker" required="required" name="HandleLevel">
+                        <option value="@item.HandleType">@item.HandleType</option>
+                        <option value="谈话">谈话</option>
+                        <option value="函询">函询</option>
+                        <option value="谈话并函询">谈话并函询</option>
+
+                    </select>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="SendLetterDate">送达函询通知书日期</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input class="form-control" type="text" id="SendLetterDate" name="SendLetterDate" required="required" value="@item.SendLetterDate" />
+
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="IsCC">是否抄送</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input class="form-control" type="text" id="IsCC" name="IsCC" required="required" value="@item.IsCC" />
+
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="ReceiveLetterDate">收到回函日期</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input class="form-control" type="text" id="ReceiveLetterDate" name="ReceiveLetterDate" required="required" value="@item.ReceiveLetterDate" />
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="TalkDate">谈话日期</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input class="form-control" type="text" id="TalkDate" name="TalkDate" required="required" value="@item.TalkDate" />
+
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="TalkArea">谈话地点</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input class="form-control" type="text" id="TalkArea" name="TalkArea" required="required" value="@item.TalkArea" />
+
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="HandleDate">线索处置日期</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input class="form-control" type="text" id="HandleDate" name="HandleDate" required="required" value="@item.HandleDate" />
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="TalkQueryType">处置情况</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <select id="FirstFormType" class="form-control selectpicker" required="required" name="FirstFormType">
+                        <option value="@item.FirstFormType">@item.FirstFormType</option>
+                        <option>了结</option>
+                        <option>谈话提醒、批评教育、责令检查、诫勉谈话</option>
+                        <option>再次谈话函询</option>
+                        <option>提请初步核实</option>
+                    </select>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="Result">认定事实</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input class="form-control" type="text" id="Result" name="Result" required="required" value="@item.Result" />
+
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="ResultTime">了结反馈时间</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input class="form-control" type="text" id="ResultTime" name="ResultTime" required="required" value="@item.ResultTime" />
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="TalkQueryType">反馈方式</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <select id="Reform" class="form-control selectpicker" required="required" name="Reform">
+                        <option value="@item.Reform">@item.Reform</option>
+                        <option>《线索了结情况反馈函》</option>
+                        <option>当面反馈</option>
+                        <option>电话反馈</option>
+                    </select>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="Result">存入个人廉政档案日期</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input class="form-control" type="text" id="ArchiveDate" name="ArchiveDate" required="required" value="@item.ArchiveDate" />
+
+                </div>
+
+            </div>
+            <div class="col-xs-12 margin-top-10">
+                <div style="width:100%;">
+                    <table id="TalkQuery_table" class="table table-striped table-no-bordered table-hover"></table>
+                </div>
+            </div>
+
+        </form>
+
+        
+    </div>
+
+
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-body">
+                    <iframe src="/Person/Pdf" id="pdf" frameborder="0" style="width:100%;height:750px" scrolling="no"></iframe>
+
+                </div>
+
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    <input type="hidden" id="url" />
+
+
+    @RenderPage("~/Views/Share/delConfirm.cshtml")
+</body>
+</html>
+<script>
+    function Affix(ID) {
+        console.log(ID);
+        $("#url").val(ID);
+        $("#pdf").attr('src', $("#pdf").attr('src'));
+
+        $("#myModal").modal('show');
+
+    }
+    $(function () {
+      
+        $('#TalkQuery_table').bootstrapTable({
+            method: 'post',
+            url: '/File/GetList?ID=@item.ID&Type=TalkQuery',
+            striped: true,
+            clickToSelect: true,
+            pageSize: 10,
+            sidePagination: 'server',
+            pageList: [10, 20, 50, 100, 200, 500],
+            queryParamsType: 'limit',
+            sortName: 'ID',
+            sortOrder: 'asc',
+            columns: [
+                { field: 'FileName', title: '文件名', width: 200, editable: false, },
+                { field: 'opt', title: '操作', width: 100, editable: false, formatter: operateFormatterTalkQuery },
+            ],
+        });
+        function operateFormatterTalkQuery(value, row, index) {
+            return [
+            '<a  href="/File/Download?ID=' + row.ID + '" id="btn_detail" type="button" class="layui-btn layui-btn-danger layui-btn-sm" style="margin-right:20px;"><span class="glyphicon glyphicon-floppy-save"></span>下载</a>',
+            '<a  href="javascript:Affix(\'' + row.ID + '\')"  type="button" class="layui-btn layui-btn-danger layui-btn-xs">预览</a>',
+            ].join('');
+        }
+    });
+ 
+
+</script>
