@@ -58,14 +58,3 @@ E:\GitHubArchive\EduManager\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
 E:\GitHubArchive\EduManager\Model\obj\Debug\Model.csproj.CopyComplete
 E:\GitHubArchive\EduManager\Model\obj\Debug\Model.dll
 E:\GitHubArchive\EduManager\Model\obj\Debug\Model.pdb
-D:\GitHub_Archive\EduManager_Dev\Model\bin\Debug\Model.dll.config
-D:\GitHub_Archive\EduManager_Dev\Model\bin\Debug\Model.dll
-D:\GitHub_Archive\EduManager_Dev\Model\bin\Debug\Model.pdb
-D:\GitHub_Archive\EduManager_Dev\Model\bin\Debug\EntityFramework.dll
-D:\GitHub_Archive\EduManager_Dev\Model\bin\Debug\EntityFramework.xml
-D:\GitHub_Archive\EduManager_Dev\Model\bin\Debug\zh-Hans\EntityFramework.resources.dll
-D:\GitHub_Archive\EduManager_Dev\Model\obj\Debug\Model.csprojAssemblyReference.cache
-D:\GitHub_Archive\EduManager_Dev\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
-D:\GitHub_Archive\EduManager_Dev\Model\obj\Debug\Model.csproj.CopyComplete
-D:\GitHub_Archive\EduManager_Dev\Model\obj\Debug\Model.dll
-D:\GitHub_Archive\EduManager_Dev\Model\obj\Debug\Model.pdb

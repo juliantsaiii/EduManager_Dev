@@ -116,8 +116,8 @@
         <input  type="hidden" id="MyUnitID" value=""/>
         <div class="col-xs-4">
             <div>
-                <button type="button" class="layui-btn" id="editSubordinate" style="margin-right:10px;">修改</button>
-                <button type="button" class="layui-btn" id="addSubordinate" >添加下级</button>
+                <button type="button" class="btn btn-primary" id="editSubordinate" style="margin-right:10px;">修改</button>
+                <button type="button" class="btn btn-primary" id="addSubordinate" >添加下级</button>
             </div>
             <div id="tree" style="margin-top:10px;width:100%;">
                 <ul></ul>
@@ -125,7 +125,7 @@
         </div>
         <div class="col-xs-8">
             <label style="padding: 10px; height: 38px; ">人员列表</label>
-            <button type="button" onclick="AddPersonBtn()" class="layui-btn">添加人员</button>
+            <button type="button" onclick="AddPersonBtn()" class="btn btn-primary">添加人员</button>
             <label>至</label><label id="MyTo" style="margin-left:5px;color:rgb(4, 71, 255)"></label>
             <table id="Person_table2"></table>
         </div>
@@ -157,8 +157,8 @@
                     </div>
                 </div>
                 <div class="modal-footer" style="padding:10px 15px">
-                    <button type="button" class="layui-btn layui-btn-primary layui-btn-sm" data-dismiss="modal">取消</button>
-                    <button type="button" class="layui-btn  layui-btn-sm" data-dismiss="modal" onclick="addSubordinate()">保存</button>
+                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal" onclick="addSubordinate()">保存</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
@@ -174,7 +174,7 @@
                     <table id="AddPerson_table"></table>
                 </div>
                 <div class="modal-footer" style="padding:10px 15px">
-                    <button type="button" class="layui-btn layui-btn-primary layui-btn-sm" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">取消</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
@@ -332,8 +332,8 @@
     });
     function operateFormatterPerson(value, row, index) {
         return [
-            '<a  href="/Person/Edit?ID=' + row.ID + '" id="btn_detail" type="button" class="layui-btn layui-btn-danger layui-btn-sm" style="margin-right:10px"><span class="glyphicon glyphicon-pencil"></span>编辑</a>',
-            //'<a  href="javascript:deleteByID(\'' + row.ID + '\')" id="btn_detail" type="button" class="layui-btn layui-btn-danger layui-btn-sm" style="margin-right:10px"><span class="glyphicon glyphicon-trash"></span>删除</a>',
+            '<a  href="/Person/Edit?ID=' + row.ID + '" id="btn_detail" type="button" class="btn btn-primary btn-xs" style="margin-right:10px"><span class="glyphicon glyphicon-pencil"></span>编辑</a>',
+            //'<a  href="javascript:deleteByID(\'' + row.ID + '\')" id="btn_detail" type="button" class="btn btn-danger btn-xs" style="margin-right:10px"><span class="glyphicon glyphicon-trash"></span>删除</a>',
         ].join('');
     }
     //添加人员
@@ -379,7 +379,7 @@
         });
         function operateFormatterPerson(value, row, index) {
             return [
-               '<a  onclick=mySelect(\'' + row.ID + '\') id="btn_detail" type="button" class="layui-btn layui-btn-danger layui-btn-xs"><span class="glyphicon glyphicon-check"></span>选择</a>',
+               '<a  onclick=mySelect(\'' + row.ID + '\') id="btn_detail" type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-check"></span>选择</a>',
             ].join('');
         }
     }

@@ -30,3 +30,16 @@ C:\Anshare\ArchiveJSYX\IBLL\obj\Release\IBLL.csprojResolveAssemblyReference.cach
 C:\Anshare\ArchiveJSYX\IBLL\obj\Release\IBLL.csproj.CoreCompileInputs.cache
 C:\Anshare\ArchiveJSYX\IBLL\obj\Release\IBLL.dll
 C:\Anshare\ArchiveJSYX\IBLL\obj\Release\IBLL.pdb
+D:\GitHub_Archive\EduManager_Dev\IBLL\bin\Release\IBLL.dll
+D:\GitHub_Archive\EduManager_Dev\IBLL\bin\Release\IBLL.pdb
+D:\GitHub_Archive\EduManager_Dev\IBLL\bin\Release\Model.dll
+D:\GitHub_Archive\EduManager_Dev\IBLL\bin\Release\EntityFramework.dll
+D:\GitHub_Archive\EduManager_Dev\IBLL\bin\Release\Model.pdb
+D:\GitHub_Archive\EduManager_Dev\IBLL\bin\Release\Model.dll.config
+D:\GitHub_Archive\EduManager_Dev\IBLL\bin\Release\EntityFramework.xml
+D:\GitHub_Archive\EduManager_Dev\IBLL\bin\Release\zh-Hans\EntityFramework.resources.dll
+D:\GitHub_Archive\EduManager_Dev\IBLL\obj\Release\IBLL.csprojAssemblyReference.cache
+D:\GitHub_Archive\EduManager_Dev\IBLL\obj\Release\IBLL.csproj.CoreCompileInputs.cache
+D:\GitHub_Archive\EduManager_Dev\IBLL\obj\Release\IBLL.csproj.CopyComplete
+D:\GitHub_Archive\EduManager_Dev\IBLL\obj\Release\IBLL.dll
+D:\GitHub_Archive\EduManager_Dev\IBLL\obj\Release\IBLL.pdb

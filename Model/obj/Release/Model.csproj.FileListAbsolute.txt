@@ -25,3 +25,14 @@ C:\Anshare\ArchiveJSYX\Model\obj\Release\Model.csproj.CoreCompileInputs.cache
 C:\Anshare\ArchiveJSYX\Model\obj\Release\Model.dll
 C:\Anshare\ArchiveJSYX\Model\obj\Release\Model.pdb
 C:\Anshare\ArchiveJSYX\Model\obj\Release\Model.csprojResolveAssemblyReference.cache
+D:\GitHub_Archive\EduManager_Dev\Model\bin\Release\Model.dll.config
+D:\GitHub_Archive\EduManager_Dev\Model\bin\Release\Model.dll
+D:\GitHub_Archive\EduManager_Dev\Model\bin\Release\Model.pdb
+D:\GitHub_Archive\EduManager_Dev\Model\bin\Release\EntityFramework.dll
+D:\GitHub_Archive\EduManager_Dev\Model\bin\Release\EntityFramework.xml
+D:\GitHub_Archive\EduManager_Dev\Model\bin\Release\zh-Hans\EntityFramework.resources.dll
+D:\GitHub_Archive\EduManager_Dev\Model\obj\Release\Model.csprojAssemblyReference.cache
+D:\GitHub_Archive\EduManager_Dev\Model\obj\Release\Model.csproj.CoreCompileInputs.cache
+D:\GitHub_Archive\EduManager_Dev\Model\obj\Release\Model.csproj.CopyComplete
+D:\GitHub_Archive\EduManager_Dev\Model\obj\Release\Model.dll
+D:\GitHub_Archive\EduManager_Dev\Model\obj\Release\Model.pdb

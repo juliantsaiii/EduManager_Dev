@@ -1,4 +1,7 @@
-﻿@{
+﻿@using Model;
+@using BLL;
+@using IBLL;
+@{
 
     Layout = null;
 }
@@ -7,109 +10,47 @@
 <head id="">
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="initial-scale=1.0">
-    <title>监督执纪问责信息综合平台</title>
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <link href="~/Resource/plugins/layui/css/layui.css" rel="stylesheet" />
-    <script src="~/Resource/plugins/layui/layui.js"></script>
-    <style>
-        .mainbody {
-            width: 1000px;
-            height: 500px;
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 20px;
-            box-shadow: 0 0 20px 0 #6d6363;
-            border-radius: 40px;
-        }
-
-        .mainBodyLeft {
-            width: 500px;
-            height: 500px;
-            float: left;
-            background-color: #ffffff;
-            border-top-left-radius: 40px;
-            border-bottom-left-radius: 40px;
-            background-image: url(/Resource/login/bgl.jpg);
-        }
-
-        .mainBodyRight {
-            width: 500px;
-            height: 500px;
-            background-color: #ffffff;
-            float: right;
-            border-top-right-radius: 40px;
-            border-bottom-right-radius: 40px;
-        }
-
-        .myTitle {
-            color: #ffffff;
-            font-family: "方正小标宋";
-            font-size: 34px;
-            margin-left: auto;
-            margin-right: auto;
-            width: 346px;
-        }
-
-        .loginBody {
-            width: 400px;
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 80px;
-        }
-
-            .loginBody input {
-                border: none;
-                border-bottom: 2px #d7dcf1 solid;
-                color: #65498b;
-                display: block;
-                padding: 10px;
-                width: 90%;
-                font-size: 20px;
-                margin-bottom: 25px;
-                outline: none;
-            }
-
-            .loginBody button {
-                width: 400px;
-                height: 60px;
-                background-color: #65498b;
-                color: #ffffff;
-                font-size: 24px;
-                border-radius: 30px;
-                margin-top: 140px;
-                cursor: pointer;
-                outline: none;
-                transition: 0.3s all;
-                 margin-bottom: 50px;
-            }
-
-                .loginBody button:hover {
-                    background-color: #7d5ea7;
-                }
-    </style>
+    <title>EduManager</title>
+    <link href="~/Resource/login/css/style.css" rel="stylesheet" />
+    <script src="~/Resource/jquery-1.10.2.min.js"></script>
+    <script src="~/Resource/login/js/cloud.js"></script>
 </head>
-<body style=" background-image: url(/Resource/login/c_bj.jpg); background-repeat: no-repeat; background-position: center top; overflow: hidden; background-size:cover">
-    <img style="margin-left: 25%; display: block; margin-top: 20px" src="~/Resource/login/logoJSYX.png" />
-    @*<img style="width: 596px; margin-left: auto; margin-right: auto; display: block; margin-top: 70px;margin-bottom:50px" src="~/Assets/login/hd.png" />*@
-    <h1 class="start-screen-title" style="font-size:60px; font-family: '方正小标宋_GBK'; text-align: center; display: block;  margin-top: 70px; margin-bottom: 50px;">监督执纪问责信息综合平台</h1>
-    <div class="mainbody">
-        <div class="mainBodyLeft">
-            @*<img style="width: 457px;margin-left: 20px;margin-top: 20px;" src="~/Assets/login/hd.png" />*@
-            <div class="myTitle">
-                <h2></h2>
-            </div>
+
+    <body style="background-color: #1c77ac; background-image: url(/Resource/login/images/light.png); background-repeat: no-repeat; background-position: center top; overflow: hidden; ">
+
+
+
+        <div id="mainBody">
+            <div id="cloud1" class="cloud"></div>
+            <div id="cloud2" class="cloud"></div>
         </div>
-        <div class="mainBodyRight">
-            <div class="loginBody">
-                @*<h1 style="font-weight: 200; color: #65498b; margin-left: 10px;">登&nbsp;&nbsp;&nbsp;录</h1>*@
-                <input name="" type="text" id="username" class="loginuser" value="" placeholder="请输入登录名" />
-                <input name="" type="password" id="password" class="loginpwd" value="" placeholder="请输入密码" />
-                <button name="" type="button" class="loginbtn" onclick="LoginUserInfo()" style="border:none">登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录</button>
-            </div>
+
+
+        <div class="logintop">
+            <span>EduManager</span>
+            <ul></ul>
         </div>
-    </div>
-    <p style="color: #ffffff; width: 275px; margin: 100px auto 0px auto;">本系统建议下载安装火狐或谷歌浏览器</p>
-</body>
+
+        <div class="loginbody">
+
+
+            <div class="loginbox" style="margin-top:200px">
+
+                <ul>
+                    <li><input name="" type="text" id="username" class="loginuser" value="" placeholder="请输入登录名" /></li>
+                    <li><input name="" type="password" id="password" class="loginpwd" value="" placeholder="请输入密码" /></li>
+                    <li><button name="" type="button" class="loginbtn" onclick="LoginUserInfo()">登录</button> <button style="float: right;margin-right: 65px" name="" type="button" class="loginbtn" id="clear" onclick="    clear();">重置</button> </li>
+                </ul>
+
+
+            </div>
+
+        </div>
+
+
+
+
+    </body>
 
 </html>
 <script>
@@ -126,26 +67,20 @@
 </script>
 <script type="text/javascript">
 
-    $(document).keyup(function (event) {
-        if (event.keyCode == 13) {
-            LoginUserInfo();
-        }
-    });
     function LoginUserInfo() {
+        //$("#submitBtn").attr('disabled', "true");
         $.ajax({
             url: "/Login/CheckUserLogin",
             type: "POST",
+            dataType: "json",
             data: { "UserName": $("#username").val(), "Password": $("#password").val() },
             success: function (data) {
-                if (data.result == "success_over") {
-                    window.location.href = "/Home/Transition";
-                }
-                else if (data.result == "success_admin") {
+              if (data.result == "success") {
 
                     window.location.href = "/Home/Index";
                 }
+          
                 else {
-                    //bootbox.setLocale("zh_CN");
                     alert(data.content, function (result) {
                         if (result) {
                             window.location.href = "/Login/Login";
@@ -153,11 +88,14 @@
                     });
 
                 }
+            },
+            error: function (xhr, error, ex) {
+                alert("出现错误，请稍后再试，带来不便，敬请谅解", function (result) {
+                    if (result) {
+                        window.location.href = "/Login/Login";
+                    }
+                });
             }
         });
     }
-
 </script>
-
-<!--以上部分为页面设计代码,下面为页面调用脚本代码,无需修改。 -->
-<!-- basic scripts -->

@@ -68,8 +68,14 @@
     <Compile Include="Dept.cs">
       <DependentUpon>ArchiveJSYXModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Dictionary.cs">
+      <DependentUpon>ArchiveJSYXModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="ListModel.cs" />
     <Compile Include="Menu.cs">
+      <DependentUpon>ArchiveJSYXModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Person.cs">
       <DependentUpon>ArchiveJSYXModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

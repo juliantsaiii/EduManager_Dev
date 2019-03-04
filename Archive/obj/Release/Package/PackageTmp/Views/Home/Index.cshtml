@@ -35,14 +35,12 @@
                 <ul class="nav" id="side-menu">
                     <li class="nav-header">
                         <div class="dropdown profile-element">
-                            @*<span><img alt="image" class="img-circle" src="/img/profile_small.jpg" /></span>*@
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="clear">
                                     <span class="block m-t-xs">@Session["RealName"]<b class="caret"></b></span>
-                                    @*<span class="text-muted text-xs block">超级管理员</span>*@
                                 </span>
                             </a>
-                            <ul class="dropdown-menu animated fadeInRight m-t-xs"> 
+                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
                                 <li>
                                     <a class="J_menuItem" href="http://www.anshare.com.cn">联系我们</a>
                                 </li>
@@ -70,7 +68,7 @@
                 <div style="width:60px;height:40px;background-color:#ffffff;position:absolute">
                     <a class="navbar-minimalize minimalize-styl-2  " style="padding:0px;float:none;height:40px" href="#"><i class="layui-icon layui-icon-shrink-right" id="LAY_app_flexible"></i> </a>
                 </div>
-           
+
                 <nav class="page-tabs J_menuTabs" style="margin-left:60px">
                     <div class="page-tabs-content">
                         <a id="J_menuTab1" href="javascript:;" class="active J_menuTab" data-id="/Home/Home">首页</a>
@@ -99,13 +97,13 @@
                     </ul>
                 </div>
                 <div class="btn-group roll-nav roll-right J_tabExit" style="width: 100px;" onclick="backToTransition()"><a style="color: #999 !important;">返回主界面</a></div>
-                
+
                 <a class="roll-nav roll-right J_tabExit" onclick="confirm()"><i class="fa fa fa-sign-out"></i> </a>
             </div>
             <div class="row J_mainContent" id="content-main" style="background-color: #f2f2f2;">
-                <iframe class="J_iframe" id="J_iframe" name="iframe0" width="100%" height="100%" src="" frameborder="0" data-id="/Home/Home" ></iframe>
+                <iframe class="J_iframe" id="J_iframe" style="display:none" name="iframe0" width="100%" height="100%" src="" frameborder="0" data-id="/Home/Home"></iframe>
             </div>
-      
+
         </div>
         <!--右侧部分结束-->
 
@@ -131,32 +129,21 @@
     function test() {
         $("#content-main iframe").each(function () {
             var $el = $(this)[0];
-          
+
 
             if ($el.style.display != "none") {
                 $el.contentWindow.history.back();
                 return;
             };
-         
+
         });
     }
-    var myurl = $.session.get('myurl');
-    var mymenusname = $.session.get('mymenusname');
-    var mymenusid = $.session.get('mymenusid');
-    $("#J_menuTab2").attr("data-id", myurl);
-    $("#J_menuTab2").text(mymenusname);
-    $("#J_menuTab2").css("display", "inline-block");
-    var myiframe = '<iframe class=" J_iframe" name="iframe2" width="100%" height="100%" src="' + myurl + '" frameborder="0" data-id="' + myurl + '" seamless=""></iframe>'
-    $("#J_menuTab2").append('<i class="fa fa-times" style="padding-left:8px"></i>');
-    $("#content-main").append(myiframe);
-    $("#J_menuTab1").removeClass("active")
-    $("#J_menuTab2").addClass("active");
-    $("#J_iframe").css("display","none");
+
     function backToTransition() {
         window.location.href = "/Home/Transition";
     }
 
-    
+
 
     function confirm() {
 
@@ -170,23 +157,17 @@
         var _menus = "@Session["Menus"]";
         var reg = new RegExp("&quot;", "g");
         var Menus = _menus.replace(reg, "\"");
-        //console.log(Menus);
         var rows = JSON.parse(Menus);
-        //console.log(_menus);
-
-        //console.log(rows.menus[0].menus[0].menuid);
-        //menu;
+    
 
         for (var i = 0; i < rows.menus.length; i++) {
             var menu = [];
-            //console.log(i);
             menu = menu + '<li class="dianji"><a href = "#"><i class="layui-icon ' + rows.menus[i].icon + '"></i><span class="nav-label">' + rows.menus[i].menuname + '</span><span class="fa arrow"></span></a><ul class="nav nav-second-level">'
             var menu2 = [];
             for (var j = 0; j < rows.menus[i].menus.length; j++) {
                 menu2 = menu2 + '<li><a class="J_menuItem" href=" ' + rows.menus[i].menus[j].url + '\">' + rows.menus[i].menus[j].menuname + '</a></li>';
             }
             menu = menu + menu2 + '</ul></li>';
-            // console.log(menu);
             $("#side-menu").append(menu);
         };
         $('#side-menu').metisMenu();
@@ -199,35 +180,6 @@
         $('.J_menuItem').on('click', menuItem);
         $('.J_menuTabs').on('dblclick', '.J_menuTab', refreshTab);
 
-        var url
-        var RoleID = "@Session["RoleID"]";
-        console.log(RoleID);
-        $.ajax({
-            url: "/Home/shouye",
-            type: "post",
-            dataType: "json",
-            data: { RoleID: RoleID },
-            success: function (data) {
-                //console.log(data);
-                url = data.rows[0].Url;
-                $("#J_iframe").attr("src", url);
-                // console.log(data.rows[0].Url);
-            }
-        })
-        //获取url中的参数
-        function getUrlParam(name) {
-            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
-            var r = window.location.search.substr(1).match(reg); //匹配目标参数
-            if (r != null) return unescape(r[2]); return null; //返回参数值
-        }
-        var xx = getUrlParam('mytype');
-        //console.log(xx);
-        @*console.log("@Session["RealName"]");
-        var realname = "@Session["RealName"]" + "realname"
-        if (realname.indexOf("领导") != -1 || realname.indexOf("案管室") != -1 || realname.indexOf("廉洁信息中心") != -1) {
-            xx = "fourfrom";
-        }*@
-       
     })
     function exit() {
         parent.layer.confirm('您要退出登录吗？', {

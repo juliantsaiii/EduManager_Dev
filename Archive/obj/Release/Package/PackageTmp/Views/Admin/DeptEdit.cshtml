@@ -1,8 +1,10 @@
 ﻿@using Model;
 @{
-    
+
     Layout = null;
     Dept item = ViewBag.dept;
+    string temp= ViewBag.List;
+    
 }
 <!-- 不使用EasyUI LayOut样式，防止GariGrid悬浮 -->
 <div id="user_win_panel" class="mng_panel">
@@ -44,12 +46,13 @@
                            
                         </td>
                     </tr>
-                    <tr class="detail_tr">
+                    @*不需要地区和单位*@
+                    @*<tr class="detail_tr">
                         <td class="detail_td1"><span style="color: red">*&nbsp;&nbsp;</span>配置单位地区：</td>
                         <td class="detail_td2">
                             <input type="text" id="menu_combTree" class="easyui-combotree" />
                         </td>
-                    </tr>
+                    </tr>*@
                 </table>
             </form>
         </div>
@@ -101,7 +104,11 @@
             width: 300,
             editable: false,
             onLoadSuccess: function (node, data) {
+
+                var arr = "@temp";
+                console.log(arr);
                 $('#menu_combTree').combotree('tree').tree("collapseAll");
+                $('#menu_combTree').combotree('setValues',arr.split(',') );
 
             }
           });
@@ -109,8 +116,8 @@
     });
 
     function beforeSubmit() {
-        var menuTree = $('#menu_combTree').combotree('getValues');
-        $('#menuTree').val(menuTree);
+        //var menuTree = $('#menu_combTree').combotree('getValues');
+        //$('#menuTree').val(menuTree);
         saveOrUploadForm("frm_win_add", '/Admin/DeptSaveOrUpdate', 'funAfterSubmit');
     }
 </script>

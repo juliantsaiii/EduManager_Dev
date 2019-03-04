@@ -50,13 +50,7 @@
                         </td>
                     </tr>
                    
-          
-                    <tr class="detail_tr">
-                        <td class="detail_td1"><span style="color: red">*&nbsp;&nbsp;</span>访问权限：</td>
-                        <td class="detail_td2" colspan="3">
-                            <input type="text" id="deptCombTree" name="deptCombTree" class="easyui-combotree" />
-                        </td>
-                    </tr>
+         
                     <tr class="detail_tr">
                         <td class="detail_td1"><span style="color: red">*&nbsp;&nbsp;</span>排序码:</td>
                         <td class="detail_td2">
@@ -96,27 +90,7 @@
         //    collapsible: false, minimizable: false, maximizable: false, resizable: false
         //});
        
-
-        $('#deptCombTree').combotree({
-            url: url,
-            multiple: true,
-            width: 300,
-            onLoadSuccess: function (node, data) {
-                 			//if('${vo.roleId}' != ''){
-                 			//	var menuTree = '${vo.menuTree}';
-                 			//	var menuArr = menuTree.split(",");
-                 			//	$('#menu_combTree').combotree('setValues', menuArr);
-                 			//}
-            }
-        });
-        //$("#item_DeptID").combotree({
-        //    url: '/Admin/GetShowDeptList',
-        //    valueField: 'ID',
-        //    textField: 'DeptName',
-        //    editable: false,
-        //    required: true,
-        //    width: 250
-        //});
+    
 
         $("#item_RoleID").combobox({
             url: '/Admin/GetShowRoleList',

@@ -19,6 +19,7 @@
                 pageSize:30,
                 pageList: [10, 30, 50, 100],
                 frozenColumns: [[
+                    { field: 'ck', checkbox: false },
                     {
                         field: 'opt', title: '操作', width: 120, align: 'center',
                         formatter: function (value, rec) {
@@ -33,7 +34,7 @@
                 ]],
                 columns: [[
                     { field: 'RoleName', title: '角色名称', width: 120, sortable: true, align: 'center' },
-                    { field: 'Remark', title: '说明', width: 220, sortable: true, align: 'center' }
+                    { field: 'ReMark', title: '说明', width: 220, sortable: true, align: 'center' }
                 ]],
                 toolbar: [/*{
                     text: '刷新',

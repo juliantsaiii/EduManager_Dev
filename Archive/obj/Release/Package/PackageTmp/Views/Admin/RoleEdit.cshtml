@@ -20,10 +20,10 @@
                             @Html.TextBoxFor(i => item.RoleName, new { size = 30 })
                         </td>
                     </tr>
-					<tr class="detail_tr">
+                    <tr class="detail_tr">
                         <td class="detail_td1"><span style="color: red">*&nbsp;&nbsp;</span>角色级别:</td>
                         <td class="detail_td2">
-                    		@Html.TextBoxFor(i => item.Rank, new { size = 30 })
+                            @Html.TextBoxFor(i => item.Rank, new { size = 30 })
                         </td>
                     </tr>
                     <tr class="detail_tr">
@@ -32,12 +32,18 @@
                             <input type="text" id="menu_combTree" class="easyui-combotree" />
                         </td>
                     </tr>
-                    @*<tr class="detail_tr">
-                        <td class="detail_td1">排序码：</td>
-                        <td class="detail_td2" colspan="3">
-                            <input type="text" id="Rank" name="Rank" class="easyui-numberbox" value="@item.Rank" data-options="min:1,precision:0" />
+                    <tr class="detail_tr">
+                        <td class="detail_td1"><span style="color: red">*&nbsp;&nbsp;</span>角色说明:</td>
+                        <td class="detail_td2">
+                            @Html.TextBoxFor(i => item.ReMark, new { size = 30 })
                         </td>
-                    </tr>*@
+                    </tr>
+                    @*<tr class="detail_tr">
+            <td class="detail_td1">排序码：</td>
+            <td class="detail_td2" colspan="3">
+                <input type="text" id="Rank" name="Rank" class="easyui-numberbox" value="@item.Rank" data-options="min:1,precision:0" />
+            </td>
+        </tr>*@
                 </table>
             </form>
         </div>
@@ -63,14 +69,16 @@
             multiple: true,
             width: 300,
             editable: false,
+            //cascadeCheck:false,
             onLoadSuccess: function (node, data) {
-
+                console.log(data);
             }
         });
     });
 
     function beforeSubmit() {
         var menuTree = $('#menu_combTree').combotree('getValues');
+        console.log(menuTree);
         $('#menuTree').val(menuTree);
         saveOrUploadForm("frm_win_add", '/Admin/RoleSaveOrUpdate', 'funAfterSubmit');
     }

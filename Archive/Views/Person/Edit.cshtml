@@ -1,0 +1,286 @@
+﻿@using Model;
+@{
+    Layout = null;
+    Person item = ViewBag.person;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    @RenderPage("~/Views/Share/bootstrap.cshtml")
+    <script src="~/Web/guid.js"></script>
+
+</head>
+<body>
+
+    <div>
+        <form id="BasicInfo" method="post" class="form-inline">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3 class="Gradient">个人基本情况</h3>
+                </div>
+                <input style="display:none" type="text" value="@item.ID" id="ID" name="ID" />
+                <input style="display:none" type="text" value="@item.IsDeleted" id="IsDeleted" name="IsDeleted" />
+                <input style="display:none" type="text" value="@item.HandleStaff" id="HandleStaff" name="HandleStaff" />
+                <input style="display:none" type="text" value="@item.HandleDept" id="HandleDept" name="HandleDept" />
+                <input type="hidden" value="@item.Score" id="Score" name="Score" />
+                <div class="row">
+                    <div class="col-xs-2 margin-top-10">
+                        <label class="margin-5" for="Name">姓名：</label>
+                    </div>
+                    <div class="col-xs-4 margin-top-10">
+                        <input class="form-control" type="text" id="Name" name="Name" value="@item.Name" required="required" />
+                    </div>
+                    <div class="col-xs-2 margin-top-10">
+                        <label class="margin-5" for="IdCard">身份证号：</label>
+                    </div>
+                    <div class="col-xs-4 margin-top-10">
+                        <input class="form-control" type="text" id="IdCard" required="required" name="IdCard" value="@item.IdCard" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-2 margin-top-10">
+                        <label class="margin-5" for="Gender">性别：</label>
+                    </div>
+                    <div class="col-xs-4 margin-top-10">
+                        <select id="Gender" class="form-control selectpicker" required="required" name="Gender">
+                            <option value="@item.Gender">@item.Gender</option>
+                            <option value="男">男</option>
+                            <option value="女">女</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-2 margin-top-10">
+                        <label class="margin-5" for="Nation">民族：</label>
+                    </div>
+                    <div class="col-xs-4 margin-top-10">
+                        <input class="form-control" type="text" id="Nation" required="required" name="Nation" value="@item.Nation" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-2 margin-top-10">
+                        <label class="margin-5" for="NativePlace">籍贯：</label>
+                    </div>
+                    <div class="col-xs-4 margin-top-10">
+                        <input class="form-control" type="text" id="NativePlace" required="required" name="NativePlace" value="@item.NativePlace" />
+                    </div>
+                    <div class="col-xs-2 margin-top-10">
+                        <label class="margin-5" for="BirthData">出生年月：</label>
+                    </div>
+                    <div class="col-xs-4 margin-top-10">
+                        <input class="laydate-icon form-control layer-date" required="required" name="BirthDate" value="@item.BirthDate">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-2 margin-top-10">
+                        <label class="margin-5" for="BirthPlace">出生地：</label>
+                    </div>
+                    <div class="col-xs-4 margin-top-10">
+                        <input class="form-control" type="text" id="BirthPlace" required="required" name="BirthPlace" value="@item.BirthPlace"  />
+                    </div>
+                    <div class="col-xs-2 margin-top-10">
+                        <label class="margin-5" for="StudentID">学号（工号）：</label>
+                    </div>
+                    <div class="col-xs-4 margin-top-10">
+                        <input class="form-control" type="text" id="StudentID" required="required" name="StudentID" value="@item.StudentID" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-2 margin-top-10">
+                        <label class="margin-5" for="Marriage">婚姻状况：</label>
+                    </div>
+                    <div class="col-xs-4 margin-top-10">
+                        <input class="form-control" type="text" id="Marriage" required="required" name="Marriage" value="@item.Marriage" />
+                    </div>
+                    <div class="col-xs-2 margin-top-10">
+                        <label class="margin-5" for="Health">联系电话：</label>
+                    </div>
+                    <div class="col-xs-4 margin-top-10">
+                        <input class="form-control" type="text" id="Phone" required="required" name="Phone" value="@item.Phone" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-2 margin-top-10">
+                        <label class="margin-5" for="Gender">政治面貌：</label>
+                    </div>
+                    <div class="col-xs-4 margin-top-10">
+                        <select id="PoliticsStatus" class="form-control selectpicker" required="required" name="PoliticsStatus">
+                            <option value="@item.PoliticsStatus">@item.PoliticsStatus</option>
+                            <option value="中共党员">中共党员</option>
+                            <option value="中共预备党员">中共预备党员</option>
+                            <option value="共青团员">共青团员</option>
+                            <option value="民主党派人士">民主党派人士</option>
+                            <option value="无党派民主人士">无党派民主人士</option>
+                            <option value="群众">群众</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-2 margin-top-10">
+                        <label class="margin-5" for="PartyDate">入党时间：</label>
+                    </div>
+                    <div class="col-xs-4 margin-top-10">
+                        <input class="laydate-icon form-control layer-date" type="text" id="PartyDate" required="required" name="PartyDate" value="@item.PartyDate" onclick="laydate({ isdate: true, format: 'YYYY-MM' })">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-2 margin-top-10">
+                        <label class="margin-5" for="WorkUnit">院系：</label>
+                    </div>
+                    <div class="col-xs-4 margin-top-10">
+                        <input class="form-control" type="text" id="WorkUnit" required="required" name="WorkUnit" value="@item.WorkUnit" />
+                    </div>
+
+                    <div class="col-xs-2 margin-top-10">
+                        <label class="margin-5" for="WorkDuty">职务：</label>
+                    </div>
+                    <div class="col-xs-4 margin-top-10">
+                        <input class="form-control" type="text" id="WorkDuty" required="required" name="WorkDuty" value="@item.WorkDuty" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-2 margin-top-10">
+                        <label class="margin-5" for="WorkLevel">职称：</label>
+                    </div>
+                    <div class="col-xs-4 margin-top-10">
+                        <select id="WorkLevel" class="form-control selectpicker" required="required" name="WorkLevel">
+                            <option value="@item.WorkLevel">@item.WorkLevel</option>
+                            <option value="助教">助教</option>
+                            <option value="讲师">讲师</option>
+                            <option value="副教授">副教授</option>
+                            <option value="教授">教授</option>
+                            <option value="其他">其他</option>
+                        </select>
+                    </div>
+
+                    <div class="col-xs-2 margin-top-10">
+                        <label class="margin-5" for="DutyTime">任现职时间：</label>
+                    </div>
+                    <div class="col-xs-4 margin-top-10">
+                        <input class="laydate-icon form-control layer-date" required="required" name="DutyTime" value="@item.DutyTime">
+                        <label class=""></label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-2 margin-top-10">
+                        <label class="margin-5" for="LevelTime">任职级时间：</label>
+                    </div>
+                    <div class="col-xs-4 margin-top-10">
+                        <input class="laydate-icon form-control layer-date" required="required" name="LevelTime" value="@item.LevelTime">
+                        <label class=""></label>
+                    </div>
+                    <div class="col-xs-2 margin-top-10">
+                        <label class="margin-5" for="WorkTime">参加工作时间：</label>
+                    </div>
+                    <div class="col-xs-4 margin-top-10">
+                        <input class="laydate-icon form-control layer-date" required="required" name="WorkTime" value="@item.WorkTime">
+                        <label class=""></label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-2 margin-top-10">
+                        <label class="margin-5" for="Education">全日制学历：</label>
+                    </div>
+                    <div class="col-xs-4 margin-top-10">
+                        <input class="form-control" type="text" id="Education" required="required" name="Education" value="@item.Education" />
+                    </div>
+
+
+                    <div class="col-xs-2 margin-top-10">
+                        <label class="margin-5" for="School">毕业院校及专业：</label>
+                    </div>
+                    <div class="col-xs-4 margin-top-10">
+                        <input class="form-control" type="text" id="School" required="required" name="School" value="@item.School" />
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-xs-2 margin-top-10">
+                        <label class="margin-5" for="Major">全日制专业：</label>
+                    </div>
+                    <div class="col-xs-4 margin-top-10">
+                        <input class="form-control" type="text" id="Major" required="required" name="Major" value="@item.Major" />
+                    </div>
+                    <div class="col-xs-2 margin-top-10">
+                        <label class="margin-5" for="HighestEducation">最高学历：</label>
+                    </div>
+                    <div class="col-xs-4 margin-top-10">
+                        <input class="form-control" type="text" id="HighestEducation" required="required" name="HighestEducation" value="@item.HighestEducation" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-2 margin-top-10">
+                        <label class="margin-5" for="Democratic">民主党派：</label>
+                    </div>
+                    <div class="col-xs-4 margin-top-10">
+                        <input class="form-control" type="text" id="Democratic" name="Democratic" value="@item.Democratic" />
+                    </div>
+
+                    <div class="col-xs-2 margin-top-10">
+                        <label class="margin-5" for="Skill">技能或特长：</label>
+                    </div>
+                    <div class="col-xs-4 margin-top-10">
+                        <input class="form-control" type="text" id="Skill" name="AdSkilldress" value="@item.Skill" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-2 margin-top-10">
+                        <label class="margin-5" for="Address">家庭住址：</label>
+                    </div>
+                    <div class="col-xs-10 margin-top-10">
+                        <input class="form-control" type="text" id="Address" required="required" name="Address" value="@item.Address" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-2 margin-top-10">
+                        <label class="margin-5" for="Democratic">个人履历：</label>
+                    </div>
+                    <div class="col-xs-10 margin-top-10">
+                        <textarea class="form-control" rows="5" id="resume" name="resume">@item.resume</textarea>
+                    </div>
+                </div>
+            </div>
+            
+        </form>
+    </div>
+   
+    <div align="center" style="margin:20px 0px;">
+        <button type="button" class="btn btn-primary" onclick="PersonListSubmit()">保存</button>
+        <button type="button" class="btn btn-default" onclick="javascript: history.back();">返回</button>
+    </div>
+    @RenderPage("~/Views/Share/delConfirm.cshtml")
+</body>
+</html>
+<script type="text/javascript">
+
+    //提交个人信息修改
+    function PersonListSubmit() {
+        if ($('#StudentID').val() === "" || $('#StudentID').val() === null) {
+            alert("请输入学号或工号");
+        }
+        else {
+            $('#BasicInfo').form('submit', {
+                url: "/Person/Save",
+                onSubmit: function () {
+                },
+                success: function (data) {
+                    alert("保存成功");
+                    window.location.href = "/Person/PersonList";
+                }
+            });
+        }
+    }
+    function Canel() {
+        window.location.href = "/Person/PersonList";
+    }
+</script>

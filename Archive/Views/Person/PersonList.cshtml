@@ -1,0 +1,242 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+
+    @RenderPage("~/Views/Share/bootstrap.cshtml")
+<link href="~/Resource/plugins/radio/css/jquery-labelauty.css" rel="stylesheet" />
+<script src="~/Resource/plugins/radio/js/jquery-labelauty.js"></script>
+</head>
+<body>
+    <div class="mySearch">
+        <div class="row">
+            <div class="col-xs-1">
+                <label class="margin-5">姓名：</label>
+            </div>
+            <div class="col-xs-2">
+                <input type="text" name="Name" id="qry_Name" class="form-control" />
+            </div>
+            <div class="col-xs-1">
+                <label class="margin-5">院系：</label>
+            </div>
+            <div class="col-xs-2">
+                <input type="text" name="WorkUnit" id="qry_WorkUnit" class="form-control" />
+            </div>
+            <div class="col-xs-2">
+                <label class="margin-5">学号（工号）：</label>
+            </div>
+            <div class="col-xs-2">
+                <input type="text" name="StudentID" id="qry_StudentID" class="form-control" />
+            </div>
+        </div>
+        <div class="row" style="margin:15px 0px">
+            <div class="col-xs-1">
+                <button type="button" class="btn btn-primary" onclick="Create()"><span class="glyphicon glyphicon-plus">新增</span></button>
+            </div>
+            <div class="col-xs-1">
+                <input id="file_upload" name="file_upload" type="file" multiple="true" />
+            </div>
+            <div class="col-xs-2" style="padding:0px;">
+                <a class="btn btn-default" id="btnUpload" data-options="iconCls:'icon-save'" href="javascript:checkQueue()">个人信息导入</a>
+                <a class="btn btn-default" id="btnCancelUpload" data-options="iconCls:'icon-cancel'" href="javascript:checkCancel()">取消</a>
+            </div>
+            <div>
+                <div class="col-xs-4">
+                    <div id="queue" style="margin-top: 10px 0px 0px 10px; width: 100%; position: relative; display: inline-block; float: left; margin-left: 20px;"></div>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <button class="btn btn-primary" style="float:right" onclick="queryDataGrid()">查询</button>
+                <button class="btn btn-primary" style="float: right; margin-right: 10px;" onclick="mySearchClear()">清空</button>
+            </div>
+        </div>
+            <div>
+            <table id="PersonList_table"></table>
+            </div>
+    <div id="pageNamber1" style="position:absolute;bottom:14px;text-align:center;right:300px;display:none">
+        <label style="font-weight:500">跳转到</label>
+        <input value="1" id="pageNamber" class="form-control" style="width:40px;text-align:center;height:30px;display:inline-block" />
+        <label style="font-weight:500">页</label>
+    </div>
+    @RenderPage("~/Views/Share/delConfirm.cshtml")
+    <div id="myMasks">
+        <div id="ai" style="position: relative; border-radius: 10px; width: 250px; height: 100px; margin-left: auto; margin-right: auto; margin-top: 10px; background-color: rgba(0,0,0,0.4); padding: 20px; }">
+            <div id="foo" style="float:left; width: auto; height: auto; margin-top: 12px; margin-top: 28px; margin-left: 25px; "></div>
+            <label id="myMasksText" style="color: #fff; font-size: 18px; float: left; margin-left: 40px;  margin-top: 15px; ">正在导入，请稍等</label>
+        </div>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript">
+    $('#PersonList_table').bootstrapTable({
+        height: $(window).height() - $(".mySearch").height(),
+        url: '/Person/GetPersonList',
+        method: 'get',
+        toolbar: '#toolbar',    //工具按钮用哪个容器
+        striped: true,      //是否显示行间隔色
+        smartDisplay:true,
+        cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+        pagination: true,     //是否显示分页（*）
+        sortable: false,      //是否启用排序
+        sortOrder: "asc",     //排序方式
+        pageNumber: 1,      //初始化加载第一页，默认第一页
+        pageSize: 100,      //每页的记录行数（*）
+        pageList: [10, 25, 50, 100],  //可供选择的每页的行数（*）
+        queryParamsType: '', //默认值为 'limit' ,在默认情况下 传给服务端的参数为：offset,limit,sort
+        // 设置为 ''  在这种情况下传给服务器的参数为：pageSize,pageNumber
+        //queryParams: queryParams,//前端调用服务时，会默认传递上边提到的参数，如果需要添加自定义参数，可以自定义一个函数返回请求参数
+        sidePagination: "server",   //分页方式：client客户端分页，server服务端分页（*）
+        //search: true,      //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
+        strictSearch: true,
+        //showColumns: true,     //是否显示所有的列
+        //showRefresh: true,     //是否显示刷新按钮
+        minimumCountColumns: 2,    //最少允许的列数
+        clickToSelect: true,    //是否启用点击选中行
+        queryParams: function (params) {
+            return {
+                sort: "Name",
+                order: "asc",
+                keyword1: $('#qry_Name').val(),
+                keyword2: $('#qry_WorkUnit').val(),
+                keyword3: $('#qry_StudentID').val(),
+                pageSize: params.pageSize,
+                pageNumber: params.pageNumber
+            }
+        },
+        columns: [
+            { field: 'Name', title: '姓名', width: 50, editable: false, formatter: IfEmpty },
+            { field: 'WorkUnit', title: '院系', width: 100, editable: false, align: 'left', formatter: IfEmpty },
+            { field: 'WorkDuty', title: '职务', width: 100, editable: false, align: 'left', formatter: IfEmpty },
+            { field: 'StudentID', title: '学号（工号）', width: 50, editable: false, },
+            { field: 'opt', title: '操作', width: 50, editable: false, formatter: operateFormatterPerson },
+        ],
+    });
+  
+    function operateFormatterPerson(value, row, index) {
+        return [
+            '<a  href="/Person/Edit?ID=' + row.ID + '" id="btn_detail" type="button" class="btn btn-primary btn-xs" style="margin-right:10px"><span class="glyphicon glyphicon-pencil"></span>编辑</a>',
+            '<a  href="javascript:deleteByID(\'' + row.ID + '\')" id="btn_detail" type="button" class="btn btn-danger btn-xs" style="margin-right:10px"><span class="glyphicon glyphicon-trash"></span>删除</a>',
+        ].join('');
+    }
+    function queryDataGrid() {
+        $('#PersonList_table').bootstrapTable('refresh', {
+            pageNumber: 1,
+        });
+    }
+    //新建个人信息
+    function Create() {
+        window.location.href = "/Person/PersonCreate";
+    }
+
+    //删除个人选定信息
+    function deleteByID(id) {
+        console.log(id);
+        $.ajax({
+            type: "POST",
+            url: "/Person/PersonDelete",
+            data: { "ID": id },
+            success: function (msg) {
+                alert(msg);
+                queryDataGrid();
+            },
+            error: function () {
+                alert("删除失败，请联系管理员15150598302");
+            }
+        })
+
+    }
+
+
+    //信息批量导入
+    function checkQueue() {
+        if ($("#queue").children().length == 0) {
+            alert("请先点击浏览选择要上传的文件！");
+        } else {
+            loading();
+            $('#file_upload').uploadifive('upload');
+        }
+    }
+    function checkCancel() {
+        if ($("#queue").children().length == 0) {
+            alert("没有待上传的文件！");
+        } else {
+            $('#file_upload').uploadifive('clearQueue');
+            queryDataGrid();
+        }
+    }
+
+    $(function () {
+        var a = 0;
+        $('#file_upload').uploadifive({
+            'auto': false,
+            'fileSizeLimit': '102400KB',
+            'buttonText': '浏  览',
+            'multi': true,
+            'queueID': 'queue',
+            'uploadScript': '/InfoImport/MyUpload',
+            'formData': { 'ID': '@*@item.ID*@', 'folder': 'Person' },
+            'onUploadComplete': function (file, data) {
+                a = a + 1;
+                if ($("#queue").children().length - a == 0) {
+                    checkCancel();
+                    a = 0;
+                }
+                unload();
+            }
+        });
+    });
+
+
+        //跳转至指定页码
+        $("#pageNamber").change(function () {
+            $('table').bootstrapTable('refresh', {
+                pageNumber: $("#pageNamber").val(),
+            });
+        });
+
+
+
+
+    var spinner;
+    function loading() {
+        $("#myMasksText").html("正在导入，请稍等");
+        $("#myMasks").fadeIn(300);
+        var height = $(window).height() + "px";
+        $("#myMasks").height($(window).height());
+        // 
+        $("#ai").css("top", $(window).height() / 2 - 100);
+        var opts = {
+            lines: 13, //The number of lines to draw   菊花瓣的数目 
+            length: 7, //The length of each line   菊花瓣的长度
+            width: 4, //The line thickness   菊花瓣的宽度
+            radius: 10, //The radius of the inner circle   菊花中心的半径   
+            corners: 1, //Corner roundness (0..1)   菊花瓣的圆滑度(0--1) 
+            rotate: 0, //The rotation offset   让菊花旋转的角度
+            color: '#fff', //#rgb or #rrggbb   菊花的颜色
+            speed: 1, //Rounds per second   菊花旋转的速度
+            trail: 60, //Afterglow percentage   菊花旋转时的余辉
+            shadow: false, //Whether to render a shadow   是否需要菊花的阴影
+            hwaccel: false, //Whether to use hardware acceleration   是否需要菊花高速旋转(硬件加速)
+            className: 'spinner', //The CSS class to assign to the spinner   菊花的classname
+            zIndex: 2e9, //The z-index (defaults to 2000000000)   菊花的z-index值
+            top: 'auto', //Top position relative to parent in px   菊花相对定位的top
+            left: 'auto' //Left position relative to parent in px  菊花相对定位的left
+        };
+        var target = document.getElementById('foo');
+        spinner = new Spinner(opts).spin(target);
+    }
+    function unload() {
+        spinner.stop();
+        $("#myMasksText").html("导入成功");
+        setTimeout(function () {
+            $("#myMasks").fadeOut(300);
+        }, 500);
+    }
+
+</script>

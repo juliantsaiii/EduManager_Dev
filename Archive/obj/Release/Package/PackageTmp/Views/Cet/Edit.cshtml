@@ -1,0 +1,482 @@
+﻿@using Model;
+@{
+    Layout = null;
+    Cet item = ViewBag.person;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    @RenderPage("~/Views/Share/bootstrap.cshtml")
+    <script src="~/Web/guid.js"></script>
+
+</head>
+<body>
+
+    <div>
+        <form id="BasicInfo" method="post" class="form-inline">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3 class="Gradient">个人基本情况</h3>
+                </div>
+                <input style="" type="hidden" value="@item.ID" id="ID" name="ID" />
+                <input style="" type="hidden" value="@item.HandleStaff" id="HandleStaff" name="HandleStaff" />
+                <input style="" type="hidden" value="@item.HandleDept" id="HandleDept" name="HandleDept" />
+                <input style="" type="hidden" value="@item.IsDeleted" id="IsDeleted" name="IsDeleted" />
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="WorkUnit">单位名称：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    <input class="form-control" type="text" id="WorkUnit" name="WorkUnit" value="@item.WorkUnit" required />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="Name">姓名：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input class="form-control" type="text" id="Name" name="Name" value="@item.Name" required />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="Gender">性别：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <select id="Gender" class="form-control selectpicker" name="Gender">
+                        <option value="@item.Gender">@item.Gender</option>
+                        <option value="男">男</option>
+                        <option value="女">女</option>
+                    </select>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="BirthData">出生年月：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    @*<input class="form-control" type="text" id="BirthDate" name="BirthDate" value="@item.BirthDate" />*@
+                    <input class="laydate-icon form-control layer-date" placeholder="" name="BirthDate" value="@item.BirthDate" onclick="laydate({istime: true, format: 'YYYY-MM'})">
+                </div>
+
+
+
+
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="Nation">民族：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input class="form-control" type="text" id="Nation" name="Nation" value="@item.Nation" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="BirthPlace">出生地：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input class="form-control" type="text" id="BirthPlace" name="BirthPlace" value="@item.BirthPlace" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="IdCard">身份证号：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input class="form-control" type="text" id="IdCard" name="IdCard" value="@item.IdCard" />
+                </div>
+
+
+
+
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="Address">家庭住址：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input class="form-control" type="text" id="Address" name="Address" value="@item.Address" />
+                </div>
+
+
+
+
+
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="MobilePhone">移动电话：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input class="form-control" type="text" id="MobilePhone" name="MobilePhone" value="@item.MobilePhone" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="TelePhone">固定电话：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input class="form-control" type="text" id="TelePhone" name="TelePhone" value="@item.TelePhone" />
+                </div>
+
+
+
+
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="PartyDate">入党时间：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input class="laydate-icon form-control layer-date" placeholder="" type="text" id="PartyDate" name="PartyDate" value="@item.PartyDate" onclick="laydate({ isdate: true, format: 'YYYY-MM' })">
+                </div>
+                @**@
+
+
+
+
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="WorkTime">参加工作时间：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input class="laydate-icon form-control layer-date" placeholder="" type="text" id="WorkTime" name="WorkTime" value="@item.WorkTime" onclick="laydate({ isdate: true, format: 'YYYY-MM' })">
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="SpecialDuty">担任人大代表政协委员情况：</label>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <input class="form-control" type="text" id="SpecialDuty" name="SpecialDuty" value="@item.SpecialDuty" />
+                </div>
+                @*<div class="col-md-4 margin-top-10" style="height:34px;">
+                </div>*@
+                @**@
+
+
+
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="Skill">专业技术职务：</label>
+                </div>
+                <div class="col-xs-4 margin-top-10">
+                    <input class="form-control" type="text" id="Skill" name="Skill" value="@item.Skill" />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="Health">健康状况：</label>
+                </div>
+                <div class="col-xs-4 margin-top-10">
+                    <input class="form-control" type="text" id="Health" name="Health" value="@item.Health" />
+                </div>
+
+                @**@
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="Education">全日制学历：</label>
+                </div>
+                <div class="col-xs-4 margin-top-10">
+                    <input class="form-control" type="text" id="Education" name="Education" value="@item.Education" />
+                </div>
+
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="School">毕业院校及专业：</label>
+                </div>
+                <div class="col-xs-4 margin-top-10">
+                    <input class="form-control" type="text" id="School" name="School" value="@item.School" />
+                </div>
+                @**@
+
+
+
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="Major">在职学历：</label>
+                </div>
+                <div class="col-xs-4 margin-top-10">
+                    <input class="form-control" type="text" id="Major" name="Major" value="@item.Major" />
+                </div>
+
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="MajorSchool">毕业院校及专业：</label>
+                </div>
+                <div class="col-xs-4 margin-top-10">
+                    <input class="form-control" type="text" id="MajorSchool" name="MajorSchool" value="@item.MajorSchool" />
+                </div>
+                @**@
+
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="WorkDuty">现任职务分管工作：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    <input class="form-control" type="text" id="WorkDuty" name="WorkDuty" value="@item.WorkDuty" />
+                </div>
+                @**@
+
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="ParttimeJob">兼职情况：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    <input class="form-control" type="text" id="ParttimeJob" name="ParttimeJob" value="@item.ParttimeJob" />
+                </div>
+                @**@
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="Resume">个人简历：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    <input class="form-control" type="text" id="Resume" name="Resume" value="@item.Resume" />
+                </div>
+                @**@
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="Rewards">奖惩：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    <input class="form-control" type="text" id="Rewards" name="Rewards" value="@item.Rewards" />
+                </div>
+                @**@
+
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <div class="col-md-12 margin-top-10" style="margin-top:30px;">
+            <label style="float:left">家庭主要成员及重要社会关系</label>
+        </div>
+        <div class="col-md-12 margin-top-10">
+            <button type="button" class="btn btn-info" data-toggle="modal" onclick="zhikong()" data-target="#MaimRelation" style="float:left;">添加</button>
+         </div>
+        <div class="col-md-12 margin-top-10">
+            <div style="width:100%;">
+                <table id="RelationList_table" class="table table-striped table-bordered table-hover"></table>
+            </div>
+        </div>
+        
+        <div class="col-xs-12 margin-top-10">
+            <div style="width:100%;">
+                <table id="Person1_table" class="table table-striped table-bordered table-hover"></table>
+            </div>
+        </div>
+       
+    </div>
+    <div align="center" style="margin:20px 0px;">
+        <button type="button" class="btn btn-primary" onclick="PersonListSubmit()">保存</button>
+        <button type="button" class="btn btn-default" onclick="Canel()">返回</button>
+    </div>
+    @RenderPage("~/Views/Share/delConfirm.cshtml")
+    <div class="modal fade" id="MaimRelation">
+        <div class="modal-dialog" style="width:600px;">
+            <div class="modal-content message_align">
+                <div class="modal-header" style="padding:10px 15px">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title">家庭主要成员及重要社会关系</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <input type="hidden" name="id" id="id" class="form-control" />
+                        <div class="col-xs-3">
+                            <label class="margin-5 margin-top-10">称谓：</label>
+                        </div>
+                        <div class="col-xs-9 margin-top-10">
+                            <input type="text" name="ReLaTitle" value="" id="ReLaTitle" class="form-control" />
+                        </div>
+                        <div class="col-xs-3">
+                            <label class="margin-5 margin-top-10">姓名：</label>
+                        </div>
+                        <div class="col-xs-9 margin-top-10">
+                            <input type="text" name="RelaName" value="" id="RelaName" class="form-control" />
+                        </div>
+                        <div class="col-xs-3">
+                            <label class="margin-5 margin-top-10">年龄：</label>
+                        </div>
+                        <div class="col-xs-9 margin-top-10">
+                            <input type="text" name="RelaAge" value="" id="RelaAge" class="form-control" />
+                        </div>
+                        <div class="col-xs-3">
+                            <label class="margin-5 margin-top-10">政治面貌：</label>
+                        </div>
+                        <div class="col-xs-9 margin-top-10">
+                            <input type="text" name="RelaPoliticsStatus" value="" id="RelaPoliticsStatus" class="form-control" />
+                        </div>
+                        <div class="col-xs-3">
+                            <label class="margin-5 margin-top-10">工作单位及职务：</label>
+                        </div>
+                        <div class="col-xs-9 margin-top-10">
+                            <input type="text" name="RelaWorkUnit" value="" id="RelaWorkUnit" class="form-control" />
+                        </div>
+                    </div> 
+                </div>
+                <div class="modal-footer" style="padding:10px 15px">
+                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal" onclick="addMaimRelation()">保存</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+
+    var Relationurl = '/RelationInfo/GetRelationList?ID=@item.ID';
+    $('#RelationList_table').bootstrapTable({
+        method: 'post',
+        url: Relationurl,
+        title: "家庭成员",
+        striped: true,
+        clickToSelect: true,
+        pageSize: 100,
+        sidePagination: 'server',
+        pageList: [10, 20, 50, 100, 200, 500],
+        queryParamsType: 'limit',
+        columns: [
+            {
+                field: 'Title', title: '称谓', editable: false, width: 100
+            },
+            { field: 'Name', title: '姓名', editable: false, width: 100 },
+             { field: 'Age', title: '年龄', editable: false, width: 100 },
+              { field: 'PoliticsStatus', title: '政治面貌', editable: false, width: 100 },
+              { field: 'WorkUnit', title: '工作单位及职务', editable: false, width: 200, align: "left", halign: "center"},
+            { field: 'opt', title: '操作', width: 50, editable: false, formatter: operateFormatterRelationList },
+        ],
+    });
+    function operateFormatterRelationList(value, row, index) {
+        return [
+            '<a  href="javascript:RelationEdit(\'' + row.ID + '\')" id="btn_detail" type="button" class="btn btn-primary btn-xs" style="margin-right:20px;"><span class="glyphicon glyphicon-pencil"></span>编辑</a>',
+            '<a  href="javascript:delcfm4(\'' + row.ID + '\')"  type="button" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span>删除</a>',
+        ].join('');
+    };
+    function delcfm4(id) {
+        var RelationDeleteUrl = "/RelationInfo/RelationDelete?ID=" + id;
+        $('#id').val(id);//给会话中的隐藏属性URL赋值
+        $('#idName').val("ID");
+        $('#backMsg').val("RelationList_table");
+        $('#urlDel').val(RelationDeleteUrl);
+        $('#urlBack').val(Relationurl);
+        $('#delcfmModel').modal();
+    }
+    function refeshGridRelation() {
+        $('#RelationList_table').bootstrapTable("refresh", { url: Relationurl });
+    }
+   
+    //重大事项核查结果
+    function checkQueue2() {
+        if ($("#queue2").children().length == 0) {
+            alert("请先点击浏览选择要上传的文件！");
+        } else {
+            $('#file_upload2').uploadifive('upload');
+        }
+    }
+    function checkCancel2() {
+        if ($("#queue2").children().length == 0) {
+            alert("没有待上传的文件！");
+        } else {
+
+            $('#file_upload2').uploadifive('clearQueue');
+            refeshGrid2();
+        }
+    }
+    function refeshGrid2() {
+        $('#Important_Table').bootstrapTable("refresh", { url: '/File/GetList?ID=@item.ID&Type=Important' });
+    }
+    function delcfm2(id) {
+        $('#id').val(id);//给会话中的隐藏属性URL赋值
+        $('#idName').val("ID");
+        $('#backMsg').val("Important_Table");
+        $('#urlDel').val("/File/Delete");
+        $('#urlBack').val("/File/GetList?ID=@item.ID&Type=Important");
+        $('#delcfmModel').modal();
+    }
+    $(function () {
+
+        var a = 0;
+        $('#file_upload2').uploadifive({
+            'auto': false,
+            'fileSizeLimit': '102400KB',
+            'buttonText': '浏  览',
+            'multi': true,
+            'queueID': 'queue2',
+            'uploadScript': '/File/Upload',
+            'formData': { 'ID': '@item.ID', 'type': 'Important' },
+            'onUploadComplete': function (file, data) {
+                a = a + 1;
+                if ($("#queue2").children().length - a == 0) {
+                    checkCancel2();
+                    a = 0;
+                }
+            }
+        });
+    })
+    $('#Important_Table').bootstrapTable({
+        method: 'post',
+        url: '/File/GetList?ID=@item.ID&Type=Important',
+        striped: true,
+        clickToSelect: true,
+        pageSize: 100,
+        sidePagination: 'server',
+        pageList: [10, 20, 50, 100, 200, 500],
+        queryParamsType: 'limit',
+        sortName: 'ID',
+        sortOrder: 'asc',
+        columns: [
+            { field: 'FileName', title: '文件名', width: 200, editable: false, },
+            { field: 'opt', title: '操作', width: 50, editable: false, formatter: operateFormatterImportant },
+        ],
+    });
+    function operateFormatterImportant(value, row, index) {
+        return [
+            '<a  href="/File/Download?ID=' + row.ID + '" id="btn_detail" type="button" class="btn btn-primary btn-xs" style="margin-right:20px;"><span class="glyphicon glyphicon-floppy-save"></span>下载</a>',
+            '<a  href="javascript:delcfm2(\'' + row.ID + '\')"  type="button" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span>删除</a>',
+        ].join('');
+    }
+ 
+
+    $('#addData').click(function () {
+        // $('#PersonList_table').bootstrapTable('selectPage', 1); //Jump to the first page
+        var data = { StartDate: '', EndDate: '', Experience: '' }; //define a new row data，certainly it's empty
+
+        $('#PersonList_table').bootstrapTable('prepend', data); //the method of prepend must defined all fields，but append needn't
+        //$('#dataTable').bootstrapTable('append',data);
+
+        $("#dataTable tr:eq(1) td:eq(0)").trigger("dblclick");
+        $("#dataTable input")[0].focus();
+    });
+    function PersonListSubmit() {
+        $('#BasicInfo').form('submit', {
+            url: "/Person/Save",
+            onSubmit: function () {
+                var Name = $('#Name').val();
+                var WorkUnit = $('#WorkUnit').val();
+
+                if (Name == "" || WorkUnit == "") {
+                    alert("请输入必填项信息")
+                    return false
+                }
+            },
+            success: function (data) {
+                alert("保存成功");
+                window.location.href = "/Person/PersonList";
+            }
+        });
+    }
+    function Canel() {
+        window.location.href = "/Person/PersonList";
+    }
+    function zhikong() {
+        $("#ReLaTitle").val("");
+        $("#RelaName").val("");
+        $("#RelaAge").val("");
+        $("#RelaPoliticsStatus").val("");
+        $("#RelaWorkUnit").val("");
+        $("#id").val("");
+    }
+    function addMaimRelation() {;
+        $.ajax({
+            type: "POST",
+            url: '/RelationInfo/RelationBatchSave',
+            data: "Title=" + $("#ReLaTitle").val() + "&Name=" + $("#RelaName").val() + "&Age=" + $("#RelaAge").val() + "&PoliticsStatus=" + $("#RelaPoliticsStatus").val() + "&WorkUnit=" + $("#RelaWorkUnit").val() + "&PersonID=" + $("#ID").val() + "&ID=" + $("#id").val(),
+            dataType: "json",
+            success: function () {
+                alert("数据提交成功");
+                refeshGridRelation();
+            }
+        });
+    }
+    function RelationEdit(id) {
+        console.log("id="+id);
+        $('#MaimRelation').modal();
+        $.ajax({
+            type: "POST",
+            url: '/RelationInfo/RelationEdit',
+            data:  "ID=" +id,
+            dataType: "json",
+            success: function (data) {
+                $("#ReLaTitle").val(data.Title);
+                $("#RelaName").val(data.Name);
+                $("#RelaAge").val(data.Title);
+                $("#RelaPoliticsStatus").val(data.PoliticsStatus);
+                
+                $("#id").val(data.ID);
+            },
+            error: function () {
+                alert("数据提交失败");
+            }
+        });
+    }
+</script>

@@ -40,6 +40,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IBaseService.cs" />
+    <Compile Include="IDictionaryService.cs" />
+    <Compile Include="IPersonService.cs" />
     <Compile Include="ICet.cs" />
     <Compile Include="IDeptService.cs" />
     <Compile Include="IRoleMenuService.cs" />

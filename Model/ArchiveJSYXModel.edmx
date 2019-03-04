@@ -26,6 +26,15 @@
           <Property Name="IsDeleted" Type="bit" Nullable="false" />
           <Property Name="Timestamp" Type="timestamp" Precision="0" />
         </EntityType>
+        <EntityType Name="Dictionary">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="guid" Nullable="false" />
+          <Property Name="TableName" Type="varchar" MaxLength="255" />
+          <Property Name="EN" Type="varchar" MaxLength="255" />
+          <Property Name="CN" Type="varchar" MaxLength="255" />
+        </EntityType>
         <EntityType Name="Menu">
           <Key>
             <PropertyRef Name="ID" />
@@ -37,6 +46,46 @@
           <Property Name="Url" Type="varchar" MaxLength="200" />
           <Property Name="Sequence" Type="int" />
           <Property Name="Timestamp" Type="timestamp" Precision="0" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="guid" Nullable="false" />
+          <Property Name="HandleDept" Type="guid" />
+          <Property Name="HandleStaff" Type="guid" />
+          <Property Name="IdCard" Type="varchar" MaxLength="20" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="WorkUnit" Type="varchar" MaxLength="255" />
+          <Property Name="WorkDuty" Type="varchar" MaxLength="255" />
+          <Property Name="WorkLevel" Type="varchar" MaxLength="50" />
+          <Property Name="DutyTime" Type="varchar" MaxLength="255" />
+          <Property Name="LevelTime" Type="varchar" MaxLength="255" />
+          <Property Name="WorkTime" Type="varchar" MaxLength="255" />
+          <Property Name="Gender" Type="varchar" MaxLength="20" />
+          <Property Name="Nation" Type="varchar" MaxLength="20" />
+          <Property Name="NativePlace" Type="varchar" MaxLength="100" />
+          <Property Name="BirthDate" Type="varchar" MaxLength="20" />
+          <Property Name="BirthPlace" Type="varchar" MaxLength="255" />
+          <Property Name="GrowPlace" Type="varchar" MaxLength="255" />
+          <Property Name="PartyDate" Type="varchar" MaxLength="20" />
+          <Property Name="PoliticsStatus" Type="varchar" MaxLength="50" />
+          <Property Name="Marriage" Type="varchar" MaxLength="100" />
+          <Property Name="Health" Type="varchar" MaxLength="100" />
+          <Property Name="Education" Type="varchar" MaxLength="100" />
+          <Property Name="School" Type="varchar" MaxLength="100" />
+          <Property Name="Major" Type="varchar" MaxLength="255" />
+          <Property Name="HighestEducation" Type="varchar" MaxLength="255" />
+          <Property Name="Address" Type="varchar" MaxLength="200" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" />
+          <Property Name="Skill" Type="varchar" MaxLength="255" />
+          <Property Name="resume" Type="text" />
+          <Property Name="Democratic" Type="varchar" MaxLength="255" />
+          <Property Name="Score" Type="int" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="Timestamp" Type="timestamp" Precision="0" />
+          <Property Name="StudentID" Type="varchar" MaxLength="255" />
+          <Property Name="Height" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -80,12 +129,14 @@
           <Property Name="Timestamp" Type="timestamp" Precision="0" />
         </EntityType>
         <EntityContainer Name="ArchiveSZGXModelStoreContainer">
-          <EntitySet Name="Cet" EntityType="Self.Cet" Schema="Demo" store:Type="Tables" />
-          <EntitySet Name="Dept" EntityType="Self.Dept" Schema="Demo" store:Type="Tables" />
-          <EntitySet Name="Menu" EntityType="Self.Menu" Schema="Demo" store:Type="Tables" />
-          <EntitySet Name="Role" EntityType="Self.Role" Schema="Demo" store:Type="Tables" />
-          <EntitySet Name="RoleMenu" EntityType="Self.RoleMenu" Schema="Demo" store:Type="Tables" />
-          <EntitySet Name="Users" EntityType="Self.Users" Schema="Demo" store:Type="Tables" />
+          <EntitySet Name="Cet" EntityType="Self.Cet" Schema="EduManager" store:Type="Tables" />
+          <EntitySet Name="Dept" EntityType="Self.Dept" Schema="EduManager" store:Type="Tables" />
+          <EntitySet Name="Dictionary" EntityType="Self.Dictionary" Schema="EduManager" store:Type="Tables" />
+          <EntitySet Name="Menu" EntityType="Self.Menu" Schema="EduManager" store:Type="Tables" />
+          <EntitySet Name="Person" EntityType="Self.Person" Schema="EduManager" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="EduManager" store:Type="Tables" />
+          <EntitySet Name="RoleMenu" EntityType="Self.RoleMenu" Schema="EduManager" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="EduManager" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -94,7 +145,9 @@
         <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Cet" EntityType="ArchiveSZGXModel.Cet" />
           <EntitySet Name="Dept" EntityType="ArchiveSZGXModel.Dept" />
+          <EntitySet Name="Dictionary" EntityType="ArchiveSZGXModel.Dictionary" />
           <EntitySet Name="Menu" EntityType="ArchiveSZGXModel.Menu" />
+          <EntitySet Name="Person" EntityType="ArchiveSZGXModel.Person" />
           <EntitySet Name="Role" EntityType="ArchiveSZGXModel.Role" />
           <EntitySet Name="RoleMenu" EntityType="ArchiveSZGXModel.RoleMenu" />
           <EntitySet Name="Users" EntityType="ArchiveSZGXModel.Users" />
@@ -120,6 +173,15 @@
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
           <Property Name="Timestamp" Type="DateTime" />
         </EntityType>
+        <EntityType Name="Dictionary">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="TableName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="EN" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CN" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="Menu">
           <Key>
             <PropertyRef Name="ID" />
@@ -131,6 +193,46 @@
           <Property Name="Url" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="Sequence" Type="Int32" />
           <Property Name="Timestamp" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="HandleDept" Type="Guid" />
+          <Property Name="HandleStaff" Type="Guid" />
+          <Property Name="IdCard" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WorkUnit" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="WorkDuty" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="WorkLevel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DutyTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="LevelTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="WorkTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Nation" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="NativePlace" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BirthDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="BirthPlace" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="GrowPlace" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PartyDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PoliticsStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Marriage" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Health" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Education" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="School" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Major" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="HighestEducation" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Skill" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="resume" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="Democratic" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Score" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="Timestamp" Type="DateTime" />
+          <Property Name="StudentID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Height" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -202,6 +304,16 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Dictionary">
+            <EntityTypeMapping TypeName="ArchiveSZGXModel.Dictionary">
+              <MappingFragment StoreEntitySet="Dictionary">
+                <ScalarProperty Name="CN" ColumnName="CN" />
+                <ScalarProperty Name="EN" ColumnName="EN" />
+                <ScalarProperty Name="TableName" ColumnName="TableName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Menu">
             <EntityTypeMapping TypeName="ArchiveSZGXModel.Menu">
               <MappingFragment StoreEntitySet="Menu">
@@ -211,6 +323,47 @@
                 <ScalarProperty Name="ParentID" ColumnName="ParentID" />
                 <ScalarProperty Name="Icon" ColumnName="Icon" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Person">
+            <EntityTypeMapping TypeName="ArchiveSZGXModel.Person">
+              <MappingFragment StoreEntitySet="Person">
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="Democratic" ColumnName="Democratic" />
+                <ScalarProperty Name="resume" ColumnName="resume" />
+                <ScalarProperty Name="Skill" ColumnName="Skill" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="HighestEducation" ColumnName="HighestEducation" />
+                <ScalarProperty Name="Major" ColumnName="Major" />
+                <ScalarProperty Name="School" ColumnName="School" />
+                <ScalarProperty Name="Education" ColumnName="Education" />
+                <ScalarProperty Name="Health" ColumnName="Health" />
+                <ScalarProperty Name="Marriage" ColumnName="Marriage" />
+                <ScalarProperty Name="PoliticsStatus" ColumnName="PoliticsStatus" />
+                <ScalarProperty Name="PartyDate" ColumnName="PartyDate" />
+                <ScalarProperty Name="GrowPlace" ColumnName="GrowPlace" />
+                <ScalarProperty Name="BirthPlace" ColumnName="BirthPlace" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="NativePlace" ColumnName="NativePlace" />
+                <ScalarProperty Name="Nation" ColumnName="Nation" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="WorkTime" ColumnName="WorkTime" />
+                <ScalarProperty Name="LevelTime" ColumnName="LevelTime" />
+                <ScalarProperty Name="DutyTime" ColumnName="DutyTime" />
+                <ScalarProperty Name="WorkLevel" ColumnName="WorkLevel" />
+                <ScalarProperty Name="WorkDuty" ColumnName="WorkDuty" />
+                <ScalarProperty Name="WorkUnit" ColumnName="WorkUnit" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IdCard" ColumnName="IdCard" />
+                <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+                <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -45,6 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseService.cs" />
+    <Compile Include="DictionaryService.cs" />
+    <Compile Include="PersonService.cs" />
     <Compile Include="CetService.cs" />
     <Compile Include="DeptService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
