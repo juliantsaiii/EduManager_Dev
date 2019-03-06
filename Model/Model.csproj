@@ -71,6 +71,9 @@
     <Compile Include="Dictionary.cs">
       <DependentUpon>ArchiveJSYXModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="GPARanking.cs">
+      <DependentUpon>ArchiveJSYXModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="ListModel.cs" />
     <Compile Include="Menu.cs">
       <DependentUpon>ArchiveJSYXModel.tt</DependentUpon>

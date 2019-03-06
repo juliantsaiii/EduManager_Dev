@@ -5934,7 +5934,7 @@
     <Compile Include="Code\Utils.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\CommonController.cs" />
+    <Compile Include="Controllers\BigDataController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InfoImportController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -5981,12 +5981,12 @@
     <Content Include="Resource\EasyUI\demo\tree\tree_data1.json" />
     <Content Include="Resource\EasyUI\demo\tree\tree_data2.json" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\_ViewStart_ToDelete.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Share\bootstrap.cshtml" />
     <Content Include="Views\Share\delConfirm.cshtml" />
-    <Content Include="Views\Cet\Detail.cshtml" />
-    <Content Include="Views\Cet\Edit.cshtml" />
+    <Content Include="Views\Cet\Detail_ToDelete.cshtml" />
+    <Content Include="Views\Cet\Edit_ToDelete.cshtml" />
     <Content Include="Views\Cet\CetList.cshtml" />
     <Content Include="Views\Shared\Frame.cshtml" />
     <Content Include="Views\Share\Include.cshtml" />
@@ -5997,6 +5997,8 @@
     <Content Include="Views\Cet\CetCreate.cshtml" />
     <Content Include="Views\Person\PersonList.cshtml" />
     <Content Include="Views\Person\Edit.cshtml" />
+    <Content Include="Views\BigData\GPARanking.cshtml" />
+    <Content Include="Views\BigData\GPARankingEdit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -6010,7 +6012,6 @@
     <Folder Include="Resource\layui\layui\images\" />
     <Folder Include="Resource\Resource\layui\layui\images\" />
     <Folder Include="Resource\Resource\obj\" />
-    <Folder Include="Views\Common\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">

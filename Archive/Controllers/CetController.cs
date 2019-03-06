@@ -52,7 +52,7 @@ namespace Archive.Controllers
             var cet = temp.Skip<Cet>((pageIndex - 1) * pageSize).Take<Cet>(pageSize);
             var data = new
             {
-                total = total,
+                total,
                 rows = cet.ToList<Cet>() 
             };
 

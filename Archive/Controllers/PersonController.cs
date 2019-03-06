@@ -73,17 +73,27 @@ namespace Archive.Controllers
         }
         //编辑基本信息
         public ActionResult Edit(Guid ID, string Type)
-        {
+        {  
+
             Session["Flag"] = Type;
-            Person person = personService.Find(ID);
+
+            string sql = "SELECT * FROM Person WHERE ID = '" + ID + "'";
+            Person person = personService.SqlQuery(sql).FirstOrDefault();
             ViewBag.person = person;
+
+  
+       
             return View();
         }
 
         //保存个人信息
         public ActionResult Save(Person item)
         {
-            var check = personService.Find(item.ID);
+            string ID = item.ID.ToString();
+            string sql = "SELECT * FROM Person WHERE ID = '" + ID + "'";
+            Person person = personService.SqlQuery(sql).FirstOrDefault();
+            //var check = personService.Find(item.ID);
+            var check = person;
             if (check == null)
             {
                 item.IsDeleted = false;

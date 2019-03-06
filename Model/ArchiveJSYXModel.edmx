@@ -35,6 +35,23 @@
           <Property Name="EN" Type="varchar" MaxLength="255" />
           <Property Name="CN" Type="varchar" MaxLength="255" />
         </EntityType>
+        <EntityType Name="GPARanking">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="guid" Nullable="false" />
+          <Property Name="HandleDept" Type="guid" />
+          <Property Name="HandleStaff" Type="guid" />
+          <Property Name="StudentID" Type="varchar" MaxLength="255" />
+          <Property Name="Name" Type="varchar" MaxLength="255" />
+          <Property Name="Major" Type="varchar" MaxLength="255" />
+          <Property Name="FirstYearGPA" Type="double" />
+          <Property Name="FirstYearGPARanking" Type="int" />
+          <Property Name="SecondYearGPA" Type="double" />
+          <Property Name="SecondYearGPARanking" Type="int" />
+          <Property Name="RankingChange" Type="int" />
+          <Property Name="ChangePercentage" Type="varchar" MaxLength="255" />
+        </EntityType>
         <EntityType Name="Menu">
           <Key>
             <PropertyRef Name="ID" />
@@ -49,7 +66,7 @@
         </EntityType>
         <EntityType Name="Person">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="StudentID" />
           </Key>
           <Property Name="ID" Type="guid" Nullable="false" />
           <Property Name="HandleDept" Type="guid" />
@@ -84,7 +101,7 @@
           <Property Name="Score" Type="int" />
           <Property Name="IsDeleted" Type="bit" />
           <Property Name="Timestamp" Type="timestamp" Precision="0" />
-          <Property Name="StudentID" Type="varchar" MaxLength="255" />
+          <Property Name="StudentID" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="Height" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="Role">
@@ -132,6 +149,7 @@
           <EntitySet Name="Cet" EntityType="Self.Cet" Schema="EduManager" store:Type="Tables" />
           <EntitySet Name="Dept" EntityType="Self.Dept" Schema="EduManager" store:Type="Tables" />
           <EntitySet Name="Dictionary" EntityType="Self.Dictionary" Schema="EduManager" store:Type="Tables" />
+          <EntitySet Name="GPARanking" EntityType="Self.GPARanking" Schema="EduManager" store:Type="Tables" />
           <EntitySet Name="Menu" EntityType="Self.Menu" Schema="EduManager" store:Type="Tables" />
           <EntitySet Name="Person" EntityType="Self.Person" Schema="EduManager" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="EduManager" store:Type="Tables" />
@@ -146,6 +164,7 @@
           <EntitySet Name="Cet" EntityType="ArchiveSZGXModel.Cet" />
           <EntitySet Name="Dept" EntityType="ArchiveSZGXModel.Dept" />
           <EntitySet Name="Dictionary" EntityType="ArchiveSZGXModel.Dictionary" />
+          <EntitySet Name="GPARanking" EntityType="ArchiveSZGXModel.GPARanking" />
           <EntitySet Name="Menu" EntityType="ArchiveSZGXModel.Menu" />
           <EntitySet Name="Person" EntityType="ArchiveSZGXModel.Person" />
           <EntitySet Name="Role" EntityType="ArchiveSZGXModel.Role" />
@@ -182,6 +201,23 @@
           <Property Name="EN" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="CN" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="GPARanking">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="HandleDept" Type="Guid" />
+          <Property Name="HandleStaff" Type="Guid" />
+          <Property Name="StudentID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Major" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FirstYearGPA" Type="Double" />
+          <Property Name="FirstYearGPARanking" Type="Int32" />
+          <Property Name="SecondYearGPA" Type="Double" />
+          <Property Name="SecondYearGPARanking" Type="Int32" />
+          <Property Name="RankingChange" Type="Int32" />
+          <Property Name="ChangePercentage" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="Menu">
           <Key>
             <PropertyRef Name="ID" />
@@ -196,7 +232,7 @@
         </EntityType>
         <EntityType Name="Person">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="StudentID" />
           </Key>
           <Property Name="ID" Type="Guid" Nullable="false" />
           <Property Name="HandleDept" Type="Guid" />
@@ -231,7 +267,7 @@
           <Property Name="Score" Type="Int32" />
           <Property Name="IsDeleted" Type="Boolean" />
           <Property Name="Timestamp" Type="DateTime" />
-          <Property Name="StudentID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="StudentID" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Height" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Role">
@@ -310,6 +346,24 @@
                 <ScalarProperty Name="CN" ColumnName="CN" />
                 <ScalarProperty Name="EN" ColumnName="EN" />
                 <ScalarProperty Name="TableName" ColumnName="TableName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GPARanking">
+            <EntityTypeMapping TypeName="ArchiveSZGXModel.GPARanking">
+              <MappingFragment StoreEntitySet="GPARanking">
+                <ScalarProperty Name="ChangePercentage" ColumnName="ChangePercentage" />
+                <ScalarProperty Name="RankingChange" ColumnName="RankingChange" />
+                <ScalarProperty Name="SecondYearGPARanking" ColumnName="SecondYearGPARanking" />
+                <ScalarProperty Name="SecondYearGPA" ColumnName="SecondYearGPA" />
+                <ScalarProperty Name="FirstYearGPARanking" ColumnName="FirstYearGPARanking" />
+                <ScalarProperty Name="FirstYearGPA" ColumnName="FirstYearGPA" />
+                <ScalarProperty Name="Major" ColumnName="Major" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+                <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

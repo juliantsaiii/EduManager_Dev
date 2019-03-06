@@ -28,6 +28,7 @@ namespace Model
         public DbSet<Cet> Cet { get; set; }
         public DbSet<Dept> Dept { get; set; }
         public DbSet<Dictionary> Dictionary { get; set; }
+        public DbSet<GPARanking> GPARanking { get; set; }
         public DbSet<Menu> Menu { get; set; }
         public DbSet<Person> Person { get; set; }
         public DbSet<Role> Role { get; set; }
