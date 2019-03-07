@@ -225,18 +225,13 @@ namespace BLL
                 return db.Database.SqlQuery<T>(sql).ToList();
             }
         }
-        //public int SqlCommand(string sql)
-        //{
-        //    using (var db = new DBEntities())
-        //    {
-        //        return db.Database.ExecuteSqlCommand(sql);
-        //    }
-        //}
+
         public void SqlCommand(string sql)
         {
             using (var db = new DBEntities())
             {
                 db.Database.ExecuteSqlCommand(sql);
+                
             }
         }
 
@@ -262,6 +257,8 @@ namespace BLL
                 return result;
             }
         }
+
+      
 
         public string GetTableName(T item){
 

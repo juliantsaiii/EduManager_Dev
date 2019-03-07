@@ -96,6 +96,45 @@
 </body>
 
 <script type="text/javascript">
+    //添加输入框类型验证
+    $(document).ready(function () {
+        var reg = /^[0-9,.]*$/;
+        $("#FirstYearGPA").blur(function () {
+            var a = $("#FirstYearGPA").val();
+            if (!reg.test(a)) {
+                layer.tips('请输入数字', '#FirstYearGPA');
+                $("#FirstYearGPA").focus();
+            }
+        });
+        $("#SecondYearGPA").blur(function () {
+            var a = $("#SecondYearGPA").val();
+            if (!reg.test(a)) {
+                layer.tips('请输入数字', '#SecondYearGPA');
+                $("#SecondYearGPA").focus();
+            }
+        });
+        $("#FirstYearGPARanking").blur(function () {
+            var a = $("#FirstYearGPARanking").val();
+            if (!reg.test(a)) {
+                layer.tips('请输入数字', '#FirstYearGPARanking');
+                $("#FirstYearGPARanking").focus();
+            }
+        });
+        $("#SecondYearGPARanking").blur(function () {
+            var a = $("#SecondYearGPARanking").val();
+            if (!reg.test(a)) {
+                layer.tips('请输入数字', '#SecondYearGPARanking');
+                $("#SecondYearGPARanking").focus();
+            }
+        });
+        $("#RankingChange").blur(function () {
+            var a = $("#RankingChange").val();
+            if (!reg.test(a)) {
+                layer.tips('请输入数字', '#RankingChange');
+                $("#RankingChange").focus();
+            }
+        });
+    });
     function GpaRankingSubmit() {
         $('#GPAInfo').form('submit', {
             url: "/BigData/GpaRankingSave",

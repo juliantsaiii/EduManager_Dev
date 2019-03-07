@@ -11,6 +11,7 @@ namespace Archive.Controllers
     public class BigDataController : BaseController
     {
         IGPARankingService gpaRankingservice = new GPARankingService();
+        ICetService cetservice = new CetService();
         // GET: BigData
         public ActionResult GPARanking()
         {
@@ -85,6 +86,52 @@ namespace Archive.Controllers
                 gpaRankingservice.Update(gpa);
                 return Content("true");
             }
+        }
+
+        //成绩分析
+        public ActionResult ScoreAnalysis()
+        {
+            return View();
+        }
+
+        //返回CET成绩给ECHARTS图标，用于展示
+        public JsonResult CetJson(string cet)
+        {
+            string a = cet;
+            string sqlTotal = "SELECT * FROM Cet";
+            string sql4 = "SELECT * FROM Cet WHERE Cet4 ";
+            string sql6 = "SELECT * FROM Cet WHERE Cet6 ";
+            List<Cet> total = cetservice.SqlQuery(sqlTotal).ToList();
+            List<Cet> cet4p = cetservice.SqlQuery(sql4).ToList();
+            List<Cet> cet6p = cetservice.SqlQuery(sql6).ToList();
+            int cet4pp = cet4p.Count();
+            int cet6pp = cet6p.Count();
+            int totalpp = total.Count();
+            //if(cet.Equals("cet4"))
+            //{
+            //    var data = new
+            //    {
+            //        passnum = cet4pp,
+            //        totalnum = totalpp
+            //    };
+            //    return Json(data, JsonRequestBehavior.AllowGet);
+            //}
+            //else if (cet.Equals("cet6"))
+            //{
+            //    var data = new
+            //    {
+            //        passnum = cet6pp,
+            //        totalnum = totalpp
+            //    };
+            //    return Json(data, JsonRequestBehavior.AllowGet);
+            //}
+            var data = new
+            {
+                cet4 = cet4pp,
+                cet6 = cet6pp,
+                total = totalpp
+            };
+            return Json(data);
         }
 
 

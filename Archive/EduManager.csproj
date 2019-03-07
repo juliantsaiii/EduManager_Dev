@@ -5999,6 +5999,7 @@
     <Content Include="Views\Person\Edit.cshtml" />
     <Content Include="Views\BigData\GPARanking.cshtml" />
     <Content Include="Views\BigData\GPARankingEdit.cshtml" />
+    <Content Include="Views\BigData\ScoreAnalysis.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

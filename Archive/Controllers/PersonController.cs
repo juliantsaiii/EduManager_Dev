@@ -54,7 +54,6 @@ namespace Archive.Controllers
                 total = total,
                 rows = person.ToList<Person>()
             };
-
             return Json(data, JsonRequestBehavior.AllowGet);
         }
 

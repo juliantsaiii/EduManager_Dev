@@ -22,7 +22,6 @@ namespace IBLL
         void SqlCommand(string sql);
         T Find(Guid guid);
         IEnumerable<T> SqlQuery(string sql);
-
         List<T> List(ListModel listModel, String TableName, ref int total);
     }
 }
