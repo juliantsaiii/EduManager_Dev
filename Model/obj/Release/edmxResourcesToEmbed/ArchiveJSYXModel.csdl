@@ -4,6 +4,7 @@
     <EntitySet Name="Cet" EntityType="ArchiveSZGXModel.Cet" />
     <EntitySet Name="Dept" EntityType="ArchiveSZGXModel.Dept" />
     <EntitySet Name="Dictionary" EntityType="ArchiveSZGXModel.Dictionary" />
+    <EntitySet Name="GPARanking" EntityType="ArchiveSZGXModel.GPARanking" />
     <EntitySet Name="Menu" EntityType="ArchiveSZGXModel.Menu" />
     <EntitySet Name="Person" EntityType="ArchiveSZGXModel.Person" />
     <EntitySet Name="Role" EntityType="ArchiveSZGXModel.Role" />
@@ -40,6 +41,23 @@
     <Property Name="EN" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="CN" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
   </EntityType>
+  <EntityType Name="GPARanking">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="HandleDept" Type="Guid" />
+    <Property Name="HandleStaff" Type="Guid" />
+    <Property Name="StudentID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Major" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FirstYearGPA" Type="Double" />
+    <Property Name="FirstYearGPARanking" Type="Int32" />
+    <Property Name="SecondYearGPA" Type="Double" />
+    <Property Name="SecondYearGPARanking" Type="Int32" />
+    <Property Name="RankingChange" Type="Int32" />
+    <Property Name="ChangePercentage" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
   <EntityType Name="Menu">
     <Key>
       <PropertyRef Name="ID" />
@@ -54,7 +72,7 @@
   </EntityType>
   <EntityType Name="Person">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="StudentID" />
     </Key>
     <Property Name="ID" Type="Guid" Nullable="false" />
     <Property Name="HandleDept" Type="Guid" />
@@ -89,7 +107,7 @@
     <Property Name="Score" Type="Int32" />
     <Property Name="IsDeleted" Type="Boolean" />
     <Property Name="Timestamp" Type="DateTime" />
-    <Property Name="StudentID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="StudentID" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="Height" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Role">

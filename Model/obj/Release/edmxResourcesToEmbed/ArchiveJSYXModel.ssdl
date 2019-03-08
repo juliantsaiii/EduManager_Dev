@@ -30,6 +30,23 @@
     <Property Name="EN" Type="varchar" MaxLength="255" />
     <Property Name="CN" Type="varchar" MaxLength="255" />
   </EntityType>
+  <EntityType Name="GPARanking">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="guid" Nullable="false" />
+    <Property Name="HandleDept" Type="guid" />
+    <Property Name="HandleStaff" Type="guid" />
+    <Property Name="StudentID" Type="varchar" MaxLength="255" />
+    <Property Name="Name" Type="varchar" MaxLength="255" />
+    <Property Name="Major" Type="varchar" MaxLength="255" />
+    <Property Name="FirstYearGPA" Type="double" />
+    <Property Name="FirstYearGPARanking" Type="int" />
+    <Property Name="SecondYearGPA" Type="double" />
+    <Property Name="SecondYearGPARanking" Type="int" />
+    <Property Name="RankingChange" Type="int" />
+    <Property Name="ChangePercentage" Type="varchar" MaxLength="255" />
+  </EntityType>
   <EntityType Name="Menu">
     <Key>
       <PropertyRef Name="ID" />
@@ -44,7 +61,7 @@
   </EntityType>
   <EntityType Name="Person">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="StudentID" />
     </Key>
     <Property Name="ID" Type="guid" Nullable="false" />
     <Property Name="HandleDept" Type="guid" />
@@ -79,7 +96,7 @@
     <Property Name="Score" Type="int" />
     <Property Name="IsDeleted" Type="bit" />
     <Property Name="Timestamp" Type="timestamp" Precision="0" />
-    <Property Name="StudentID" Type="varchar" MaxLength="255" />
+    <Property Name="StudentID" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="Height" Type="varchar" MaxLength="255" />
   </EntityType>
   <EntityType Name="Role">
@@ -127,6 +144,7 @@
     <EntitySet Name="Cet" EntityType="Self.Cet" Schema="EduManager" store:Type="Tables" />
     <EntitySet Name="Dept" EntityType="Self.Dept" Schema="EduManager" store:Type="Tables" />
     <EntitySet Name="Dictionary" EntityType="Self.Dictionary" Schema="EduManager" store:Type="Tables" />
+    <EntitySet Name="GPARanking" EntityType="Self.GPARanking" Schema="EduManager" store:Type="Tables" />
     <EntitySet Name="Menu" EntityType="Self.Menu" Schema="EduManager" store:Type="Tables" />
     <EntitySet Name="Person" EntityType="Self.Person" Schema="EduManager" store:Type="Tables" />
     <EntitySet Name="Role" EntityType="Self.Role" Schema="EduManager" store:Type="Tables" />

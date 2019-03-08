@@ -46,11 +46,17 @@
                     <tr class="detail_tr">
                         <td class="detail_td1">角色</td>
                         <td class="detail_td2" colspan="3">
-                            @Html.TextBoxFor(i => item.RoleID, new { size = 60, @class = "easyui-combobox" ,@id= "item_RoleID"  }) <!-- id=role 获取所选中的角色-->
+                            @Html.TextBoxFor(i => item.RoleID, new { size = 60, @class = "easyui-combobox", @id = "item_RoleID" }) <!-- id=role 获取所选中的角色-->
                         </td>
                     </tr>
-                   
-         
+
+                    <tr class="detail_tr" style="display:none">
+                        <td class="detail_td1"><span style="color: red">*&nbsp;&nbsp;</span>访问权限：</td>
+                        <td class="detail_td2" colspan="3">
+                            <input  type="text" id="deptCombTree" name="deptCombTree" class="easyui-combotree" />
+                        </td>
+                    </tr>
+
                     <tr class="detail_tr">
                         <td class="detail_td1"><span style="color: red">*&nbsp;&nbsp;</span>排序码:</td>
                         <td class="detail_td2">
@@ -59,7 +65,7 @@
                         </td>
                     </tr>
 
-                    
+
 
                 </table>
             </form>

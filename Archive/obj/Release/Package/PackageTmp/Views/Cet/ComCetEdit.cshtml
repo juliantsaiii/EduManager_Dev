@@ -63,33 +63,6 @@
 
 <script type="text/javascript">
 
-    function clear2(){
-
-        $("#qry_WorkUnit").val("");
-        queryDataGrid();
-    }
-    function queryDataGrid() {
-        $('#selectunitList_table').bootstrapTable('refresh', {
-            pageNumber: 1,
-        });
-    }
-    
-   
-
-
-
-
-    $('#addData').click(function () {
-        // $('#PersonList_table').bootstrapTable('selectPage', 1); //Jump to the first page
-        var data = { Title: '', Name: '', Age: '', PoliticsStatus: '', WorkUnit: '' }; //define a new row data，certainly it's empty
-
-        $('#PersonList_table').bootstrapTable('prepend', data); //the method of prepend must defined all fields，but append needn't
-        //$('#dataTable').bootstrapTable('append',data);
-
-        $("#dataTable tr:eq(1) td:eq(0)").trigger("dblclick");
-        $("#dataTable input")[0].focus();
-    });
-
     function CetListSubmit() {
         $('#CetInfo').form('submit', {
             url: "/Cet/Save",
@@ -97,8 +70,8 @@
                 var Name = $('#Name').val();
                 var ID = $('#ID').val();
 
-                if (Name == "" || ID == "") {
-                    alert("学号和姓名不能为空")
+                if (Name === "" || ID === "") {
+                    alert("学号和姓名不能为空");
                     return false;
                 }
             },
@@ -110,14 +83,6 @@
     }
     function Canel() {
         window.history.back();
-    }
-    function zhikong() {
-        $("#ReLaTitle").val("");
-        $("#RelaName").val("");
-        $("#RelaAge").val("");
-        $("#RelaPoliticsStatus").val("");
-        $("#RelaWorkUnit").val("");
-        $("#Relation_id").val("");
     }
    
 </script>

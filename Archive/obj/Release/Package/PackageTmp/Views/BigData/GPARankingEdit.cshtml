@@ -1,0 +1,160 @@
+﻿@using Model;
+@{
+    Layout = null;
+    GPARanking item = ViewBag.gpa;
+    if(item == null)
+    {
+        item = new GPARanking();
+    }
+
+}
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+
+    @RenderPage("~/Views/Share/bootstrap.cshtml")
+    <link href="~/Resource/plugins/radio/css/jquery-labelauty.css" rel="stylesheet" />
+    <script src="~/Resource/plugins/radio/js/jquery-labelauty.js"></script>
+</head>
+<body>
+
+
+    <div>
+        <form id="GPAInfo" method="post" class="form-inline">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3 class="Gradient">GPA排名信息</h3>
+                </div>
+
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="WorkUnit">学号：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    <input class="form-control" type="text" id="StudentID" name="StudentID" value="@item.StudentID" required />
+                </div>
+
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="Name">姓名：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    <input class="form-control" type="text" id="Name" name="Name" value="@item.Name" required />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="Gender">专业：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    <input class="form-control" type="text" id="Major" name="Major" value="@item.Major" required />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="FirstYearGPA">第一学年平均绩点：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    <input class="form-control" type="text" id="FirstYearGPA" name="FirstYearGPA" value="@item.FirstYearGPA" required />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="FirstYearGPARanking">第一学年排名：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    <input class="form-control" type="text" id="FirstYearGPARanking" name="FirstYearGPARanking" value="@item.FirstYearGPARanking" required />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="SecondYearGPA">第二学年平均绩点：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    <input class="form-control" type="text" id="SecondYearGPA" name="SecondYearGPA" value="@item.SecondYearGPA" required />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="SecondYearGPARanking">第二学年排名：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    <input class="form-control" type="text" id="SecondYearGPARanking" name="SecondYearGPARanking" value="@item.SecondYearGPARanking" required />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="RankingChange">排名变化：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    <input class="form-control" type="text" id="RankingChange" name="RankingChange" value="@item.RankingChange" required />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="ChangePercentage">进退步百分比：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    <input class="form-control" type="text" id="ChangePercentage" name="ChangePercentage" value="@item.ChangePercentage" required />
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div align="center" style="margin:20px 0px;">
+        <button type="button" class="btn btn-primary" onclick="GpaRankingSubmit()">保存</button>
+        <button type="button" class="btn btn-default" onclick="javascript: window.history.back(-1);">返回</button>
+    </div>
+    
+
+
+    
+</body>
+
+<script type="text/javascript">
+    //添加输入框类型验证
+    $(document).ready(function () {
+        var reg = /^[0-9,.]*$/;
+        $("#FirstYearGPA").blur(function () {
+            var a = $("#FirstYearGPA").val();
+            if (!reg.test(a)) {
+                layer.tips('请输入数字', '#FirstYearGPA');
+                $("#FirstYearGPA").focus();
+            }
+        });
+        $("#SecondYearGPA").blur(function () {
+            var a = $("#SecondYearGPA").val();
+            if (!reg.test(a)) {
+                layer.tips('请输入数字', '#SecondYearGPA');
+                $("#SecondYearGPA").focus();
+            }
+        });
+        $("#FirstYearGPARanking").blur(function () {
+            var a = $("#FirstYearGPARanking").val();
+            if (!reg.test(a)) {
+                layer.tips('请输入数字', '#FirstYearGPARanking');
+                $("#FirstYearGPARanking").focus();
+            }
+        });
+        $("#SecondYearGPARanking").blur(function () {
+            var a = $("#SecondYearGPARanking").val();
+            if (!reg.test(a)) {
+                layer.tips('请输入数字', '#SecondYearGPARanking');
+                $("#SecondYearGPARanking").focus();
+            }
+        });
+        $("#RankingChange").blur(function () {
+            var a = $("#RankingChange").val();
+            if (!reg.test(a)) {
+                layer.tips('请输入数字', '#RankingChange');
+                $("#RankingChange").focus();
+            }
+        });
+    });
+    function GpaRankingSubmit() {
+        $('#GPAInfo').form('submit', {
+            url: "/BigData/GpaRankingSave",
+            onSubmit: function () {
+                var Name = $('#Name').val();
+                var StudentID = $('#StudentID').val();
+
+                if (Name === "" || StudentID === "") {
+                    alert("学号和姓名不能为空");
+                    return false;
+                }
+            },
+            success: function (data) {
+                alert("保存成功");
+                window.history.back();
+            }
+        });
+    }
+    function Canel() {
+        window.history.back();
+    }
+   
+</script>

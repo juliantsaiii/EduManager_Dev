@@ -34,6 +34,24 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="GPARanking">
+      <EntityTypeMapping TypeName="ArchiveSZGXModel.GPARanking">
+        <MappingFragment StoreEntitySet="GPARanking">
+          <ScalarProperty Name="ChangePercentage" ColumnName="ChangePercentage" />
+          <ScalarProperty Name="RankingChange" ColumnName="RankingChange" />
+          <ScalarProperty Name="SecondYearGPARanking" ColumnName="SecondYearGPARanking" />
+          <ScalarProperty Name="SecondYearGPA" ColumnName="SecondYearGPA" />
+          <ScalarProperty Name="FirstYearGPARanking" ColumnName="FirstYearGPARanking" />
+          <ScalarProperty Name="FirstYearGPA" ColumnName="FirstYearGPA" />
+          <ScalarProperty Name="Major" ColumnName="Major" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+          <ScalarProperty Name="HandleStaff" ColumnName="HandleStaff" />
+          <ScalarProperty Name="HandleDept" ColumnName="HandleDept" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Menu">
       <EntityTypeMapping TypeName="ArchiveSZGXModel.Menu">
         <MappingFragment StoreEntitySet="Menu">
