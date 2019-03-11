@@ -6,12 +6,17 @@ using System.Web.Mvc;
 using Model;
 using BLL;
 using IBLL;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.Web.Helpers;
+
 namespace Archive.Controllers
 {
     public class BigDataController : BaseController
     {
         IGPARankingService gpaRankingservice = new GPARankingService();
         ICetService cetservice = new CetService();
+        IPersonService personService = new PersonService();
         // GET: BigData
         public ActionResult GPARanking()
         {
@@ -107,24 +112,6 @@ namespace Archive.Controllers
             int cet4pp = cet4p.Count();
             int cet6pp = cet6p.Count();
             int totalpp = total.Count();
-            //if(cet.Equals("cet4"))
-            //{
-            //    var data = new
-            //    {
-            //        passnum = cet4pp,
-            //        totalnum = totalpp
-            //    };
-            //    return Json(data, JsonRequestBehavior.AllowGet);
-            //}
-            //else if (cet.Equals("cet6"))
-            //{
-            //    var data = new
-            //    {
-            //        passnum = cet6pp,
-            //        totalnum = totalpp
-            //    };
-            //    return Json(data, JsonRequestBehavior.AllowGet);
-            //}
             var data = new
             {
                 cet4 = cet4pp,
@@ -134,6 +121,48 @@ namespace Archive.Controllers
             return Json(data);
         }
 
+
+        //路由生源地分析页面
+        public ActionResult HometownAnalysis()
+        {
+            return View();
+        }
+
+        //返回生源分析Json结果
+        public JsonResult HometownJson()
+        {
+            List<Person> person = new List<Person>();
+            string sql = "SELECT * FROM Person";
+            person = personService.SqlQuery(sql).ToList();
+            Dictionary<string,int> result = new Dictionary<string,int>();
+            string[] province = { "辽宁", "吉林", "黑龙江", "河北", "山西", "陕西", "甘肃", "青海", "山东", "安徽", "江苏", "浙江", "河南", "湖北", "湖南", "江西", "台湾", "福建", "云南", "海南", "四川", "贵州", "广东", "内蒙古", "新疆", "广西", "西藏", "宁夏", "北京", "上海", "天津", "重庆", "香港", "澳门" };
+            foreach(string place in province)
+            {
+                int count = 0;
+                foreach (Person p in person)
+                {
+                    if (p.NativePlace !=null&& p.NativePlace.Contains(place))
+                    {
+                        count++;
+                    }
+                }
+                result.Add(place, count);
+            }
+            //返回Json字符串
+            //string jsonResult = SerializeDictionaryToJsonString(result);
+            //没用的一步骤，原想把json字符串转为json对象
+            //JObject obj = (JObject)JsonConvert.DeserializeObject(jsonResult);
+            return Json(result);
+        }
+        //字典类型转Json字符串的工具方法
+        public static string SerializeDictionaryToJsonString<TKey, TValue>(Dictionary<TKey, TValue> dict)
+        {
+            if (dict.Count == 0)
+                return "";
+
+            string jsonStr = JsonConvert.SerializeObject(dict);
+            return jsonStr;
+        }
 
     }
 }

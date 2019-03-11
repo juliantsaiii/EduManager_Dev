@@ -1,0 +1,89 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="~/Resource/Echarts/echarts.js"></script>
+    <script src="~/Resource/jquery-1.10.2.min.js"></script>
+    <script src="~/Resource/plugins/Echarts/china.js"></script>
+    <title>生源地分析</title>
+</head>
+<body>
+    <div> 
+        <h2>生源地分析</h2>
+        <div id = "HometownAnalysis" style="width: 700px;height:500px;"></div>
+    </div>
+
+
+</body>
+</html>
+
+<script type="text/javascript">
+    var HometownChart = echarts.init(document.getElementById("HometownAnalysis", 'wonderland'));
+    HometownChart.setOption({
+        series: [{
+            type: 'map',
+            map: 'china',
+            itemStyle: {
+                normal: {
+                    show: false
+                }
+            },
+            label: {
+                normal: {
+                    show: true
+                }
+            }
+        }]
+    });
+
+    MySearch("caizonglinhaoshuai");
+    function MySearch(cet) {
+        $.ajax({
+            type: "POST",
+            url: "/BigData/HometownJson",
+            data: { "Cet": cet },
+            success: function (data) {
+                //后台返回的是json字符串时的处理方式
+                //var date1 = data.replace("{", "").replace("}", "").split(",");
+                //HometownChart.setOption({
+                //    tooltip: {
+                //        formatter: function (params) {
+                //            var num = "";
+                //            for (var i = 0;i < date1.length; i++)
+                //            {
+                //                if (date1[i].indexOf(params.name)>-1)
+                //                {
+                //                    num = date1[i].split(":")[1];
+                //                }
+                //            }
+
+
+                //            return num;
+                //        }
+                //        }
+                //    });
+                //后台直接返回json对象
+                HometownChart.setOption({
+                    tooltip: {
+                        formatter: function (params) {
+                            var num = "";
+                            for (var p in data) {
+                                if (p == params.name) {
+                                    num = p + "<br>学生数量：" + data[p]+"人";
+                                }
+                            }
+                            return num;
+                        }
+                    }
+                });
+                console.log(data);
+            }
+    });
+    }
+</script>
