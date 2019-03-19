@@ -26,6 +26,7 @@ namespace Model
         }
     
         public DbSet<Cet> Cet { get; set; }
+        public DbSet<Course> Course { get; set; }
         public DbSet<Dept> Dept { get; set; }
         public DbSet<Dictionary> Dictionary { get; set; }
         public DbSet<GPARanking> GPARanking { get; set; }

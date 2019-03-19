@@ -14,6 +14,19 @@
           <Property Name="Cet4" Type="varchar" MaxLength="255" />
           <Property Name="Cet6" Type="varchar" MaxLength="255" />
         </EntityType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="guid" Nullable="false" />
+          <Property Name="CourseName" Type="varchar" MaxLength="50" />
+          <Property Name="ClassID" Type="varchar" MaxLength="50" />
+          <Property Name="Teacher" Type="varchar" MaxLength="50" />
+          <Property Name="TeacherID" Type="varchar" MaxLength="50" />
+          <Property Name="Week" Type="varchar" MaxLength="50" />
+          <Property Name="CourseOrder" Type="varchar" MaxLength="50" />
+          <Property Name="Place" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Dept">
           <Key>
             <PropertyRef Name="ID" />
@@ -147,6 +160,7 @@
         </EntityType>
         <EntityContainer Name="ArchiveSZGXModelStoreContainer">
           <EntitySet Name="Cet" EntityType="Self.Cet" Schema="EduManager" store:Type="Tables" />
+          <EntitySet Name="Course" EntityType="Self.Course" Schema="EduManager" store:Type="Tables" />
           <EntitySet Name="Dept" EntityType="Self.Dept" Schema="EduManager" store:Type="Tables" />
           <EntitySet Name="Dictionary" EntityType="Self.Dictionary" Schema="EduManager" store:Type="Tables" />
           <EntitySet Name="GPARanking" EntityType="Self.GPARanking" Schema="EduManager" store:Type="Tables" />
@@ -162,6 +176,7 @@
       <Schema Namespace="ArchiveSZGXModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Cet" EntityType="ArchiveSZGXModel.Cet" />
+          <EntitySet Name="Course" EntityType="ArchiveSZGXModel.Course" />
           <EntitySet Name="Dept" EntityType="ArchiveSZGXModel.Dept" />
           <EntitySet Name="Dictionary" EntityType="ArchiveSZGXModel.Dictionary" />
           <EntitySet Name="GPARanking" EntityType="ArchiveSZGXModel.GPARanking" />
@@ -179,6 +194,19 @@
           <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Cet4" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Cet6" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="CourseName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ClassID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Teacher" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TeacherID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Week" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CourseOrder" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Place" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Dept">
           <Key>
@@ -323,6 +351,20 @@
                 <ScalarProperty Name="Cet6" ColumnName="Cet6" />
                 <ScalarProperty Name="Cet4" ColumnName="Cet4" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Course">
+            <EntityTypeMapping TypeName="ArchiveSZGXModel.Course">
+              <MappingFragment StoreEntitySet="Course">
+                <ScalarProperty Name="Place" ColumnName="Place" />
+                <ScalarProperty Name="CourseOrder" ColumnName="CourseOrder" />
+                <ScalarProperty Name="Week" ColumnName="Week" />
+                <ScalarProperty Name="TeacherID" ColumnName="TeacherID" />
+                <ScalarProperty Name="Teacher" ColumnName="Teacher" />
+                <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

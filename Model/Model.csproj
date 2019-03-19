@@ -65,6 +65,9 @@
     <Compile Include="Cet.cs">
       <DependentUpon>ArchiveJSYXModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Course.cs">
+      <DependentUpon>ArchiveJSYXModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Dept.cs">
       <DependentUpon>ArchiveJSYXModel.tt</DependentUpon>
     </Compile>

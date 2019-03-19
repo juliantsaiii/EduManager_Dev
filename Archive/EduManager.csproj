@@ -3689,6 +3689,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BigDataController.cs" />
+    <Compile Include="Controllers\EducationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InfoImportController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -3755,6 +3756,9 @@
     <Content Include="Views\BigData\GPARankingEdit.cshtml" />
     <Content Include="Views\BigData\ScoreAnalysis.cshtml" />
     <Content Include="Views\BigData\HometownAnalysis.cshtml" />
+    <Content Include="Views\Education\CourseCharge.cshtml" />
+    <Content Include="Views\Education\CourseChargeEdit.cshtml" />
+    <Content Include="Views\Education\CourseFind.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

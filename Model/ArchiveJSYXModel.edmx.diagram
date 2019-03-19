@@ -6,14 +6,15 @@
     <edmx:Diagrams>
       <Diagram DiagramId="a354e1cf758b488ead7f3c57149f53d7" Name="Diagram1" ZoomLevel="54">
         <EntityTypeShape EntityType="ArchiveSZGXModel.Cet" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="ArchiveSZGXModel.Dept" Width="1.5" PointX="2.75" PointY="0.75" />
-        <EntityTypeShape EntityType="ArchiveSZGXModel.Dictionary" Width="1.5" PointX="4.75" PointY="0.75" />
-        <EntityTypeShape EntityType="ArchiveSZGXModel.GPARanking" Width="1.5" PointX="0.75" PointY="4.75" />
-        <EntityTypeShape EntityType="ArchiveSZGXModel.Menu" Width="1.5" PointX="2.75" PointY="4.75" />
-        <EntityTypeShape EntityType="ArchiveSZGXModel.Person" Width="1.5" PointX="4.75" PointY="3.75" />
-        <EntityTypeShape EntityType="ArchiveSZGXModel.Role" Width="1.5" PointX="6.75" PointY="0.75" />
-        <EntityTypeShape EntityType="ArchiveSZGXModel.RoleMenu" Width="1.5" PointX="6.75" PointY="4.75" />
-        <EntityTypeShape EntityType="ArchiveSZGXModel.Users" Width="1.5" PointX="6.75" PointY="7.75" />
+        <EntityTypeShape EntityType="ArchiveSZGXModel.Course" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ArchiveSZGXModel.Dept" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ArchiveSZGXModel.Dictionary" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="ArchiveSZGXModel.GPARanking" Width="1.5" PointX="2.75" PointY="4.75" />
+        <EntityTypeShape EntityType="ArchiveSZGXModel.Menu" Width="1.5" PointX="4.75" PointY="4.75" />
+        <EntityTypeShape EntityType="ArchiveSZGXModel.Person" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ArchiveSZGXModel.Role" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ArchiveSZGXModel.RoleMenu" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="ArchiveSZGXModel.Users" Width="1.5" PointX="2.75" PointY="8.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
