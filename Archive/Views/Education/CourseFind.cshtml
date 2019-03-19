@@ -53,26 +53,31 @@
   </table>
 </div>
 <script>
-    $(document).ready(function () {
-        var reg = /^[0-9,.]*$/;
-        $("#Class").blur(function () {
-            var a = $("#Class").val();
-            if (!reg.test(a)) {
-                layer.tips('请输入正确的班级号', '#Class');
-                $("#Class").focus();
-            }
-        });
-    });
     function queryCourse() {
+     
         var classID = $("#Class").val();
-        $.ajax({
-            type: "post",
-            url: "/Education/GetCourse",
-            data: { "classID": classID },
-            success: function (table) {
-                $("#mytable").html(table);
-            }
-        });
+        if (!classID) {
+            layer.tips('班级号不能为空！', '#Class');
+        }
+        else {
+            var reg = /^[0-9,.]*$/;
+                var a = $("#Class").val();
+                if (!reg.test(a)) {
+                    layer.tips('请输入正确的班级号', '#Class');
+                    $("#Class").focus();
+                }
+                else {
+                    $.ajax({
+                        type: "post",
+                        url: "/Education/GetCourse",
+                        data: { "classID": classID },
+                        success: function (table) {
+                            $("#mytable").html(table);
+                        }
+                    });
+                }
+        }
+
     }
 
 </script>

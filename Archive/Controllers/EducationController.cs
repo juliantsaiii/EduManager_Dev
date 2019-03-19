@@ -145,7 +145,7 @@ namespace Archive.Controllers
             List<Course> courses = courseService.SqlQuery(sql).ToList();
             foreach (Course c in courses)
             {
-                coursesSet[int.Parse(c.Week) , int.Parse(c.CourseOrder) -1] = c.CourseName;
+                coursesSet[int.Parse(c.Week) , int.Parse(c.CourseOrder) -1] = c.CourseName+"<br>"+c.Place+"<br>"+c.Teacher;
             }
             //循环赋上节次
             string[] order = { "一二节", "三四节", "五六节", "七八节" };
@@ -160,7 +160,7 @@ namespace Archive.Controllers
                 myTable += "<tr>";
                 for(int j = 0;j < 6; j++)
                 {
-                    myTable += "<td>" + coursesSet[j, i] + "</td>";
+                    myTable += "<td height=\"100px\">" + coursesSet[j, i] + "</td>";
                 }
                 myTable += "</tr>";
             }
