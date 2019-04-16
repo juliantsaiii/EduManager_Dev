@@ -1,0 +1,181 @@
+﻿@using Model;
+@{
+    Layout = null;
+    Course item = ViewBag.course;
+    if(item == null)
+    {
+        item = new Course();
+        item.ID = Guid.NewGuid();
+    }
+
+}
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+
+    @RenderPage("~/Views/Share/bootstrap.cshtml")
+    <link href="~/Resource/plugins/radio/css/jquery-labelauty.css" rel="stylesheet" />
+    <script src="~/Resource/plugins/radio/js/jquery-labelauty.js"></script>
+</head>
+<body>
+
+
+    <div>
+        <form id="CourseChargeInfo" method="post" class="form-inline">
+            <input style="display :none" type="text" id="ID" name="ID" value="@item.ID"  />
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3 class="Gradient">排选课程</h3>
+                </div>
+
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="CourseName">课程名称：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    <input class="form-control" type="text" id="CourseName" name="CourseName" value="@item.CourseName" required />
+                </div>
+
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="Name">班级号：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    <input class="form-control" type="text" id="ClassID" name="ClassID" value="@item.ClassID" required />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="Teacher">授课教师：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    <input class="form-control" type="text" id="Teacher" name="Teacher" value="@item.Teacher" required />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="TeacherID">教师编号：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    <input class="form-control" type="text" id="TeacherID" name="TeacherID" value="@item.TeacherID" required />
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="Week">授课日期：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    @*<input class="form-control" type="text" id="Week" name="Week" value="@item.Week" required />*@
+                    <select class="form-control selectpicker" name="Week" id="Week" >
+                        <option ></option>
+                        <option value=1>星期一</option>
+                        <option value=2>星期二</option>
+                        <option value=3>星期三</option>
+                        <option value=4>星期四</option>
+                        <option value=5>星期五</option>
+                    </select>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="CourseOrder">节次：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    @*<input class="form-control" type="text" id="CourseOrder" name="CourseOrder" value="@item.CourseOrder" required />*@
+                    <select class="form-control selectpicker" name="CourseOrder" id="CourseOrder" >
+                        <option ></option>
+                        <option value=1>一二节</option>
+                        <option value=2>三四节</option>
+                        <option value=3>五六节</option>
+                        <option value=4>七八节</option>
+                    </select>
+                </div>
+                <div class="col-xs-2 margin-top-10">
+                    <label class="margin-5" for="Place">授课地点：</label>
+                </div>
+                <div class="col-xs-10 margin-top-10">
+                    <input class="form-control" type="text" id="Place" name="Place" value="@item.Place" required />
+                </div>                
+            </div>
+        </form>
+    </div>
+
+    <div align="center" style="margin:20px 0px;">
+        <button type="button" class="btn btn-primary" onclick="CourseChargeSubmit()">保存</button>
+        <button type="button" class="btn btn-default" onclick="Canel()">返回</button>
+    </div>
+        
+</body>
+
+<script type="text/javascript">
+    $("#CourseOrder").val("@item.CourseOrder");
+    $("#Week").val("@item.Week");
+
+    
+    //添加输入框类型验证
+    //$(document).ready(function () {
+    //    var reg = /^[0-9,.]*$/;
+    //    $("#FirstYearGPA").blur(function () {
+    //        var a = $("#FirstYearGPA").val();
+    //        if (!reg.test(a)) {
+    //            layer.tips('请输入数字', '#FirstYearGPA');
+    //            $("#FirstYearGPA").focus();
+    //        }
+    //    });
+    //    $("#SecondYearGPA").blur(function () {
+    //        var a = $("#SecondYearGPA").val();
+    //        if (!reg.test(a)) {
+    //            layer.tips('请输入数字', '#SecondYearGPA');
+    //            $("#SecondYearGPA").focus();
+    //        }
+    //    });
+    //    $("#FirstYearGPARanking").blur(function () {
+    //        var a = $("#FirstYearGPARanking").val();
+    //        if (!reg.test(a)) {
+    //            layer.tips('请输入数字', '#FirstYearGPARanking');
+    //            $("#FirstYearGPARanking").focus();
+    //        }
+    //    });
+    //    $("#SecondYearGPARanking").blur(function () {
+    //        var a = $("#SecondYearGPARanking").val();
+    //        if (!reg.test(a)) {
+    //            layer.tips('请输入数字', '#SecondYearGPARanking');
+    //            $("#SecondYearGPARanking").focus();
+    //        }
+    //    });
+    //    $("#RankingChange").blur(function () {
+    //        var a = $("#RankingChange").val();
+    //        if (!reg.test(a)) {
+    //            layer.tips('请输入数字', '#RankingChange');
+    //            $("#RankingChange").focus();
+    //        }
+    //    });
+    //});
+    function CourseChargeSubmit() {
+        $('#CourseChargeInfo').form('submit', {
+            url: "/Education/CourseChargeInfoSave",
+            onSubmit: function () {
+                var CourseName = $('#CourseName').val();
+                var ClassID = $('#ClassID').val();
+                var Teacher = $('#Teacher').val();
+                var TeacherID = $('#TeacherID').val();
+                var Week = $('#Week').val();
+                var CourseOrder = $('#CourseOrder').val();
+                var Place = $('#Place').val();
+
+                if (CourseName === "" || ClassID === "" || Teacher === "" || TeacherID === "" || Week === "" || CourseOrder === "" || Place === "") {
+                    alert("内容不能为空");
+                    return false;
+                }
+            },
+            success: function (data) {
+                if (data === "课程冲突") {
+                    alert(data + "或未作调整");
+                }
+                else {
+                    alert(data);
+                    var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+                    parent.queryDataGrid();
+                    parent.layer.close(index);
+                    //window.history.back();
+                }
+                
+            }
+        });
+    }
+    function Canel() {
+        var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+        parent.layer.close(index);
+    }
+   
+</script>

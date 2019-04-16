@@ -11,6 +11,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Course">
+      <EntityTypeMapping TypeName="ArchiveSZGXModel.Course">
+        <MappingFragment StoreEntitySet="Course">
+          <ScalarProperty Name="Place" ColumnName="Place" />
+          <ScalarProperty Name="CourseOrder" ColumnName="CourseOrder" />
+          <ScalarProperty Name="Week" ColumnName="Week" />
+          <ScalarProperty Name="TeacherID" ColumnName="TeacherID" />
+          <ScalarProperty Name="Teacher" ColumnName="Teacher" />
+          <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Dept">
       <EntityTypeMapping TypeName="ArchiveSZGXModel.Dept">
         <MappingFragment StoreEntitySet="Dept">

@@ -9,6 +9,19 @@
     <Property Name="Cet4" Type="varchar" MaxLength="255" />
     <Property Name="Cet6" Type="varchar" MaxLength="255" />
   </EntityType>
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="guid" Nullable="false" />
+    <Property Name="CourseName" Type="varchar" MaxLength="50" />
+    <Property Name="ClassID" Type="varchar" MaxLength="50" />
+    <Property Name="Teacher" Type="varchar" MaxLength="50" />
+    <Property Name="TeacherID" Type="varchar" MaxLength="50" />
+    <Property Name="Week" Type="varchar" MaxLength="50" />
+    <Property Name="CourseOrder" Type="varchar" MaxLength="50" />
+    <Property Name="Place" Type="varchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="Dept">
     <Key>
       <PropertyRef Name="ID" />
@@ -142,6 +155,7 @@
   </EntityType>
   <EntityContainer Name="ArchiveSZGXModelStoreContainer">
     <EntitySet Name="Cet" EntityType="Self.Cet" Schema="EduManager" store:Type="Tables" />
+    <EntitySet Name="Course" EntityType="Self.Course" Schema="EduManager" store:Type="Tables" />
     <EntitySet Name="Dept" EntityType="Self.Dept" Schema="EduManager" store:Type="Tables" />
     <EntitySet Name="Dictionary" EntityType="Self.Dictionary" Schema="EduManager" store:Type="Tables" />
     <EntitySet Name="GPARanking" EntityType="Self.GPARanking" Schema="EduManager" store:Type="Tables" />

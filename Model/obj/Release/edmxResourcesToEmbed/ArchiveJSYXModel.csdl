@@ -2,6 +2,7 @@
 <Schema Namespace="ArchiveSZGXModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Cet" EntityType="ArchiveSZGXModel.Cet" />
+    <EntitySet Name="Course" EntityType="ArchiveSZGXModel.Course" />
     <EntitySet Name="Dept" EntityType="ArchiveSZGXModel.Dept" />
     <EntitySet Name="Dictionary" EntityType="ArchiveSZGXModel.Dictionary" />
     <EntitySet Name="GPARanking" EntityType="ArchiveSZGXModel.GPARanking" />
@@ -19,6 +20,19 @@
     <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="Cet4" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="Cet6" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="CourseName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ClassID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Teacher" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TeacherID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Week" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CourseOrder" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Place" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Dept">
     <Key>
