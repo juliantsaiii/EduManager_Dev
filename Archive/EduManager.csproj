@@ -1675,6 +1675,7 @@
     <Content Include="Resource\images\top.png" />
     <Content Include="Resource\images\校名.png" />
     <Content Include="Resource\images\校徽_64.png" />
+    <Content Include="Resource\images\金城学院.jpg" />
     <Content Include="Resource\jquery.min.1.9.1.js" />
     <Content Include="Resource\jquery.min.js" />
     <Content Include="Resource\jquerySession.js" />

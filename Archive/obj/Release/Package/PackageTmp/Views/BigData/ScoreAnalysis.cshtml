@@ -14,7 +14,7 @@
 </head>
 <body>
     <div> 
-        <h2>CET通过率</h2>
+        <h2>信号与系统考试通过率</h2>
         <div id = "CETPass" style="width: 600px;height:400px;"></div>
     </div>
 
@@ -26,7 +26,7 @@
     var CETChart = echarts.init(document.getElementById("CETPass"));
     option = {
         title: {
-            text: 'CET考试统计',
+            text: '信号与系统考试统计',
             x: 'center'
         },
         tooltip: {
@@ -36,11 +36,11 @@
         legend: {
             orient: 'vertical',
             left: 'left',
-            data: ["四级通过","六级通过","考试人数"]
+            data: ["不通过","通过","优秀"]
         },
         series: [
             {
-                name: '通过率',
+                name: '比例',
                 type: 'pie',
                 radius: '55%',
                 center: ['50%', '60%'],
@@ -65,9 +65,9 @@
             success: function (data) {
                 CETChart.setOption({
                     series: {
-                        data: [{ value:data.cet4, name:"四级通过" },
-                            { value:data.cet6, name:"六级通过"},
-                            { value:data.total, name:"考试人数" }]
+                        data: [{ value:data.cet4, name:"优秀" },
+                            { value:data.cet6, name:"不通过"},
+                            { value:data.total, name:"通过" }]
                     }
                 });
                 console.log(data);

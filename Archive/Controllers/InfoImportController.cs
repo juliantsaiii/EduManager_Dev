@@ -188,8 +188,6 @@ namespace Archive.Controllers
                 string ss = crsql + " values" + sql2 ;//拼接要插入的字段和其对应的values
                 dictionary.SqlCommand(ss);//开始导入数据库
                 #endregion
-
-                //new LogTools().Insert("导入", logname, "廉政档案纪律处分信息导入");
                 return Content("true");
             }
 
